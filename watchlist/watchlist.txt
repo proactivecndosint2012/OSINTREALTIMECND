@@ -3,24 +3,18 @@ anonymous
 chan
 4chan
 thechan
-coolswallow
-CoolSwallow
-COOLSWALLOW
 Chinese
 chinese
+PLA
 Russian
 russian
 Mafia
 mafia
 syndicate
 Syndicate
-NSA
-CIA
-NRO
-NGA
-FBI
 hbgary
 HBGary
+Stratfor
 laundering
 Laundering
 assassin
@@ -33,3 +27,24 @@ Exploit
 code word
 Code Word
 Code word
+Central Intelligence Agency
+CIA
+Department of Defense
+DOD
+AFISRA
+INSCOM
+DIA
+MCIA
+NGA
+NRO
+NSA
+ONI
+OICI
+DHS
+I&A
+Coast Guard Intelligence
+FBI
+Federal Bureau of Investigation
+DEA
+INR
+TFI

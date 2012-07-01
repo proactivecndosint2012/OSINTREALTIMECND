@@ -38,6 +38,8 @@ Etymology
 
 * Apache Solr - http://en.wikipedia.org/wiki/Apache_Solr
 
+* SaltStack - http://saltstack.org/
+
 * AI - http://en.wikipedia.org/wiki/Artificial_intelligence
 
 * NLP - http://en.wikipedia.org/wiki/Natural_language_processing
@@ -59,6 +61,12 @@ Non Functional TODO
 
 * Twitter - explore value if any in - http://my.safaribooksonline.com/book/-/9781449330514/hacking-twitter-social-graph-data/id3119106
 Google Social graph API
+
+* Twitter GetFollowers - who someone is following - example AnonymousIRC -
+they are only following 123 user accounts on Twitter versus the 288K+ users following AnonymousIRC
+Smaller data set to work with - Twitter API method to pull 'id''s of who a User if following
+https://dev.twitter.com/docs/api/1/get/followers/ids
+Actual GET Call -> https://api.twitter.com/1/followers/ids.json?cursor=-1&screen_name=AnonymousIRC
 
 * re-write of Pastbin implementation to 100% leverage the Pastebin API - JSON
 
