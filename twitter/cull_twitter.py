@@ -15,7 +15,7 @@ All solutions should be subject to public scrutiny, and peer review.
 import sys, datetime, json, twitter, re, glob
 from error_handle import ConvertExceptions
 
-# Generic function to create CSV full paste url and full path to the paste
+# Generator object function creates glob of filename $PATHS
 @ConvertExceptions(StandardError, 0)
 def globof_files(path, filter_name):
     files = glob.glob(path)
