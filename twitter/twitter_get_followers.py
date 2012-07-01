@@ -38,8 +38,7 @@ def get_followers(MAX_IDS):
             ids += response['ids']
             cursor = response['next_cursor']
             if len(ids) >= MAX_IDS:
-                yield ids
-            break 
+                yield ids 
 
 # Convert list of integers ids to generator object of strings
 # interger ids are related to the Users the targeted username Follows
@@ -48,7 +47,6 @@ def convert_ids():
     for follower_id in get_followers(MAX_IDS):
         for int_id in follower_id:
             yield ("from_user_id_str:" + str(int_id))
-        break
 
 # Generator function to translate follower_id's into Twitter Usernames
 @ConvertExceptions(StandardError, 0)
