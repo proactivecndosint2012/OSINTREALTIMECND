@@ -57,6 +57,9 @@ Etymology
 Non Functional TODO
 ===
 
+* Twitter - explore value if any in - http://my.safaribooksonline.com/book/-/9781449330514/hacking-twitter-social-graph-data/id3119106
+Google Social graph API
+
 * re-write of Pastbin implementation to 100% leverage the Pastebin API - JSON
 
 * reddit - utlize the Reddit API - https://github.com/reddit/reddit/wiki/API - JSON
@@ -90,6 +93,8 @@ incorporate Hive, and utilize Zookeeper for jobtracking.
 Functionality of this are of the software architecture will be to conduct advance AI/NLP/ML CND Analytics
 Hadoop Thrift API - language angnostic
 http://wiki.apache.org/hadoop/Hbase/ThriftApi
+
+* Machine Learning for Hackers - http://my.safaribooksonline.com/book/-/9781449330514
 
 * Exploratory of utilization of RabbitMQ within Hadoop architecture -
 Flume AMQP
