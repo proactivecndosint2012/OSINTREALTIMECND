@@ -1,0 +1,35 @@
+david@ash:/maemo/obs/opensuse/home:lbt:arm:crossgcc/libs-armel-cross/libs-armel-cross$ ll
+total 9880
+drwxrwx--- 3 david greaves    4096 Aug  3  2009 ./
+drwxrwx--- 4 david greaves    4096 Aug  3  2009 ../
+-rw-r----- 1 david greaves 1409792 Aug  3  2009 binutils_2.19.1-0ubuntu3_armel.deb
+drwxrwx--- 2 david greaves      73 Aug  3  2009 debian/
+-rw-rw---- 1 david greaves  387838 Nov 14  2008 findutils_4.4.0-2ubuntu3_armel.deb
+-rw-rw---- 1 david greaves  107532 Mar 17  2009 gcc-4.3-base_4.3.3-5ubuntu4_armel.deb
+-rw-rw---- 1 david greaves 4847994 Apr  9  2009 libc6_2.9-4ubuntu6_armel.deb
+-rw-r----- 1 david greaves 2483872 Aug  1  2009 libc6-dev_2.9-4ubuntu6_armel.deb
+-rw-rw---- 1 david greaves   24098 Mar 17  2009 libgcc1_4.3.3-5ubuntu4_armel.deb
+-rw-rw---- 1 david greaves  752882 Apr 17  2009 linux-libc-dev_2.6.28-11.42_armel.deb
+-rw-rw---- 1 david greaves     215 Aug  3  2009 README
+-rw-rw---- 1 david greaves   75660 Mar 18  2009 zlib1g_1.2.3.3.dfsg-12ubuntu2_armel.deb
+
+david@ash:/maemo/obs/opensuse/home:lbt:arm:crossgcc/libs-armel-cross/libs-armel-cross$ cat debian/rules
+#! /usr/bin/make -f
+# -*- makefile -*-
+
+build.stamp: 
+        dpkg-cross -A -a armel -b *_armel.deb
+        mv *_all.deb ../
+        touch build.stamp
+
+clean:
+        rm -f *_all.deb
+        rm -f build.stamp
+
+binary: build.stamp
+
+binary-arch: build.stamp
+
+binary-indep: build.stamp
+
+build: build.stamp

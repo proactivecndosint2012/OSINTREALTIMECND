@@ -1,0 +1,11 @@
+Adding new entry to DataContext db Cause null reference
+DBDataContext db = new DBDataContext();
+        BidProduct p = Products.First();
+        BidEntry b = Bids.Where(bi => bi.auctionId == p.auctionId).First();
+
+        p.BidEntries.Add(b);
+
+        db.BidProducts.InsertOnSubmit(p);
+        db.SubmitChanges();
+	
+BidProduct p = Products.First();

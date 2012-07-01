@@ -1,0 +1,8 @@
+Zed Graph Web and datatable
+list1.Add( x, y1 );
+  list2.Add( x, y2 );
+	
+while (aReader.Read())
+    {
+         list1.Add(aReader.GetString(0), aReader.GetString(1);
+    }

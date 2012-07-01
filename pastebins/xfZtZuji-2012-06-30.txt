@@ -1,0 +1,14 @@
+dump_xpl
+
+2012-06-30 18:40:10.532765 - xpl-trig
+{
+hop=1
+source=domogik-ozwave.pcdomo
+target=*
+}
+sensor.basic
+{
+node=6
+current=off
+type=Sensor
+}

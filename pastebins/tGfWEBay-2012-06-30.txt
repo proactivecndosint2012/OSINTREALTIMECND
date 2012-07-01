@@ -1,0 +1,24 @@
+ListView Item index
+private void listViewModels_MouseDoubleClick(object sender, MouseEventArgs e)
+ {
+
+           //This line doesn't work
+           int i = listViewModels.SelectedItem();
+
+           string mdl_path=GetCurrentItemPath(i);
+}
+	
+ListViewItem item = listViewModels.SelectedItems[0];
+	
+listBox1.SelectedIndex
+	
+listBox1.Items[listBox1.SelectedIndex];
+	
+listBox1.SelectedValue;
+	
+listBox1.SelectedItem.ToString();
+	
+void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+{
+        listView1.GetItemAt(e.X, e.Y);
+}

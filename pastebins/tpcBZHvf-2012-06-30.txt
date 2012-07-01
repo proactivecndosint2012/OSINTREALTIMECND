@@ -1,0 +1,4 @@
+Bens-MacBook:mysql-5.5.10-osx10.6-x86_64 Ben$ ps aux | grep mysqld
+Ben      85625   0.0  0.0  2435164    564 s002  R+    8:31pm   0:00.00 grep mysqld
+_mysql   85600   0.0  0.9  2653012  37436   ??  S     8:30pm   0:00.12 /usr/local/mysql-5.5.10-osx10.6-x86_64/bin/mysqld --basedir=/usr/local/mysql-5.5.10-osx10.6-x86_64/ --datadir=/var/db/mysql/ --plugin-dir=/usr/local/mysql-5.5.10-osx10.6-x86_64/lib/plugin --log-error=/var/db/mysql//Bens-MacBook.local.err --pid-file=/var/run/mysqld/mysqld.pid --socket=/tmp/mysql.sock --port=3306
+_mysql   85380   0.0  0.0  2435592    820   ??  Ss    8:30pm   0:00.04 /bin/sh /usr/local/mysql/bin/mysqld_safe

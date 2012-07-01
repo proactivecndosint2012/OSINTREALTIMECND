@@ -1,0 +1,21 @@
+[Winstone 2011/03/17 14:06:02] - JVM is terminating. Shutting down Winstone
+17-Mar-2011 2:06:02 PM hudson.util.CharacterEncodingFilter destroy
+INFO: CharacterEncodingFilter destroyed.
+[Winstone 2011/03/17 14:06:03] - HTTP Listener shutdown successfully
+[Winstone 2011/03/17 14:06:03] - Untrapped Error in Servlet
+
+winstone.WinstoneException: Matched URL to a servlet that doesn't exist: default
+        at winstone.WebAppConfiguration.urlMatch(WebAppConfiguration.java:1276)
+        at winstone.WebAppConfiguration.getInitialDispatcher(WebAppConfiguration.java:1576)
+        at winstone.RequestHandlerThread.processRequest(RequestHandlerThread.java:238)
+        at winstone.RequestHandlerThread.run(RequestHandlerThread.java:150)
+        at java.lang.Thread.run(Thread.java:662)
+
+[Winstone 2011/03/17 14:06:03] - No error servlet available: status code 500
+
+winstone.WinstoneException: Matched URL to a servlet that doesn't exist: default
+        at winstone.WebAppConfiguration.urlMatch(WebAppConfiguration.java:1276)
+        at winstone.WebAppConfiguration.getInitialDispatcher(WebAppConfiguration.java:1576)
+        at winstone.RequestHandlerThread.processRequest(RequestHandlerThread.java:238)
+        at winstone.RequestHandlerThread.run(RequestHandlerThread.java:150)
+        at java.lang.Thread.run(Thread.java:662)

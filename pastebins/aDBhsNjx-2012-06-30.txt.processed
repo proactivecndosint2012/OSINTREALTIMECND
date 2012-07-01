@@ -1,0 +1,66 @@
+Is it possible to do a date based query time boost in Compass?
+DefaultCompassQuery query = (DefaultCompassQuery) compassBuilderQuery.toQuery();
+            query.setTypes( types.toArray( new Class[types.size()] ) );
+            LuceneSearchEngineQuery searchEngineQuery = (LuceneSearchEngineQuery) query.getSearchEngineQuery();
+            final SimpleDateFormat sdf = new SimpleDateFormat( "yyyyMMddHHmmss" );
+            final long timeInMillis = Calendar.getInstance().getTimeInMillis();
+            ValueSourceQuery valSrcQuery = new ValueSourceQuery( new ValueSource() {
+
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public int hashCode() {
+                    return System.identityHashCode( this );
+                }
+
+                @Override
+                public DocValues getValues( final IndexReader reader ) throws IOException {
+                    return new DocValues() {
+
+                        @Override
+                        public float floatVal( int doc ) {
+                            try {
+                                Document document = reader.document( doc );
+                                Field field = document.getField( "date" );
+                                if (null != field) {
+                                    Date parse = sdf.parse( field.stringValue() );
+
+                                    long t = timeInMillis - parse.getTime();
+
+                                    float f = (1.0f / (t * (1.0f / TimeUnit.DAYS.toMillis( 30 )) + 1.0f));
+                                    if (logger.isDebugEnabled()) {
+                                        logger.debug( "Date match: " + parse.toString() );
+                                        logger.debug( "Calculated date boost as: " + f + " for doc id: " + doc );
+                                    }
+                                    return f;
+                                }
+                            } catch (CorruptIndexException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            return 1.0f;
+                        }
+
+                        @Override
+                        public String toString( int doc ) {
+                            return description() + "=" + strVal( doc );
+                        }
+
+                    };
+                }
+
+                @Override
+                public boolean equals( Object o ) {
+                    return this == o;
+                }
+
+                @Override
+                public String description() {
+                    return "[boost: date]";
+                }
+            } );
+            CustomScoreQuery sq = new CustomScoreQuery( searchEngineQuery.getQuery(), valSrcQuery );
+            searchEngineQuery.setQuery( sq );

@@ -1,0 +1,4 @@
+submitting a multiple values and hidden values on checkbox in html
+String[] param = request.getParameter("code");
+param[0] => "cycle_code"
+param[1] => "car_code"

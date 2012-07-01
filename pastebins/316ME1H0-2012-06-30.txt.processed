@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+puts "FUCK YOU ANDROID: #{ARGV.inspect}"
+
+if ARGV.size == 4 and ARGV[0,2] == ["-f", "4"]
+  system "cp", ARGV[2], ARGV[3]
+end

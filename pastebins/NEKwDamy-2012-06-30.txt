@@ -1,0 +1,332 @@
+<!--
+Theme 012
+   - You belong with me by Michelle http://icatchingfire.tumblr.com/
+don't remove my credits
+dont edit and claim it as your own
+enjoy
+!-->
+ 
+ 
+<html>
+ 
+<head>
+ 
+<title>{Title}</title>
+<link rel="shortcut icon" href="{Favicon}" />
+<link rel="alternate" type="application/rss+xml" href="{RSS}" />
+ 
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+ 
+<meta name="color:Background" content="#FFFFFF"/>
+ 
+<meta name="color:Accent" content="#fcf9ed"/>
+ 
+<meta name="color:Ground" content="#FFFFFF"/>
+ 
+<meta name="color:Font" content="#a3a09d"/>
+ 
+<meta name="color:Hold" content="#e4bca6"/>
+ 
+<meta name="color:Link" content="#fccbb7"/>
+ 
+<meta name="color:HoverBg" content="#FFFFFF"/>
+ 
+<meta name="color:homeBg" content="#f5ecc5"/>
+ 
+<meta name="color:MsgBg" content="#fccbb7"/>
+ 
+<meta name="color:Link1Bg" content="#f5ecc5"/>
+ 
+<meta name="color:Link2Bg" content="#fccbb7"/>
+ 
+<meta name="color:Link3Bg" content="#f5ecc5"/>
+ 
+<meta name="color:Link4Bg" content="#fccbb7"/>
+ 
+<meta name="color:Link5Bg" content="#f5ecc5"/>
+
+<meta name="color:linkfont" content="#ffffff"/>
+ 
+<meta name="font:Body" content="Georgia"/>
+ 
+<meta name="font:Title" content="Georgia"/>
+ 
+<meta name="font:Quote" content="Georgia"/>
+ 
+<meta name="image:Background" content=""/>
+ 
+<meta name="image:Sidebar" content=""/>
+ 
+<meta name="if:Title" content="1"/>
+ 
+<meta name="text:Link1 Url" content="" />
+ 
+<meta name="text:Link1 Title" content="" />
+ 
+<meta name="text:Link2 Url" content="" />
+ 
+<meta name="text:Link2 Title" content="" />
+ 
+<meta name="text:Link3 Url" content="" />
+ 
+<meta name="text:Link3 Title" content="" />
+ 
+<meta name="text:Link4 Url" content="" />
+ 
+<meta name="text:Link4 Title" content="" />
+ 
+<meta name="text: "http://dancebeforethedawn.tumblr.com/tagged/themes" content="" />
+
+<link href='http://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'>
+
+ <style type="text/css">
+
+ 
+#scrollToTop:link,#scrollToTop:visited { color: transparent; background-color: transparent; display: none; position: fixed; bottom: 10px; right: 15px;
+}
+
+body{color:{color:Font}; background-attachment:fixed; background-color:{color:Background}; background-image: url('{image:Background}'); background-repeat:no-repeat; background-position: right top; text-align:justify; font-family:{font:Body}; font-size:10px;}
+ 
+a:link, a:active, a:visited{color:{color:Link}; text-decoration:none;-webkit-transition: opacity 0.8s linear;opacity: 1;-webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out;transition: all 0.5s ease-out;}
+a:hover{color:{color:Hold}; -webkit-transition: opacity 0.6s linear;opacity: 1;-webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out;transition: all 0.5s ease-out;}
+ 
+#entries{margin-left:420px; width:520px; margin-top:45px;}
+ 
+ 
+#simg {text-align:center;}
+#simg img {max-width: 315px; height: auto; text-align:center; border-top-right-radius:25px; border-bottom-left-radius:25px; }
+ 
+#sidebar img { max-width: 245px; margin-left:0px; margin-top:0px; height: auto;
+}
+ 
+ 
+#vervain {width:252px; background-color:{color:Ground}; margin-left:115px; height:100%px; margin-top:40px; position:fixed; overflow:hidden; padding-bottom:4px;}
+ 
+#descriptext {font-family:{font:Body}; padding:10px; text-align:justify; font-family:arial; font-size:9px; line-height:9px; letter-spacing:0px; text-decoration: none; margin-left:0px; margin-top:-30px;}
+ 
+ 
+#descrip {margin-bottom: 2px; padding:2px; font:10px georgia; text-align:justify; color:{color:Font};}
+ 
+#descrip a {text-decoration:none;}
+ 
+#pagination {font-size:11px; text-align: center; font-family:{font:Body}; text-align:center; padding:4px;}
+#pagination a{color:{color:Link}}
+#bottompost{width: 495px; font-size:9px; text-align:center; letter-spacing:1px; padding:5px; text-transform: lowercase; margin-left:2px;}
+#bottompost a{color: {color:Link};}
+#bottompost a:hover{color: {color:Hold}}
+ 
+.posts{background-color:{color:Ground}; margin-bottom:10px; margin-top:10px; overflow:hidden; padding:10px;}
+ 
+.bk{background-color:{color:Accent}; padding:2px; margin-top:-9px;}
+ 
+.nac{margin:-2px; margin-bottom:1px;}
+ 
+#blogtitle{font-family:'Cedarville Cursive', cursive; font-size:20px; line-height:15px; font-weight:normal; padding:0px; text-align:center; letter-spacing:2px; font-style:arial; margin-bottom:-6px; margin-left:0px; margin-top:5px;}
+#blogtitle:hover{}
+ 
+#posttitle{font-family:{font:Title}; color:{color:Font}; text-transform:lowercase; font-size:18px; line-height:12px; font-weight:normal; margin:0px; padding:3px; margin-left:10px;}
+#notes{background-color:{color:Ground}; width:510px; padding: 0px; margin-top: 5px; margin-bottom: 10px; font-size: 9px; text-align: left}
+ol.notes {list-style: none;  margin: 0 20px 0 0px; padding: 0px; z-index: 11;}
+ol.notes li {background-color: {color:post}; margin-bottom: 5px; padding: 5px; }
+.notes img{display: none; border:0px}
+ 
+#notess{width:500px; background-color:{color:Accent}; padding:3px 7px 3px 7px;}
+ 
+#source {text-align:left; font-size:09px;}
+ 
+ 
+#linkage {margin-top: 45px; margin-left:220px; float: left;
+top: 80px; width: 80px;position: fixed;
+}
+ 
+#linkage a{ background-color: {color:sidebar}; display: block;
+width: 33px; height: 33px; border-radius: 35px; -webkit-border-radius: 35px; -moz-border-radius: 35px; padding: 6px; font-family: georgia; font-size: 9px; color: {color:linkfont};text-transform: lowercase; line-height: 36px; text-decoration: none; text-align: center;
+margin-bottom: 6px; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out;-o-transition: all 0.5s ease-in-out;
+ -ms-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out;
+}
+ 
+ #nav {position:fixed; margin-left:-190px;margin-top:140px;}
+ 
+.rf a{color:{color:HoverBg}; background-color:{color:HomeBg};}
+.rf a:hover{background-color:{color:HoverBg}; color:{color:HomeBg};}
+ 
+.msg a{margin-left:25px; margin-top:7px; color:{color:HoverBg}; background-color:{color:MsgBg};}
+.msg a:hover{background-color:{color:HoverBg}; color:{color:MsgBg};}
+ 
+.l1 a{margin-left:7px; margin-top:7px; color:{color:HoverBg}; background-color:{color:Link1Bg};}
+.l1 a:hover{background-color:{color:HoverBg}; color:{color:Link1Bg};}
+ 
+.l2 a{margin-left:-7px; margin-top:7px; color:{color:HoverBg}; background-color:{color:Link2Bg};}
+.l2 a:hover{background-color:{color:HoverBg}; color:{color:Link2Bg};}
+ 
+.l3 a{margin-left:27px; margin-top:7px; color:{color:HoverBg}; background-color:{color:Link3Bg};}
+.l3 a:hover{background-color:{color:HoverBg}; color:{color:Link3Bg};}
+ 
+.l4 a{margin-left:0px; margin-top:7px; color:{color:HoverBg}; background-color:{color:Link4Bg};}
+.l4 a:hover{background-color:{color:HoverBg}; color:{color:Link4Bg};}
+ 
+.l5 a{margin-left:17px; margin-top:7px; color:{color:HoverBg}; background-color:{color:Link5Bg};}
+.l5 a:hover{background-color:{color:HoverBg}; color:{color:Link5Bg};}
+ 
+#info{padding:none; text-align:center; padding:length; line-height:10px; width: 250px; float: center; font-family:{font:Body}; font-size:10px; text-transform:lowercase; text-align:left}
+ 
+ blockquote {border-left:2px {color:Hold} solid; padding-left:5px; margin:1px 6px 1px 10px}
+     
+    p{margin-top:5px; margin-bottom:5px; }
+ 
+    blockquote {padding:0px; text-align:left; padding-left:5px; margin:5px; border-left:3px solid {color:Hold};}
+ 
+.postalign{text-align:justify; padding:3px 7px 0px 7px;}
+ 
+.c{text-align:center; font-style:italic;}
+ 
+.thm{font-size:08px; font-style:italic; letter-spacing:2px;}
+ 
+.question{font-size: 10px; font-weight:bold; color: {color:Font}; padding: 10px;}
+ 
+.ask{font-size: 10px; background-color:{color:Background}; color:{color:Font}; padding:3px;}
+ 
+.asker{text-transform: lowercase; font-size: 11px;}
+ 
+.answer{padding:4px}
+ 
+.chat {line-height: 12px; list-style: none }
+.chat ul {line-height: 15px; list-style: none; padding: 0px; line-height:20px;}
+.person1 {background-color:{color:Background}; color: {color:text}; }
+.person1 .label {font-weight: bold; padding: 0px; margin-left: 5px; color:{color:Font}}
+.person2 {color: {color:Font} }
+.person2 .label {font-weight: bold; padding: 0px; margin-left: 5px; color:{color:Font}}
+ 
+.quote{font-family:{font:Quote}; font-size:13px; color: {color:Font}; font-style:italic;}
+ 
+.audio{background-color:{color:Accent}; height:35px; overflow:hidden;}
+        </style>
+    <style type="text/css">{CustomCSS}</style>
+</head>
+ 
+<body>
+ 
+ 
+ <div id="nav">
+ 
+<div id="linkage">
+ 
+<div class="rf"><a href="/">home</a></div>
+<div class="msg"><a href="/ask">mssg</a></div>
+<div class="l1">{block:ifLink1Title}<a href="{text:Link1 Url}">{text:Link1 Title}</a>{/block:ifLink1Title}</div>
+<div class="l2">{block:ifLink2Title}<a href="{text:Link2 Url}">{text:Link2 Title}</a>{/block:ifLink2Title}</div>
+<div class="l3">{block:ifLink3Title}<a href="{text:Link3 Url}">{text:Link3 Title}</a>{/block:ifLink3Title}</div>
+<div class="l4">{block:ifLink4Title}<a href="{text:Link4 Url}">{text:Link4 Title}</a>{/block:ifLink4Title}</div>
+<div class="l5"><a href="http://icatchingfire.tumblr.com/tagged/themes">Theme</a></div>
+</div></div>
+ 
+<div id="vervain">
+ 
+ <div id="blogtitle">{Title}</div><br><br>
+ <div id="simg"><img src="{image:sidebar}"/></div><br><br>
+<center>
+ 
+<div id="descrip"><div id="descriptext">{block:Description}{Description}{/block:Description}</div></div>
+<center><div id="pagination">{block:PreviousPage}<a href="{PreviousPage}">«</a> &nbsp;{/block:PreviousPage}{CurrentPage}/{TotalPages}{block:NextPage}&nbsp;<a href="{NextPage}">»</a>{/block:NextPage}</div></center>
+<center><div class="thm">
+</div></center>
+ 
+</div>
+ 
+<div id="entries">
+ 
+{block:Posts}
+ 
+<div class="posts">
+ 
+{block:Text}
+<div class="postalign">
+{block:Title}
+<div id="posttitle">{Title}</div>
+{/block:Title}
+{Body}
+</div>
+{/block:Text}
+ 
+ 
+{block:Photo}
+<center><a href="{LinkURL}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></a></center>
+<div class="postalign">{block:Caption}{Caption}{/block:Caption}</div>
+{/block:Photo}
+ 
+{block:Photoset}
+<center>{Photoset-500}</center><div class="postalign">{block:Caption}{Caption}{/block:Caption}
+</div>
+{/block:Photoset}
+ 
+ 
+{block:Quote}
+<div class="postalign">
+<div class="quote">❝{Quote}❞</div>
+</div>{block:Source}
+<div class="postalign"><div id="source">({Source})</div>
+<br>{/block:Source}
+</div>
+{/block:Quote}
+ 
+{block:Answer}
+<div class="ask">
+<div class="asker"><i>{Asker}</i> asked:</div>
+"{Question}"</div>
+<div class="answer">{Answer}</div>
+{/block:Answer}
+ 
+{block:Link}
+<div class="postalign">
+<div id="posttitle"><a href="{URL}" class="link" {Target}>{Name}</a></div>
+ 
+{block:Description}
+{Description}
+{/block:Description}
+</div>
+{/block:Link}
+ 
+{block:Chat}
+ 
+{block:Title}<div id="posttitle">{Title}</div>
+{/block:Title}
+ 
+<div class="chat"><ul>{block:Lines}
+<li class="person{UserNumber}">{block:Label}
+<span class="label">{Label}</span>{/block:Label} {Line}</li>{/block:Lines}</ul></div>
+{/block:Chat}
+ 
+{block:Video}
+ 
+{Video-500}
+<div class="postalign">
+{block:Caption}{Caption}{/block:Caption}
+</div>
+{/block:Video}
+ 
+{block:Audio}<div id="_">{block:AlbumArt}<img src="{AlbumArtURL}" width="170px" height="170px" align="left" style="margin-right:10px" />{/block:AlbumArt}{AudioPlayerBlack}<br>
+{block:TrackName}<b>Title:</b> {TrackName}<br />{/block:TrackName}
+{block:Artist}<b>Artist:</b> {Artist}<br />{/block:Artist}
+{block:ExternalAudio}<b>Download:</b> <a href="{ExternalAudioURL}">click here</a><br />{/block:ExternalAudio}<b>Played:</b> {PlayCount} times
+{block:Caption}{Caption}{/block:Caption}<br clear="all" /></div> {/block:Audio}
+ 
+</div>
+ 
+<div class="bk">
+ 
+<div id="info"><div id="bottompost">{block:RebloggedFrom} <div class="c"> <a href="{ReblogRootURL}" title="Source">{ReblogRootName}</a> / <a href="{ReblogParentURL}" title="Via">{ReblogParentName}</a></div>{/block:RebloggedFrom}
+{block:Date}<a href="{Permalink}"><a href="{Permalink}">{TimeAgo}</a></a>{/block:Date} {block:NoteCount}with <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+<br>
+{block:HasTags}{block:Tags}
+#<a href="{TagURL}">{Tag}</a>{/block:Tags}{/block:HasTags}</div></div></div><BR>
+{/block:Posts}
+ 
+    {block:PostNotes}
+<div id="notes">{PostNotes}</div>
+    {/block:PostNotes}
+</div>
+ 
+ 
+</body>
+ 
+</html>

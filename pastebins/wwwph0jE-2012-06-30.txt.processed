@@ -1,0 +1,96 @@
+Windows Service, Memory increases everytime it gets data from Active Directory
+protected override void OnStart(string[] args)
+{
+    StartProcess();
+}
+
+private void StartProcess()
+{
+    sEvent = "AD XML Generator Started at " + System.DateTime.Now.ToString();
+
+    if (!EventLog.SourceExists(sSource))
+        EventLog.CreateEventSource(sSource, sLog);
+
+    EventLog.WriteEntry(sSource, sEvent);
+
+
+    ActiveDirectoryGenericFunctions obj = new ActiveDirectoryGenericFunctions();
+    obj.GenerateXMLFileForAllUsers(DomainA, DomainB, xmlFileName);
+    RunService();
+    //this.Stop();
+}
+protected override void OnStop()
+{
+    //Write to Event Log - Stop of Service also written to Evenbt automatically
+
+    sEvent = "AD XML Generator Stopped at " + System.DateTime.Now.ToString();
+
+    if (!EventLog.SourceExists(sSource))
+        EventLog.CreateEventSource(sSource, sLog);
+
+    EventLog.WriteEntry(sSource, sEvent);
+
+
+}
+
+private void RunService()
+{
+    _timer = new Timer();
+    _timer.Elapsed  += new ElapsedEventHandler(timer_Elapsed);
+    _timer.AutoReset = true; // AutoReset = true means after specified interval the timer'll automatically be restarted 
+    _timer.Interval = Convert.ToDouble(ConfigurationManager.AppSettings["ServiceHour"].ToString());// 300000; //5minutes// (0.1*60*60*1000); // specify some interval here in milliseconds e.g. 4 hours (4*60*60*1000)
+    _timer.Start();                       
+}
+
+ void timer_Elapsed(object sender, ElapsedEventArgs e)
+{
+    RunService();
+    StartProcess();
+}
+	
+protected override void OnStart(string[] args)
+{
+    StartProcess();
+}
+
+private void StartProcess()
+{
+    sEvent = "AD XML Generator Started at " + System.DateTime.Now.ToString();
+
+    if (!EventLog.SourceExists(sSource))
+        EventLog.CreateEventSource(sSource, sLog);
+
+    EventLog.WriteEntry(sSource, sEvent);
+
+
+    ActiveDirectoryGenericFunctions obj = new ActiveDirectoryGenericFunctions();
+    obj.GenerateXMLFileForAllUsers(DomainA, DomainB, xmlFileName);
+
+    //Create the timer once
+    if(_timer != null){
+        _timer = new Timer();
+        _timer.Elapsed  += new ElapsedEventHandler(timer_Elapsed);
+        _timer.AutoReset = true; // AutoReset = true means after specified interval the timer'll automatically be restarted 
+        _timer.Interval = Convert.ToDouble(ConfigurationManager.AppSettings["ServiceHour"].ToString());// 300000; //5minutes// (0.1*60*60*1000); // specify some interval here in milliseconds e.g. 4 hours (4*60*60*1000)
+        _timer.Start();   
+    }
+}
+protected override void OnStop()
+{
+    //Dispose the timer
+    _timer.Dispose();
+    //Write to Event Log - Stop of Service also written to Evenbt automatically
+
+    sEvent = "AD XML Generator Stopped at " + System.DateTime.Now.ToString();
+
+    if (!EventLog.SourceExists(sSource))
+        EventLog.CreateEventSource(sSource, sLog);
+
+    EventLog.WriteEntry(sSource, sEvent);
+}
+
+
+ void timer_Elapsed(object sender, ElapsedEventArgs e)
+{
+    StartProcess();
+}

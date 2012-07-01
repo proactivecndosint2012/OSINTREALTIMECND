@@ -1,0 +1,82 @@
+Exclude results from Linq query excluding everything when exclude list is empty
+public IList<Tweet> Match(IEnumerable<Tweet> tweetStream, IList<string> match, IList<string> exclude)
+    {
+        var tweets = from f in tweetStream
+                     from m in match
+                     where f.Text.ToLowerInvariant().Contains(m) 
+                     select f;
+
+        var final = from f in tweets
+                    from e in exclude
+                    where !f.Text.ToLowerInvariant().Contains(e.ToLowerInvariant())
+                    select f;
+
+        return final.Distinct().ToList<Tweet>();
+    }
+	
+[TestMethod]
+    public void Should_exclude_items_from_exclude_list()
+    {
+        IEnumerable<Tweet> twitterStream = new List<Tweet>
+                                               {
+                                                   new Tweet("I have a Mazda car"),
+                                                   new Tweet("I have a ford"),
+                                                   new Tweet("Mazda Rules"),
+                                                   new Tweet("My Ford car is great"),
+                                                   new Tweet("My renault is brill"),
+                                                   new Tweet("Mazda cars are great")
+                                               };
+        IList<string> matches = new List<string>{"mazda","car"};
+        IList<string> exclude = new List<string>{"ford"};
+
+        Matcher target = new Matcher();
+        IList<Tweet> actual = target.Match(twitterStream, matches, exclude);
+
+        Assert.AreEqual(3, actual.Count);            
+    }
+	
+[TestMethod]
+    public void Should_match_items_either_mazda_or_car_but_no_duplicates()
+    {
+        IEnumerable<Tweet> twitterStream = new List<Tweet>
+                                               {
+                                                   new Tweet("I have a Mazda car"),
+                                                   new Tweet("I have a ford"),
+                                                   new Tweet("Mazda Rules"),
+                                                   new Tweet("My Ford car is great"),
+                                                   new Tweet("My renault is brill"),
+                                                   new Tweet("Mazda cars are great")
+                                               };
+        IList<string> matches = new List<string>{"mazda","car"};
+        IList<string> exclude = new List<string>();
+
+        Matcher target = new Matcher();
+        IList<Tweet> actual = target.Match(twitterStream, matches, exclude);
+
+        Assert.AreEqual(4, actual.Count);
+    }
+	
+from e in exclude
+	
+var final = from f in tweets
+            let lower = f.Text.ToLowerInvariant()
+            where !exclude.Any(e => lower.Contains(e.ToLowerInvariant())
+            select f;
+	
+var tweets = from f in tweetStream
+             let lower = f.Text.ToLowerInvariant()
+             where match.Any(m => lower.Contains(m.ToLowerInvariant())
+             where !exclude.Any(e => lower.Contains(e.ToLowerInvariant())
+             select f;
+	
+var final = from f in tweets
+            from e in exclude
+            where !f.Text.ToLowerInvariant().Contains(e.ToLowerInvariant())
+            select f;
+	
+var excludeTheseTweet = from f in tweets
+                        from e in exclude
+                        where f.Text.ToLowerInvariant().Contains(e.ToLowerInvariant())
+                        select f;
+
+return tweets.Except(excludeTheseTweets).Distinct().ToList<Tweet>();

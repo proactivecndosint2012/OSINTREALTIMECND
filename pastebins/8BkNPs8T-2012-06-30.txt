@@ -1,0 +1,23 @@
+$ ./test.sh 
+Enter host password for user 'substack@gmail.com':
+Bundling...  done
+
+chrome/canary        1/2   50 % ok
+  Log: test log
+  Log: suite begin
+  Log: suite begin
+  Log: pass!
+  Log: start!
+  Log: test end
+  Error: Error: failed
+    at [anonymous]() in /harness.js : line: 4, column: 16
+    at [anonymous]() in /harness.js : line: 3, column: 26
+    at on() in /harness.js : line: 46, column: 5
+    at Reporter() in /harness.js : line: 14, column: 10
+    at [anonymous]() in /harness.js : line: 68, column: 21
+
+  > if (!expr) throw new Error(msg || 'failed');
+
+
+total               1/2   50 % ok
+substack : testling-mocha $

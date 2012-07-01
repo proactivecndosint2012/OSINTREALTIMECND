@@ -1,0 +1,27 @@
+Passing Extras to listView ArrayAdapter
+Bundle b = this.getIntent().getExtras();
+    String s = b.getString("TEXT");
+    setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, s));
+	
+Constructor
+ArrayAdapter(Context context, int textViewResourceId, T[] objects)
+Constructor
+ArrayAdapter(Context context, int resource, int textViewResourceId, T[] objects)
+Constructor
+ArrayAdapter(Context context, int textViewResourceId, List<T> objects)
+Constructor
+ArrayAdapter(Context context, int resource, int textViewResourceId, List<T> objects)
+	
+ArrayList<String> arr = new ArrayList<String>();
+arr.add(s);
+setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, arr));
+	
+ArrayList<String> arrButton1 = new ArrayList<String>();
+ArrayList<String> arrButton2 = new ArrayList<String>();
+ArrayList<String> arrToChoose;
+if(s.equals("button1")) { 
+  arrToChoose = arrButton1;
+} else if(s.equals("button2")) {
+  arrToChoose = arrButton2;
+}
+setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, arrayToChoose));

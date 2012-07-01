@@ -1,0 +1,34 @@
+Effective algorithm for finding 16x16 pixel same squares in a big image - C#
+int checksum = 0
+for each pixel in image {
+   checksum += pixel.red + pixel.blue + pixel.green
+   // you could do anything you wanted here, like
+   // checksum *= 17 + pixel.red
+   // checksum *= 17 + pixel.blue
+   // checksum *= 17 + pixel.green
+   // just make it "unique enough", like a hashcode
+}
+image.checksum = checksum
+	
+/**
+ * equals method before: 
+ */
+boolean equals(image a, image b) {
+  for x = 0..15 do /* all 16 pixels in X */
+    for y = 0..15 do /* all 16 pixels in Y */
+      if a.getPixel(x,y) != b.getPixel(x,y) return false;
+  return true;
+}
+
+/**
+ * equals method after: 
+ *.
+boolean equals(image a, image b) {
+  /* this check lets you skip the loop in most cases */
+  /* still have to verify that the image is equal pixel for pixel though */
+  if a.checksum != b.checksum return false;
+  for x = 0..15 do /* all 16 pixels in X */
+    for y = 0..15 do /* all 16 pixels in Y */
+      if a.getPixel(x,y) != b.getPixel(x,y) return false;
+  return true;
+}

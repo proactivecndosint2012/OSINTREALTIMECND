@@ -1,0 +1,18 @@
+IP: 127.0.0.1
+Port: 43594
+Current User: mod dave
+mod dave's Operating System: Windows NT (unknown)
+891
+228
+207
+300
+1210
+Exception in thread "Thread-3" java.lang.ClassCastException: Node_Sub2 cannot be
+ cast to Animable_Sub4
+        at Client.method55(Client.java:2924)
+        at Client.method146(Client.java:11767)
+        at Client.drawGameScreen(Client.java:7902)
+        at Client.processDrawing(Client.java:8718)
+        at RSApplet.run(RSApplet.java:152)
+        at Client.run(Client.java:4773)
+        at java.lang.Thread.run(Unknown Source)

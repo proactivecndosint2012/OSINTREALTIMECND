@@ -1,0 +1,33 @@
+from sys import argv
+
+script, input_file = argv
+
+def print_all(f):
+	print f.read()
+
+def rewind(f):
+	f.seek(0)
+	
+def print_line(line_count, f):
+	print line_count, f.readline()
+	
+currentfile = open(input_file)
+
+print "First let's print the WHOLE file:\n"
+
+print_all(currentfile)
+
+print "Now let's reqind- kinda like a tape."
+
+rewind(currentfile)
+
+print "Then we'll print 3 lines:"
+
+current_line = 1
+print_line(current_line, currentfile)
+
+current_line = current_line + 1
+print_line(current_line, currentfile)
+
+current_line = current_line + 1
+print_line(current_line, currentfile)

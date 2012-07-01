@@ -1,0 +1,46 @@
+Carrierwave - Error when processing images
+Mongoid::Errors::Validations: Validation failed - Img failed to be processed.
+~/.rvm/gems/ruby-1.8.7-p249/gems/mongoid-2.0.0.rc.7/lib/mongoid/persistence.rb:234:in `fail_validate!'
+~/.rvm/gems/ruby-1.8.7-p249/gems/mongoid-2.0.0.rc.7/lib/mongoid/persistence.rb:75:in `save!'
+./app.rb:29:in `POST /upload'
+	
+require "sinatra"     # 1.1.2
+require "mongoid"     # 2.0.0.beta.19
+require "rmagick"     # 2.12.2
+require "carrierwave" # 0.5.1
+require "carrierwave/orm/mongoid"
+require 'carrierwave/processing/rmagick'
+....
+
+
+Mongoid.database = Mongo::Connection.new('somehost', 1234).db('test')
+
+class Uploader < CarrierWave::Uploader::Base
+  include CarrierWave::RMagick
+  storage :file
+
+  def store_dir
+    "uploads"
+  end
+
+ process :resize_to_fit => [80, 80]
+end
+
+
+class Image
+  include Mongoid::Document
+
+  mount_uploader :img, Uploader
+end
+
+
+....
+
+post '/upload' do
+  @img = Image.new
+  @img.img = params[:file]
+  @img.save!
+  redirect '/'
+end
+	
+process :resize_to_fit => [80, 80]

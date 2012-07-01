@@ -1,0 +1,417 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building matterhorn-scheduler-impl 1.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/apache/maven/plugins/maven-install-plugin/maven-metadata.xml
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public/org/apache/maven/plugins/maven-install-plugin/maven-metadata.xml
+481 B   
+669 B   481 B   
+                
+                
+Downloaded: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/apache/maven/plugins/maven-install-plugin/maven-metadata.xml (481 B at 0.1 KB/sec)
+Downloaded: http://repository.opencastproject.org/nexus/content/groups/public/org/apache/maven/plugins/maven-install-plugin/maven-metadata.xml (669 B at 0.2 KB/sec)
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public/org/apache/maven/plugins/maven-deploy-plugin/maven-metadata.xml
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/apache/maven/plugins/maven-deploy-plugin/maven-metadata.xml
+684 B           
+440 B   684 B   
+                
+Downloaded: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/apache/maven/plugins/maven-deploy-plugin/maven-metadata.xml (440 B at 1.1 KB/sec)
+                
+Downloaded: http://repository.opencastproject.org/nexus/content/groups/public/org/apache/maven/plugins/maven-deploy-plugin/maven-metadata.xml (684 B at 1.1 KB/sec)
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-scheduler-api/1.1-SNAPSHOT/maven-metadata.xml
+189 B           
+        
+Downloaded: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-scheduler-api/1.1-SNAPSHOT/maven-metadata.xml (189 B at 0.4 KB/sec)
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/base/1.1-SNAPSHOT/maven-metadata.xml
+169 B   
+        
+Downloaded: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/base/1.1-SNAPSHOT/maven-metadata.xml (169 B at 0.6 KB/sec)
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-workflow-service-api/1.1-SNAPSHOT/maven-metadata.xml
+196 B   
+        
+Downloaded: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-workflow-service-api/1.1-SNAPSHOT/maven-metadata.xml (196 B at 0.7 KB/sec)
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-common/1.1-SNAPSHOT/maven-metadata.xml
+        
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-series-service-api/1.1-SNAPSHOT/maven-metadata.xml
+        
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-dublincore/1.1-SNAPSHOT/maven-metadata.xml
+186 B   
+        
+Downloaded: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-dublincore/1.1-SNAPSHOT/maven-metadata.xml (186 B at 0.3 KB/sec)
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-metadata-api/1.1-SNAPSHOT/maven-metadata.xml
+188 B   
+        
+Downloaded: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-metadata-api/1.1-SNAPSHOT/maven-metadata.xml (188 B at 0.7 KB/sec)
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-workspace-api/1.1-SNAPSHOT/maven-metadata.xml
+189 B   
+        
+Downloaded: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-workspace-api/1.1-SNAPSHOT/maven-metadata.xml (189 B at 0.7 KB/sec)
+Downloading: http://repository.opencastproject.org/nexus/content/groups/public-snapshots/org/opencastproject/matterhorn-series-service-impl/1.1-SNAPSHOT/maven-metadata.xml
+        
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ matterhorn-scheduler-impl ---
+[INFO] Deleting C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\target
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.6:check (default) @ matterhorn-scheduler-impl ---
+[INFO] Starting audit...
+C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\src\main\java\org\opencastproject\scheduler\endpoint\SchedulerRestService.java:316:19: warning: More than 7 parameters.
+C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\src\main\java\org\opencastproject\scheduler\endpoint\SchedulerRestService.java:339:19: warning: More than 7 parameters.
+C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\src\main\java\org\opencastproject\scheduler\endpoint\SchedulerRestService.java:362:19: warning: More than 7 parameters.
+C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\src\main\java\org\opencastproject\scheduler\endpoint\SchedulerRestService.java:369:20: warning: More than 7 parameters.
+C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\src\main\java\org\opencastproject\scheduler\impl\SchedulerServiceImpl.java:352:17: warning: Control variable 'event' is modified.
+C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\src\main\java\org\opencastproject\scheduler\impl\SchedulerServiceImpl.java:449:7: warning: 'if' is not followed by whitespace.
+C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\src\main\java\org\opencastproject\scheduler\impl\SchedulerServiceImpl.java:449:39: warning: '{' is not preceded with whitespace.
+C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\src\main\java\org\opencastproject\scheduler\impl\SchedulerServiceImpl.java:453:7: warning: 'if' is not followed by whitespace.
+C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\src\main\java\org\opencastproject\scheduler\impl\SchedulerServiceImpl.java:697:9: warning: 'if' is not followed by whitespace.
+Audit done.
+
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ matterhorn-scheduler-impl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 9 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ matterhorn-scheduler-impl ---
+[INFO] Compiling 17 source files to C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ matterhorn-scheduler-impl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ matterhorn-scheduler-impl ---
+[INFO] Compiling 1 source file to C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.6:test (default-test) @ matterhorn-scheduler-impl ---
+[INFO] Surefire report directory: C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.opencastproject.scheduler.impl.SchedulerServiceImplTest
+0 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - ----- Setting up tests -----
+807 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - Series Service instantiated
+807 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - SeriesService activated.
+807 [main] WARN org.opencastproject.series.impl.SeriesServiceImpl - Could not activate because of missing ComponentContext
+12646 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - Adding new series...
+[EL Info]: 2011-03-17 09:51:46.45--ServerSession(306543905)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:51:53.652--ServerSession(306543905)--file:/C:/Users/Markus/.m2/repository/org/opencastproject/matterhorn-series-service-impl/1.1-SNAPSHOT/matterhorn-series-service-impl-1.1-SNAPSHOT.jar_org.opencastproject.series.impl_nonJtaDataSource=1179404661 login successful
+23568 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImpl - SchedulerService activating.
+23568 [main] WARN org.opencastproject.scheduler.impl.SchedulerServiceImpl - Could not activate because of missing ComponentContext
+[EL Info]: 2011-03-17 09:52:01.222--ServerSession(2098880464)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:52:03.071--ServerSession(2098880464)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=1179404661 login successful
+30046 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - State of the loaded event Event {2124418318}.
+30155 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - State of the updated event Event {2124418318}.
+[EL Info]: 2011-03-17 09:52:03.832--ServerSession(2098880464)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=1179404661 logout successful
+30203 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - ----- Setting up tests -----
+30203 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - Series Service instantiated
+30203 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - SeriesService activated.
+30203 [main] WARN org.opencastproject.series.impl.SeriesServiceImpl - Could not activate because of missing ComponentContext
+30240 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - Adding new series...
+[EL Info]: 2011-03-17 09:52:03.917--ServerSession(1695413474)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:52:03.917--ServerSession(1695413474)--file:/C:/Users/Markus/.m2/repository/org/opencastproject/matterhorn-series-service-impl/1.1-SNAPSHOT/matterhorn-series-service-impl-1.1-SNAPSHOT.jar_org.opencastproject.series.impl_nonJtaDataSource=938286526 login successful
+[EL Warning]: 2011-03-17 09:52:04.122--ServerSession(1695413474)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SERIES" already exists; SQL statement:
+CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID))")
+[EL Warning]: 2011-03-17 09:52:04.146--ServerSession(1695413474)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SERIES_METADATA" already exists; SQL statement:
+CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID))")
+[EL Warning]: 2011-03-17 09:52:04.146--ServerSession(1695413474)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SERIES_METADATA_SERIES_ID" already exists; SQL statement:
+ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID) [90045-149]
+Error Code: 90045
+Call: ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID)
+Query: DataModifyQuery(sql="ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID)")
+[EL Warning]: 2011-03-17 09:52:04.146--ServerSession(1695413474)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SEQUENCE" already exists; SQL statement:
+CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME))
+Query: DataModifyQuery(sql="CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME))")
+30590 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImpl - SchedulerService activating.
+30590 [main] WARN org.opencastproject.scheduler.impl.SchedulerServiceImpl - Could not activate because of missing ComponentContext
+[EL Info]: 2011-03-17 09:52:04.279--ServerSession(1614836070)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:52:04.279--ServerSession(1614836070)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=938286526 login successful
+[EL Warning]: 2011-03-17 09:52:04.279--ServerSession(1614836070)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SCHED_METADATA" already exists; SQL statement:
+CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID))")
+[EL Warning]: 2011-03-17 09:52:04.279--ServerSession(1614836070)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SCHED_EVENT" already exists; SQL statement:
+CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID))")
+[EL Warning]: 2011-03-17 09:52:04.303--ServerSession(1614836070)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SCHED_METADATA_EVENT_ID" already exists; SQL statement:
+ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID) [90045-149]
+Error Code: 90045
+Call: ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID)
+Query: DataModifyQuery(sql="ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID)")
+Mar 17, 2011 9:52:04 AM net.fortuna.ical4j.util.Configurator <clinit>
+INFO: ical4j.properties not found.
+[EL Info]: 2011-03-17 09:52:06.962--ServerSession(306543905)--file:/C:/Users/Markus/.m2/repository/org/opencastproject/matterhorn-series-service-impl/1.1-SNAPSHOT/matterhorn-series-service-impl-1.1-SNAPSHOT.jar_org.opencastproject.series.impl_nonJtaDataSource=1179404661 logout successful
+33708 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - iCal attachment checked: episode.xml
+33708 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - iCal attachment checked: series.xml
+33708 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - iCal attachment checked: org.opencastproject.capture.agent.properties
+33708 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - iCal attachment checked: episode.xml
+33733 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - iCal attachment checked: series.xml
+33733 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - iCal attachment checked: org.opencastproject.capture.agent.properties
+33890 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImpl - Removing event with the ID -1758482906
+[EL Info]: 2011-03-17 09:52:07.567--ServerSession(1614836070)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=938286526 logout successful
+33890 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - ----- Setting up tests -----
+33890 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - Series Service instantiated
+33890 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - SeriesService activated.
+33890 [main] WARN org.opencastproject.series.impl.SeriesServiceImpl - Could not activate because of missing ComponentContext
+33998 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - Adding new series...
+[EL Info]: 2011-03-17 09:52:07.675--ServerSession(2052294837)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:52:07.675--ServerSession(2052294837)--file:/C:/Users/Markus/.m2/repository/org/opencastproject/matterhorn-series-service-impl/1.1-SNAPSHOT/matterhorn-series-service-impl-1.1-SNAPSHOT.jar_org.opencastproject.series.impl_nonJtaDataSource=24742184 login successful
+[EL Warning]: 2011-03-17 09:52:07.688--ServerSession(2052294837)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SERIES" already exists; SQL statement:
+CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID))")
+[EL Warning]: 2011-03-17 09:52:07.688--ServerSession(2052294837)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SERIES_METADATA" already exists; SQL statement:
+CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID))")
+[EL Warning]: 2011-03-17 09:52:07.688--ServerSession(2052294837)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SERIES_METADATA_SERIES_ID" already exists; SQL statement:
+ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID) [90045-149]
+Error Code: 90045
+Call: ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID)
+Query: DataModifyQuery(sql="ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID)")
+[EL Warning]: 2011-03-17 09:52:07.688--ServerSession(2052294837)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SEQUENCE" already exists; SQL statement:
+CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME))
+Query: DataModifyQuery(sql="CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME))")
+34071 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImpl - SchedulerService activating.
+34071 [main] WARN org.opencastproject.scheduler.impl.SchedulerServiceImpl - Could not activate because of missing ComponentContext
+[EL Info]: 2011-03-17 09:52:07.76--ServerSession(405305361)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:52:07.76--ServerSession(405305361)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=24742184 login successful
+[EL Warning]: 2011-03-17 09:52:07.76--ServerSession(405305361)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SCHED_METADATA" already exists; SQL statement:
+CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID))")
+[EL Warning]: 2011-03-17 09:52:07.76--ServerSession(405305361)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SCHED_EVENT" already exists; SQL statement:
+CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID))")
+[EL Warning]: 2011-03-17 09:52:07.76--ServerSession(405305361)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SCHED_METADATA_EVENT_ID" already exists; SQL statement:
+ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID) [90045-149]
+Error Code: 90045
+Call: ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID)
+Query: DataModifyQuery(sql="ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID)")
+34791 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImpl - Removing event with the ID 348017322
+[EL Info]: 2011-03-17 09:52:08.482--ServerSession(405305361)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=24742184 logout successful
+34805 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - ----- Setting up tests -----
+34805 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - Series Service instantiated
+34805 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - SeriesService activated.
+34805 [main] WARN org.opencastproject.series.impl.SeriesServiceImpl - Could not activate because of missing ComponentContext
+34844 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - Adding new series...
+[EL Info]: 2011-03-17 09:52:08.521--ServerSession(1463389356)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:52:08.521--ServerSession(1463389356)--file:/C:/Users/Markus/.m2/repository/org/opencastproject/matterhorn-series-service-impl/1.1-SNAPSHOT/matterhorn-series-service-impl-1.1-SNAPSHOT.jar_org.opencastproject.series.impl_nonJtaDataSource=157869097 login successful
+[EL Warning]: 2011-03-17 09:52:08.521--ServerSession(1463389356)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SERIES" already exists; SQL statement:
+CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID))")
+[EL Warning]: 2011-03-17 09:52:08.521--ServerSession(1463389356)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SERIES_METADATA" already exists; SQL statement:
+CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID))")
+[EL Warning]: 2011-03-17 09:52:08.535--ServerSession(1463389356)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SERIES_METADATA_SERIES_ID" already exists; SQL statement:
+ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID) [90045-149]
+Error Code: 90045
+Call: ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID)
+Query: DataModifyQuery(sql="ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID)")
+[EL Warning]: 2011-03-17 09:52:08.535--ServerSession(1463389356)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SEQUENCE" already exists; SQL statement:
+CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME))
+Query: DataModifyQuery(sql="CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME))")
+35004 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImpl - SchedulerService activating.
+35004 [main] WARN org.opencastproject.scheduler.impl.SchedulerServiceImpl - Could not activate because of missing ComponentContext
+[EL Info]: 2011-03-17 09:52:08.694--ServerSession(190296991)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:52:08.694--ServerSession(190296991)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=157869097 login successful
+[EL Warning]: 2011-03-17 09:52:08.708--ServerSession(190296991)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SCHED_METADATA" already exists; SQL statement:
+CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID))")
+[EL Warning]: 2011-03-17 09:52:08.708--ServerSession(190296991)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SCHED_EVENT" already exists; SQL statement:
+CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID))")
+[EL Warning]: 2011-03-17 09:52:08.721--ServerSession(190296991)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SCHED_METADATA_EVENT_ID" already exists; SQL statement:
+ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID) [90045-149]
+Error Code: 90045
+Call: ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID)
+Query: DataModifyQuery(sql="ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID)")
+[EL Info]: 2011-03-17 09:52:08.814--ServerSession(190296991)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=157869097 logout successful
+35150 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - ----- Setting up tests -----
+35150 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - Series Service instantiated
+35150 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - SeriesService activated.
+35150 [main] WARN org.opencastproject.series.impl.SeriesServiceImpl - Could not activate because of missing ComponentContext
+35469 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - Adding new series...
+[EL Info]: 2011-03-17 09:52:09.146--ServerSession(1158647524)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:52:09.146--ServerSession(1158647524)--file:/C:/Users/Markus/.m2/repository/org/opencastproject/matterhorn-series-service-impl/1.1-SNAPSHOT/matterhorn-series-service-impl-1.1-SNAPSHOT.jar_org.opencastproject.series.impl_nonJtaDataSource=1497718991 login successful
+[EL Warning]: 2011-03-17 09:52:09.146--ServerSession(1158647524)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SERIES" already exists; SQL statement:
+CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID))")
+[EL Warning]: 2011-03-17 09:52:09.16--ServerSession(1158647524)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SERIES_METADATA" already exists; SQL statement:
+CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID))")
+[EL Warning]: 2011-03-17 09:52:09.16--ServerSession(1158647524)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SERIES_METADATA_SERIES_ID" already exists; SQL statement:
+ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID) [90045-149]
+Error Code: 90045
+Call: ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID)
+Query: DataModifyQuery(sql="ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID)")
+[EL Warning]: 2011-03-17 09:52:09.16--ServerSession(1158647524)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SEQUENCE" already exists; SQL statement:
+CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME))
+Query: DataModifyQuery(sql="CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME))")
+35562 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImpl - SchedulerService activating.
+35562 [main] WARN org.opencastproject.scheduler.impl.SchedulerServiceImpl - Could not activate because of missing ComponentContext
+[EL Info]: 2011-03-17 09:52:09.239--ServerSession(755799207)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:52:09.253--ServerSession(755799207)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=1497718991 login successful
+[EL Warning]: 2011-03-17 09:52:09.266--ServerSession(755799207)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SCHED_METADATA" already exists; SQL statement:
+CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID))")
+[EL Warning]: 2011-03-17 09:52:09.266--ServerSession(755799207)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SCHED_EVENT" already exists; SQL statement:
+CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID))")
+[EL Warning]: 2011-03-17 09:52:09.266--ServerSession(755799207)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SCHED_METADATA_EVENT_ID" already exists; SQL statement:
+ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID) [90045-149]
+Error Code: 90045
+Call: ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID)
+Query: DataModifyQuery(sql="ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID)")
+[EL Info]: 2011-03-17 09:52:09.452--ServerSession(755799207)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=1497718991 logout successful
+35775 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - ----- Setting up tests -----
+35775 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - Series Service instantiated
+35775 [main] INFO org.opencastproject.series.impl.SeriesServiceImpl - SeriesService activated.
+35775 [main] WARN org.opencastproject.series.impl.SeriesServiceImpl - Could not activate because of missing ComponentContext
+35842 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImplTest - Adding new series...
+[EL Info]: 2011-03-17 09:52:09.532--ServerSession(1713279871)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:52:09.532--ServerSession(1713279871)--file:/C:/Users/Markus/.m2/repository/org/opencastproject/matterhorn-series-service-impl/1.1-SNAPSHOT/matterhorn-series-service-impl-1.1-SNAPSHOT.jar_org.opencastproject.series.impl_nonJtaDataSource=584886224 login successful
+[EL Warning]: 2011-03-17 09:52:09.545--ServerSession(1713279871)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SERIES" already exists; SQL statement:
+CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SERIES (SERIES_ID VARCHAR(128) NOT NULL, DESCRIPTION LONGVARCHAR, PRIMARY KEY (SERIES_ID))")
+[EL Warning]: 2011-03-17 09:52:09.545--ServerSession(1713279871)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SERIES_METADATA" already exists; SQL statement:
+CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SERIES_METADATA (METADATA_KEY VARCHAR(128) NOT NULL, METADATA_VAL LONGVARCHAR, SERIES_ID VARCHAR(128) NOT NULL, PRIMARY KEY (METADATA_KEY, SERIES_ID))")
+[EL Warning]: 2011-03-17 09:52:09.545--ServerSession(1713279871)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SERIES_METADATA_SERIES_ID" already exists; SQL statement:
+ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID) [90045-149]
+Error Code: 90045
+Call: ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID)
+Query: DataModifyQuery(sql="ALTER TABLE SERIES_METADATA ADD CONSTRAINT FK_SERIES_METADATA_SERIES_ID FOREIGN KEY (SERIES_ID) REFERENCES SERIES (SERIES_ID)")
+[EL Warning]: 2011-03-17 09:52:09.545--ServerSession(1713279871)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SEQUENCE" already exists; SQL statement:
+CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME))
+Query: DataModifyQuery(sql="CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(38), PRIMARY KEY (SEQ_NAME))")
+[EL Info]: 2011-03-17 09:52:09.705--ServerSession(1158647524)--file:/C:/Users/Markus/.m2/repository/org/opencastproject/matterhorn-series-service-impl/1.1-SNAPSHOT/matterhorn-series-service-impl-1.1-SNAPSHOT.jar_org.opencastproject.series.impl_nonJtaDataSource=1497718991 logout successful
+[EL Info]: 2011-03-17 09:52:09.705--ServerSession(1463389356)--file:/C:/Users/Markus/.m2/repository/org/opencastproject/matterhorn-series-service-impl/1.1-SNAPSHOT/matterhorn-series-service-impl-1.1-SNAPSHOT.jar_org.opencastproject.series.impl_nonJtaDataSource=157869097 logout successful
+36028 [main] INFO org.opencastproject.scheduler.impl.SchedulerServiceImpl - SchedulerService activating.
+36028 [main] WARN org.opencastproject.scheduler.impl.SchedulerServiceImpl - Could not activate because of missing ComponentContext
+[EL Info]: 2011-03-17 09:52:09.944--ServerSession(814358328)--EclipseLink, version: Eclipse Persistence Services - 2.0.0.v20091127-r5931
+[EL Info]: 2011-03-17 09:52:09.957--ServerSession(814358328)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=584886224 login successful
+[EL Warning]: 2011-03-17 09:52:09.957--ServerSession(814358328)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SCHED_METADATA" already exists; SQL statement:
+CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SCHED_METADATA (MD_KEY VARCHAR(255) NOT NULL, MD_VAL VARCHAR(255), EVENT_ID BIGINT NOT NULL, PRIMARY KEY (MD_KEY, EVENT_ID))")
+[EL Warning]: 2011-03-17 09:52:09.957--ServerSession(814358328)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SCHED_EVENT" already exists; SQL statement:
+CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID)) [42101-149]
+Error Code: 42101
+Call: CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID))
+Query: DataModifyQuery(sql="CREATE TABLE SCHED_EVENT (EVENT_ID BIGINT NOT NULL, STARTDATE TIMESTAMP, RESOURCES VARCHAR(255), SERIES VARCHAR(255), LASTMODIFIED TIMESTAMP, SUBJECT VARCHAR(255), ENDDATE TIMESTAMP, RECURRENCEPATTERN VARCHAR(255), CREATOR VARCHAR(255), TITLE VARCHAR(255), DURATION BIGINT, RECURRENCE VARCHAR(255), DESCRIPTION LONGVARCHAR, CONTRIBUTOR VARCHAR(255), DEVICE VARCHAR(255), LANGUAGE VARCHAR(255), LICENSE VARCHAR(255), SERIESID VARCHAR(255), PRIMARY KEY (EVENT_ID))")
+[EL Warning]: 2011-03-17 09:52:09.957--ServerSession(814358328)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.0.0.v20091127-r5931): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SCHED_METADATA_EVENT_ID" already exists; SQL statement:
+ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID) [90045-149]
+Error Code: 90045
+Call: ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID)
+Query: DataModifyQuery(sql="ALTER TABLE SCHED_METADATA ADD CONSTRAINT FK_SCHED_METADATA_EVENT_ID FOREIGN KEY (EVENT_ID) REFERENCES SCHED_EVENT (EVENT_ID)")
+[EL Info]: 2011-03-17 09:52:10.516--ServerSession(814358328)--file:/C:/matterhorn/matterhorn_trunk/modules/matterhorn-scheduler-impl/target/classes/_org.opencastproject.scheduler.impl_nonJtaDataSource=584886224 logout successful
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 37.353 sec
+
+Results :
+
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.0.1:bundle (default-bundle) @ matterhorn-scheduler-impl ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ matterhorn-scheduler-impl ---
+[INFO] Installing C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\target\matterhorn-scheduler-impl-1.1-SNAPSHOT.jar to C:\Users\Markus\.m2\repository\org\opencastproject\matterhorn-scheduler-impl\1.1-SNAPSHOT\matterhorn-scheduler-impl-1.1-SNAPSHOT.jar
+[INFO] Installing C:\matterhorn\matterhorn_trunk\modules\matterhorn-scheduler-impl\pom.xml to C:\Users\Markus\.m2\repository\org\opencastproject\matterhorn-scheduler-impl\1.1-SNAPSHOT\matterhorn-scheduler-impl-1.1-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.0.1:install (default-install) @ matterhorn-scheduler-impl ---
+[INFO] Parsing file:/C:/Users/Markus/.m2/repository/repository.xml
+[INFO] Installing org/opencastproject/matterhorn-scheduler-impl/1.1-SNAPSHOT/matterhorn-scheduler-impl-1.1-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.6:run (copy-to-felix) @ matterhorn-scheduler-impl ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:08.765s
+[INFO] Finished at: Thu Mar 17 09:52:33 PDT 2011
+[INFO] Final Memory: 23M/495M
+[INFO] ------------------------------------------------------------------------

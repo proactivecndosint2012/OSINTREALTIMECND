@@ -1,0 +1,26 @@
+Bens-MacBook:mysql-5.5.10-osx10.6-x86_64 Ben$ sudo tail -n25 /private/var/db/mysql/Bens-MacBook.local.err 
+110317 20:28:57 mysqld_safe mysqld from pid file /var/run/mysqld/mysqld.pid ended
+110317 20:30:11 [Note] /usr/local/mysql-5.5.10-osx10.6-x86_64/bin/mysqld: Normal shutdown
+
+110317 20:30:11 [Note] Event Scheduler: Purging the queue. 0 events
+110317 20:30:11  InnoDB: Starting shutdown...
+110317 20:30:12  InnoDB: Shutdown completed; log sequence number 1595675
+110317 20:30:12 [Note] /usr/local/mysql-5.5.10-osx10.6-x86_64/bin/mysqld: Shutdown complete
+
+110317 20:30:13 mysqld_safe Starting mysqld daemon with databases from /var/db/mysql/
+110317 20:30:13 [Warning] The syntax '--log' is deprecated and will be removed in a future release. Please use '--general-log'/'--general-log-file' instead.
+110317 20:30:13 [Warning] Setting lower_case_table_names=2 because file system for /var/db/mysql/ is case insensitive
+110317 20:30:13 [Note] Plugin 'FEDERATED' is disabled.
+110317 20:30:13 InnoDB: The InnoDB memory heap is disabled
+110317 20:30:13 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+110317 20:30:13 InnoDB: Compressed tables use zlib 1.2.3
+110317 20:30:13 InnoDB: Initializing buffer pool, size = 128.0M
+110317 20:30:13 InnoDB: Completed initialization of buffer pool
+110317 20:30:13 InnoDB: highest supported file format is Barracuda.
+110317 20:30:13  InnoDB: Waiting for the background threads to start
+110317 20:30:14 InnoDB: 1.1.5 started; log sequence number 1595675
+/usr/local/mysql-5.5.10-osx10.6-x86_64/bin/mysqld: File '/var/log/mysql/mysql.log' not found (Errcode: 2)
+110317 20:30:14 [ERROR] Could not use /var/log/mysql/mysql.log for logging (error 2). Turning logging off for the whole duration of the MySQL server process. To turn it on again: fix the cause, shutdown the MySQL server and restart it.
+110317 20:30:15 [Note] Event Scheduler: Loaded 0 events
+110317 20:30:15 [Note] /usr/local/mysql-5.5.10-osx10.6-x86_64/bin/mysqld: ready for connections.
+Version: '5.5.10-log'  socket: '/tmp/mysql.sock'  port: 3306  MySQL Community Server (GPL)

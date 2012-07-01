@@ -1,0 +1,15 @@
+iPad UISplitView Detail Toolbar NULL on Startup
+NSLog(@"Will hide popover view controller!");
+NSLog(@"self=%p",self);
+NSLog(@"%@",detailPad.tbToolbar);
+	
+[Session started at 2011-02-23 16:16:59 -0500.]  
+2011-02-23 16:17:02.626 TEST[33835:207] Will hide popover view controller!  
+2011-02-23 16:17:02.628 TEST[33835:207] self=0x5351bc0  
+2011-02-23 16:17:02.629 TEST[33835:207] (null)  
+2011-02-23 16:17:14.487 TEST[33835:207] Will hide popover view controller!  
+2011-02-23 16:17:14.488 TEST[33835:207] self=0x5351bc0  
+2011-02-23 16:17:14.490 TEST[33835:207] <UIToolbar: 0x56201a0; frame = (0 0; 703 44); autoresize = W+BM; layer = <CALayer: 0x5620260>>  
+2011-02-23 16:24:52.158 TEST[33835:207] Will hide popover view controller!  
+2011-02-23 16:24:52.159 TEST[33835:207] self=0x5351bc0  
+2011-02-23 16:24:52.160 TEST[33835:207] <UIToolbar: 0x56201a0; frame = (0 0; 703 44); autoresize = W+BM; layer = <CALayer: 0x5620260>>

@@ -1,0 +1,15 @@
+ignoring manage.py with Mercurial (hg .hgignore)
+syntax: glob
+*.pyc
+*.html~
+*.js~
+manage.py
+settings_local.py
+media/
+	
+hg addremove
+hg commit --addremove
+	
+hg add manage.py
+	
+hg forget manage.py

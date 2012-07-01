@@ -1,0 +1,17 @@
+<?php
+
+add_filter("gform_currencies", "update_currency");
+function update_currency($currencies) {
+    $currencies['EUR'] = array(
+        "name" => __("Euro", "gravityforms"), 
+        "symbol_left" => '', 
+        "symbol_right" => "€", 
+        "symbol_padding" => " ", 
+        "thousand_separator" => ',', 
+        "decimal_separator" => '.', 
+        "decimals" => 2);
+        
+    return $currencies; 
+}
+
+?>

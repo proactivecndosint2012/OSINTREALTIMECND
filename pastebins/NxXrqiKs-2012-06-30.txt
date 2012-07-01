@@ -1,0 +1,96 @@
+#RequireAdmin
+#include <GUIConstantsEx.au3>
+#include <WindowsConstants.au3>
+HotKeySet("^", "Terminate")
+HotKeySet('{F3}', 'Pause')
+Global $Paused
+
+; Bot starts paused. press space to start.
+Pause()
+;sort secondaire
+send("{s}");ouvre la fenetre des sorts
+sleep(1)
+MouseClick("left",1017,204);click sur le sort a modifier
+sleep(1)
+MouseClick("left",569,200);click sur la fleche
+sleep(1)
+MouseClick("left",569,200);click sur la fleche
+sleep(1)
+MouseClick("left",569,200);click sur la fleche
+sleep(1)
+MouseClick("left",714,194);click sur le nouveau sort
+sleep(1)
+MouseClick("left",1315,433);clicj sur la rune
+sleep(1)
+MouseClick("left",845,818);accepte
+
+;sort troisieme
+sleep(1)
+MouseClick("left",635,379)
+sleep(1)
+MouseClick("left",1351,199)
+sleep(1)
+MouseClick("left",1351,199)
+sleep(1)
+MouseClick("left",1351,199)
+sleep(1)
+MouseClick("left",966,201)
+sleep(1)
+MouseClick("left",1028,431)
+sleep(1)
+MouseClick("left",845,818)
+
+;sort quatrieme
+sleep(1)
+MouseClick("left",1017,379)
+sleep(1)
+MouseClick("left",1351,200)
+sleep(1)
+MouseClick("left",1351,200)
+sleep(1)
+MouseClick("left",1102,197)
+sleep(1)
+MouseClick("left",1028,431)
+sleep(1)
+MouseClick("left",845,818)
+
+;sort cinquieme
+sleep(1)
+MouseClick("left",645,524)
+sleep(1)
+MouseClick("left",1351,199)
+sleep(1)
+MouseClick("left",1351,199)
+sleep(1)
+MouseClick("left",1176,203)
+sleep(1)
+MouseClick("left",1028,431)
+sleep(1)
+MouseClick("left",845,818)
+
+;sort sixieme
+sleep(1)
+MouseClick("left",1073,523)
+sleep(1)
+MouseClick("left",1351,199)
+sleep(1)
+MouseClick("left",1351,199)
+sleep(1)
+MouseClick("left",1351,199)
+sleep(1)
+MouseClick("left",1019,198)
+sleep(1)
+MouseClick("left",743,424)
+sleep(1)
+MouseClick("left",845,818)
+sleep(1)
+send("{s}")
+
+Func Pause()
+	$Paused = Not $Paused
+	While $Paused
+		Sleep(100)
+		ToolTip('Changement de sorts en cours, F3 pour continuer', 0, 0)
+	WEnd
+	ToolTip("")
+EndFunc   ;==>Pause

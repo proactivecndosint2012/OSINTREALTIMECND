@@ -1,0 +1,7 @@
+Call outlook VBA from Excel
+Set myOutlookApp = GetObject(,"Outlook.Application")
+	
+myOutlookApp.MyFunctionToExecute()
+	
+Dim olApp As Outlook.Application
+Set olApp = New Outlook.Application

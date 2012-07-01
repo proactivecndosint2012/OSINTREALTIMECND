@@ -1,0 +1,33 @@
+Jython and the xml.sax parser - strange error
+from __future__ import with_statement 
+
+from xml.sax import make_parser, handler
+from xml.sax.handler import ContentHandler
+
+class CountingHandler(ContentHandler):
+
+    def __init__(self):
+        self.counter = 0
+
+    def startElement(self, name, attrs):
+        self.counter += 1
+
+def main(argv=sys.argv):
+    parser = make_parser()
+    h = CountingHandler()
+    parser.setContentHandler(h)
+    with open(argv[1], "r") as input:
+        parser.parse(input)
+	
+Traceback (most recent call last):
+  File "src/sciencenetworks/xmltools.py", line 93, in <module>
+    sys.exit(main())
+  File "src/sciencenetworks/xmltools.py", line 88, in main
+    parser.parse(input)
+  File "/amd.home/home/staudt/workspace/jython/Lib/xml/sax/drivers2/drv_javasax.py", line 141, in parse
+    self._parser.parse(JyInputSourceWrapper(source))
+  File "/amd.home/home/staudt/workspace/jython/Lib/xml/sax/drivers2/drv_javasax.py", line 90, in resolveEntity
+    return JyInputSourceWrapper(self._resolver.resolveEntity(pubId, sysId))
+  File "/amd.home/home/staudt/workspace/jython/Lib/xml/sax/drivers2/drv_javasax.py", line 75, in __init__
+    if source.getByteStream():
+AttributeError: 'unicode' object has no attribute 'getByteStream'

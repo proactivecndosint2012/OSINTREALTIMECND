@@ -1,0 +1,11 @@
+~~~~~~6/30/2012
+Dungeon Name: Drak'Tharon Keep
+Role Used: Healer
+DUNGEON STATUS (below): 
+Fully AFKable?[X]
+Minor Issues? [X]
+Major Issues? [ ]
+
+Issue Explanation:
+Same problem as above, stands in purple stuff on floor.
+~~~~~~

@@ -1,0 +1,16 @@
+making urls clickable for wordpress custom post type field? [closed]
+add_action("admin_init", "add_friends_fields");
+
+function add_friends_fields(){
+    add_meta_box("artist_links", "Links", "artist_links", "friends", "normal", "low");
+}
+
+function artist_links(){
+    global $post;
+    $custom = get_post_custom($post->ID);
+    $artist_links = $custom["artist_links"][0];
+    ?>
+    <label>Links:</label><br /><br />
+    <input size="50" name="artist_links" value="<?php echo $artist_links; ?>" />
+    <?php
+}

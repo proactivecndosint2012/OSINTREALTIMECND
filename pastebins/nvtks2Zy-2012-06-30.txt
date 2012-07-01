@@ -1,0 +1,19 @@
+				<b><h1 style="color: #FF0000">¡¡¡VAMOS, ESPAÑA!!!</h1><br>
+					<h2 style="color: #000000">Este es tu número:</h2><br>
+					<h1 style="color: #FF0000">CUPON</h1>
+					<h2>Para poder entrar en el sorteo, haz click en el pajarito y tuitea el mensaje.</h2><br></b>
+					<script>
+					$.ready(function(){
+					var html='<a href="http://twitter.com?status=Acierta el resultado de la final y podrás ganar un Tablet con %23OPINATOR. Participa aquí: http://www.opinator.net/opi/PORRAFINAL?ac=Twitter%26sc=CUPON #PorraFinal CUPON ';
+					$(".tab-content-right .multiplechoice-view ").each(
+						function(index, element){var text=element.innerHTML.replace(/<div.*div>/gi,"");if(index==0){html+="ESP "+text}else{html+="- ITA "+text}}
+					);
+					html+=' target="_blank"> <img src="http://bit.ly/KxYRc2" width:200% /></a>';
+					document.write(html);
+					});
+					</script>
+					<h2><b>
+					<a style="color: #FF9900" HREF="http://bit.ly/GWOs7C" target="_blank"><IMG SRC=http://www.opinator.es/images/webopinator/logo.png><br>
+					TU OPINIÓN CAMBIA EL MUNDO
+					</a>
+					</b></h2>

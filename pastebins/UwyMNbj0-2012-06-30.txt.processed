@@ -1,0 +1,15 @@
+Compile Error when using Spring JMS
+public class Class extends AbstractClass {
+
+    /** {@inheritDoc} */
+    @Override
+    public void acceptImportableItem(final ImportableItem<File> item) {
+        JmsOperations template = getJmsTemplate();
+
+        template.convertAndSend(item);
+    }
+}
+	
+cannot access javax.jms.Destination
+	
+class file for javax.jms.Destination not found

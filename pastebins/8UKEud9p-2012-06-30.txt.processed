@@ -1,0 +1,31 @@
+Index: src/worker.cpp
+===================================================================
+--- src/worker.cpp	(revision 109)
++++ src/worker.cpp	(working copy)
+@@ -1,6 +1,7 @@
+ #include "worker.hpp"
+ #include "manager.hpp"
+ #include "abstractalgorithm.hpp"
++#include <exception>
+ 
+ Worker::Worker(Manager * const manager)
+   : mManager(*manager)
+@@ -12,6 +13,17 @@
+   AbstractAlgorithm* algorithm = NULL;
+   while ((algorithm = mManager.getNewAlgorithm()) != NULL)
+   {
+-    algorithm->solve();
++    try
++    {
++      algorithm->solve();
++    }
++    catch(std::exception& e)
++    {
++      std::cerr << "Exception in Algorithm: " << e.what() << std::endl;
++    }
++    catch(...)
++    {
++      std::cerr << "Exception in Algorithm" << std::endl;
++    }
+   }
+ }

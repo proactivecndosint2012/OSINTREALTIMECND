@@ -1,0 +1,15 @@
+Android : Download file from ziddu with WebView
+view.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String userAgent,
+                    String contentDisposition, String mimetype, long contentLength) {
+                          DefaultHttpClient client = new DefaultHttpClient();
+                          HttpGet httpget = new HttpGet(url);
+                          ResponseHandler<String> responseHandler=new BasicResponseHandler();
+                          try {
+                               String response = client.execute(get, responseHandler);
+                               System.out.println(response);
+                          } catch (Exception e) {
+                          }
+            }
+});

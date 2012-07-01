@@ -1,0 +1,233 @@
+General Information
+
+Model number:	
+T1850 120MB - PA1034U (FCC ID# CJ6UN185)
+T1850C 120MB - PA1034UX  (FCC ID# CJ6UN186)
+
+Dimensions:	T1800/T1850 - 11.8"W x 8.4"D x 2.2"HT1850C - 11.8"W x 8.4"D x 2.3"H
+
+Weight:	T1800/T1850 - 6.8 lbs. with battery packT1850C - 7.3lbs with battery pack
+
+Voltage:	T1800/T1850 - 15VDC, 1.4A T1850C - 15VDC, 2.0A
+
+Universal AC adapter -  100-240 VAC 50-60 Hz
+
+Batteries:	Removable rechargeable 9.6V, 2800mAH NiCd battery pack Internal NiCd backup battery for memory backup, NiCd RTC battery for real time clock
+
+T1850/T1850C - i386 SX-25 (25/12.5Mhz), I387 SX-25 math coprocessor socket
+
+RAM memory:	
+
+T1850/T1850C - 4MB standard (640KB conventional memory plus 3,456KB which can beconfigured as RAM disk (HardRAM), expanded (LIM/EMS 4.0), and/or extended memory,shadow BIOS ROM.Memory expandable up to 12MB using 2, 4, or 8MB user installable credit card style memory
+
+Video RAM:	256KB
+Number of keys:	82
+Keyboard type:	101-key keyboard compatible
+
+Drives:	One 1.44MB 3.5" floppy disk drive T1850/T1850C - 80MB or 120MB hard disk drive
+Lights:	Power/Speed; Caps lock; Overlay; Numlock; Disk in Use; Battery; DC IN
+
+Standard Features:	
+MaxTimeTM power management capabilities including: APM drivers
+AutoResume electronic bookmark
+AutoSave safety data retrieval system
+CPU sleep modeAutomatic display and Hard drive power down
+
+HardRAM
+Low battery warning light and audible alarm
+Intelligent power supply with battery "gas gauge"
+Pop-up window to control MaxTime
+BIOS in Flash ROMPower on Password
+Shadow BIOS ROMU.S. and International warranty
+Product Support
+Toshiba Exceptional Care program (requires enrollment)
+Operating system included:	Toshiba MS-DOS 5.0 preinstalled on all models.
+Software Compatibility
+Compatible with software written for the IBM PC/XT/AT using VGA, EGA, or CGA resolution graphics modes
+Interfaces
+VGA color video port
+RS-232-C serial port 
+Parallel printer/external diskette or tape drive port 
+Numeric keypad/101-key keyboard adapter port 
+Toshiba "E" form factor internal modem slot 
+PS/2 mouse port 
+Credit card style memory slot 
+Kensington cable lock port
+
+Fluorescent Sidelit Monochrome STN LCD Display (T1800, T1850)
+
+Display area:	7.7"W x 5.8"H; 9.5" diagonal
+Resolution:	640 x 480
+Dot pitch:	0.3mm x 0.3mm
+Aspect ratio:	1 : 1
+Contrast:	17 : 1 max.; 8 : 1 min.
+Gray scales:	16 gray scales in 640 x 480 resolution, 64 gray scales in 320 x 200 resolution
+Fluorescent Sidelit Ultra-STN Color LCD (T1850C)
+
+Display area:	7.7"W x 5.8"H; 9.5" diagonal
+Resolution:	640 x 480
+Dot pitch:	0.3mm x 0.3mm
+Contrast:	10 : 1
+Colors:	16 colors in 640 x 480 resolution; 256 colors out of a palette of 226,981 in 320 x 200 resolution
+2.5" 60MB Hard Disk Drive (T1800)
+
+Conner Peripherals HDD:	CP2064
+Interface:	IDE
+Average access time 	19ms
+Recording method:	1-7 RLL
+2.5" 80MB Hard Disk Drive (T1800, T1850, T1850C)
+
+Conner Peripherals HDD:	CP2084
+Interface:	IDE
+Average access time	 
+19ms	
+Recording method:	1-7 RLL
+or
+
+Toshiba HDD:	MK-2024FC
+Interface:	IDE
+Average access time:	19ms
+Recording method:	1-7 RLL
+2.5" 120MB Hard Disk Drive (T1850, T1850C)
+
+Conner Peripherals HDD:	CP2124
+Interface:	IDE
+Average access time:	17ms
+Recording method:	1-7 RLL
+Soft Switches 
+1) Change CPU speed
+
+Fn + PgUp	T1800 - 20MHz CPU Speed; T1850/T1850C - 25MHz CPU Speed
+Fn + PgDn	T1800 - 10MHz CPU Speed; T1850/T1850C - 12.5MHz CPU Speed
+2) Pop-up window
+
+Fn + Esc	Toggles pop-up window
+3) Keypad overlay
+
+Fn + F10	Toggles keypad overlay
+Fn + F11	Num Lock
+Fn + F12	Scroll Lock
+4) FN key
+
+Fn + CTRL	Simulate IBM enhanced keyboard Right Ctrl 
+Fn + ALT	Simulate IBM enhanced keyboard Right Alt 
+Fn + enter	Simulate IBM enhanced keyboard numeric keypad Enter 
+5) Interrupting process
+
+Ctrl + S	Pause
+Hardware Switches and Controls
+1) Power on/off
+Located on left side of computer
+2) Reset
+Located on left side of computer
+3) LCD contrast dial
+Located on right side of display 
+
+Environmental Specifications
+1) Operating condition
+
+Ambient temperature:	41 to 95 degrees F.     5 to 35 degrees C.
+Relative Humidity:	20% to 80% non-condensing
+Altitude (from sea level):	-22 to 10,000 ft. (-60 to 3,000 meters)
+2) Non-Operating condition
+
+Ambient temperature:	-4 to 149 degrees F.     -20 to 65 degrees C.
+Relative Humidity:	10% to 90% non-condensing
+Altitude (from sea level):	30,000 ft. (10,000 meters) max.
+3) Wet bulb temperature condition
+
+Ambient temperature:	79 degrees F.  (26 degrees C.) maximum
+Options and Extra Accessories 
+
+PC-PA2000U	2MB memory card (no longer manufactured)
+PC-PA2001U	4MB memory card (no longer manufactured)
+PC-PA2002U	8MB memory card (no longer manufactured)
+PC-T24D	2400 bps Hayes compatible dedicated built-in modem (Bell or CCITT) (no longer manufactured)
+PC-T24D/X2	2400 bps Hayes compatible dedicated built-in cellular capable modem w/enhanced protocol (MNP5,V.42 bis) (no longer manufactured)
+PC-TCL24A	Audiovox Axsys cellular connection for use with T24D/X modem (no longer manufactured)
+PC-TCL24M	Motorola Axsys cellular connection for use with T24D/X modem (no longer manufactured)
+PC-TCL24N	NEC Axsys cellular connection for use with T24D/X modem (no longer manufactured)
+PC-TCL24U	Uniden Axsys cellular connection for use with T24D/X modem (no longer manufactured)
+PC-T24D/F	2400bps data/9600bps send/receive FAX built-in modem
+PC-T144D/F	14400 bps send/receive FAX built-in modem (no longer manufactured)
+PC-PA7225U	5.25" 360KB external FDD with 18VDC adapter
+PC-PA2410URA	Battery pack - 2800 mAH
+PC-PA2440L	Battery pack recharger with AC adapter
+PC-PA2409U	T1800/T1850 - Universal AC adapter (15VDC,  1.4A)
+PC-PA2411U	T1850C - Universal AC adapter (15VDC, 2.0A)
+PC-PA2450L	T1800/T1850 - Auto adapter (20 watt) (no longer manufactured)
+PC-PA2455L	T1850C - Auto adapter (30 watt)
+PC-PA801L	Statpower Prowatt 125 auto adapter 
+PC-PA3350L	Kensington cable lock
+PC-PA7354E	17-key numeric keypad
+PC-PA8718U	101-key keyboard adapter with external power supply
+PC-PA877LX	Fabric carrying case (no longer manufactured)
+PC-PA180B	Blue PC Pack carrying case
+PC-PA180R	Red PC Pack carrying case
+PC-PA1000L	Leather carrying case (no longer manufactured)
+PC-PA1050L	Leather attache
+PC13-PA874L	Executive leather portfolio (no longer manufactured)
+PR-PA2750U	ExpressWriter 201 portable printer (no longer manufactured)
+PC-SW013	Toshiba MS-DOS 5.0 (no longer manufactured)
+PC-SW015	Toshiba MS-DOS 5.0 (no longer manufactured)
+
+
+System Memory Map  (T1850/T1850C)
+
+Address range	Space (Kilobytes)	Used For:
+'00000000''0009FFFF'	640	Conventional memory
+'000A0000''000BFFFF'	128	Video RAM
+'000C0000''000C7FFF'	32	VGA BIOS ROM
+'000C8000''000DFFFF'	96	Reserved
+'000E0000''000E7FFF'	32	HardRAM window
+'000E8000''000EFFFF'	32	Backup RAM
+'000F0000''000FFFFF'	64	System BIOS ROM
+'00100000''0042FFFF'	3,456	System working memory
+'00430000''00C2FFFF'	8,192	Optional memory cards
+'00C30000''FFFEFFFF'	 	Reserved
+'FFFF0000''FFFFFFFF'	64	System BIOS ROM (Duplicated)
+Interrupts
+
+Interrupt	Level	Assigned To:
+--	NMI	I/O Channel check or power off
+0	Timer
+1	Keyboard
+2	PIC 2
+1	3	COM2
+4	COM1
+5	Reserved
+6	Floppy Disk
+7	Printer 1
+8	Real Time Clock
+9	Software Redirect to INT 0Ah
+2	10	Reserved
+11	Reserved
+12	PS/2 Mouse
+13	Numeric Data Processor
+14	Hard Disk
+15	Reserved
+I/O Port Assignment
+
+Port Address	
+From / To	Device / Function
+'000' / '01F'	8237 : DMA Controller 1
+'020' / '03F'	8259 : PIC 1
+'040' / '05F'	8254 : PIT
+'060' / '06F'	KBC
+'070' / '07F'	RTC
+'080' / '09F'	DMA Page Register
+'0A0' / '0BF'	8259 : PIC 2
+'0C0' / '0DF'	8237 : DMA Controller 2
+'0E0' / '0EF'	Special Register
+'0F0' / '0FF'	NDP Error Clear Port
+'100' / '1EF'	(Not used)
+'1F0' / '1FF'	HDC Port
+'200' / '207'	(Not used)
+'2F8' / '2FF'	Serial Port (COM 2)
+'300' / '377'	(Not used)
+'378' / '37F'	Parallel Printer Port
+'380' / '3AF'	(Not used)
+'3B0' / '3DF'	VGA Port
+'3E0' / '3EF'	(Not Used)
+'3F0' / '3F7'	FDC, FDD Interface Port
+'3F8' / '3FF'	Serial Port (COM1)

@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml"> <head profile="http://gmpg.org/xfn/11">
+
+<script type="text/javascript">
+//desabilita menu de opcoes ao clicar no botao direito
+function desabilitaMenu(e)
+{if (window.Event)
+{if (e.which == 2 || e.which == 3)
+return false;}
+else
+{event.cancelBubble = true event.returnValue = false; return false;} }
+document.oncontextmenu = desabilitaMenu;
+document.onmousedown = desabilitaBotaoDireito;
+document.onmouseup = desabilitaBotaoDireito;
+</script>
+
+<script language='JavaScript'>
+var txt= '   ' + document.title + '   '
+var tempo=90;
+var refresco=null;
+function titulo() {
+document.title=txt;
+txt=txt.substring(1,txt.length)+txt.charAt(0); refresco=setTimeout("titulo()",tempo);}
+titulo();
+</script>
+
+
+<link rel="shortcut icon" href="{favicon}" />
+
+<script type="text/javascript">
+function changeNavigation(id) {document.getElementById('liuc').innerHTML=document.getElementById(id).innerHTML}
+</script>
+
+<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+
+</head>
+<style>
+
+
+
+/*** Barra de rolagem personalizada ***/
+::-webkit-scrollbar {width:6px;height:auto;background:#fff;border-bottom:none;}
+::-webkit-scrollbar-button:vertical {height:6px;display:block;} 
+::-webkit-scrollbar-thumb:vertical {background-color: #000; border-radius: 20px;}
+/*** Fim da barra de rolagem ***/
+
+/*** CUSTOMIZAÇÃO DO CORPO DO THEME ***/
+
+body{ background-image:url('http://static.tumblr.com/bvw6kcj/6Qfm6c32w/tumblr_m3giifzmz31rvpfk1o2_250.jpg')}; padding:4px; font-family: Verdana; font-style: normal; font-size: 11px; color: #696969; text-align:justify; line-height:14px;}
+
+/*** BORDA DAS IMAGENS ***/
+
+.border {border-radius: 8px;}
+
+/*** CUSTOMIZAÇÃO DOS LINKS ***/
+
+a {color:     #ADD8E6; text-decoration: none}
+
+a:hover, div.permalink p a:hover {color:     #6E7B8B; text-decoration: none}
+
+/*** CUSTOMIZAÇÃO DA ASK ***/
+.bubble {align:right;background: #F5F5F5; margin:7px 0px 5px 66px;padding:10px;position: relative;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;} .bubble p {margin:1px 0px;} .bubble span {display:block;position:absolute;width:1px;height:1px;font-size: 0;line-height: 1px;left:-10px;top:10px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-right:10px solid #F5F5F5;} .askborder {float: left;margin: 1px 4px 0 0;padding: 2px; background: #fff} 
+
+
+/*** CUSTOMIZAÇÃO DO MENU HOVER (PARA REGRAS, STATUS, ETC) ***/
+
+#menu {display : block; font-size: 8pt; font-family: tahoma; line-height: 11px; border-bottom: 1px solid #F8F5ED; text-indent: 5px; vertical-align : middle; padding-left: 0px; padding-bottom: 1px;}
+
+#menu:hover {display : block; font-size: 8pt; font-family: tahoma; line-height: 11px; border-bottom: 1px solid #F8F5ED; text-indent: 5px; vertical-align : middle; padding-left: 1px; padding-bottom: 1px;}
+
+/*** CUSTOMIZAÇÃO DA PAGINAÇÃO ***/
+
+ a.page, a.page:visited, a.page:active  {width: 50px; background:transparent;   
+  padding: 2px; color: #000  ; display: block; text-decoration: none; text-align: center; 
+  margin-top: 3px; font-size: 30px; font-family: tahoma;text-shadow: 0px 1px 1px #;
+  }
+
+    a.page:hover  {width: 50px;  background:transparent; 
+   padding: 2px; color: #ADD8E6; display: block; text-decoration: none; 
+   text-align: center; font-family: tahoma;
+    }
+
+    .righty {bottom: 20px;  z-index: 4; position: fixed;right:10px;
+    }
+
+    .lefty {bottom: 20px;  z-index: 4; position: fixed;left:10px;
+    }
+
+
+/*** CUSTOMIZAÇÃO DAS CAIXAS (PAGE E CONTEUDO) ***/
+
+#page {overflow: hidden; width: 570px; margin-right: auto; margin-left: auto; margin-top: -10px; margin-bottom:auto;}
+
+#conteudo { width: 560px; margin-top: 10px; color: #696969; font: 11px ; font:Verdana; margin-bottom: 0px; margin-left: auto; margin-right: auto; padding: 7px; float: left;}
+
+/*** CUSTOMIZAÇÃO DOS TITULOS ***/
+
+.title {text-align: justy; color: #4F4F4F; display: block; text-shadow: # 1px 1px 1px; font-family: Georgia; font-size: 15px; font-style:; text-align: justy; line-height: 17px; vertical-align: middle; padding: 5px; margin: 3px;}
+
+/*** CUSTOMIZAÇÃO DAS CAIXAS ***/
+
+.caixa {background: #fff; padding:8px; font-family: Verdana; font-style: normal; font-size: 11px; color: #696969; text-align:justify; margin: 0 0px 6px 0px;border-radius: 4px;}
+
+/*** CUSTOMIZAÇÃO DO B, I, S, U, BLOCKQUOTE ***/
+
+b, strong {color: #000; cursor:help; }
+i, em {color: #000; cursor:help; }
+s, strike {color: #000; cursor:help; } 
+u, underline {color: #000; cursor:help; border-bottom: 1px dashed #000; text-decoration:none;}
+blockquote {color: #000; border-left: 5px solid #000; padding: 5px; text-align: justify; margin: 5px;}
+
+/*** OUTRAS CUSTOMIZAÇÕES ***/
+
+.h1 {color: #696969; font-size: 10px; padding: 3px; text-align: center; font-family: 'tahoma'; background: #FFF; letter-spacing: 2px; text-shadow: 1px 1px 0px #fff; border-top: 1px dashed #000}
+
+/*** CUSTOMIZAÇÃO DOS BOTÕES DO MENU ***/
+
+.nav {display: inline-block; text-align: center; background: #000; color: #fff; float: center; font-size: 11px; ; font-family: tahoma; margin: -10px; -webkit-transition-duration: .50s; width: 100px; line-height: 15px; padding: 3px;}
+
+.nav:hover {display: inline-block; text-align: center; background: #87CEEB; color: #fff; float: center; font-size: 11px; ; font-family: tahoma; margin: -10px; -webkit-transition-duration: .70s; width: 100px; line-height: 15px; padding: 3px; letter-spacing: 1px}
+
+/*** FONTE PERSONALIZADA ***/
+
+.fontht{ color:#000; font-size:20px; line-height:10px;margin:3px; padding:0px; margin-bottom:-0px; text-align:left; letter-spacing: 1px; font-family: 'Dosis', sans-serif; }
+
+@font-face {font-family: "tinytots";src: url('http://static.tumblr.com/rmj06l2/Usellxb4i/tinytots.ttf');}
+
+</style>
+
+
+<div id="liuc">
+<div id="page">
+<div id="conteudo">
+<div class="caixa">
+
+
+<div class="caixa"><table><tr>
+<td widht="50%"><img src="http://static.tumblr.com/bvw6kcj/ZUmm6fvk1/tumblr_m5y3u2rwje1r8g9bio6_250.png" width="120" height="120"class="opacidade"><td widht="50%">
+
+<b>Sua descrição aqui</b>. <i>Sua descrição aqui</i>. <u>Sua descrição aqui</u>. <s>Sua descrição aqui</s>. Sua descrição aqui. Sua descrição aqui. Sua descrição aqui. Sua descrição aqui.Sua descrição aqui. Sua descrição aqui.Sua descrição aqui. Sua descrição aqui. Sua descrição aqui. Sua descrição aqui.Sua descrição aqui. Sua descrição aqui. Sua descrição aqui. Sua descrição aqui.Sua descrição aqui.Sua descrição aqui. Sua descrição aqui. 
+
+    
+</td>
+</tr>
+
+
+</table></div></td><body onkeydown="return false">
+<center><a href="/" class="nav">Home</a>
+<a href="http://NOME_DO_SEU_TUMBLR_AQUI.tumblr.com/ask" class="nav">Ask</span>
+<a href="http://NOME_DO_SEU_TUMBLR_AQUI.tumblr.com/tagged/SUA_TAG_AQUI" class="nav">Link1</span>
+<a href="http://NOME_DO_SEU_TUMBLR_AQUI.tumblr.com/tagged/SUA_TAG_AQUI" class="nav">Link2</a>
+<a href="http://NOME_DO_SEU_TUMBLR_AQUI.tumblr.com/tagged/SUA_TAG_AQUI" class="nav">Link3</a>
+<a href="http://ecoando-notas.tumblr.com/" class="nav">Theme</a>
+</div>
+
+
+
+
+{block:Posts}
+<div class="caixa">
+
+{block:Quote}<div class="title">"{Quote}"</div>
+{/block:Quote}
+
+{block:Title}<div class="title"><a href="{Permalink}"class="fontht">{Title}</a></div>{/block:Title}
+{block:Link}
+<a class="title" href="{URL}" {Target}>{Name}</a>
+{block:Description}
+{Description}
+{/block:Description}
+{/block:Link}
+{block:Text}{Body}{/block:Text}
+{block:Photo}
+{LinkOpenTag}<center><img src="{PhotoURL-500}" width="520px" class="border">{LinkCloseTag}</center>
+{block:Caption}{Caption}{/block:Caption}
+{/block:Photo}
+{block:Photoset}<center><div class="box3"><center>{Photoset-500}</center></div></center>{block:Caption}{Caption}{/block:Caption}{/block:Photoset}
+{block:Quote}{block:Source}<P>&mdash; {Source}</p>{/block:Source}{/block:Quote}
+{block:Chat}
+<a class="title" href="{Permalink}">{Title}</a>
+<div class="chat">
+{block:Lines}
+<div class="{Alt} user_{UserNumber}">
+<div id="menu">{block:Label}
+<span class="label"><b>{Label}</b></span>
+{/block:Label}
+{Line}
+</div></div>
+{/block:Lines}
+</div>
+{/block:Chat}
+{block:Video}{Video-500}{block:Caption}{Caption}{/block:Caption}{/block:Video}
+
+{block:Answer}<img src="{AskerPortraitURL-48}" align="left" class="askborder">
+<div class="bubble"><span></span>{Asker} sussurrou: {Question}&nbsp;</div>{Answer}{/block:Answer}
+
+
+{block:Audio}<span class="audio"><center>{AudioPlayerWhite}</center></span>{block:Caption}{Caption}{/block:Caption}{/block:Audio}
+<br>
+<div class="h1">
+<a href="{Permalink}">{DayOfMonth}/{MonthNumberWithZero}   • {NoteCount} notes  • <a href="http://tmv.proto.jp/reblog.php?post_url={Permalink};">Reblog</a><br>
+Tags:{block:Tags} #<a class="tag" href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</a></div>
+</div>
+{/block:Posts}
+
+<div class="caixa">
+<!-- Paginação com Setinhas | por Life-HTML -->
+    <center>
+    <div class="lefty">
+    {block:PreviousPage}
+   <a href="{PreviousPage}" class="page">«</a>
+    {/block:PreviousPage}
+    </div>
+    <div class="righty">{block:NextPage}<a href="{NextPage}" class="page">»</a>
+   {/block:NextPage}
+   </div>
+   </center><div style="font-family: tinytots; letter-spacing: px; font-size: 8px; line-height: 11px; display: inline-block; background:#FFF; color:#BEBEBE; width: 100%; float: left; padding: px;  text-align: center;">
+<center>Theme por: <a href="http://ecoando-notas.tumblr.com">Ecoando Notas</a> • base por: <a href="http://o-ignorado.tumblr.com">Matheus Staats</a>
+</center></div></div>
+</div></div>
+
+
+</div></div>
+
+
+
+</div></div></div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+Jackson ObjectMapper() constructor throws NoSuchMethod
+ObjectMapper m = new ObjectMapper();
+	
+Exception in thread "main" java.lang.NoSuchMethodError: org.codehaus.jackson.type.JavaType.<init>(Ljava/lang/Class;)V
+    at org.codehaus.jackson.map.type.TypeBase.<init>(TypeBase.java:15)
+    at org.codehaus.jackson.map.type.SimpleType.<init>(SimpleType.java:45)
+    at org.codehaus.jackson.map.type.SimpleType.<init>(SimpleType.java:40)
+    at org.codehaus.jackson.map.type.TypeBindings.<clinit>(TypeBindings.java:18)
+    at org.codehaus.jackson.map.type.TypeFactory._fromType(TypeFactory.java:525)
+    at org.codehaus.jackson.map.type.TypeFactory.type(TypeFactory.java:61)
+    at org.codehaus.jackson.map.ObjectMapper.<clinit>(ObjectMapper.java:179)
+    at com.me.util.ctrl.BillingJobStatus.fromJson(BillingJobStatus.java:37)
+	
+<exclusions>
+            <exclusion>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+            </exclusion>
+        </exclusions>

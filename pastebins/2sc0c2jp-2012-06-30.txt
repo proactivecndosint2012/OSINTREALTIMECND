@@ -1,0 +1,62 @@
+Parsing XML file using Xpath in jdk1.4
+import java.io.IOException;
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
+import javax.xml.parsers.*;
+import javax.xml.xpath.*;
+
+public class XPathExample {
+
+  public static void main(String[] args) 
+   throws ParserConfigurationException, SAXException, 
+          IOException, XPathExpressionException {
+
+    DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+    domFactory.setNamespaceAware(true); // never forget this!
+    DocumentBuilder builder = domFactory.newDocumentBuilder();
+    Document doc = builder.parse("c:\temp\books.xml");
+
+    XPathFactory factory = XPathFactory.newInstance();
+    XPath xpath = factory.newXPath();
+    XPathExpression expr 
+     = xpath.compile("//book[author='Neal Stephenson']/title/text()");
+
+    Object result = expr.evaluate(doc, XPathConstants.NODESET);
+    NodeList nodes = (NodeList) result;
+    for (int i = 0; i < nodes.getLength(); i++) {
+        System.out.println(nodes.item(i).getNodeValue()); 
+    }
+
+  }
+
+}
+	
+<inventory>
+<book year="2000">
+    <title>Snow Crash</title>
+    <author>Neal Stephenson</author>
+    <publisher>Spectra</publisher>
+    <isbn>0553380958</isbn>
+    <price>14.95</price>
+</book>
+
+<book year="2005">
+    <title>Burning Tower</title>
+    <author>Larry Niven</author>
+    <author>Jerry Pournelle</author>
+    <publisher>Pocket</publisher>
+    <isbn>0743416910</isbn>
+    <price>5.99</price>
+</book>
+
+<book year="1995">
+    <title>Zodiac</title>
+    <author>Neal Stephenson</author>
+    <publisher>Spectra</publisher>
+    <isbn>0553573862</isbn>
+    <price>7.50</price>
+</book>
+
+<!-- more books... -->
+
+</inventory>

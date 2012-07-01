@@ -1,0 +1,17 @@
+Is avoiding the T in ETL possible?
+> status
+===============
+has_paper:true
+jobs:0
+ink:low
+	
+maint-mode> GET BILLS_1
+[$1 bills]: 7
+maint-mode> GET BILLS_5
+[$5 bills]: 2
+etc ...
+	
+telnet> 7,9*
+0 new messages
+telnet> 7,0*
+2 total messages

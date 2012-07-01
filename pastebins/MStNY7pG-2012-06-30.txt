@@ -1,0 +1,101 @@
+# 
+	# Generation 5 pack/unpack format strings.
+	# 
+	GEN5_FMT =	'<'    # Little endian
+	
+	# Block 0 (unencrypted)
+	GEN5_FMT +=	'L'    # 0 PID
+	GEN5_FMT +=	'2x'   # 
+	GEN5_FMT +=	'H'    # 1 Checksum
+	
+	# Block A
+	GEN5_FMT +=	'H'    # 2 National Dex
+	GEN5_FMT +=	'H'    # 3 Held item
+	GEN5_FMT +=	'H'    # 4 OT ID
+	GEN5_FMT +=	'H'    # 5 OT secret ID
+	GEN5_FMT +=	'L'    # 6 Exp
+	GEN5_FMT +=	'B'    # 7 Happiness/hatch steps
+	GEN5_FMT +=	'B'    # 8 Ability
+	GEN5_FMT +=	'B'    # 9 Markings
+	GEN5_FMT +=	'B'    # 10 Original language
+	GEN5_FMT +=	'B'    # 11 EV: HP
+	GEN5_FMT +=	'B'    # 12 EV: Atk
+	GEN5_FMT +=	'B'    # 13 EV: Def
+	GEN5_FMT +=	'B'    # 14 EV: Spe
+	GEN5_FMT +=	'B'    # 15 EV: SpA
+	GEN5_FMT +=	'B'    # 16 EV: SpD
+	GEN5_FMT +=	'B'    # 17 Contest: Cool
+	GEN5_FMT +=	'B'    # 18 Contest: Beauty
+	GEN5_FMT +=	'B'    # 19 Contest: Cute
+	GEN5_FMT +=	'B'    # 20 Contest: Smart
+	GEN5_FMT +=	'B'    # 21 Contest: Tough
+	GEN5_FMT +=	'B'    # 22 Contest: Sheen
+	GEN5_FMT +=	'B'    # 23 Ribbons: Sinnoh 1-1
+	GEN5_FMT +=	'B'    # 24 Ribbons: Sinnoh 1-2
+	GEN5_FMT +=	'B'    # 25 Ribbons: Sinnoh 2-1
+	GEN5_FMT +=	'B'    # 26 Ribbons: Sinnoh 2-2
+	
+	# Block B
+	GEN5_FMT +=	'H'    # 27 Move 1
+	GEN5_FMT +=	'H'    # 28 Move 2
+	GEN5_FMT +=	'H'    # 29 Move 3
+	GEN5_FMT +=	'H'    # 30 Move 4
+	GEN5_FMT +=	'B'    # 31 PP: Move 1
+	GEN5_FMT +=	'B'    # 32 PP: Move 2
+	GEN5_FMT +=	'B'    # 33 PP: Move 3
+	GEN5_FMT +=	'B'    # 34 PP: Move 4
+	GEN5_FMT +=	'B'    # 35 PP-Up: Move 1
+	GEN5_FMT +=	'B'    # 36 PP-Up: Move 2
+	GEN5_FMT +=	'B'    # 37 PP-Up: Move 3
+	GEN5_FMT +=	'B'    # 38 PP-Up: Move 4
+	GEN5_FMT +=	'L'    # 39 IVs/Egg/Nicknamed
+	GEN5_FMT +=	'B'    # 40 Ribbons: Hoenn 1-1
+	GEN5_FMT +=	'B'    # 41 Ribbons: Hoenn 1-2
+	GEN5_FMT +=	'B'    # 42 Ribbons: Hoenn 2-1
+	GEN5_FMT +=	'B'    # 43 Ribbons: Hoenn 2-2
+	GEN5_FMT +=	'B'    # 44 Fateful encounter/Gender/Alt forms
+	GEN5_FMT +=	'B'    # 45 Nature
+	GEN5_FMT +=	'B'    # 46 Has Dream World ability
+	GEN5_FMT += '5x'   # 
+	
+	# Block C
+	GEN5_FMT +=	'11H'  # 47-57 Nickname
+	GEN5_FMT +=	'x'    # 
+	GEN5_FMT +=	'B'    # 58 Hometown
+	GEN5_FMT +=	'B'    # 59 Ribbons: Sinnoh 3-1
+	GEN5_FMT +=	'B'    # 60 Ribbons: Sinnoh 3-2
+	GEN5_FMT +=	'B'    # 61 Ribbons: Sinnoh 4-1
+	GEN5_FMT +=	'B'    # 62 Ribbons: Sinnoh 4-2
+	GEN5_FMT +=	'4x'   # 
+	
+	# Block D
+	GEN5_FMT +=	'8H'   # 63-70 OT
+	GEN5_FMT +=	'B'    # 71 Egg received year (-2000)
+	GEN5_FMT +=	'B'    # 72 Egg received month
+	GEN5_FMT +=	'B'    # 73 Egg received day
+	GEN5_FMT +=	'B'    # 74 Met year (-2000)
+	GEN5_FMT +=	'B'    # 75 Met month
+	GEN5_FMT +=	'B'    # 76 Met day
+	GEN5_FMT +=	'H'    # 77 Egg location
+	GEN5_FMT +=	'H'    # 78 Met at location
+	GEN5_FMT +=	'B'    # 79 Pokerus
+	GEN5_FMT +=	'B'    # 80 Poke Ball
+	GEN5_FMT +=	'B'    # 81 Met at level/OT gender
+	GEN5_FMT +=	'B'    # 82 Encounter type
+	GEN5_FMT +=	'B'    # 83 Poke Ball (HG/SS)
+	GEN5_FMT +=	'x'    # 
+	
+	# Battle Data
+	GEN5_BTL =	'B'    # 84 Status effect
+	GEN5_BTL +=	'B'    # 85 (?) Flags
+	GEN5_BTL +=	'H'    # 86 (?) Unknown
+	GEN5_BTL +=	'B'    # 87 Level
+	GEN5_BTL +=	'B'    # 88 Capsule index
+	GEN5_BTL +=	'H'    # 89 Current HP
+	GEN5_BTL +=	'H'    # 90 Max HP
+	GEN5_BTL +=	'H'    # 91 Attack
+	GEN5_BTL +=	'H'    # 92 Defense
+	GEN5_BTL +=	'H'    # 93 Speed
+	GEN5_BTL +=	'H'    # 94 SpAttack
+	GEN5_BTL +=	'H'    # 95 SpDefense
+	GEN5_BTL +=	'64x'  # 96-161 (?) Trash data

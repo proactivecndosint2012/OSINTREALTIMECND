@@ -1,0 +1,34 @@
+Soul of the Gray Survivor
+Tier: Paragon/Epic
+Item Slot: Boon
+
+Property: You gain a +2 bonus to death saving throws and Endurance checks.
+
+Property: Whenever a creature attacks an ally you can see or hear, deal additional damage equal to your strength modifier whenever you hit an enemy until the end of your next turn. If the ally is bloodied, you gain a +2 bonus to attack rolls until the end of your next turn.
+
+Property: When you mark a creature, gain 5 temporary hit points. If you mark multiple creatures at once or mark a creature while your mark persists on another, increase these temporary hit points by 2 for each additional creature.
+
+Power (At-Will): Minor action when you have temporary hit points, one enemy within 3 squares of you takes a -1 penalty to attack rolls against your allies until the start of your next turn.
+
+Power (Encounter): Free Action on your turn when bloodied, regain hit points equal to 1/2 your level. Increase this value by 5 for each milestone you have reached since your last extended rest.
+
+Power (Daily): Minor action, gain temporary hit points equal to your bloodied value. Once before the end of the encounter, if you start your turn without temporary hit points, take 15 damage that ignores all resistances.
+
+---
+
+Starting Score: 5
+
+Owner gains a level: +1d10
+Owner takes damage while bloodied or is critically hit: +1 (maximum 1/ encounter)
+Owner helps defeat an elite or solo enemy above his level: +1 (maximum 1/ day)
+Owner fails to work against an evil act that he knows about: -1 (maximum 1/day)
+Owner dies: -2
+Owner fails to prevent an ally's death in combat: -2
+
+---
+
+Pleased (16-20): The owner gains an additional healing surge per day. In addition, you make saving throws against ongoing damage at the start of your turn before taking that damage.
+Satisfied (12-15): Item's bonus to death saving throws and Endurance checks increases to +4.
+Normal (5-11): Item functions as normal.
+Unsatisfied (1-4): The item functions as normal, but the owner deals no additional damage with a critical hit.
+Angered (0 or lower): As above, and the owner receives a -2 penalty to death saving throws. If they die, their body dissolves into gray ash.

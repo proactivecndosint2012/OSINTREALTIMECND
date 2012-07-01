@@ -1,0 +1,746 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html dir="ltr">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+
+<link rel="stylesheet" href="./templates/default/css/main.css?v=1" type="text/css">
+<link rel="stylesheet" href="./templates/default/css/theme_default.css?v=1" type="text/css">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+<script type="text/javascript" src="./misc/js/jquery.pack.js?v=1"></script>
+
+<script type="text/javascript" src="./misc/js/main.js?v=1"></script>
+
+<script type="text/javascript" src="./misc/js/bbcode.js?v=1"></script>
+<script type="text/javascript">
+var postImg_MaxWidth = screen.width - 207;
+var postImgAligned_MaxWidth = Math.round(screen.width/3);
+var attachImg_MaxWidth = screen.width - 285;
+var ExternalLinks_InNewWindow = '1';
+
+function copyText_writeLink(node)
+{
+	if (!is_ie) return;
+	document.write('<p style="float: right;"><a class="txtb" onclick="if (ie_copyTextToClipboard('+node+')) alert(\'Код скопирован в буфер обмена\'); return false;" href="#">скопировать в буфер обмена</a></p>');
+}
+function initPostBBCode(context)
+{
+	initSpoilers(context);
+	imgFit_Onload(context);
+	initExternalLinks(context)
+}
+function initSpoilers(context)
+{
+	var context = context || 'body';
+	$('div.spoiler-head', $(context))
+		.click(function(){
+			$(this).toggleClass('unfolded');
+			$(this).next('div.spoiler-body').slideToggle('fast');
+		})
+	;
+}
+function initExternalLinks(context)
+{
+	var context = context || 'body';
+	if (ExternalLinks_InNewWindow) {
+		$("a.postLink:not([@href*='"+ window.location.hostname +"/'])", $(context))
+			.bind("click", function(){ return !window.open(this.href); })
+		;
+	}
+}
+$(document).ready(function(){
+	initSpoilers('body');
+	initExternalLinks();
+});
+$(window).load(function(){ imgFit_Onload('body'); });
+</script>
+
+<script type="text/javascript">
+var BB_ROOT       = "./";
+var cookieDomain  = "torrents.freedom";
+var cookiePath    = "/forum/";
+var cookieSecure  = 0;
+var cookiePrefix  = "bb_";
+var LOGGED_IN     = 1;
+var InfoWinParams = 'HEIGHT=510,resizable=yes,WIDTH=780';
+
+var user = {
+	opt_js: {"only_new":0,"h_flag":0,"h_av":0,"h_rnk_i":0,"h_post_i":0,"h_smile":0,"h_sig":0,"sp_op":0,"tr_t_ax":0},
+
+	set: function(opt, val, days, reload) {
+		this.opt_js[opt] = val;
+		setCookie('opt_js', $.toJSON(this.opt_js), days);
+		if (reload) {
+			window.location.reload();
+		}
+	}
+}
+
+
+$(document).ready(function(){
+	$('div.post_body wbr').after('<wbr></wbr>&#8203;');
+});
+
+var ajax = new Ajax('./ajax.php', 'POST', 'json');
+</script>
+
+<!--[if lt IE 7]><script type="text/javascript">
+$(document).ready(ie6_make_clickable_labels);
+
+$(document).ready(function(){
+	$('div.menu-sub').prepend('<iframe class="ie-fix-select-overlap"></iframe>'); // iframe for IE select box z-index issue
+	Menu.iframeFix = true;
+});
+</script><![endif]-->
+
+<!--[if gte IE 7]><style type="text/css">
+input[type="checkbox"] { margin-bottom: -1px; }
+</style><![endif]-->
+
+<!--[if lte IE 6]><style type="text/css">
+.forumline th { height: 24px; padding: 2px 4px; }
+</style><![endif]-->
+
+<!--[if IE]><style type="text/css">
+.code-copy { display: block; }
+.post-hr   { margin: 2px auto; }
+</style><![endif]-->
+
+
+<style type="text/css">
+.menu-sub, #ajax-loading, #ajax-error, var.ajax-params { display: none; }
+
+/* temp */
+
+
+/* temp end */
+</style>
+
+<title>Поиск :: файлообменной сети FreeDom</title>
+
+</head>
+
+<body>
+
+
+<div id="ajax-loading"><b>Loading...</b></div>
+<div id="ajax-error"><b>Error</b></div>
+
+<div id="body_container">
+
+<!--************************************************************************-->
+<!--========================================================================-->
+
+<!--page_container-->
+<div id="page_container">
+<a name="top"></a>
+
+<!--page_header-->
+<div id="page_header">
+
+<!--main_nav-->
+<div id="main_nav" style="height: 17px;">
+	<table width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="nowrap">
+			<a href="./index.php"><b>Главная</b></a>&#0183;
+						<a href="tracker.php"><b>Трекер</b></a>&#0183;
+			<a href="search.php"><b>Поиск</b></a>&#0183;
+			
+			<a href="viewtopic.php?t=4"><b>Правила</b></a>&#0183;
+			<a href="faq.php"><b style="color: #993300;">FAQ</b></a>&#0183;
+			<a href="privmsg.php?folder=inbox"><b>Cообщения</b></a>&#0183;
+			<a href="bookmarks.php"><b>Закладки</b></a>&#0183;
+			<a href="groupcp.php"><b>Группы</b></a>&#0183;
+			<a href="memberlist.php"><b>Пользователи</b></a>&#0183;
+			<a href="medal.php"><b>Статистика</b></a>&#0183;
+			
+						
+						 <a href="release.php"><b>Релиз Мастер</b></a>
+							    
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<!--/main_nav-->
+
+<!--logo-->
+<!-- <div id="logo">
+	<h1>файлообменной сети FreeDom</h1>
+	<h6></h6>
+	<a href="http://freedom-vrn.ru"><img src="images/logo/logo.jpg" alt="" /></a>
+</div> -->
+<!--/logo-->
+
+<!--logout-->
+<div class="topmenu">
+   <table width="100%" cellpadding="0" cellspacing="0">
+   <tr>
+      <td class="tLeft">
+          &nbsp;<a href="profile.php?mode=viewprofile&amp;u=28623"><b class="med">stereo</b></a>&nbsp; [ <a href="./login.php?logout=1" onclick="return confirm('Вы уверены, что хотите выйти?');">Выход</a> ]
+         <a href="privmsg.php?folder=inbox">Cообщения: новых нет</a> 
+    
+      </td>
+     <td class="tCenter">
+         <a href="profile.php?mode=editprofile">Настройки</a> &#0183; <a href="profile.php?mode=viewprofile&amp;u=28623#torrent">Текущие закачки</a> &#0183; <a href="search.php?uid=28623&amp;o=5">Мои сообщения</a>
+      </td>
+      <td class="tRight wrap">     
+	<form id="quick-search" action="" method="post" onsubmit="
+		$(this).attr('action', $('#search-action').val());
+		var txt=$('#search-text').val(); return !(txt=='поиск...' || !txt); ">
+		<input type="hidden" name="max" value="1" />
+		<input type="hidden" name="to" value="1" />
+		<input id="search-text" type="text" name="nm" onfocus="if(this.value=='поиск...') this.value='';" onblur="if(this.value=='') this.value='поиск...';" value="поиск..." class="hint" style="width: 120px;" />
+		<select id="search-action">
+			<option value="tracker.php#results" selected="selected"> по трекеру </option>
+			<option value="search.php"> по форуму </option>
+					</select>
+		<input type="submit" class="med bold" value="&raquo;" style="width: 30px;" />
+	</form>
+      </td>
+    </tr>
+   </table>
+</div>
+<!--/logout-->
+
+
+<!--breadcrumb-->
+<!--<div id="breadcrumb"></div>-->
+<!--/breadcrumb-->
+
+
+</div>
+<!--/page_header-->
+
+<!--menus-->
+
+
+<!--/menus-->
+
+
+
+<!--page_content-->
+<div id="page_content">
+<table cellspacing="0" cellpadding="0" border="0" style="width: 100%;"><tr>
+
+
+
+<!--main_content--> 
+<td id="main_content"> 
+<table width=100%>
+<tr>
+<td align="left">
+<div id="main_content_wrap"> 
+
+
+<!--========================================================================-->
+<!--************************************************************************-->
+
+
+
+<!-- page_header.tpl END -->
+<!-- module_xx.tpl START -->
+
+<h1 class="pagetitle">Результатов поиска: 21</h1>
+
+<div class="nav">
+	<p style="float: left;"><a href="./index.php">Список форумов файлообменной сети FreeDom</a></p>
+	<p style="float: right;"><a href="#" class="small normal" onclick="setCookie('bb_mark_read', 'all_forums'); window.location.reload(); return false;">Отметить все форумы как прочтённые</a></p>	<div class="clear"></div>
+</div>
+
+
+
+<table class="forumline forum">
+<col class="row1">
+<col class="row1" width="25%">
+<col class="row4" width="75%">
+<col class="row1">
+<col class="row4">
+<col class="row1">
+<tr>
+	<th>&nbsp;</th>
+	<th>Форум</th>
+	<th>Темы</th>
+	<th>Автор</th>
+	<th>Отв.</th>
+	<th>Посл. сообщение</th>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=397" class="gen">Архив</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_139253').className='opened'">
+												<a href="./viewtopic.php?t=139253" class="topictitle"><span id="tid_139253">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / Боевик / DVD9</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=2735">сказочник</a></td>
+	<td class="small">2</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>25-06-2012 17:46</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=-746">bot</a>			<span onmousedown="$p('tid_139253').className='opened'"><a href="./viewtopic.php?p=1191784#1191784"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=544" class="gen">720 Rip</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_162116').className='opened'">
+												<a href="./viewtopic.php?t=162116" class="topictitle"><span id="tid_162116">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / драма, комедия, криминал, боевик, триллер / BDRip, 720p</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=2338">гражданин</a></td>
+	<td class="small">2</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>08-03-2012 16:54</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=3969">L.O.S.T</a>			<span onmousedown="$p('tid_162116').className='opened'"><a href="./viewtopic.php?p=1130841#1130841"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=540" class="gen">1080 Rip</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_175920').className='opened'">
+												<a href="./viewtopic.php?t=175920" class="topictitle"><span id="tid_175920">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / триллер, драма, криминал / BDRip, 1080p</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=7333">druce</a></td>
+	<td class="small">2</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>25-02-2012 20:28</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=2107">teemon</a>			<span onmousedown="$p('tid_175920').className='opened'"><a href="./viewtopic.php?p=1123422#1123422"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=667" class="gen">Зарубежное кино (AVC)</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_161387').className='opened'">
+												<a href="./viewtopic.php?t=161387" class="topictitle"><span id="tid_161387">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / Драма, криминал / BDRip - AVC</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=25389">Сталкер</a></td>
+	<td class="small">1</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>21-09-2011 18:17</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=27229">vald</a>			<span onmousedown="$p('tid_161387').className='opened'"><a href="./viewtopic.php?p=1037731#1037731"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=468" class="gen">Зарубежное кино (HDRip)</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_161754').className='opened'">
+												<a href="./viewtopic.php?t=161754" class="topictitle"><span id="tid_161754">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / триллер, криминал / BDRip</span></a>
+		<span class="topicPG">[<img src="./templates/default/images/icon_minipost.gif" class="icon1" alt="goto" title="Страницы" />Стр. <a href="viewtopic.php?t=161754" class="topicPG">1</a>, <a href="viewtopic.php?t=161754&amp;start=15" class="topicPG">2</a> ]</span>		</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=29123">paokkk</a></td>
+	<td class="small">24</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>17-08-2011 22:30</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=9339">Electro[SOUL]</a>			<span onmousedown="$p('tid_161754').className='opened'"><a href="./viewtopic.php?p=1020175#1020175"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=9" class="gen">Зарубежное кино</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_142866').className='opened'">
+												<a href="./viewtopic.php?t=142866" class="topictitle"><span id="tid_142866">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction  / Квентин Тарантино  / 1994 / боевик, криминал  / DVDRip</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=3905">REGARD</a></td>
+	<td class="small">3</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>10-08-2011 21:31</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=32913">елена91</a>			<span onmousedown="$p('tid_142866').className='opened'"><a href="./viewtopic.php?p=1017109#1017109"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=398" class="gen">Звуковые дорожки и переводы к фильмам</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_161770').className='opened'">
+												<a href="./viewtopic.php?t=161770" class="topictitle"><span id="tid_161770">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино  / 1994 / многоголосый<wbr></wbr>&#8203; закадровый / AC3 2.0</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=15247">fixter</a></td>
+	<td class="small">1</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>01-08-2011 21:10</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=15247">fixter</a>			<span onmousedown="$p('tid_161770').className='opened'"><a href="./viewtopic.php?p=1013121#1013121"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=468" class="gen">Зарубежное кино (HDRip)</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_117010').className='opened'">
+												<a href="./viewtopic.php?t=117010" class="topictitle"><span id="tid_117010">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / триллер, драма, криминал / BDRip</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=7333">druce</a></td>
+	<td class="small">7</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>03-07-2011 11:52</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=11868">doopler</a>			<span onmousedown="$p('tid_117010').className='opened'"><a href="./viewtopic.php?p=998404#998404"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=397" class="gen">Архив</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_25214').className='opened'">
+						<span class="seedmed iconDL">DL</span>
+										<a href="./viewtopic.php?t=25214" class="topictitle"><span id="tid_25214">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / Криминал / HDTVRip</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=2530">Homer</a></td>
+	<td class="small">13</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>27-05-2011 22:43</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=36245">snoop3747</a>			<span onmousedown="$p('tid_25214').className='opened'"><a href="./viewtopic.php?p=973070#973070"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=667" class="gen">Зарубежное кино (AVC)</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_139086').className='opened'">
+												<a href="./viewtopic.php?t=139086" class="topictitle"><span id="tid_139086">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / Триллер, драма, криминал, комедия / BDRip-AVC</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=11858">max007</a></td>
+	<td class="small">4</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>23-03-2011 01:17</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=2375">Ganjuba</a>			<span onmousedown="$p('tid_139086').className='opened'"><a href="./viewtopic.php?p=927319#927319"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=541" class="gen">Blu-ray/Remux</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_81226').className='opened'">
+												<a href="./viewtopic.php?t=81226" class="topictitle"><span id="tid_81226">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино  / 1994 / криминал / BD Remux, 1080р</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=64">alp</a></td>
+	<td class="small">12</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>25-02-2011 21:33</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=21256">mozila</a>			<span onmousedown="$p('tid_81226').className='opened'"><a href="./viewtopic.php?p=905957#905957"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=540" class="gen">1080 Rip</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_141586').className='opened'">
+												<a href="./viewtopic.php?t=141586" class="topictitle"><span id="tid_141586">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / Триллер, драма, криминал / HDTVRip 1080p</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=14425">zveroboy</a></td>
+	<td class="small">2</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>23-01-2011 19:37</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=19371">zzzlodey</a>			<span onmousedown="$p('tid_141586').className='opened'"><a href="./viewtopic.php?p=876061#876061"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=541" class="gen">Blu-ray/Remux</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_131105').className='opened'">
+												<a href="./viewtopic.php?t=131105" class="topictitle"><span id="tid_131105">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / триллер, драма, криминал / BD Remux, 1080p</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=17745">wizard-vrn</a></td>
+	<td class="small">5</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>25-10-2010 15:27</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=-746">bot</a>			<span onmousedown="$p('tid_131105').className='opened'"><a href="./viewtopic.php?p=791307#791307"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=397" class="gen">Архив</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_55126').className='opened'">
+												<a href="./viewtopic.php?t=55126" class="topictitle"><span id="tid_55126">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / триллер, драма, криминал / BDRip, 720p</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=480">Metallic</a></td>
+	<td class="small">3</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>23-08-2010 17:33</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=-746">bot</a>			<span onmousedown="$p('tid_55126').className='opened'"><a href="./viewtopic.php?p=741455#741455"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=454" class="gen">Зарубежное кино (DVD)</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_111914').className='opened'">
+												<a href="./viewtopic.php?t=111914" class="topictitle"><span id="tid_111914">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / боевик, криминал / DVD5</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=2338">гражданин</a></td>
+	<td class="small">2</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>16-05-2010 18:49</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=14990">elyan</a>			<span onmousedown="$p('tid_111914').className='opened'"><a href="./viewtopic.php?p=670379#670379"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=468" class="gen">Зарубежное кино (HDRip)</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_75483').className='opened'">
+												<a href="./viewtopic.php?t=75483" class="topictitle"><span id="tid_75483">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / триллер, драма, криминал / HDRip</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=6917">Monster</a></td>
+	<td class="small">12</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>08-04-2010 22:09</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=23508">младший урядник</a>			<span onmousedown="$p('tid_75483').className='opened'"><a href="./viewtopic.php?p=635405#635405"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=544" class="gen">720 Rip</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_2442').className='opened'">
+												<a href="./viewtopic.php?t=2442" class="topictitle"><span id="tid_2442">Бульварное (Криминальное<wbr></wbr>&#8203;) чтиво / Pulp Fiction / Квентин Тарантино / 1994 / Драма,Кримин<wbr></wbr>&#8203;ал / HDTVRip, 720p</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=308">IVKEMK</a></td>
+	<td class="small">5</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>27-11-2009 01:28</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=14624">alman</a>			<span onmousedown="$p('tid_2442').className='opened'"><a href="./viewtopic.php?p=502356#502356"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=667" class="gen">Зарубежное кино (AVC)</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_88527').className='opened'">
+												<a href="./viewtopic.php?t=88527" class="topictitle"><span id="tid_88527">Криминальное<wbr></wbr>&#8203; Чтиво  / Pulp Fiction / Квентин Тарантино  / 1994 / криминал / BDRip-AVC</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=6339">ppa75</a></td>
+	<td class="small">4</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>24-11-2009 00:03</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=64">alp</a>			<span onmousedown="$p('tid_88527').className='opened'"><a href="./viewtopic.php?p=498615#498615"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=397" class="gen">Архив</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_61194').className='opened'">
+												<a href="./viewtopic.php?t=61194" class="topictitle"><span id="tid_61194">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / триллер, драма, криминал / HDRip</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=6917">Monster</a></td>
+	<td class="small">4</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>07-09-2009 01:49</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=6917">Monster</a>			<span onmousedown="$p('tid_61194').className='opened'"><a href="./viewtopic.php?p=407838#407838"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=544" class="gen">720 Rip</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_74863').className='opened'">
+												<a href="./viewtopic.php?t=74863" class="topictitle"><span id="tid_74863">Криминальное<wbr></wbr>&#8203; чтиво / Pulp Fiction / Квентин Тарантино / 1994 / Триллер, драма, криминал / BDRip 720p</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=2656">BFkiller</a></td>
+	<td class="small">0</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>02-09-2009 20:41</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=2656">BFkiller</a>			<span onmousedown="$p('tid_74863').className='opened'"><a href="./viewtopic.php?p=404539#404539"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr class="tCenter">
+	<td>
+					<img class="topic_icon" src="./templates/default/images/folder_dl.gif" />
+			</td>
+	<td><a href="./viewforum.php?f=9" class="gen">Зарубежное кино</a></td>
+	<td class="tLeft" style="padding: 2px 5px 3px 4px;">
+		<div class="topictitle" onmousedown="$p('tid_32482').className='opened'">
+												<a href="./viewtopic.php?t=32482" class="topictitle"><span id="tid_32482">Ритуальное чтиво(Криминальное<wbr></wbr>&#8203; чтиво) / Pulp fiction / Квентин Тарантино / 2008 / Пародия (альтернативн<wbr></wbr>&#8203;ый монтаж, смешной перевод) / DVDRip</span></a>
+				</div>
+	</td>
+	<td class="med"><a href="./profile.php?mode=viewprofile&amp;u=31">ss</a></td>
+	<td class="small">6</td>
+	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
+		<p>30-11-2008 13:02</p>
+		<p>
+			<a href="./profile.php?mode=viewprofile&amp;u=31">ss</a>			<span onmousedown="$p('tid_32482').className='opened'"><a href="./viewtopic.php?p=170202#170202"><img src="./templates/default/images/icon_latest_reply.gif" class="icon2" alt="latest" title="Посмотреть последнее сообщение" /></a></span>
+		</p>
+	</td>
+</tr>
+<tr>
+	<td class="catBottom" colspan="6">
+			&nbsp;
+		</td>
+</tr>
+</table>
+
+
+
+<div class="bottom_info">
+
+	<div class="nav">
+		<p style="float: left">Страница <b>1</b> из <b>1</b></p>
+		<p style="float: right"></p>
+		<div class="clear"></div>
+	</div>
+
+	<div class="spacer_4"></div>
+
+	<div id="timezone">
+		<p>Ваш последний визит: <span class="tz_time">30-Июн-12 16:29</span></p>
+		<p>Текущее время: <span class="tz_time">30-Июн-12 19:41</span></p>
+		<p>Часовой пояс: <span class="tz_time">GMT + 3</span></p>
+	</div>
+	<div class="clear"></div>
+
+</div><!--/bottom_info-->
+
+
+	</div><!--/main_content_wrap-->
+	</td><!--/main_content-->
+
+	
+	</tr></table>
+	</div>
+	<!--/page_content-->
+
+	<!--page_footer-->
+	<div id="page_footer">
+
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+	<td align="center"></td>
+</tr>
+</table>		
+		<div class="clear"></div>
+
+
+		
+	<!--	<div class="copyright tleft">
+			Powered by <a href="http://torrentpier.info">TorrentPier</a> &copy; Meithar, Pandora </br>
+			Форум представлен на базе <a href="http://www.phpbb.com">phpBB</a> &copy; phpBB Group </br>
+			<a href="http://smscoin.com"><span class="copyright">СМС биллинг предоставлен</span> SMSCOIN</a>
+		</div> -->
+
+	</div>
+
+<div class="copyright">
+
+<right>
+<center><b>!ВНИМАНИЕ!</b>
+Сайт не предоставляет электронные версии произведений, а занимается лишь коллекционированием и каталогизацией ссылок, присылаемых и публикуемых на форуме нашими читателями. <br> Администрация не несёт ответственности за их содержание. <center>
+</right>
+</div>
+
+	<!--/page_footer -->
+
+	</div>
+	<!--/page_container -->
+
+
+
+	</div><!--/body_container-->
+
+	</body>
+	</html>

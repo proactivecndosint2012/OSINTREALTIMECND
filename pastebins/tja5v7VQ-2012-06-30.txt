@@ -1,0 +1,8 @@
+How to handle closing of a previously opened window
+function someAlert() {
+ alert("success");  
+}
+	
+window.onunload =window.opener.someAlert();
+	
+window.opener.someJavaScriptFunctionInParent();

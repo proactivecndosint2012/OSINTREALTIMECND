@@ -1,0 +1,20 @@
+#include <stdio.h>
+float mystery_function(float *a, int b)
+{
+	if (b <= 0)
+		return a[0];
+	else
+		return (a[b] + b * mystery_function(a, b-1)) / (b+1);
+}
+int main()
+{
+	float a[] = {3,6,4,12,5};
+	int laenge = 5;
+	printf("Ergebnis= %f\n",mystery_function(a, laenge - 1));
+	return 0;
+}
+
+Welche einfache mathematische Funktion wird mit mystery_function implementiert?
+Welchen Wert nimmt die Variable ergebnis nach dem Funktionsaufruf an?
+Schreiben Sie auf, welche Werte a[b] und b in jedem einzelnen Rekursionsschritt
+annehmen.

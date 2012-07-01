@@ -1,0 +1,73 @@
+Project Start
+===
+June 30, 2012
+===
+License
+====
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+====
+Disclaimer 
+====
+All software provided as is. All software covered under the GPL license and free for public redistribution.
+If unintended consequences occur due to utilization of this software, user bears the resultant outcome.
+The rule of thumb is to test and validate properly all solutions prior to implementation within a production environment.
+All solutions should be subject to public scrutiny, and peer review.
+====
+
+Requirements
+===
+Project is being spun up utilizing Python programming language. If you can code in Python proficiently, feel free to fork the project off from my GitHub account, and begin contributions. Scope of the project is such that one person will be hard pressed to reach mile stones or complete and maintain on their own. Will require a community effort of committed, dedicated persons interested in furthering Computer Network Defense. 
+
+Vision
+===
+Working on an Open Source Project toward realization of real time OSINT threat stream of Social media and DarkNet media. Idea is to go beyond anything anyone has contributed within the community toward realization of a solid Proactive Real Time Intelligence Threat Stream. The idea behind open sourcing framework is based upon said technology should not be exclusive or hard to obtain so that organizations have a tool set to build off from. Solution is SIEM agnostic, it should be able to fit into whatever SIEM solution a customer utilizes. In this instance we are leverage the ArcSight SIEM. 
+
+Data Collection
+----
+Leveraging Social media API's and developing Python web crawlers/spiders to gather OSINT within DarkNet space such as TorWeb. 
+Other DarkNet entities will be targeted where access can be gained or subverted. 
+
+Data Mining - Machine Learning - Artificial Intelligence - Natural Language Processing 
+----
+Moving forward in the CND space, systems are increasing in complexity to the extent it is impossible for the traditional Security Operations Center model of Computer Network Defense to provide adequate protection reactively or proactively. As the degree of complexity increases over a long time horizon, the number of humans it will take to mount traditional SOC CND operations will reach a point of unfeasibility. Hence the need for Artificial Intelligence, via Machine Learning, and Natural Language Processing. All of the tool sets and framework are made available within the Apache Hadoop project and all ancillary Hadoop eco-system add on projects. Hadoop provides a highly cost effective solution to adding a Real Time Proactive Cyber Analytic capability to a Security Operations Center Computer Network Defense Game Plan.  Leveraging Apache Hadoop, Mahout, Solr, Hbase, Hive -> A ML/AI/NLP Hadoop cluster can be integrated into an ArcSight SIEM architecture to perform higher level Decision Trees, Neural Networks, and Natural Language Processing analytics. Determining elements within the threat space in real time such as hacker/actor sentiment toward initiation of an active operation against an organization, trust relationships between hacker/actor groups, Natural Language Translation of foreign language site to monitor in real time for indicators of interest. The idea is to utilize cutting edge AI/ML/NLP technology to take your Computer Network Defense to the next level of an active Proactive Computer Network Defense.
+The idea is not to replace the human analytic elements within a SOC CND operation, but instead to increase the strategic real time detection ability of human SOC CND analysts, providing the analysts with a real time proactive OSINT threat stream, that has been reduced and pre analytic analysis has already been conducted by the Hadoop Cluster and various add on tool sets. Presenting data focal points of strategic value which empower a Proactive CND Strategy within a CND SOC, versus the current failed Reactive CND Strategy. Modernization of SOC CND operations will only be realized in a Proactive CND Strategy, hunting the hunters, versus being hunted by the hunters. Better to be a hunter of hunters than the hunted. 
+
+Plan
+---
+If interest is enough, then vet a steering committee of 5 Core Developers, increasing over time to 10 Core Developers, with all others as Publicly Contributing Developers.
+
+Collaboration
+---
+If you are interested in collaborating 
+GitHub: 
+====
+ArcSight Use Case Title:
+Cull Indicators from www.pastebin.com and Automated Feed into ArcSight Active Lists
+====
+ArcSight Use Case Description
+====
+Cull Cyber Actor Indicators from www.pastebin.com, and automate feeding of said indicators
+to Active lists within ArcSight. In turn generate use case ArcSight content centered around Active Lists.
+====
+File & Directory Inventory
+====
+* pastebin_scraper.py => scrape www.pastebin.com pulling down all recent pastes. 
+
+* pyinotify/pyinotify_daemon.py => daemon that monitors a folder - when files CLOSE_WRITE - executes cull_pastebin.py
+
+* archive_files/archive.py => archive processed files daily
+
+* prune_files/prune_files.py => prune processed archived pastes greater than 30 days in age
+
+* product/ => location of the email/phone/IP address/watchlist data focal points of interest
+
+* var/ - location for pid file and log files for pyinotify_daemon.py
+
+* watchlist/ - location of the watchlist of strings to cull from the pastebin pastes
+
+* pastebins - location of the pastebin pastes scraped from www.pastebin.com
+
+* error_handle.py - generic error handling class - called by all other scripts via a Python decorator
+
+* cull_pastebin.py - script processes all pastbin pastes under pastebins/ -> resultant product is written to product/

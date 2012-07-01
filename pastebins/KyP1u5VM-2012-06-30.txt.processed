@@ -1,0 +1,130 @@
+JPanel: automatically paint at creation?
+private class RadarPanel extends JPanel {       
+        public RadarPanel() {
+            super();
+            this.repaint();
+        }
+
+        @Override
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+
+            //painting logic here
+
+            //repaint in 500 ms
+            this.repaint(500);
+        }
+    }
+	
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class PlayerRadar extends JFrame {
+    private static final long serialVersionUID = 230324190;
+
+    //settings
+    private static final int windowWidth = 300;
+    private static final int windowHeight = 300;
+    private static final int maxDistance = 250;
+
+    //components
+    private PlayerRadar radarWindow;
+    private JPanel radarPanel;
+
+    public PlayerRadar(String title) {
+        super(title);
+
+        //set reference
+        radarWindow = this;
+
+        //create radar window
+        Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        this.setAlwaysOnTop(true);
+        this.setBackground(new Color(0xFFFFFF));
+        this.setBounds(screenSize.width - windowWidth, 0, windowWidth, windowHeight);
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                radarWindow.setVisible(false);
+            }
+        });
+        this.setVisible(true);
+
+        //create a JPanel for drawing
+        radarPanel = new RadarPanel();
+        radarPanel.setBounds(0, 0, windowWidth, windowHeight);
+        radarPanel.setBackground(new Color(0xFFFFFF));
+
+        //add to frame
+        this.getContentPane().add(radarPanel);
+    }
+
+    private class RadarPanel extends JPanel {
+        private static final long serialVersionUID = 230324191;
+        private static final int repaintInterval = 500;
+
+        public RadarPanel() {
+            super();
+        }
+
+        @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+
+        //draw player oval (center of the frame)
+        g.setColor(Color.BLUE); //blue
+        int ovalWidth = (int) Math.round(this.getWidth() / 30);
+        int ovalHeight = (int) Math.round(this.getHeight() / 30);
+        int playerLocalX = (int) Math.round(this.getWidth() / 2);
+        int playerLocalY = (int) Math.round(this.getHeight() / 2);
+        int ovalX = playerLocalX - ovalWidth / 2;
+        int ovalY = playerLocalY - ovalHeight / 2;
+        g.fillOval(ovalX, ovalY, ovalWidth, ovalHeight);
+        g.setColor(Color.BLACK); //black
+        g.drawOval(ovalX, ovalY, ovalWidth, ovalHeight);
+
+        //get info of the player itself
+        PlayerInfo thisPlayer = GameUtil.getPlayerInfo();
+        float playerPosZ = thisPlayer.position[0];
+        float playerPosX = thisPlayer.position[2];
+        //float playerRotRad = thisPlayer.rotation;
+
+        //set rectangle specs
+        int rectWidth = this.getWidth() / 40;
+        int rectHeight = this.getWidth() / 40;
+
+        //only continue if we have information about our player
+        if (thisPlayer != null) {
+            //get nearby players
+            ArrayList<PlayerInfo> playersInfo = GameUtil.getNearbyPlayers();
+
+            //for each other player, draw a rectangle
+            for (PlayerInfo playerInfo : playersInfo) {                 
+                //get data
+                float posZ = playerInfo.position[0];
+                float posX = playerInfo.position[2];
+                //float rotRad = playerInfo.rotation;
+
+                //calculate relative x and y
+                int rectX = playerLocalX + Math.round((posX - playerPosX) / maxDistance * this.getWidth() / 2) - rectWidth / 2;
+                int rectY = playerLocalY + ovalHeight / 2 + Math.round((playerPosZ - posZ) / maxDistance * this.getHeight() / 2)  - rectHeight / 2;
+
+                //draw rectangle
+                g.setColor(Color.RED);
+                g.fillRect(rectX, rectY, rectWidth, rectHeight);
+                g.setColor(Color.BLACK);
+                g.drawRect(rectX, rectY, rectWidth, rectHeight);
+            }
+        }
+
+        //repaint soon
+        this.repaint(repaintInterval);
+    }
+    }
+}

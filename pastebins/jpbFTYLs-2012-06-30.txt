@@ -1,0 +1,5 @@
+prod:
+  wkhtmltopdf_path: 'C:\Program Files\wkhtmltopdf\wkhtmltopdf.exe'
+  
+dev:
+  wkhtmltopdf_path: 'C:\Program Files\wkhtmltopdf\wkhtmltopdf.exe'

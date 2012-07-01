@@ -1,0 +1,48 @@
+erlang list filter question
+[
+   ....
+   ["Message-ID", "AAAAAAAAAAAAAAAAAAA"],
+   ["To", "BBBBBBBBBBBBBBBBB"]
+   ...
+]
+	
+lists:filter(fun(Y) -> (lists:nth(1,lists:nth(1,Y)) =:= "Message-ID") end, Sep1).
+	
+exception error: no function clause matching lists:nth(1,[])
+
+ in function  utils:'-parse_to/1-fun-1-'/1
+
+ in call from lists:'-filter/2-lc$^0/1-0-'/2
+	
+io:format(lists:nth(1,lists:nth(1,Sep1))).
+> Message-ID
+	
+lists:filter(fun ([K | _]) -> K =:= "Message-ID" end, ListOfLists).
+	
+[Tail || ["Message-ID" | Tail] <- ListOfLists].
+	
+case lists:filter(fun(Y) -> lists:nth(1, Y) =:= "Message-ID" end, Sep1) of
+  [Result] -> % do something with it;
+  [] -> % no such element found
+end
+	
+[B || [A,B|_] <- L, A =:= "Message-ID"].
+	
+[X] = [B || [A,B|_] <- L, A =:= "Message-ID"].
+	
+[X|_] = [B || [A,B|_] <- L, A =:= "Message-ID"].
+	
+1> L = [["Message-ID","AAAAAAAA"],["To","BBBBBBBBBBB"]].
+[["Message-ID","AAAAAAAA"],["To","BBBBBBBBBBB"]]
+2> [[A,B]||[A,B] <- L, A =:= "Message-ID"].
+[["Message-ID","AAAAAAAA"]]
+	
+filter(List) -> filter(List,[]).
+
+    filter([],Acc) -> lists:reverse(Acc);
+    filter([[]|Tail],Acc) -> filter(Tail,Acc);
+    filter([[H|T]|Tail],Acc) ->
+      case H =:= "Message-ID" of
+        true -> filter(Tail,[[H|T]|Acc]);
+        _ -> filter(Tail,Acc)
+      end.

@@ -1,0 +1,617 @@
+{
+    "name": "Sonic",
+    "author": "MrGameAndWatch",
+    "summary": "Not much to say about it but Sonic the Hedgehog, Sonic daykills, Knuckles is a bodyguard, Tails is an inspector and Amy distracts. Oh, and Shadow is a non-revealing daykiller too. This is by MrGameAndWatch and  Game And Watch. Thanks to Jacze and Drapht for helping me with the finsihing touches. Bunches of thanks to Bebbz for uploading this for me. Also thanks to Dont Shoot Me for helping me find bugs in this theme. So now to the updates: I added Chaotix with Charmy, Vector, and Espio. Vector kills, Charmy distracts and Espio... you'll find that out. Also less humans and more Eggman goons. I also added Super Sonic who is sided by himslef. He daykills and poisons. Plus more Eggman robos, Mighty the Armadillo and Big the Cat. The Eggman Robos are sided by themselves now. Also Super Sonic daykill may reveal. (Trying to make the villans less OP) Big thanks to Mr.Anonymous for just helping with ideas and crap.",
+    "sides": [
+        {
+            "side": "ride",
+            "translation": "Riders",
+            "winmsg": "The Riders won so badly that everyone died..."
+        },
+        {
+            "side": "eggman",
+            "translation": "Eggmans Group",
+            "winmsg": "Ohohoho, world domonation is at hand!!(Everyone is forced to eat eggs until the end of time....)"
+        },
+        {
+            "side": "shadow",
+            "translation": "Shadows Minions",
+            "winmsg": "The world is plunged into complete chaos... Shadow brought the world to it's knees."
+        },
+        {
+            "side": "village",
+            "translation": "Sonic and Friends",
+            "winmsg": "Wooohooo, the good guys win!"
+        },
+        {
+            "side": "chaotix",
+            "translation": "Chaotix",
+            "winmsg": "Ok, Chaotix won... big deal..."
+        },
+        {
+            "side": "ssonic",
+            "translation": "Super Sonic",
+            "winmsg": "Pure destruction."
+        },
+        {
+            "side": "mibi",
+            "translation": "Mighty's Posse",
+            "winmsg": "Everyone was smashed by the heavy force of Big... the freaking huge cat."
+        },
+        {
+            "side": "robo",
+            "translation": "E Trio",
+            "winmsg": "*Beep* *Beep*"
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Human",
+            "side": "village",
+            "help": "You are a mere human so vote to remove people in the day! You might find out who is gonna get killed though.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                }
+            }
+        },
+        {
+            "role": "sonic",
+            "translation": "Sonic the Hedgehog",
+            "side": "village",
+            "help": "You are... (drumroll) SONIC THE HEDGEHOG!!! As the main character, you have to do something special right? Type /kill in the day to kill somebody. You will not be revealed.",
+            "actions": {
+                "daykill": "revenge",
+                "daykillrevengemsg": "~Target~ attempted to kill Sonic, but ~Self~ said: Really...you try to take me out?In broad daylight?!Here's your punishment smart one!",
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Go ahead and whup somebody in a race: /kill:",
+                        "killmsg": "Sonic challenges ~Target~ to a race! ~Target~ loses horribly and dies from the exhaustion."
+                    }
+                }
+            }
+        },
+        {
+            "role": "knuckles",
+            "translation": "Knuckles the Echinda",
+            "side": "village",
+            "help": "You are Knuckles, Sonic's most toughest friend. Type /protect to protect someone, and /safeguard to protect from poison.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 4,
+                        "broadcast": "role"
+                    },
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 6,
+                        "broadcast": "role"
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.01,
+                        "revealPlayer": 0.01
+                    }
+                }
+            }
+        },
+        {
+            "role": "tails",
+            "translation": "Tails the Prower",
+            "side": "village",
+            "help": "You are another one of Sonic's best friends! Type /inspect to find out who such and such is!",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                }
+            }
+        },
+        {
+            "role": "amy",
+            "translation": "Amy Rose",
+            "side": "village",
+            "help": "You are Sonic's sorta girlfriend! Type /distract to distract 2 people!. But be careful, don't hit Tails!.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "limit": 2,
+                        "distractmsg": "*whistle* *whistle* Man look at Amy tonight... Wait, what was I doing?",
+                        "teammsg": "Your partner was checkin' out Amy last night so you didn't do crap."
+                    }
+                }
+            }
+        },
+        {
+            "role": "silver",
+            "translation": "Silver the Hedgehog",
+            "side": "village",
+            "help": "You are the mysterious silver hedgehog, who befriended Sonic. Help him and his friends out as a good killer! Type /kill at night to kill somebody! You can kill twice!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 19,
+                        "limit": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "mgoon",
+            "translation": "Mega Egg Goon",
+            "side": "eggman",
+            "help": "Dang, you scored the mega goon... Type /kill twice to kill 2 people at night. Lucky person.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 19,
+                        "limit": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "rouge",
+            "translation": "Rouge the Bat",
+            "side": "village",
+            "help": "You are Rouge the Bat! You can fly around, dodging any attack, night or day! But due to your constant rougery, you aren't permitted to vote.",
+            "actions": {
+                "vote": 0,
+                "kill": {
+                    "mode": "killattacker",
+                    "msg": "±Rouge: Heh, you can't touch me!"
+                },
+                "daykill": "revenge",
+                "daykillrevengemsg": "~Target~ attempted to kill Rouge, but ~Self~ was just too swift, luring ~Target~ off a cliff!"
+            }
+        },
+        {
+            "role": "shadow",
+            "translation": "Shadow the Hedgehog",
+            "side": "shadow",
+            "help": "You are Shadow, the evil experiment created by somebody! Team up with your bodyguard and your killer to wipe the competition. Type /kill in the day to end somebody's life! You also must know that if you hit Rouge, you'll die!. ",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /kill [name]!",
+                        "killmsg": "Shadow appears behind ~Target~ and uses Chaos Control! ~Target~ was taken into a dark void of nothingness and never to be seen again."
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "shadowbg",
+            "translation": "Shadow's BodyGuard",
+            "side": "shadow",
+            "help": "You are a minion of the DARK LORD SHADOW. No it's not really a big deal though, type /protect to protect Shadow.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 5,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "shadowk",
+            "translation": "Shadow's Killer",
+            "side": "shadow",
+            "help": "Team up with Shadow's Bodyguard and Shadow himself to bring him to victory! Type /kill [name] during the night!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "blaze",
+            "translation": "Blaze the Cat",
+            "side": "village",
+            "help": "You are Blaze, your flame allows you to see all actions at night (no command for this). You also might find out who Tails is!",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.1
+                    },
+                    "inspect": {
+                        "revealTeam": 0.99,
+                        "revealPlayer": 0.5
+                    }
+                }
+            }
+        },
+        {
+            "role": "omega",
+            "translation": "E-123 Omega",
+            "side": "robo",
+            "help": "You are E-123 Omega! Eggman's worst nightmare! Type /kill [name] to kill someone! Type /poison [name] to poison someone, and they will die the following night, and this goes through protect!",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "poisonDeadMessage": "E-123 Omega's poison was just too much!"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10,
+                        "msg": "BOOM! The strength of E-123 Omega took you out!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "eggman",
+            "translation": "Eggman",
+            "side": "eggman",
+            "help": "You are Eggman, the world's smartest human being or whatever you are. Anyways you can inspect once a night, and as a bonus ypu may kill somebody during the night also!",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": "11,"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10,
+                        "broadcast": "Team",
+                        "msg": "Ohohohoho!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "goon",
+            "translation": "Eggman Goon",
+            "side": "eggman",
+            "help": "You are one of Eggman's goons! Type /kill to kill somebody! ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 18,
+                        "broadcast": "team",
+                        "msg": "You dead, heh heh!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "jet",
+            "translation": "Jet the Hawk",
+            "side": "ride",
+            "help": "You are the leader of the Riders, Jet! Type /slice to slice someone with you sharp feathers. And if Amy comes to you, you'll slice her instead!",
+            "actions": {
+                "night": {
+                    "slice": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": "10",
+                        "command": "kill"
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "amymsg": "You tried to distract Jet? (what an idea, srsly), you were sliced into a billion pieces!",
+                    "msg": "~Distracter~ came to you last night! You sliced her instead!"
+                }
+            }
+        },
+        {
+            "role": "storm",
+            "translation": "Storm the Albatross",
+            "side": "ride",
+            "help": "You are Storm! You get a vote shield of -200! Find Jet and Wave!",
+            "actions": {
+                "vote": -200
+            }
+        },
+        {
+            "role": "vector",
+            "translation": "Vector the Croc",
+            "side": "chaotix",
+            "help": "I.... Am..... Vector. Leader of Chaotix! I will chomp my through the battle! Type /kill to eat one of my enemies!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+                        "broadcast": "team",
+                        "msg": "You dead, heh heh!"
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "ssonic",
+            "translation": "Super Sonic",
+            "side": "ssonic",
+            "help": "Pure Destruction. I am the Super Sonic. I escaped the fool Sonic's body and now survive as my own demon entity. Nah Nah no demon crap, well anyways, type /kill in the day to kill somebody. You also get to poison. By the way, a small chance that you might get revealed in the day...",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "avoidHax": [
+                    "poison"
+                ],
+                "startup": "team-reveal",
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Go ahead, end someone's life.",
+                        "killmsg": "A quick flash of yellow light stuns ~Target~, and Super Sonic is seen in a flash second. ~Target~ distintergrates into bone dust.",
+                        "revealChance": 0.33,
+                        "revealmsg": "Then ~Self~ powers down to restore his energy."
+                    }
+                }
+            }
+        },
+        {
+            "role": "mighty",
+            "translation": "Mighty the Armadillo",
+            "side": "mibi",
+            "help": "You are an Armadillo, and of course you can self-protect. You could also protect Big. You also have -10 votes. Go nuts. By the way, Big knows you but you don't know him.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "Self",
+                        "common": "Self",
+                        "priority": 6
+                    }
+                },
+                "vote": -10
+            }
+        },
+        {
+            "role": "big",
+            "translation": "Big the Cat",
+            "side": "mibi",
+            "help": "You are the fattest cat on earth... Type /smash to jump on someone and end their life immeadiatly.",
+            "actions": {
+                "night": {
+                    "smash": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+                        "broadcast": "team",
+                        "command": "kill",
+                        "msg": "Crush you!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "charmy",
+            "translation": "Charmy the Bee",
+            "side": "chaotix",
+            "help": "Bzzzz... You're Charmy the annoying bee. Type /buzz to distract someone. But be careful, don't hit Jet!.",
+            "actions": {
+                "night": {
+                    "buzz": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "command": "distract",
+                        "distractmsg": "Dang that annoying buzzing sound...",
+                        "teammsg": "Charmy was buzzing your partner last night so you didn't do anything."
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "espio",
+            "translation": "Espio the Chameleon",
+            "side": "chaotix",
+            "help": "You are another one of the team Chaotix. The smart one... Type /inspect to find out who somebody is...",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "gamma",
+            "translation": "E-102 Gamma",
+            "side": "robo",
+            "help": "You are, E-102 Gamma! The stealthy one of your other two robot counterparts. You can find out what others will be doing tonight... have fun! ",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.1
+                    },
+                    "protect": {
+                        "revealTeam": 0.99,
+                        "revealPlayer": 0.05
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "alpha",
+            "translation": "E-100 Alpha",
+            "side": "robo",
+            "help": "You are E-100 Aplha, a member of the E Trio. Type /protect to protect someone, and /safeguard to protect from poison. You can do each of those actions twice.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 4,
+                        "limit": 2,
+                        "broadcast": "role"
+                    },
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 6,
+                        "limit": 2,
+                        "broadcast": "role"
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.01,
+                        "revealPlayer": 0.01
+                    }
+                }
+            }   "startup": "team-reveal"
+        },
+        {
+            "role": "cheese",
+            "translation": "Cheese",
+            "side": "village",
+            "help": "You are Cheese the Chao! Since Cream is missing, you need a way to find her! Type /reveal in the day to ask everyone where is Cream? You also avoid dem nightkills. Plus, you can say it twice!",
+            "actions": {
+                "standby": {
+                    "reveal": {
+                        "limit": 2,
+                        "msg": "Reveal yourself with /reveal!",
+                        "revealmsg": "Hey guys, Cheese (~Self~) here. Where the heck is Cream?! Just PM me all your info... and I shall help."
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "wave",
+            "translation": "Wave the Swallow",
+            "side": "ride",
+            "help": "You are Wave! The one with smart out of the 3 rouges. Type /poison to give someone your secret poison that kill them the next night! You also have a small chance of finding out who is going to protect!",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "Team",
+                        "poisonDeadMessage": "Wave's secret acid killed you!"
+                    }
+                },
+                "hax": {
+                    "protect": {
+                        "revealPlayer": 0.01
+                    }
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "knuckles",
+        "tails",
+        "amy",
+        "sonic",
+        "eggman",
+        "goon",
+        "villager",
+        "villager",
+        "villager",
+        "omega",
+        "shadow",
+        "shadowk",
+        "shadowbg",
+        "jet",
+        "storm",
+        "wave",
+        "gamma",
+        "alpha",
+        "silver",
+        "cheese",
+        "rogue"
+    ],
+    "roles2": [
+        "knuckles",
+        "tails",
+        "amy",
+        "sonic",
+        "eggman",
+        "goon",
+        "villager",
+        "villager",
+        "villager",
+        "omega",
+        "goon",
+        "shadow",
+        "shadowk",
+        "shadowbg",
+        "jet",
+        "storm",
+        "wave",
+        "gamma",
+        "ssonic",
+        "vector",
+        "mighty",
+        "espio",
+        "charmy",
+        "big",
+        "alpha",
+        "cheese",
+        "mgoon",
+        "silver",
+        "rouge"
+    ],
+    "villageCantLoseRoles": [
+        "sonic",
+        "amy",
+        "tails",
+        "knuckles",
+        "rouge",
+        "silver",
+        "cheese"
+    ],
+    "killmsg": "+MrGameAndWatch: ~Player~ (~Role~) has been killed. Eh, too bad.",
+    "killusermsg": "You have been killed! But there is always next time right?"
+}

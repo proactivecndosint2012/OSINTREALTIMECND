@@ -1,0 +1,17 @@
+//ARMv7 4.3 GoldMaster - 3GS
+//"+xsimstate=1"
+{0xED754, 0x033850},
+//"Sending internal notification %s (%d) params={%d, %d, %p}"
+{0xF2B1C, 0x05F5D0},
+//"activation ticket accepted... drive thru"
+{0xEB9E4, 0x3341C},
+
+//ARMv7 4.3 GoldMaster - iPhone 4
+//"+xsimstate=1"
+{0xED754, 0x034368},
+//"Sending internal notification %s (%d) params={%d, %d, %p}"
+{0xF47A8, 0x060358},
+//"activation ticket accepted... drive thru"
+{0xED6BC, 0x34170},
+
+//iH8sn0w

@@ -1,0 +1,46 @@
+ClearCanvas DICOM - How to create a Tag with a 'VR' of 'OW'
+void AddOverlay()
+{
+            int newOverlayIndex = 0;
+            for(int i = 0; i != 16; ++i)
+            {
+                if(!DicomFile.DataSet.Contains(GetOverlayTag(i, 0x3000)))
+                {
+                    newOverlayIndex = i;
+                    break;
+                }
+            }
+
+            //Columns
+            uint columnsTag = GetOverlayTag(newOverlayIndex, 0x0011);
+            DicomFile.DataSet[columnsTag].SetUInt16(0, (ushort)CurrentData.Width);
+            //Rows
+            uint rowTag = GetOverlayTag(newOverlayIndex, 0x0010);
+            DicomFile.DataSet[rowTag].SetUInt16(0, (ushort)CurrentData.Height);
+            //Type
+            uint typeTag = GetOverlayTag(newOverlayIndex, 0x0040);
+            DicomFile.DataSet[typeTag].SetString(0, "G");
+            //Origin
+            uint originTag = GetOverlayTag(newOverlayIndex, 0x0050);
+            DicomFile.DataSet[originTag].SetUInt16(0, 1);
+            DicomFile.DataSet[originTag].SetUInt16(1, 1);
+            //Bits Allocted
+            uint bitsAllocatedTag = GetOverlayTag(newOverlayIndex, 0x0100);
+            DicomFile.DataSet[bitsAllocatedTag].SetUInt16(0, 1);
+            //Bit Position
+            uint bitPositionTag = GetOverlayTag(newOverlayIndex, 0x0100);
+            DicomFile.DataSet[bitPositionTag].SetUInt16(0, 0);
+            //Data
+            uint dataTag = GetOverlayTag(newOverlayIndex, 0x3000);
+            DicomFile.DataSet[dataTag].SetNullValue();//<<< Needs to be something else
+            byte[] bits = new byte[(CurrentData.Width*CurrentData.Height)/8];
+            for(int i = 0; i != bits.Length; ++i) bits[i] = 0;
+            DicomFile.DataSet[dataTag].Values = bits;
+}
+public static uint GetOverlayTag(int overlayIndex, short element)
+        {
+            short group = (short)(0x6000 + (overlayIndex*2));
+            byte[] groupBits = BitConverter.GetBytes(group);
+            byte[] elementBtis = BitConverter.GetBytes(element);
+            return BitConverter.ToUInt32(new byte[]{elementBtis[0], elementBtis[1], groupBits[0], groupBits[1]}, 0);
+        }

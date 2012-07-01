@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <vector>
+#include <stack>
+#include <algorithm>
+using namespace std;
+const int MAXN=1010;
+vector<int> grafo[MAXN];
+int pre[MAXN];
+int k;
+int low[MAXN];
+int comp[MAXN];
+int c;
+int inpil[MAXN];
+stack<int> pil;
+int n,m;
+void tarjan(int v)
+{
+   pre[v]=k;
+   low[v]=k;
+   k++;
+   pil.push(v);
+   inpil[v]=1;
+   
+   for(int i=0;i<grafo[v].size();i++)
+   {
+      int prox=grafo[v][i];
+      if(pre[prox]==-1)
+      {
+         tarjan(prox);
+         low[v]=min(low[v],low[prox]);  
+      }
+      else if(inpil[prox])
+      {
+         low[v]=min(low[v],pre[prox]);   
+      }   
+   }
+   
+   if(low[v]==pre[v])   
+   {
+      c++;
+      while(pil.top()!=v)   
+      {
+         comp[pil.top()]=c;
+         inpil[pil.top()]=0;
+         pil.pop();   
+      }
+      comp[v]=c;
+      pil.pop();
+   }
+}
+
+int main()
+{
+   scanf("%d %d",&n,&m);   
+   for(int i=1;i<=m;i++)
+   {
+      int a,b;
+      scanf("%d %d",&a,&b);
+      grafo[a].push_back(b);
+   }
+   for(int i=1;i<=n;i++)
+   {
+      pre[i]=-1;   
+      comp[i]=-1;
+      inpil[i]=0;
+   }
+   k=0;
+   c=0;
+   for(int i=1;i<=n;i++)
+   {
+      if(comp[i]==-1)
+      {
+         printf("%d oi\n",i);
+         while(!pil.empty()) pil.pop();
+         tarjan(i);   
+      }   
+   }
+   for(int i=1;i<=n;i++)   printf("%d %d\n",i,comp[i]);
+   return 0;   
+}

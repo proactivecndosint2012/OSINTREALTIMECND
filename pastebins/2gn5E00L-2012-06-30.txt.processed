@@ -1,0 +1,14 @@
+
+diff --git a/src/Symfony/Component/HttpKernel/HttpCache/HttpCache.php b/src/Symfony/Component/HttpKernel/HttpCache/HttpCache.php
+index 6e2a89e..e8c4ec7 100644
+--- a/src/Symfony/Component/HttpKernel/HttpCache/HttpCache.php
++++ b/src/Symfony/Component/HttpKernel/HttpCache/HttpCache.php
+@@ -555,7 +555,7 @@ class HttpCache implements HttpKernelInterface
+ 
+     protected function processResponseBody(Request $request, Response $response)
+     {
+-        if (null !== $this->esi && $this->esi->needsEsiParsing($response)) {
++        if (null !== $this->esi && $this->esi->needsEsiParsing($response) && !$this->esi->hasSurrogateEsiCapability($request)) {
+             $this->esi->process($request, $response);
+         }
+     }

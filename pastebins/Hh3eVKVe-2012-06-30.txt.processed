@@ -1,0 +1,248 @@
+Last login: Wed Mar 16 23:45:09 on console
+Bens-MacBook:~ Ben$ mysql
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Bens-MacBook:~ Ben$ sql
+-bash: sql: command not found
+Bens-MacBook:~ Ben$ mysql
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Bens-MacBook:~ Ben$ /etc/init.d/mysqld start
+-bash: /etc/init.d/mysqld: No such file or directory
+Bens-MacBook:~ Ben$ telnet localhost 3306
+Trying ::1...
+telnet: connect to address ::1: Connection refused
+Trying fe80::1...
+telnet: connect to address fe80::1: Connection refused
+Trying 127.0.0.1...
+telnet: connect to address 127.0.0.1: Connection refused
+telnet: Unable to connect to remote host
+Bens-MacBook:~ Ben$ mysql -h 127.0.0.1 -u root -p
+Enter password: 
+ERROR 2003 (HY000): Can't connect to MySQL server on '127.0.0.1' (61)
+Bens-MacBook:~ Ben$ mysql
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Bens-MacBook:~ Ben$ sudo chown root /Library/LaunchDaemons/com.mysql.mysqld.plist
+Password:
+Bens-MacBook:~ Ben$ 
+Bens-MacBook:~ Ben$ mysql
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Bens-MacBook:~ Ben$ clear
+
+Bens-MacBook:~ Ben$ mysql
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Bens-MacBook:~ Ben$ mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Bens-MacBook:~ Ben$ mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Bens-MacBook:~ Ben$ mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Bens-MacBook:~ Ben$ mysqld
+110317 17:22:04 [Warning] The syntax '--log' is deprecated and will be removed in a future release. Please use '--general-log'/'--general-log-file' instead.
+110317 17:22:04 [ERROR] Can't find messagefile '/share/mysql/english/errmsg.sys'
+110317 17:22:04 [Warning] Setting lower_case_table_names=2 because file system for /var/db/mysql/ is case insensitive
+110317 17:22:04 [Warning] One can only use the --user switch if running as root
+
+110317 17:22:04 [Note] Plugin 'FEDERATED' is disabled.
+110317 17:22:04 [Note] Plugin 'InnoDB' is disabled.
+mysqld: Unknown error 1146
+110317 17:22:04 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+110317 17:22:04 [ERROR] mysqld: unknown option '--skip-locking'
+110317 17:22:04 [ERROR] Aborting
+
+110317 17:22:04 [Note] 
+Bens-MacBook:~ Ben$ mysqld --skip-locking
+110317 17:22:48 [Warning] The syntax '--log' is deprecated and will be removed in a future release. Please use '--general-log'/'--general-log-file' instead.
+110317 17:22:48 [ERROR] Can't find messagefile '/share/mysql/english/errmsg.sys'
+110317 17:22:48 [Warning] Setting lower_case_table_names=2 because file system for /var/db/mysql/ is case insensitive
+110317 17:22:48 [Warning] One can only use the --user switch if running as root
+
+110317 17:22:48 [Note] Plugin 'FEDERATED' is disabled.
+110317 17:22:48 [Note] Plugin 'InnoDB' is disabled.
+mysqld: Unknown error 1146
+110317 17:22:48 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+110317 17:22:48 [ERROR] mysqld: unknown option '--skip-locking'
+110317 17:22:48 [ERROR] Aborting
+
+110317 17:22:48 [Note] 
+Bens-MacBook:~ Ben$ mysql_upgrade
+Looking for 'mysql' as: mysql
+Looking for 'mysqlcheck' as: mysqlcheck
+Running 'mysqlcheck' with connection arguments: '--port=3306' '--socket=/tmp/mysql.sock' 
+mysqlcheck: Got error: 2002: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) when trying to connect
+FATAL ERROR: Upgrade failed
+Bens-MacBook:~ Ben$ /usr/local/mysql/bin/mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Bens-MacBook:~ Ben$ mysqld start
+110317 17:24:33 [Warning] The syntax '--log' is deprecated and will be removed in a future release. Please use '--general-log'/'--general-log-file' instead.
+110317 17:24:33 [ERROR] Can't find messagefile '/share/mysql/english/errmsg.sys'
+110317 17:24:33 [Warning] Setting lower_case_table_names=2 because file system for /var/db/mysql/ is case insensitive
+110317 17:24:33 [Warning] One can only use the --user switch if running as root
+
+110317 17:24:33 [Note] Plugin 'FEDERATED' is disabled.
+110317 17:24:33 [Note] Plugin 'InnoDB' is disabled.
+mysqld: Unknown error 1146
+110317 17:24:33 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+110317 17:24:33 [ERROR] mysqld: unknown option '--skip-locking'
+110317 17:24:33 [ERROR] Aborting
+
+110317 17:24:33 [Note] 
+Bens-MacBook:~ Ben$ cd /etc/init.d
+-bash: cd: /etc/init.d: No such file or directory
+Bens-MacBook:~ Ben$ 
+Bens-MacBook:~ Ben$ mysql --user=username --password=password
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Bens-MacBook:~ Ben$ shell> ./mysqld --basedir=/usr/local --verbose --help
+-bash: shell: command not found
+Bens-MacBook:~ Ben$ ./mysqld --basedir=/usr/local --verbose --help
+-bash: ./mysqld: Permission denied
+Bens-MacBook:~ Ben$ sudo ./mysqld --basedir=/usr/local --verbose --help
+Password:
+sudo: ./mysqld: command not found
+Bens-MacBook:~ Ben$ cd /usr/local/mysql
+Bens-MacBook:mysql Ben$ ./bin/mysql_safe --user=mysql &
+[1] 9152
+Bens-MacBook:mysql Ben$ -bash: ./bin/mysql_safe: No such file or directory
+./bin/mysql_safe --user=mysql &
+[2] 10677
+[1]   Exit 127                ./bin/mysql_safe --user=mysql
+Bens-MacBook:mysql Ben$ -bash: ./bin/mysql_safe: No such file or directory
+
+[2]+  Exit 127                ./bin/mysql_safe --user=mysql
+Bens-MacBook:mysql Ben$ 
+Bens-MacBook:mysql Ben$ 
+Bens-MacBook:mysql Ben$ mysql
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Bens-MacBook:mysql Ben$ clear
+
+Bens-MacBook:mysql Ben$ mysqld_safe
+110317 17:32:46 mysqld_safe Logging to '/var/db/mysql/Bens-MacBook.local.err'.
+110317 17:32:46 mysqld_safe Starting mysqld daemon with databases from /var/db/mysql
+/usr/local/mysql/bin/mysqld_safe: line 107: /var/db/mysql/Bens-MacBook.local.err: Permission denied
+/usr/local/mysql/bin/mysqld_safe: line 144: /var/db/mysql/Bens-MacBook.local.err: Permission denied
+110317 17:32:46 mysqld_safe mysqld from pid file /var/run/mysqld/mysqld.pid ended
+/usr/local/mysql/bin/mysqld_safe: line 107: /var/db/mysql/Bens-MacBook.local.err: Permission denied
+Bens-MacBook:mysql Ben$ sudo mysqld_safe
+Password:
+Sorry, try again.
+Password:
+110317 17:34:48 mysqld_safe Logging to '/var/db/mysql/Bens-MacBook.local.err'.
+110317 17:34:48 mysqld_safe Starting mysqld daemon with databases from /var/db/mysql
+110317 17:34:48 mysqld_safe mysqld from pid file /var/run/mysqld/mysqld.pid ended
+Bens-MacBook:mysql Ben$ cd /usr/local/mysql
+Bens-MacBook:mysql Ben$ sudo chown -R mysql data
+Bens-MacBook:mysql Ben$ sudo chgrp -R mysql data
+Bens-MacBook:mysql Ben$ sudo scripts/mysql_install_db --user=mysql
+Installing MySQL system tables...
+110317 17:36:08 [Warning] The syntax '--log' is deprecated and will be removed in a future release. Please use '--general-log'/'--general-log-file' instead.
+110317 17:36:08 [ERROR] Can't find messagefile '/share/mysql/english/errmsg.sys'
+110317 17:36:08 [ERROR] ./bin/mysqld: unknown option '--skip-locking'
+110317 17:36:08 [ERROR] Aborting
+
+110317 17:36:08 [Note] 
+
+Installation of system tables failed!  Examine the logs in
+/var/db/mysql for more information.
+
+You can try to start the mysqld daemon with:
+
+    shell> ./bin/mysqld --skip-grant &
+
+and use the command line tool ./bin/mysql
+to connect to the mysql database and look at the grant tables:
+
+    shell> ./bin/mysql -u root mysql
+    mysql> show tables
+
+Try 'mysqld --help' if you have problems with paths.  Using --log
+gives you a log in /var/db/mysql that may be helpful.
+
+Please consult the MySQL manual section
+'Problems running mysql_install_db', and the manual section that
+describes problems on your OS.  Another information source are the
+MySQL email archives available at http://lists.mysql.com/.
+
+Please check all of the above before mailing us!  And remember, if
+you do mail us, you MUST use the ./bin/mysqlbug script!
+
+Bens-MacBook:mysql Ben$ /bin/mysqld --skip-grant &
+[1] 22447
+Bens-MacBook:mysql Ben$ -bash: /bin/mysqld: No such file or directory
+
+[1]+  Exit 127                /bin/mysqld --skip-grant
+Bens-MacBook:mysql Ben$ sudo chown -R mysql data
+Bens-MacBook:mysql Ben$ sudo chgrp -R mysql data
+Bens-MacBook:mysql Ben$ sudo scripts/mysql_install_db --user=mysql
+Installing MySQL system tables...
+110317 17:37:21 [Warning] The syntax '--log' is deprecated and will be removed in a future release. Please use '--general-log'/'--general-log-file' instead.
+110317 17:37:21 [ERROR] Can't find messagefile '/share/mysql/english/errmsg.sys'
+110317 17:37:21 [ERROR] ./bin/mysqld: unknown option '--skip-locking'
+110317 17:37:21 [ERROR] Aborting
+
+110317 17:37:21 [Note] 
+
+Installation of system tables failed!  Examine the logs in
+/var/db/mysql for more information.
+
+You can try to start the mysqld daemon with:
+
+    shell> ./bin/mysqld --skip-grant &
+
+and use the command line tool ./bin/mysql
+to connect to the mysql database and look at the grant tables:
+
+    shell> ./bin/mysql -u root mysql
+    mysql> show tables
+
+Try 'mysqld --help' if you have problems with paths.  Using --log
+gives you a log in /var/db/mysql that may be helpful.
+
+Please consult the MySQL manual section
+'Problems running mysql_install_db', and the manual section that
+describes problems on your OS.  Another information source are the
+MySQL email archives available at http://lists.mysql.com/.
+
+Please check all of the above before mailing us!  And remember, if
+you do mail us, you MUST use the ./bin/mysqlbug script!
+
+Bens-MacBook:mysql Ben$ 
+Bens-MacBook:mysql Ben$ 
+Bens-MacBook:mysql Ben$ 
+Bens-MacBook:mysql Ben$ clear
+
+Bens-MacBook:mysql Ben$ sudo scripts/mysql_install_db --user=mysql
+Installing MySQL system tables...
+110317 17:37:33 [Warning] The syntax '--log' is deprecated and will be removed in a future release. Please use '--general-log'/'--general-log-file' instead.
+110317 17:37:33 [ERROR] Can't find messagefile '/share/mysql/english/errmsg.sys'
+110317 17:37:33 [ERROR] ./bin/mysqld: unknown option '--skip-locking'
+110317 17:37:33 [ERROR] Aborting
+
+110317 17:37:33 [Note] 
+
+Installation of system tables failed!  Examine the logs in
+/var/db/mysql for more information.
+
+You can try to start the mysqld daemon with:
+
+    shell> ./bin/mysqld --skip-grant &
+
+and use the command line tool ./bin/mysql
+to connect to the mysql database and look at the grant tables:
+
+    shell> ./bin/mysql -u root mysql
+    mysql> show tables
+
+Try 'mysqld --help' if you have problems with paths.  Using --log
+gives you a log in /var/db/mysql that may be helpful.
+
+Please consult the MySQL manual section
+'Problems running mysql_install_db', and the manual section that
+describes problems on your OS.  Another information source are the
+MySQL email archives available at http://lists.mysql.com/.
+
+Please check all of the above before mailing us!  And remember, if
+you do mail us, you MUST use the ./bin/mysqlbug script!
+
+Bens-MacBook:mysql Ben$

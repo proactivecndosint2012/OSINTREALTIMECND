@@ -1,0 +1,102 @@
+Module                  Size  Used by
+snd_emu10k1_synth      17241  0 
+snd_emux_synth         42825  1 snd_emu10k1_synth
+snd_seq_virmidi        13525  1 snd_emux_synth
+snd_seq_midi_emul      17854  1 snd_emux_synth
+snd_hrtimer            12744  2 
+snd_seq_dummy          12798  2 
+snd_seq_midi           13324  0 
+snd_seq_midi_event     14899  2 snd_seq_virmidi,snd_seq_midi
+snd_seq                61896  10 snd_emux_synth,snd_seq_virmidi,snd_seq_midi_emul,snd_seq_dummy,snd_seq_midi,snd_seq_midi_event
+pci_stub               12622  1 
+vboxpci                23200  0 
+vboxnetadp             13382  0 
+vboxnetflt             23441  0 
+vboxdrv               287082  3 vboxpci,vboxnetadp,vboxnetflt
+dm_crypt               23125  0 
+ip6table_filter        12815  0 
+ip6_tables             27864  1 ip6table_filter
+ebtable_nat            12807  0 
+ebtables               30984  1 ebtable_nat
+ipt_MASQUERADE         12759  3 
+iptable_nat            13229  1 
+nf_nat                 25891  2 ipt_MASQUERADE,iptable_nat
+nf_conntrack_ipv4      19716  4 iptable_nat,nf_nat
+nf_defrag_ipv4         12729  1 nf_conntrack_ipv4
+xt_state               12578  1 
+nf_conntrack           81926  5 ipt_MASQUERADE,iptable_nat,nf_nat,nf_conntrack_ipv4,xt_state
+ipt_REJECT             12576  2 
+xt_CHECKSUM            12549  1 
+iptable_mangle         12734  1 
+xt_tcpudp              12603  5 
+iptable_filter         12810  1 
+ip_tables              27473  3 iptable_nat,iptable_mangle,iptable_filter
+x_tables               29846  12 ip6table_filter,ip6_tables,ebtables,ipt_MASQUERADE,iptable_nat,xt_state,ipt_REJECT,xt_CHECKSUM,iptable_mangle,xt_tcpudp,iptable_filter,ip_tables
+bridge                 90989  0 
+stp                    12931  1 bridge
+kvm_intel             137721  0 
+kvm                   415549  1 kvm_intel
+bnep                   18281  2 
+rfcomm                 47604  0 
+parport_pc             32866  0 
+bluetooth             180104  10 bnep,rfcomm
+ppdev                  17113  0 
+snd_hda_codec_hdmi     32474  1 
+tuner_simple           18551  1 
+tuner_types            24318  1 tuner_simple
+binfmt_misc            17540  1 
+rc_hauppauge           12532  0 
+tuner                  27428  1 
+msp3400                36458  1 
+nvidia              10888310  60 
+saa7115                23031  1 
+dm_multipath           23230  0 
+snd_hda_codec_realtek   223867  1 
+snd_emu10k1           157352  2 snd_emu10k1_synth
+ivtv                  160120  0 
+cx2341x                28331  1 ivtv
+emu10k1_gp             12650  0 
+snd_rawmidi            30748  3 snd_seq_virmidi,snd_seq_midi,snd_emu10k1
+i2c_algo_bit           13423  1 ivtv
+gameport               19693  2 emu10k1_gp
+snd_ac97_codec        134826  1 snd_emu10k1
+v4l2_common            16454  5 tuner,msp3400,saa7115,ivtv,cx2341x
+videodev               98259  6 tuner,msp3400,saa7115,ivtv,cx2341x,v4l2_common
+v4l2_compat_ioctl32    17128  1 videodev
+tveeprom               21249  1 ivtv
+ac97_bus               12730  1 snd_ac97_codec
+snd_util_mem           14074  2 snd_emux_synth,snd_emu10k1
+i7core_edac            28102  0 
+snd_hda_intel          33773  11 
+snd_hda_codec         127706  3 snd_hda_codec_hdmi,snd_hda_codec_realtek,snd_hda_intel
+snd_hwdep              13668  3 snd_emux_synth,snd_emu10k1,snd_hda_codec
+edac_core              53746  3 i7core_edac
+snd_pcm                97188  8 snd_hda_codec_hdmi,snd_emu10k1,snd_ac97_codec,snd_hda_intel,snd_hda_codec
+snd_seq_device         14540  6 snd_emu10k1_synth,snd_seq_dummy,snd_seq_midi,snd_seq,snd_emu10k1,snd_rawmidi
+snd_timer              29990  7 snd_hrtimer,snd_seq,snd_emu10k1,snd_pcm
+snd                    78855  34 snd_emux_synth,snd_seq_virmidi,snd_seq,snd_hda_codec_hdmi,snd_hda_codec_realtek,snd_emu10k1,snd_rawmidi,snd_ac97_codec,snd_hda_intel,snd_hda_codec,snd_hwdep,snd_pcm,snd_seq_device,snd_timer
+soundcore              15091  1 snd
+snd_page_alloc         18529  3 snd_emu10k1,snd_hda_intel,snd_pcm
+asus_atk0110           18078  0 
+mac_hid                13253  0 
+ir_lirc_codec          12859  0 
+lirc_dev               19204  1 ir_lirc_codec
+ir_mce_kbd_decoder     12777  0 
+ir_sony_decoder        12510  0 
+ir_jvc_decoder         12507  0 
+ir_kbd_i2c             13185  0 
+ir_rc6_decoder         12507  0 
+ir_rc5_decoder         12507  0 
+ir_nec_decoder         12507  0 
+rc_core                26412  10 rc_hauppauge,ir_lirc_codec,ir_mce_kbd_decoder,ir_sony_decoder,ir_jvc_decoder,ir_kbd_i2c,ir_rc6_decoder,ir_rc5_decoder,ir_nec_decoder
+coretemp               13525  0 
+hwmon_vid              12827  0 
+lp                     17799  0 
+parport                46562  3 parport_pc,ppdev,lp
+firewire_ohci          41000  0 
+usbhid                 47199  0 
+firewire_core          63558  1 firewire_ohci
+crc_itu_t              12707  1 firewire_core
+hid                    99559  1 usbhid
+r8169                  62099  0 
+usb_storage            49198  0

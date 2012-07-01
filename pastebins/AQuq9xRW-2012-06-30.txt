@@ -1,0 +1,6 @@
+Delete a list of files from SQL Server table
+SELECT 'del /Q ' + file_name FROM your_table;
+	
+sqlcmd -d MyDb -Q "SELECT * FROM (SELECT 'DELETE /Q ' + file_name AS x FROM your_table UNION ALL SELECT 'EXIT') AS x" -h -1 -o temp.bat
+temp.bat
+DEL temp.bat

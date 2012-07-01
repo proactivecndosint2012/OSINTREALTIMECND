@@ -1,0 +1,30 @@
+JQuery tabs with Rails: replacing tab content
+<div id="tabs">
+  <ul>
+
+    <li><a href="urls">Manage URLs</a></li>
+    ...other tabs...
+  </ul>
+
+  <div id="urls-tab">
+    <p>
+    </p>
+  </div>
+  ...other tabs...
+</div>
+	
+<%= form_tag('urls/someaction_not_new', :method => :post, :id = "top-form") do %>
+  ...content...
+  <input type="button" id="New" value="New" onclick="someJavascript()">
+
+<% end %>
+	
+$("#tabs").tabs();
+
+function someJavascript() {
+  document.location = "urls/new"
+}
+	
+function someJavascript() {
+  $('#tabs').load('urls/new')
+}

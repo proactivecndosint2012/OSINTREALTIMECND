@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
+int main ()
+{  
+    int a[100];
+    int cs=1,n;
+    cin>>n;
+    int m;
+    while(cs<=n)
+    {
+                printf("\n");
+                cin>>m;
+                int l=0;
+                for(int i=0;i<m;i++)
+                {
+                        scanf("%d", &a[i]);
+                       // if (a[i]<0)
+                       // l=l+a[i+1];
+                       // else
+                       // l=l+a[i];
+                        }
+                        for(int i=0;i<m;i++)
+                {
+                        if (a[i]<0)
+                        continue;
+                        else
+                        l=l+a[i];
+                        }
+                      cout<<"Case "<<cs<<": "<<l<<endl;
+                      cs++;
+                      }
+                      return 0;
+                      }

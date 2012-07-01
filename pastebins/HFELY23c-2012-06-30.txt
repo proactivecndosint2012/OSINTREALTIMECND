@@ -1,0 +1,45 @@
+Asp .Net Gridview paging
+<PagerStyle HorizontalAlign="Right" CssClass="paging"/>
+          <PagerTemplate>
+            <table width="100%">
+                <tr>
+                    <td style="text-align:left; width:50%">
+
+                        <asp:LinkButton ID="lnkPrv" Visible="false" CommandName="Page" CommandArgument="Prev" runat="server">Previous</asp:LinkButton>
+                    </td>
+                    <td style="text-align:right; width:50%;padding-left:50%;">                        
+                        <asp:LinkButton ID="lnkNext" CommandName="Page" CommandArgument="Next" runat="server">Next</asp:LinkButton>
+                    </td>
+                </tr>
+            </table>
+        </PagerTemplate>
+	
+protected void gvProduct_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        Literal1.Visible = gvProduct.PageIndex == 0;
+
+        LinkButton lnkPrv = (LinkButton)gvProduct.BottomPagerRow.FindControl("lnkPrv");
+        LinkButton lnkNext = (LinkButton)gvProduct.BottomPagerRow.FindControl("lnkNext");
+
+        lnkPrv.Visible = e.NewPageIndex > 0;
+        lnkNext.Visible = e.NewPageIndex < gvProduct.PageCount - 1;
+        gvProduct.PageIndex = e.NewPageIndex;
+        FillGrid();
+    }
+	
+protected void gvProduct_PageIndexChanging(object sender, GridViewPageEventArgs e)
+{
+            Literal1.Visible = gvProduct.PageIndex == 0;
+            gvProduct.PageIndex = e.NewPageIndex;
+            FillGrid();
+}
+
+protected void gvProduct_RowDataBound(object sender, GridViewRowEventArgs e)
+{
+    if (e.Row.RowType == DataControlRowType.Pager) {
+      LinkButton lnkPrv = (LinkButton)e.Row.FindControl("lnkPrv");
+      LinkButton lnkNext = (LinkButton)e.Row.FindControl("lnkNext");
+      lnkPrv.Visible = gvProduct.PageIndex > 0;
+      lnkNext.Visible = gvProduct.PageIndex < gvProduct.PageCount - 1;
+     }
+}

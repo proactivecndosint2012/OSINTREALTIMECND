@@ -1,0 +1,63 @@
+package com.mcsmp.BlockLogLite;
+
+import org.bukkit.block.Block;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockInteractEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
+
+public class BlockListener extends org.bukkit.event.block.BlockListener {
+
+    BlockLogLite plugin;
+
+    public BlockListener(BlockLogLite i) {
+        plugin = i;
+    }
+
+    @Override
+    public void onBlockPlace(BlockPlaceEvent event) {
+        //Date d = new Date();
+        Block block = event.getBlock();
+        if ( plugin.onBlockEvent(event.getPlayer(), 1, block) ) {
+            event.setCancelled(true);
+        } else if (!event.isCancelled()) {
+            plugin.logBlock(event.getPlayer().getName(), 1, block);
+        }
+        //long ms = (new Date()).getTime() - d.getTime();
+        //plugin.log("onBlockPlace() took: " + String.format("%ds %dms", (ms % 60) / 1000, ms % 1000));
+    }
+
+    @Override
+    public void onBlockBreak(BlockBreakEvent event) {
+        //Date d = new Date();
+        Block block = event.getBlock();
+        if ( plugin.onBlockEvent(event.getPlayer(), 2, block) ) {
+            event.setCancelled(true);
+        } else if (!event.isCancelled()) {
+            plugin.logBlock(event.getPlayer().getName(), 2, block);
+        }
+        //long ms = (new Date()).getTime() - d.getTime();
+        //plugin.log("onBlockBreak() took: " + String.format("%ds %dms", (ms % 60) / 1000, ms % 1000));
+    }
+
+    @Override
+    public void onBlockInteract(BlockInteractEvent event) {
+        if (!event.isCancelled()) {
+            return;
+        }
+        //Date d = new Date();
+        Block block = event.getBlock();
+        LivingEntity entity = event.getEntity();
+        if (entity instanceof Player) {
+            Player player = (Player) entity;
+            switch (block.getType()) {
+                case CHEST:
+                    plugin.onChestEvent(event);
+                    break;
+            }
+        }
+        //long ms = (new Date()).getTime() - d.getTime();
+        //plugin.log("onBlockInteract() took: " + String.format("%ds %dms", (ms % 60) / 1000, ms % 1000));
+    }
+}

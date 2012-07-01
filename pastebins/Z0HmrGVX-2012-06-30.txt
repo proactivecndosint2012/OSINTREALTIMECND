@@ -1,0 +1,13 @@
+~~~~~~6/30/2012
+Dungeon Name: Utgard Keep
+Role Used: Healer
+DUNGEON STATUS (below): 
+Fully AFKable?[X]
+Minor Issues? [X]
+Major Issues? [ ]
+Issue Explanation:
+a)Where (add a screenshot if possible: Ingvar in Utgard Keep
+b)What bot does or does not do?: Wont run behind Pillars at Ingvar when needed
+c)Penalty(death? stuck? Wipe? Kick?): 
+d)Suggested solution(If any): Run behind Pillars 
+~~~~~~

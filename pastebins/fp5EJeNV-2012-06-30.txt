@@ -1,0 +1,28 @@
+How to addClass() at RANDOM to an element in jQuery?
+<style>
+div.myWords p { display: hidden; }
+p.show { display: block; }
+</style>
+
+<div class="myWords">
+
+<p>Hello</p>
+<p>Hola</p>
+<p>Bonjour</p>
+
+</div><!-- myWords -->
+	
+$(document).ready(function() {
+    var paras = $('div.myWords p');
+    var rand = Math.floor(Math.random() * paras.length);
+    paras.eq(rand).addClass('show');
+});
+	
+$(document).ready(function() {
+    var paras = $('div.myWords p');
+    var rand = Math.floor(Math.random() * paras.length);
+    paras.eq(rand).show();
+});
+	
+div.myWords p { display: none; }
+div.myWords p.show { display: block; }

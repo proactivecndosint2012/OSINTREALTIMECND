@@ -1,0 +1,6 @@
+MySQL Distinct (Unique) values over time
+for($i=0;$i<count($dates),$i++){      
+    $qry = "SELECT COUNT (DISTINCT `col1`) FROM `db`.`table` WHERE `Date` BETWEEN '".$EPOCH."' AND '".$dates[$i]."';";    
+}
+	
+SELECT StampCol, COUNT(DISTINCT DataCol) FROM MyTable GROUP BY StampCol

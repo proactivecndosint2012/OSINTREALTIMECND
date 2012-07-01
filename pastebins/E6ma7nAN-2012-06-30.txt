@@ -1,0 +1,412 @@
+Creating maven Jar File contains JGoodies jar Problem [closed]
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>Downloader</groupId>
+    <artifactId>Downloader</artifactId>
+    <version>1.0</version>
+    <name>Downloader</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.test.sourceEncoding>UTF-8</project.test.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+   <groupId>org.apache.ant</groupId>
+   <artifactId>ant</artifactId>
+   <version>1.7.1</version>
+</dependency>
+        <dependency>
+  <groupId>com.jgoodies</groupId>
+  <artifactId>forms</artifactId>
+  <version>1.2.1</version>
+</dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jacob-project</groupId>
+            <artifactId>jacob</artifactId>
+            <version>1.14.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.htmlparser</groupId>
+            <artifactId>htmlparser</artifactId>
+            <version>1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+
+            <version>4.0</version>
+            <scope>test</scope>
+
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-jar-plugin</artifactId>
+                            <configuration>
+
+                                <archive>
+                                    <manifest>
+                                        <addClasspath>true</addClasspath>
+
+                                        <mainClass>bemukan.downloadAccelerator.Main</mainClass>
+                                    </manifest>
+                                </archive>
+                            </configuration>
+
+                        </plugin>
+            <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-shade-plugin</artifactId>
+                  <version>1.4</version>
+                  <configuration>
+                     <archive>
+                                    <manifest>
+                                        <addClasspath>true</addClasspath>
+
+                                        <mainClass>bemukan.downloadAccelerator.Main</mainClass>
+                                    </manifest>
+                                </archive>
+                  </configuration>
+                </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-idea-plugin</artifactId>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                    <jdkLevel>1.6</jdkLevel>
+                    <jdkName>1.6</jdkName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>utf-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+
+                    <finalName>TestExcel</finalName>
+
+                    <archive>
+                        <manifest>
+                            <mainClass>bemukan.downloadAccelerator.Main</mainClass>
+                        </manifest>
+                    </archive>
+
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <!-- this is used for inheritance merges -->
+                        <phase>package</phase>
+                        <!-- append to the packaging phase. -->
+                        <goals>
+                            <goal>single</goal>
+                            <!-- goals == mojos -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
+</project>
+	
+Exception in thread "main" java.lang.NullPointerException at  emukan.downloadAccelerator.Home.<init>(Home.java:2 at  emukan.downloadAccelerator.Main.main(Main.java:15)
+	
+<dependency>
+        <groupId>jgoodies</groupId>
+        <artifactId>binding</artifactId>
+        <version>1.0</version>
+    </dependency>
+	
+<dependency>
+        <groupId>com.jgoodies</groupId>
+        <artifactId>forms</artifactId>
+        <version>1.2.1</version>
+    </dependency>
+
+    <dependency>
+        <groupId>jgoodies</groupId>
+        <artifactId>binding</artifactId>
+        <version>1.0</version>
+    </dependency>
+	
+<groupId>Bemukan</groupId>
+<artifactId>WordMemorize</artifactId>
+<version>1.0</version>
+
+<name>WordMemorize</name>
+<url>http://maven.apache.org</url>
+
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.test.sourceEncoding>UTF-8</project.test.sourceEncoding>
+</properties>
+<dependencies>
+    <dependency>
+        <groupId>org.apache.ant</groupId>
+        <artifactId>ant</artifactId>
+        <version>1.7.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.jgoodies</groupId>
+        <artifactId>forms</artifactId>
+        <version>1.2.1</version>
+    </dependency>
+
+    <dependency>
+        <groupId>jgoodies</groupId>
+        <artifactId>binding</artifactId>
+        <version>1.0</version>
+    </dependency>
+
+
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.16</version>
+    </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.5</version>
+    </dependency>
+
+
+</dependencies>
+<build>
+    <plugins>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-idea-plugin</artifactId>
+            <configuration>
+                <downloadSources>true</downloadSources>
+                <downloadJavadocs>true</downloadJavadocs>
+                <jdkLevel>1.6</jdkLevel>
+                <jdkName>1.6</jdkName>
+            </configuration>
+        </plugin>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.6</source>
+                <target>1.6</target>
+                <encoding>utf-8</encoding>
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.7</version>
+            <configuration>
+
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration>
+
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+
+                        <mainClass>bemukan.downloadAccelerator.Main</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+
+        </plugin>
+
+
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.2</version>
+            <configuration>
+
+                <finalName>Downloader</finalName>
+
+                <archive>
+                    <manifest>
+                        <mainClass>bemukan.downloadAccelerator.Main</mainClass>
+                    </manifest>
+                </archive>
+
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+
+            <executions>
+                <execution>
+                    <id>make-assembly</id>
+                    <!-- this is used for inheritance merges -->
+                    <phase>package</phase>
+                    <!-- append to the packaging phase. -->
+                    <goals>
+                        <goal>single</goal>
+                        <!-- goals == mojos -->
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+    </plugins>
+
+</build>
+	
+<groupId>Downloader</groupId>
+<artifactId>Downloader</artifactId>
+<version>1.0</version>
+<name>Downloader</name>
+<url>http://maven.apache.org</url>
+
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.test.sourceEncoding>UTF-8</project.test.sourceEncoding>
+</properties>
+<dependencies>
+    <dependency>
+	
+<version>4.0</version>
+        <scope>test</scope>
+
+    </dependency>
+</dependencies>
+<build>
+    <plugins>
+        <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <configuration>
+
+                            <archive>
+                                <manifest>
+                                    <addClasspath>true</addClasspath>
+
+                                    <mainClass>bemukan.downloadAccelerator.Main</mainClass>
+                                </manifest>
+                            </archive>
+                        </configuration>
+
+                    </plugin>
+        <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-shade-plugin</artifactId>
+              <version>1.4</version>
+              <configuration>
+                 <archive>
+                                <manifest>
+                                    <addClasspath>true</addClasspath>
+
+                                    <mainClass>bemukan.downloadAccelerator.Main</mainClass>
+                                </manifest>
+                            </archive>
+              </configuration>
+            </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-idea-plugin</artifactId>
+            <configuration>
+                <downloadSources>true</downloadSources>
+                <downloadJavadocs>true</downloadJavadocs>
+                <jdkLevel>1.6</jdkLevel>
+                <jdkName>1.6</jdkName>
+            </configuration>
+        </plugin>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.6</source>
+                <target>1.6</target>
+                <encoding>utf-8</encoding>
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.7</version>
+            <configuration>
+
+            </configuration>
+        </plugin>
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.2</version>
+            <configuration>
+
+                <finalName>TestExcel</finalName>
+
+                <archive>
+                    <manifest>
+                        <mainClass>bemukan.downloadAccelerator.Main</mainClass>
+                    </manifest>
+                </archive>
+
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+
+            <executions>
+                <execution>
+                    <id>make-assembly</id>
+                    <!-- this is used for inheritance merges -->
+                    <phase>package</phase>
+                    <!-- append to the packaging phase. -->
+                    <goals>
+                        <goal>single</goal>
+                        <!-- goals == mojos -->
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+    </plugins>
+
+</build>

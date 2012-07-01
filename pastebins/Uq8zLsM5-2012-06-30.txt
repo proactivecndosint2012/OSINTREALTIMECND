@@ -1,0 +1,52 @@
+while true do
+ if turtle.detect() then
+  turtle.dig()
+  term.clear()
+  term.setCursorPos(1,1)
+  a = turtle.getItemCount(1)
+  b = turtle.getItemCount(2)
+  c = turtle.getItemCount(3)
+  d = turtle.getItemCount(4)
+  e = turtle.getItemCount(5)
+  f = turtle.getItemCount(6)
+  g = turtle.getItemCount(7)
+  h = turtle.getItemCount(8)
+  i = turtle.getItemCount(9)
+  print("Row 1: " .. a .. " (" .. math.floor(((a/(a+b+c+d+e+f+g+h+i))*100)) .. "%)")
+  print("Row 2: " .. b .. " (" .. math.floor(((b/(a+b+c+d+e+f+g+h+i))*100)) .. "%)")
+  print("Row 3: " .. c .. " (" .. math.floor(((c/(a+b+c+d+e+f+g+h+i))*100)) .. "%)")
+  print("Row 4: " .. d .. " (" .. math.floor(((d/(a+b+c+d+e+f+g+h+i))*100)) .. "%)")
+  print("Row 5: " .. e .. " (" .. math.floor(((e/(a+b+c+d+e+f+g+h+i))*100)) .. "%)")
+  print("Row 6: " .. f .. " (" .. math.floor(((f/(a+b+c+d+e+f+g+h+i))*100)) .. "%)")
+  print("Row 7: " .. g .. " (" .. math.floor(((g/(a+b+c+d+e+f+g+h+i))*100)) .. "%)")
+  print("Row 8: " .. h .. " (" .. math.floor(((h/(a+b+c+d+e+f+g+h+i))*100)) .. "%)")
+  print("Row 9: " .. i .. " (" .. math.floor(((i/(a+b+c+d+e+f+g+h+i))*100)) .. "%)")
+  totalc = a+b+c+d+e+f+g+h+i
+  print("Total: " .. totalc)
+  print("-----------------")
+  print(" ___ ___ ___ ")
+  print("| 1 | 2 | 3 |")
+  print("|___|___|___|")
+  print("| 4 | 5 | 6 |")
+  print("|---|---|---|")
+  print("| 7 | 8 | 9 |")
+  print("|___|___|___|")
+  print(" ")
+  print("-----------------")
+  print("Cobble Farmer")
+  print("By: NewFletcher")
+ end
+ totalcount = turtle.getItemCount(9)
+ if totalcount == 64 then
+  term.clear()
+  term.setCursorPos(1,1)
+  print("Dropping Stacks")
+  print("...Please wait.")
+  sleep(1)
+  for i=1,9 do
+   turtle.select(i)
+   turtle.drop()
+  end
+  turtle.select(1)
+ end
+end

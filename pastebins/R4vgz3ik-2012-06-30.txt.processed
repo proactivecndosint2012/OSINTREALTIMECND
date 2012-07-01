@@ -1,0 +1,11 @@
+How to achieve the Facebook Photo Albums affect in the URI?
+http://www.facebook.com/photo.php?fbid=1431582004331&set=a.1317260946376.35985.1676316284&theater
+http://www.facebook.com/photo.php?fbid=1304601029886&set=a.1317260946376.35985.1676316284&theater
+http://www.facebook.com/photo.php?fbid=1431444360890&set=a.1317260946376.35985.1676316284&theater
+	
+var stateObj = { foo: "bar" };
+history.pushState(stateObj, "page 2", "bar.html");
+	
+fbid=1431582004331 // id of the foto  
+set=a.1317260946376.35985.1676316284  // id of the album 
+theater  // indicates theater mode or the new 'mode'

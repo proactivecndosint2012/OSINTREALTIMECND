@@ -1,0 +1,13 @@
+<?php
+$connection = mysql_connect("localhost","root","") or die mysql_error();
+mysql_select_db("firma", $connection);
+$sql="INSERT INTO personen (name, personalnummer, vorname, gehalt)
+VALUES
+('$_POST[test]','-','-','-')";
+if (!mysql_query($sql,$connection)){
+  die('Error: ' . mysql_error());
+}else{
+echo "Funzt...";
+}
+mysql_close($connection)
+?>

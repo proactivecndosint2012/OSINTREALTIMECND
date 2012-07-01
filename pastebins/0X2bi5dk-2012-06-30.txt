@@ -1,0 +1,56 @@
+Custom Excel Export Action
+public class ExcelResult<Model> : ActionResult
+    {
+        string _fileName;
+        string _viewPath;
+        Model _model;
+        ControllerContext _context;
+
+        public ExcelResult(ControllerContext context, string viewPath, string fileName, Model model)
+        {
+            this._context = context;
+            this._fileName = fileName;
+            this._viewPath = viewPath;
+            this._model = model;
+        }
+         protected string RenderViewToString()
+        {
+            using (var writer = new StringWriter())
+            {
+                var view = new WebFormView(_viewPath);
+                var vdd = new ViewDataDictionary<Model>(_model);
+                var viewCxt = new ViewContext(_context, view, vdd, new TempDataDictionary(), writer);
+                viewCxt.View.Render(viewCxt, writer);
+                return writer.ToString();
+            }
+        }
+        void WriteFile(string content)
+        {
+            HttpContext context = HttpContext.Current;
+            context.Response.Clear();
+            context.Response.AddHeader("content-disposition", "attachment;filename=" + _fileName);
+            context.Response.Charset = "";
+            context.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            context.Response.ContentType = "application/ms-excel";
+            context.Response.Write(content);
+            context.Response.End();
+        }
+
+        public override void ExecuteResult(ControllerContext context)
+        {
+            string content = this.RenderViewToString();
+            this.WriteFile(content);
+        }
+    }
+	
+public ActionResult Foo()
+{
+    SomeViewModel model = ...
+    return new ExcelResult<SomeViewModel>
+    (
+        ControllerContext,
+        "~/Views/Home/Foo.ascx",
+        "Foo.xlsx",
+        model
+    );
+}

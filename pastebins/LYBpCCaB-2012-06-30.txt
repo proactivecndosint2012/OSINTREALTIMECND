@@ -1,0 +1,16 @@
+<blinkmenot>
+    <combat>
+		<self default="on" />
+		<others default="on" />
+    </combat>
+    <always>
+		<self default="on" />
+		<others default="on" />
+    </always>
+    <target>
+		<self default="on" />
+		<others default="on" />
+    </target>
+	
+	<follow default = "on" />
+</blinkmenot>

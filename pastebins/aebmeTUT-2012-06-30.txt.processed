@@ -1,0 +1,8 @@
+weird syntax error in django template
+{% for item in items %}
+   hiii 
+{% endfor %)
+	
+{% endfor %)
+	
+{% endfor %}

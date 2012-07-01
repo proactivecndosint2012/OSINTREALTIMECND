@@ -1,0 +1,98 @@
+Help parsing string (City, State Zip) with JavaScript
+var address = "San Francisco, CA 94129";
+
+function parseAddress(address) {
+    // Make sure the address is a string.
+    if (typeof address !== "string") throw "Address is not a string.";
+
+    // Trim the address.
+    address = address.trim();
+
+    // Make an object to contain the data.
+    var returned = {};
+
+    // Find the comma.
+    var comma = address.indexOf(',');
+
+    // Pull out the city.
+    returned.city = address.slice(0, comma);
+
+    // Get everything after the city.
+    var after = address.substring(comma + 2); // The string after the comma, +2 so that we skip the comma and the space.
+
+    // Find the space.
+    var space = after.lastIndexOf(' ');
+
+    // Pull out the state.
+    returned.state = after.slice(0, space);
+
+    // Pull out the zip code.
+    returned.zip = after.substring(space + 1);
+
+    // Return the data.
+    return returned;
+}
+
+address = parseAddress(address);
+	
+function parseAddress(a) {if(typeof a!=="string") throw "Address is not a string.";a=a.trim();var r={},c=a.indexOf(',');r.city=a.slice(0,c);var f=a.substring(c+2),s=f.lastIndexOf(' ');r.state=f.slice(0,s);r.zip=f.substring(s+1);return r;}
+	
+var parts = "City, State ZIP".split(/s+/); // split on whitespace
+var city = parts[0].slice(0, parts[0].length - 1); // remove trailing comma
+var state = parts[1];
+var zip = parts[2];
+	
+var parts = "san fran bay, new mex state 666666".split(/s+|,/),
+    partition = parts.indexOf(""),
+    city = parts.slice(0, partition).join(" "),
+    state = parts.slice(partition + 1, -1).join(" "),
+    zip = parts.pop();
+	
+var city, statezip, state, zip, parts;
+[city, statezip] = "Spaced City, New Mexico ZIP".split(/,s*/);
+parts = statezip.split(/s+/);
+zip = parts.pop();
+state = parts.join(" ");
+	
+var str = "New York, NY 20101";
+    var cityAndRest = str.split(',');
+    var city = cityAndRest[0];
+    var stateAndZip = cityAndRest[1].trim().split(' ');
+    var state = stateAndZip[0];
+    var zip = stateAndZip[1];
+	
+function IsNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+var addr = 'New York City, New York 10101';
+//var addr = 'San Bernadino, CA 11111';
+function getCityStateZip(addr){
+  var city; var state;var zip;
+  city = ''; state = ''; zip = '';
+  var addrLen = addr.length;
+  if ( IsNumeric( addr.substring(addrLen - 1) ) ) {
+    //contains a zipcode - just a sanity check
+    //get last 10 characters for testing easily
+    var lastTen = addr.substring( addrLen - 10 );
+    if ( lastTen.indexOf('-') > 0 && ( lastTen.indexOf(' ') == -1 ) ) {
+      //found a hyphen and no space (matches our complex rule for zipcodes)
+      zip = lastTen;
+    } else {
+      zip = addr.substring( addrLen - 5 ); //assume a basic 5 zip code
+    }
+  }
+  var zipLen = zip.length;
+  addrLen = addrLen - zipLen - 1;
+  addr = addr.substring(0, addrLen ); //remove the chars we just moved into zip
+
+  var lastComma = addr.lastIndexOf(',');
+  if ( lastComma == -1 ) {
+    //you have a problem, how do you want to handle it?
+  }
+  city = addr.substring(0,lastComma); //skip the comma itself, yes?
+  state = addr.substring(lastComma + 2);
+  return { 'city':city,'state': state,'zip': zip};
+}
+
+getCityStateZip(addr)

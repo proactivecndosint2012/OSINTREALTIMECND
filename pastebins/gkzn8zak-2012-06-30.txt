@@ -1,0 +1,18 @@
+How to print the content of a tar.gz file with Java?
+GZIPInputStream gzipInputStream=null;
+gzipInputStream = new GZIPInputStream( new FileInputStream(fileName));
+TarInputStream is =  new TarInputStream(gzipInputStream);
+TarEntry entryx = null;
+
+while((entryx = is.getNextEntry()) != null) {
+    if (entryx.isDirectory()) continue;
+    else {
+        System.out.println(entryx.getName());
+        if ( entryx.getName().endsWith("txt.gz")){
+            is.copyEntryContents(out);
+            // out is a OutputStream!! 
+        }
+    }
+}
+	
+}

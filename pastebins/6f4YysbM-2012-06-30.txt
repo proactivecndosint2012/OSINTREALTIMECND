@@ -1,0 +1,10 @@
+int n, x;
+int length = 1;
+
+while (x >= (n+length-1) / length) {
+	int parts = (n+length-1) / length;
+	x -= parts;
+	length++;
+}
+
+return (x, x + length);
