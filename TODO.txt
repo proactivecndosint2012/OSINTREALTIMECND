@@ -32,6 +32,27 @@ Etymology
 
 * TorWeb => http://www.wired.com/threatlevel/2011/06/silkroad/
 
+* Apache Hadoop - http://en.wikipedia.org/wiki/Hadoop
+
+* Apache Mahout - http://en.wikipedia.org/wiki/Apache_Mahout
+
+* Apache Solr - http://en.wikipedia.org/wiki/Apache_Solr
+
+* AI - http://en.wikipedia.org/wiki/Artificial_intelligence
+
+* NLP - http://en.wikipedia.org/wiki/Natural_language_processing
+
+* ML - http://en.wikipedia.org/wiki/Machine_learning
+
+* Neural Networks - http://en.wikipedia.org/wiki/Artificial_neural_network
+
+* Time Series Prediction - http://en.wikipedia.org/wiki/Time_series_prediction
+
+* Fuzzy Logic - http://en.wikipedia.org/wiki/Fuzzy_Logic
+
+* Probabilistic methods for uncertain reasoning - http://en.wikipedia.org/wiki/Artificial_intelligence#Probabilistic_methods_for_uncertain_reasoning
+
+* Classifiers and statistical learning methods - http://en.wikipedia.org/wiki/Artificial_intelligence#Probabilistic_methods_for_uncertain_reasoning
 
 Non Functional TODO
 ===
