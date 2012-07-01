@@ -88,5 +88,12 @@ explore creation of AI/NLP/ML programming logic to be leveraged by Hadoop and Ma
 Utilize HBase Hadoop database to enrich and add attributes to data -
 incorporate Hive, and utilize Zookeeper for jobtracking.
 Functionality of this are of the software architecture will be to conduct advance AI/NLP/ML CND Analytics
+Hadoop Thrift API - language angnostic
+http://wiki.apache.org/hadoop/Hbase/ThriftApi
 
+* Exploratory of utilization of RabbitMQ within Hadoop architecture -
+Flume AMQP
+https://github.com/stampy88/flume-amqp-plugin
+RabbitMQ DevTools
+http://www.rabbitmq.com/devtools.html
  
