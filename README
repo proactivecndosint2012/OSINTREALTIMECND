@@ -1,4 +1,4 @@
-Project Start
+Project Start Date
 ===
 June 30, 2012
 ===
@@ -14,7 +14,6 @@ If unintended consequences occur due to utilization of this software, user bears
 The rule of thumb is to test and validate properly all solutions prior to implementation within a production environment.
 All solutions should be subject to public scrutiny, and peer review.
 ====
-
 Requirements
 ===
 Project is being spun up utilizing Python programming language. If you can code in Python proficiently, feel free to fork the project off from my GitHub account, and begin contributions. Scope of the project is such that one person will be hard pressed to reach mile stones or complete and maintain on their own. Will require a community effort of committed, dedicated persons interested in furthering Computer Network Defense. 
@@ -36,38 +35,13 @@ The idea is not to replace the human analytic elements within a SOC CND operatio
 Plan
 ---
 If interest is enough, then vet a steering committee of 5 Core Developers, increasing over time to 10 Core Developers, with all others as Publicly Contributing Developers.
-
+Projects succeed or fail on the shoulders of many, not the shoulders of one man or one woman. The community will determine if the pursuit of this project is useful and worthwhile. 
+A project of this scope as stated will take a committed concerted effort and investment to succeed. Simply a semi fleshed out idea at this point in time.
+Not original, but a bit more advanced than what is currently available within the public space. 
+---
 Collaboration
 ---
 If you are interested in collaborating 
-GitHub: 
-====
-ArcSight Use Case Title:
-Cull Indicators from www.pastebin.com and Automated Feed into ArcSight Active Lists
-====
-ArcSight Use Case Description
-====
-Cull Cyber Actor Indicators from www.pastebin.com, and automate feeding of said indicators
-to Active lists within ArcSight. In turn generate use case ArcSight content centered around Active Lists.
-====
-File & Directory Inventory
-====
-* pastebin_scraper.py => scrape www.pastebin.com pulling down all recent pastes. 
+GitHub: https://github.com/proactivecndosint2012/OSINTREALTIMECND
+Email: proactivecndosint2012@gmail.com
 
-* pyinotify/pyinotify_daemon.py => daemon that monitors a folder - when files CLOSE_WRITE - executes cull_pastebin.py
-
-* archive_files/archive.py => archive processed files daily
-
-* prune_files/prune_files.py => prune processed archived pastes greater than 30 days in age
-
-* product/ => location of the email/phone/IP address/watchlist data focal points of interest
-
-* var/ - location for pid file and log files for pyinotify_daemon.py
-
-* watchlist/ - location of the watchlist of strings to cull from the pastebin pastes
-
-* pastebins - location of the pastebin pastes scraped from www.pastebin.com
-
-* error_handle.py - generic error handling class - called by all other scripts via a Python decorator
-
-* cull_pastebin.py - script processes all pastbin pastes under pastebins/ -> resultant product is written to product/
