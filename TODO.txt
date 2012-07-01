@@ -35,7 +35,8 @@ Facebook Graph API does utilize JSON - only use at this time may be sentiment tr
 send a web crawler throug tor proxy and scrape all content for watchlist based strings of strategic value -
 correlate back to the TorWeb URL. DarkNet P2P sites will be even trickier -
 may require active operations to penetrate speheres of
-trust to gain multi tiered authentication needed to gain access to the darker areas of the Internet for proactive CND operations. 
+trust to gain multi tiered authentication needed to gain access
+to the darker areas of the Internet for proactive CND operations. 
 
 * Spiders/Crawlers to data mine the public P2P networks -
 searching for drops from Active CNA/CNE Operations - proactively hunting the hunters 
