@@ -19,6 +19,19 @@ rewrite of scraper adding Python multiprocessor functionality to distribute work
 * Twitter: working prototype -
 Add Python Multiprocessor functionality to distribute work load across multiple CPU's 
 
+Etymology
+===
+
+* Social Networks - Micro - Messo - Macro -> http://en.wikipedia.org/wiki/Social_Networks
+
+* Proactive Cyber Defense -> http://en.wikipedia.org/wiki/Proactive_Cyber_Defence
+
+* Anthropological Analysis Anonymous => http://surprisinglyfree.com/2012/03/13/gabriella-coleman/
+
+* DarkNet => http://en.wikipedia.org/wiki/Darknet_(file_sharing)
+
+* TorWeb => http://www.wired.com/threatlevel/2011/06/silkroad/
+
 
 Non Functional TODO
 ===
@@ -36,7 +49,9 @@ send a web crawler throug tor proxy and scrape all content for watchlist based s
 correlate back to the TorWeb URL. DarkNet P2P sites will be even trickier -
 may require active operations to penetrate speheres of
 trust to gain multi tiered authentication needed to gain access
-to the darker areas of the Internet for proactive CND operations. 
+to the darker areas of the Internet for proactive CND operations.
+TorWeb Crawler will need tor + privoxy to tunnel the HTTP requests through the SOCKS protocol
+Perhaps code a Python implementation to tunnel HTTP through SOCKS
 
 * Spiders/Crawlers to data mine the public P2P networks -
 searching for drops from Active CNA/CNE Operations - proactively hunting the hunters 
