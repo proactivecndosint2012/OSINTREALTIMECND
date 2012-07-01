@@ -67,7 +67,5 @@ output_filename = 'culled_twit_files/' + "TwitterFollowerHits-" + date_time_one 
 
 # Main execution 
 if __name__ == '__main__':
-    #for i in convert_ids():
-    #    print(i)
     search_twitter(MAX_IDS, RESULTS_PER_PAGE, MAX_PAGES, output_filename)
     
