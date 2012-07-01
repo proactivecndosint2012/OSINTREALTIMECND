@@ -1,0 +1,39 @@
+Phase I - Requirements Analysis & Prototyping 
+====
+
+Best Practices
+===
+
+* Leverage Social Media API's where feasible 
+
+* Utilize JSON as default data type to pull data from Social media provider API's 
+
+
+
+Functional Prototypes
+====
+
+* Pastebin: working prototype - rewrite of scraper adding Python multiprocessor functionality to distribute work load across multiple CPU's 
+
+* Twitter: working prototype - Add Python Multiprocessor functionality to distribute work load across multiple CPU's 
+
+
+Non Functional TODO
+===
+
+* re-write of Pastbin implementation to 100% leverage the Pastebin API - JSON
+
+* reddit - utlize the Reddit API - https://github.com/reddit/reddit/wiki/API - JSON
+
+* facebook - will be tricky - they are a closed environment - Facebook Graph API does utilize JSON - only use at this time may be sentiment trending topics related to CND operations 
+  http://developers.facebook.com/docs/reference/api/
+
+* DarkNet & TorWeb - Web Crawler - TorWeb may not be so difficult - send a web crawler throug tor proxy and scrape all content for watchlist based strings of strategic value - correlate back to the TorWeb URL. DarkNet P2P sites will be even trickier - may require active operations to penetrate speheres of trust to gain multi tiered authentication needed to gain access to the darker areas of the Internet for proactive CND operations. 
+
+* Spiders/Crawlers to data mine the public P2P networks - searching for drops from Active CNA/CNE Operations - proactively hunting the hunters 
+
+* Natural Language Processing - exploring feasibility of leveraging Google Translate API to data mine foreign Social Media Sites - integration with Baidu API. Target Chinese and Russian Social Media sites via their API's - leverage Google Translate API to translate the JSON based dumps - monitor in real time for any activity proactively toward a more effective CND strategy. 
+
+* Hadoop and Hadoop EcoSystem - explore creation of AI/NLP/ML programming logic to be leveraged by Hadoop and Mahout and Solr. Utilize HBase Hadoop database to enrich and add attributes to data - incorporate Hive, and utilize Zookeeper for jobtracking. Functionality of this are of the software architecture will be to conduct advance AI/NLP/ML CND Analytics
+
+ 
