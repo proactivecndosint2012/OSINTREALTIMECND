@@ -1,8 +1,10 @@
 #!/usr/local/bin/python
 
 import sys, datetime, json, twitter, re, glob
+from error_handle import ConvertExceptions
 
 # Generic function to create CSV full paste url and full path to the paste
+@ConvertExceptions(StandardError, 0)
 def globof_files(path, filter_name):
     files = glob.glob(path)
     for filename in files:
@@ -11,18 +13,19 @@ def globof_files(path, filter_name):
             yield(filename)
             
 # WatchList string list convert to list datastructure generator object
+@ConvertExceptions(StandardError, 0)
 def username_watchlist(watchlist_username):
     for line in open(watchlist_username, 'r'):
         yield line.strip('\n')
-        
-
 
 # WatchList string list convert to list datastructure generator object
+@ConvertExceptions(StandardError, 0)
 def search_watchlist(watchlist_search):
     for line in open(watchlist_search, 'r'):
         yield line.strip('\n')
 
 # Search Twitter Function
+@ConvertExceptions(StandardError, 0)
 def search_twitter(search_usernames, search_list, int_one, int_two, output_file_name):
     MAX_PAGES = int_one
     RESULTS_PER_PAGE = int_two

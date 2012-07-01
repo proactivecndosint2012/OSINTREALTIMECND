@@ -81,6 +81,10 @@ for i in range(num_workers):
 if not os.path.exists("pastebins"):
     os.mkdir("pastebins") # Thanks, threecheese!
 
+#Global Variable Assignment 
 s = threading.Thread(target=scraper)
-s.start()
-s.join()
+
+# Main Execution
+if __name__ == '__main__':
+    s.start()
+    s.join()
