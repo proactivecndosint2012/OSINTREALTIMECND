@@ -26,8 +26,8 @@ def globof_files(path, filter_name):
             
 # WatchList string list convert to list datastructure generator object
 @ConvertExceptions(StandardError, 0)
-def username_watchlist(watchlist_username):
-    for line in open(watchlist_username, 'r'):
+def username_watchlist(watchlist_usernames):
+    for line in open(watchlist_usernames, 'r'):
         yield line.strip('\n')
 
 # WatchList string list convert to list datastructure generator object
@@ -58,9 +58,9 @@ def search_twitter(search_usernames, search_list, int_one, int_two, output_file_
 # Global Variables
 path = "/Users/alienone/Downloads/alienone-PASTEBIN-9fd9c83/twitter/*.txt"
 filter_name = ".txt"
-watchlist_username = "watchlist/twitter_usernames.txt"
+watchlist_usernames = "watchlist/twitter_usernames.txt"
 watchlist_search = "watchlist/twitter_watchlist.txt"
-search_usernames = [i for i in username_watchlist(watchlist_username)]
+search_usernames = [i for i in username_watchlist(watchlist_usernames)]
 search_list = [i for i in search_watchlist(watchlist_search)]
 int_one = 2
 int_two = 50

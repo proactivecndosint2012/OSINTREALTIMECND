@@ -18,6 +18,12 @@ import sys, twitter, functools, datetime, re
 from error_handle import ConvertExceptions
 from recipe__make_twitter_request import make_twitter_request
 
+# WatchList string list convert to list datastructure generator object
+@ConvertExceptions(StandardError, 0)
+def username_watchlist(watchlist_usernames):
+    for line in open(watchlist_usernames, 'r'):
+        yield line.strip('\n')
+
 # Generator function to obtain list of twitter follower id's
 @ConvertExceptions(StandardError, 0)
 def get_followers(SCREEN_NAME, MAX_IDS):
@@ -26,7 +32,7 @@ def get_followers(SCREEN_NAME, MAX_IDS):
     cursor = -1
     ids = []
     while cursor != 0:
-        response = get_friends_ids(screen_name=SCREEN_NAME, cursor=cursor)
+        response = get_friends_ids(screen_name=SCREEN_NAME[0], cursor=cursor)
         ids += response['ids']
         cursor = response['next_cursor']
         if len(ids) >= MAX_IDS:
@@ -37,10 +43,11 @@ def get_followers(SCREEN_NAME, MAX_IDS):
 # interger ids are related to the Users the targeted username Follows
 @ConvertExceptions(StandardError, 0)
 def convert_ids():
-    for follower_id in get_followers(SCREEN_NAME, MAX_IDS):
+    for follower_id in get_followers(SCREEN_NAME[0], MAX_IDS):
         for int_id in follower_id:
             yield ("from_user_id_str:" + str(int_id))
-
+        break
+    
 # Generator function to translate follower_id's into Twitter Usernames
 @ConvertExceptions(StandardError, 0)
 def search_twitter(MAX_IDS, RESULTS_PER_PAGE, MAX_PAGES, output_filename):
@@ -55,15 +62,17 @@ def search_twitter(MAX_IDS, RESULTS_PER_PAGE, MAX_PAGES, output_filename):
                 if search_string.split(':')[1] in result['from_user_id_str']:
                     with open(output_filename, "a") as f:
                         f.write(result['from_user'])
-
+    
 # Global Variables
-SCREEN_NAME = "AnonymousIRC"
+
 MAX_IDS = 10
 MAX_PAGES = 10
 RESULTS_PER_PAGE = 10
 date_time_one = (str(datetime.datetime.now()).split(' ')[0])
 date_time_two = (str(datetime.datetime.now())).split(' ')[1].replace(':','-').split('.')[0]
 output_filename = 'culled_twit_files/' + "TwitterFollowerHits-" + date_time_one + "-" + date_time_two + '.txt'
+watchlist_usernames = "watchlist/twitter_usernames.txt"
+SCREEN_NAME = [i for i in username_watchlist(watchlist_usernames)]
 
 # Main execution 
 if __name__ == '__main__':
