@@ -15,9 +15,11 @@ All solutions should be subject to public scrutiny, and peer review.
 '''
 
 import sys, twitter, functools, datetime, re
+from error_handle import ConvertExceptions
 from recipe__make_twitter_request import make_twitter_request
 
-# Generator function to obtain list of twitter follower id's 
+# Generator function to obtain list of twitter follower id's
+@ConvertExceptions(StandardError, 0)
 def get_followers(SCREEN_NAME, MAX_IDS):
     t = twitter.Twitter(domain='api.twitter.com', api_version='1')
     get_friends_ids = functools.partial(make_twitter_request, t, t.friends.ids)
@@ -30,13 +32,17 @@ def get_followers(SCREEN_NAME, MAX_IDS):
         if len(ids) >= MAX_IDS:
             break
     yield ids
-    
+
+# Convert list of integers ids to generator object of strings
+# interger ids are related to the Users the targeted username Follows
+@ConvertExceptions(StandardError, 0)
 def convert_ids():
     for follower_id in get_followers(SCREEN_NAME, MAX_IDS):
         for int_id in follower_id:
             yield ("from_user_id_str:" + str(int_id))
 
 # Generator function to translate follower_id's into Twitter Usernames
+@ConvertExceptions(StandardError, 0)
 def search_twitter(MAX_IDS, RESULTS_PER_PAGE, MAX_PAGES, output_filename):
     twitter_search = twitter.Twitter(domain="search.twitter.com")
     search_results = []
