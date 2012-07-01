@@ -46,6 +46,7 @@ def search_twitter(search_usernames, search_list, int_one, int_two, output_file_
     for page in range(1,MAX_PAGES+1):
         for search_string in search_usernames:
             search_results += twitter_search.search(q=search_string, rpp=RESULTS_PER_PAGE, page=page)['results']
+            print(search_string)
             for result in search_results:
                 if search_string.split('@')[1] in result['from_user_name']:
                     for search_element in search_list:

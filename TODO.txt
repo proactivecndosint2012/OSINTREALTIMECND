@@ -68,6 +68,17 @@ Smaller data set to work with - Twitter API method to pull 'id''s of who a User 
 https://dev.twitter.com/docs/api/1/get/followers/ids
 Actual GET Call -> https://api.twitter.com/1/followers/ids.json?cursor=-1&screen_name=AnonymousIRC
 
+* Twitter searching for followers - of a Username such as AnonymousIRC -
+- A single twitter user can have several search api user id
+- A single search api user id can in fact point to several twitter accounts
+Basically it's just a mapping between a screen_name and an integer ... So if a user
+changes screen name and someone else takes his old screen name, the latter will also
+get his search id and the former will have a new search_id ...
+http://code.google.com/p/twitter-api/issues/detail?id=214
+
+So if you want to _really_ know who posted a message I think the only way to get the
+real tweet thru the api (the tweet_id is correct) ...
+
 * re-write of Pastbin implementation to 100% leverage the Pastebin API - JSON
 
 * reddit - utlize the Reddit API - https://github.com/reddit/reddit/wiki/API - JSON
