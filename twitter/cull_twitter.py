@@ -1,5 +1,17 @@
 #!/usr/local/bin/python
 
+'''
+Date June 30, 2012
+Author: Justin Jessup
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Disclaimer:
+All software provided as is. All software covered under the GPL license and free for public redistribution.
+If unintended consequences occur due to utilization of this software, user bears the resultant outcome.
+The rule of thumb is to test and validate properly all solutions prior to implementation within a production environment.
+All solutions should be subject to public scrutiny, and peer review.
+'''
 import sys, datetime, json, twitter, re, glob
 from error_handle import ConvertExceptions
 
