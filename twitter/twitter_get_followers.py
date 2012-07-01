@@ -46,10 +46,9 @@ def search_twitter(MAX_IDS, RESULTS_PER_PAGE, MAX_PAGES, output_filename):
             search_string = i
             search_results += twitter_search.search(q=search_string, rpp=RESULTS_PER_PAGE, page=page)['results']
             for result in search_results:
-                if search_string in result['from_user_id_str']:
                     with open(output_filename, "a") as f:
                         f.write(json.dumps(result['from_user'], indent=0))
-
+                    print(result['from_user'])
 # Global Variables
 SCREEN_NAME = "AnonymousIRC"
 MAX_IDS = 500
