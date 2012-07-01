@@ -97,6 +97,12 @@ https://github.com/stampy88/flume-amqp-plugin
 RabbitMQ DevTools
 http://www.rabbitmq.com/devtools.html
 
+* Python Machine Learning ToolKit
+http://packages.python.org/milk/
+
+* Python Pandas - Python Data Analysis Library
+http://pandas.pydata.org/
+
 * Python Programming Best Practices
 
 The Zen of Python, by Tim Peters
