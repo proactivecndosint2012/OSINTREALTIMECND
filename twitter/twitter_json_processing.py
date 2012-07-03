@@ -1,6 +1,6 @@
 #!/usr/local/bin/python
 
-import urllib2, json, csv, re, datetime, unicodedata
+import urllib2, json, csv, re, datetime
 
 def search_watchlist(watchlist_search):
     for line in open(watchlist_search, 'r'):
@@ -9,10 +9,6 @@ def search_watchlist(watchlist_search):
 def username_watchlist(watchlist_usernames):
     for line in open(watchlist_usernames, 'r'):
         yield line.strip('\n')
-
-watchlist_usernames = "watchlist/twitter_usernames.txt"
-watchlist_search = "watchlist/twitter_watchlist.txt"
-SEARCH_BASE = 'http://search.twitter.com/search.json?q=%40twitterapi'
 
 def twitter_global_username_plusWatchlist(csv_filename_one):
     f = csv.writer(open(csv_filename_one, "wb+"))
@@ -40,7 +36,9 @@ def twitter_global_Watchlist(csv_filename_two):
                 f.writerow([result['created_at'].encode('ascii','ignore'),result['from_user'].encode('ascii','ignore'),result['text'].encode('ascii','ignore')])
                 
 
-# Global Variables 
+# Global Variables
+watchlist_usernames = "watchlist/twitter_usernames.txt"
+watchlist_search = "watchlist/twitter_watchlist.txt"
 date_time_one = (str(datetime.datetime.now()).split(' ')[0])
 date_time_two = (str(datetime.datetime.now())).split(' ')[1].replace(':','-').split('.')[0]
 csv_filename_one = "culled_product/search_one/Twitter-Global-Username-WatchList" + '-' + date_time_one + '-' + date_time_two + '.csv'
