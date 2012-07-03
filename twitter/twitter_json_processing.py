@@ -2,7 +2,7 @@
 
 '''
 Date July 2, 2012
-Author: www.shellguardians.com
+Author: Justin Jessup
 GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
