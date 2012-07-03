@@ -28,8 +28,8 @@ code word
 Code Word
 Code word
 Central Intelligence Agency
-CIA
 Department of Defense
+CIA
 DOD
 AFISRA
 INSCOM
@@ -42,12 +42,12 @@ ONI
 OICI
 DHS
 I&A
-Coast Guard Intelligence
 FBI
-Federal Bureau of Investigation
 DEA
 INR
 TFI
+Coast Guard Intelligence
+Federal Bureau of Investigation
 Whitehouse
 Senate
 House of Representitives

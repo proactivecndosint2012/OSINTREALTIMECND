@@ -1,35 +1,5 @@
 Anonymous
-anonymous 
-chan
-4chan
-thechan
-Chinese
-chinese
-PLA
-Russian
-russian
-Mafia
-mafia
-syndicate
-Syndicate
-hbgary
-HBGary
-Stratfor
-laundering
-Laundering
-assassin
-Assassin
-stuxnet
-Stuxnet
-Flame
-exploit
-Exploit
-code word
-Code Word
-Code word
-Central Intelligence Agency
 CIA
-Department of Defense
 DOD
 AFISRA
 INSCOM
@@ -42,15 +12,7 @@ ONI
 OICI
 DHS
 I&A
-Coast Guard Intelligence
 FBI
-Federal Bureau of Investigation
 DEA
 INR
 TFI
-Whitehouse
-Senate
-House of Representitives
-Supreme Court
-Joint Chiefs of Staff
-Tibet
