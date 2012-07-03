@@ -1,15 +1,32 @@
 #!/usr/local/bin/python
 
-import urllib2, json, csv, re, datetime
+'''
+Date July 2, 2012
+Author: www.shellguardians.com
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
 
+Disclaimer:
+All software provided as is. All software covered under the GPL license and free for public redistribution.
+If unintended consequences occur due to utilization of this software, user bears the resultant outcome.
+The rule of thumb is to test and validate properly all solutions prior to implementation within a production environment.
+All solutions should be subject to public scrutiny, and peer review.
+'''
+
+import urllib2, json, csv, re, datetime
+from error_handle import ConvertExceptions
+
+@ConvertExceptions(StandardError, 0)
 def search_watchlist(watchlist_search):
     for line in open(watchlist_search, 'r'):
         yield line.strip('\n')
 
+@ConvertExceptions(StandardError, 0)
 def username_watchlist(watchlist_usernames):
     for line in open(watchlist_usernames, 'r'):
         yield line.strip('\n')
 
+@ConvertExceptions(StandardError, 0)
 def twitter_global_username_plusWatchlist(csv_filename_one):
     f = csv.writer(open(csv_filename_one, "wb+"))
     f.writerow(["Created_At","From_User","Tweet_Text"])
@@ -25,6 +42,7 @@ def twitter_global_username_plusWatchlist(csv_filename_one):
                 if ipsrch.findall(result['text']):
                     f.writerow([result['created_at'].encode('ascii','ignore'),result['from_user'].encode('ascii','ignore'),result['text'].encode('ascii','ignore')])
 
+@ConvertExceptions(StandardError, 0)
 def twitter_global_Watchlist(csv_filename_two):
     f = csv.writer(open(csv_filename_two, "wb+"))
     f.writerow(["Created_At","From_User","Tweet_Text"])
