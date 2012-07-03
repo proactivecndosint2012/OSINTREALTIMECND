@@ -1,0 +1,4 @@
+ListActivity list does not refresh properly when in full screen?
+invalidate()
+requestLayout()
+forceLayout()

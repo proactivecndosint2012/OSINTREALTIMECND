@@ -1,0 +1,38 @@
+/* 
+this goes in reversirules.java
+public static void openScoresFile()
+the second line in the try block
+insert right after File file = new file("/sdcard/thescores.xml");
+*/
+
+if(!myFile.exists()){
+	myFile.createNewFile();
+	scores[0] = 0;
+	scores[1] = 0;
+	scores[2] = 0;
+	scores[3] = 0;
+	scores[4] = 0;
+	scores[5] = 0;
+	scores[6] = 0;
+	scores[7] = 0;
+	return;						
+}
+
+/* 
+this goes in highscores.java
+public void onCreate()
+the second line in the try block
+insert right after File file = new file("/sdcard/thescores.xml");
+*/
+
+if(!myFile.exists()){
+	easy_diff_wins.setText("0");
+	medium_diff_wins.setText("0");
+	hard_diff_wins.setText("0");
+	random_diff_wins.setText("0");
+	easy_diff_losses.setText("0");
+	medium_diff_losses.setText("0");
+	hard_diff_losses.setText("0");
+	random_diff_losses.setText("0");
+	return;
+}

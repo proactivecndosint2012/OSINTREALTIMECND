@@ -1,0 +1,19 @@
+function swap(a){
+    var b=$('#active'),c;
+    (a)?c=a:c=b.next('#imagerotate img');
+    if(!c.length)c=$('#imagerotate img').eq(0);
+    b.attr('id','')[(a)?'hide':'fadeOut']();
+    c.attr('id','active')[(a)?'show':'fadeIn']();
+}
+=========================
+Revised?
+=========================
+
+function swap(a){
+    var b=$('#active'),d;
+    (a)?d=a:d=b:d=c.next('#imagerotate img');
+    if(!c.length)c=$('#imagerotate img').eq(0);
+    b.attr('id','')[(a)?'hide':'fadeOut']();
+    c.attr('id','')[(a)?'hide':'fadeIn']();
+    d.attr('id', 'active')[(a)?'show':'fadeIn']();
+}

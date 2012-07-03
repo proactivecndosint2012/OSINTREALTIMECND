@@ -1,0 +1,33 @@
+Install the xubuntu-desktop package - to do that, run the following:
+
+sudo apt-get update && sudo apt-get install xubuntu-desktop
+
+At some point during the install, you will be asked to choose between gdm and lightdm - I prefer lightdm, so thats what the screenshot shows.
+
+Logout, you will be confronted by the LightDM manager.
+
+Then, click the little cog wheel, and select Xubuntu Session.
+
+Then, enter your password, hit Enter and you'll be logged into Xubuntu.
+
+or use tasksel
+
+sudo apt-get install tasksel
+sudo tasksel
+
+Check xubuntu and uncheck ubuntu.
+
+-1 down vote
+	
+
+And to remove original gnome desktop (after jrg's how-to) remove the package ubuntu-desktop
+
+sudo apt-get remove ubuntu-desktop
+
+You also sould do apt-get autoremove after doing that:
+
+sudo apt-get autoremove
+
+BUT
+
+Removing gnome desktop isn't a good idea, supposedly it removes a lot of stuff that xubuntu-desktop needs as well. BUT If xubuntu-desktop needs it, it should be listed as a dependency and won't get autoremoved.

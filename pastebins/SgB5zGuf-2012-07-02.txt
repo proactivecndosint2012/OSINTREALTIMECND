@@ -1,0 +1,33 @@
+Blockworld
+	
+	Kombination aus schnellster und bester Lösung
+	
+	1.Parametereingabe
+	
+	2.Sortieren
+		2.1 Blockauswahl
+			- nur obere Blöcke
+			- kein Block der im letzten Zug versetzt wurde
+			- kein Block an richtiger Pos wenn darunter alles stimmt
+			
+			Vorränge
+				1. Block auf oberster Ebene wenn richtige Pos frei und darunter alles richtig
+				2. 2 Blöcke vertauscht wenn darunter alle richtig
+				3. Block unter einem anderen sperrt diesem die richtige pos wenn darunter alles richtig
+				4. 2 Blöcke auf oberster Ebene vertausch wenn darunter alles richtig
+				5. 1 Block sperrt richtige Pos wenn darunter alles richtig
+		2.2 Block versetzen
+			wenn 1.:
+				- setze Block an richtige Stelle
+			wenn 2. oder 3.:
+				- setze block an erste frei Stelle
+				- setze 2. Block an erste freie Stelle
+				- setze ersten Block zurück
+				- setze 2. Block zurück		(nur bei 2.)
+			wenn 4. oder 5.:
+				- setze 1. Block an erste freie Stelle
+				- setze 2. Blocke an Position 1
+				- setze 1. Block an Position 2 (nur bei 4.)
+				
+			ansonsten:
+				- setze Block an erste freie Stelle

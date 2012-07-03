@@ -1,0 +1,11 @@
+java bind template dynamically
+ITypeInfo typeInfo = getTypeInfoForName(IDerivedObject.TYPE_NAME);
+List<IDerivedObject> objects = this.<IDerivedObject>readAllObjectsOfType(typeInfo);
+
+public <T extends IBaseObject> List<T> readAllObjectsOfType(ITypeInfo typeInfo) throws Exception
+{
+    return ObjectBuilder.<T>readAllObjects(typeInfo);
+}
+	
+ITypeInfo typeInfo = getTypeInfoForName(IDerivedObject.TYPE_NAME);
+List<IBaseObject> objects = this.<IBaseObject>readAllObjectsOfType(typeInfo);

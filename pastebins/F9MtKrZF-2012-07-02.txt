@@ -1,0 +1,25 @@
+Binary sketch size: 1,084 bytes (of a 32,256 byte maximum)
+processing.app.SerialException: Error opening serial port '/dev/ttyACM0'.
+	at processing.app.Serial.<init>(Serial.java:178)
+	at processing.app.Serial.<init>(Serial.java:77)
+	at processing.app.debug.Uploader.flushSerialBuffer(Uploader.java:77)
+	at processing.app.debug.AvrdudeUploader.uploadViaBootloader(AvrdudeUploader.java:172)
+	at processing.app.debug.AvrdudeUploader.uploadUsingPreferences(AvrdudeUploader.java:67)
+	at processing.app.Sketch.upload(Sketch.java:1706)
+	at processing.app.Sketch.exportApplet(Sketch.java:1662)
+	at processing.app.Sketch.exportApplet(Sketch.java:1634)
+	at processing.app.Editor$DefaultExportHandler.run(Editor.java:2346)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: gnu.io.UnsupportedCommOperationException: Invalid Parameter
+	at gnu.io.RXTXPort.setSerialPortParams(RXTXPort.java:171)
+	at processing.app.Serial.<init>(Serial.java:163)
+	... 9 more
+processing.app.debug.RunnerException: Error opening serial port '/dev/ttyACM0'.
+	at processing.app.debug.Uploader.flushSerialBuffer(Uploader.java:101)
+	at processing.app.debug.AvrdudeUploader.uploadViaBootloader(AvrdudeUploader.java:172)
+	at processing.app.debug.AvrdudeUploader.uploadUsingPreferences(AvrdudeUploader.java:67)
+	at processing.app.Sketch.upload(Sketch.java:1706)
+	at processing.app.Sketch.exportApplet(Sketch.java:1662)
+	at processing.app.Sketch.exportApplet(Sketch.java:1634)
+	at processing.app.Editor$DefaultExportHandler.run(Editor.java:2346)
+	at java.lang.Thread.run(Thread.java:722)

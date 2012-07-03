@@ -1,0 +1,11 @@
+;; dragansah's solution to Infix Calculator
+;; https://4clojure.com/problem/135
+
+(fn ! [& args]
+      (loop [result (first args) args1 (rest args)]
+        (if (empty? args1)
+          result
+          (recur ((first args1) result (first (rest args1))) (rest (rest args1)) )
+          )
+        )
+      )

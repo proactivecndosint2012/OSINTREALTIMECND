@@ -17,7 +17,7 @@ All solutions should be subject to public scrutiny, and peer review.
 # http://code.activestate.com/recipes/138889-extract-email-addresses-from-files/
 # Remainder of the script authored by AlienOne
 
-import os, re, glob
+import os, re, glob, csv, datetime
 from error_handle import ConvertExceptions
 import smtplib
 from email.MIMEMultipart import MIMEMultipart
@@ -131,10 +131,10 @@ def watchlist_hit(watchlist_name, filter_name, files = []):
     
 # Function to write culled indicators to file 
 @ConvertExceptions(StandardError, 0)
-def write_indicators(file_name, item, element): 
+def write_indicators(file_name, item, element):
     with open(file_name, "a") as f:
-        f.write(item.split(',')[0] + ',' + "".join(map(str,element))+ '\n')
-        
+        f.write(item.split(',')[0] +','+ "".join(map(str,element))+ '\n')
+
 # Cull email, phone, IP, watchlist indicator algorithm
 @ConvertExceptions(StandardError, 0)
 def cull_indicators(email_output, phone_output, ip_output, watchlist_output):
@@ -179,14 +179,17 @@ def send_mail(send_from, send_to, subject, text, attachments=[], server="localho
         smtp.close()
 
 # Global Variables
-path = '/Users/alienone/Downloads/alienone-PASTEBIN-9fd9c83/pastebins/*.txt'
+date_time_one = (str(datetime.datetime.now()).split(' ')[0])
+date_time_two = (str(datetime.datetime.now())).split(' ')[1].replace(':','-').split('.')[0]
+output_file_name = 'culled_twit_files/' + "Twitter_Hits-" + date_time_one + "-" + date_time_two + '.csv'
+path = '/Users/alienone/Downloads/OSINTCND/pastebins/*.txt'
 filter_name = '.processed'
 suffix = filter_name
-email_output = "../product/EMAIL/email_addresses_result.txt"
-phone_output = "../product/PHONE/phone_numbers_result.txt"
-ip_output = "../product/IP/ip_addresses_result.txt"
+email_output = "../product/EMAIL/email_addresses_result" + '-' + date_time_one + '-' + date_time_two + '.csv'
+phone_output = "../product/PHONE/phone_numbers_result" + '-' + date_time_one + '-' + date_time_two + '.csv'
+ip_output = "../product/IP/ip_addresses_result" + '-' + date_time_one + '-' + date_time_two + '.csv'
 watchlist_name = "../watchlist/watchlist.txt"
-watchlist_output = "../product/WATCHLIST/watchlist_hits.txt"
+watchlist_output = "../product/WATCHLIST/watchlist_hits" + '-' + date_time_one + '-' + date_time_two + '.csv'
 send_from = "someone@someemail.com"
 send_to = "someone@someemail.com"
 subject = "Pastebin WatchList Hits"

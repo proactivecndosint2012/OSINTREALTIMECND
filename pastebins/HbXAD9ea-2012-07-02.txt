@@ -1,0 +1,74 @@
+#include "engine/Sprite.h"
+#include "engine/Texture.h"
+#include "engine/ResourceManager.h"
+#include "engine/ShaderProgram.h"
+#include "engine/platform.h"
+
+GLuint _vertexBuffer()
+{
+    static const GLfloat bfdata[] = {
+        -1.0, -1.0,
+        1.0, -1.0,
+        -1.0, 1.0,
+        1.0, 1.0
+    };
+
+    static GLuint bufId = 0;
+    // -----------------------------------------------
+    // CREATE VBO ------------------------------------
+    // -----------------------------------------------
+    if (bufId == 0) {
+        glGenBuffers(1, &bufId);
+        glBindBuffer(GL_ARRAY_BUFFER, bufId);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(bfdata), bfdata, GL_STATIC_DRAW);
+    }
+
+    return bufId;
+}
+
+Sprite::Sprite(const std::string& path)
+{
+    _shader = ResourceManager::load<ShaderProgram>("sprite.glsl");
+    _texture = ResourceManager::load<Texture>(path);
+    _contentWidth = _texture->width();
+    _contentHeight = _texture->height();
+}
+
+Sprite::~Sprite()
+{
+    _texture->release();
+    _shader->reelase();
+}
+
+void Sprite::draw()
+{
+    _shader->use();
+
+    float w = (float)Platform::width();
+    float h = (float)Platform::height();
+    _shader->uniform("rect", x / w, y / h, _contentWidth / w * _scaleX, _contentHeight / h * _scaleY);
+    _shader->uniform("alpha", alpha);
+    _shader->uniform("tint", tint);
+    _shader->uniform("rotation", rotation);
+
+    //------------------------------------------------------
+    //----------------------------- DRAW VBO
+    //------------------------------------------------------
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _texture->id());
+    _shader->uniform("texture", 0);
+
+    GLuint pos = _shader->attrib("position");
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer());
+    glVertexAttribPointer(
+        pos,
+        2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, (void*)0);
+
+    glEnableVertexAttribArray(pos);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    glDisableVertexAttribArray(pos);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+
+}

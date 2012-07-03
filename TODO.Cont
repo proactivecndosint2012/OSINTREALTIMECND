@@ -7,3 +7,43 @@ AnonymousIRC
 TeaMp0isoN
 [271419902, 620986160, 621258958, 617214691, 250768066]
 
+* Yellow & White Pages API - to cross correlate phone number hits with
+http://developer.yellowapi.com/member/register
+http://www.yellowapi.com/docs/places/
+http://hackdays.ca/2012/02/feautred-api-yellowapi-com/
+http://developer.yellowapi.com/iodocs
+
+import json
+from pprint import pprint
+
+SEARCH_BASE = "http://api.sandbox.yellowapi.com/FindBusiness/?pg=1&what=Kennels&lang=en&where=Vancouver&pgLen=40&fmt=JSON&UID=44.44.44.44&apikey=hdh7redzysg7pe6gs7zj6unv"
+json_data = json.load(urllib2.urlopen(SEARCH_BASE))
+
+data = json.load(json_data)
+pprint(data)
+json_data.close()
+
+data["maps"][0]["id"]
+data["masks"]["id"]
+data["om_points"]
+
+ u'id': u'976294',
+                u'isParent': False,
+                u'name': u"Loranda's Kitty Kottage",
+                u'parentId': u''},
+               {u'address': {u'city': u'Surrey',
+                             u'pcode': u'V3W8X9',
+                             u'prov': u'BC',
+                             u'street': u'12983 66A Ave'},
+                u'content': {u'DspAd': {u'avail': False, u'inMkt': False},
+                             u'Logo': {u'avail': False, u'inMkt': False},
+                             u'Photo': {u'avail': False, u'inMkt': False},
+                             u'Profile': {u'avail': False, u'inMkt': False},
+                             u'Url': {u'avail': True, u'inMkt': True},
+                             u'Video': {u'avail': False, u'inMkt': False}},
+                u'distance': u'23.4',
+                u'geoCode': {u'latitude': u'49.1229561523',
+                             u'longitude': u'-122.8623443752'}
+
+* WhitePages API - cross correlation phone number hits
+http://developer.whitepages.com/

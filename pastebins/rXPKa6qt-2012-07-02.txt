@@ -1,0 +1,151 @@
+#include "engine/Text.h"
+#include "engine/Font.h"
+#include "engine/ResourceManager.h"
+#include "engine/ShaderProgram.h"
+#include "engine/platform.h"
+
+PFNGLGENVERTEXARRAYSOESPROC glGenVertexArraysOES;
+PFNGLBINDVERTEXARRAYOESPROC glBindVertexArrayOES;
+
+// Load gl2ext funcs
+static void setupFuncs()
+{
+    static bool init = false;
+    if (!init) {
+        init = true;
+        glGenVertexArraysOES = (PFNGLGENVERTEXARRAYSOESPROC)eglGetProcAddress("glGenVertexArraysOES");
+        glBindVertexArrayOES = (PFNGLBINDVERTEXARRAYOESPROC)eglGetProcAddress("glBindVertexArrayOES");
+    }
+}
+
+// ------------------------
+// VAO CODE IS FURTHER DOWN
+// ------------------------
+Text::Text(const std::string& str, const std::string& face, uint size)
+{
+    setupFuncs();
+    _font = ResourceManager::load<Font::Face>(face);
+    _shader = ResourceManager::load<ShaderProgram>("text.glsl");
+    _font->size(size);
+    _bufferSize = str.size() * 6;
+
+    uint dataSize = str.size() * 16;
+    GLfloat * data = new GLfloat[dataSize];
+    GLubyte * index = new GLubyte[_bufferSize];
+
+    GLfloat maxBearing = 0;
+    GLfloat maxHeight = 0;
+    GLfloat penx = 0;
+    for (uint i = 0; i < str.size(); i++) {
+
+        const Font::Glyph * g = _font->glyph(str[i]);
+        uint off = i * 16;
+        data[off    ] = penx + g->vertices[0];
+        data[off + 1] = g->vertices[1];
+        data[off + 2] = g->texcoords[0];
+        data[off + 3] = g->texcoords[1];
+        data[off + 4] = penx + g->vertices[2];
+        data[off + 5] = g->vertices[1];
+        data[off + 6] = g->texcoords[2];
+        data[off + 7] = g->texcoords[1];
+        data[off + 8] = penx + g->vertices[2];
+        data[off + 9] = g->vertices[3];
+        data[off + 10] = g->texcoords[2];
+        data[off + 11] = g->texcoords[3];
+        data[off + 12] = penx + g->vertices[0];
+        data[off + 13] = g->vertices[3];
+        data[off + 14] = g->texcoords[0];
+        data[off + 15] = g->texcoords[3];
+
+        uint ioff = i * 6;
+        index[ioff    ] = i * 4 + 3;
+        index[ioff + 1] = i * 4 + 0;
+        index[ioff + 2] = i * 4 + 1;
+        index[ioff + 3] = i * 4 + 3;
+        index[ioff + 4] = i * 4 + 1;
+        index[ioff + 5] = i * 4 + 2;
+
+        maxBearing = MAX(g->bearingY, maxBearing);
+        maxHeight  = MAX(g->height, maxHeight);
+
+        if (i < str.size() - 1)
+            penx += _font->advance(str[i], str[i] + 1);
+        else
+            _contentWidth = penx + g->width;
+    }
+
+    _contentHeight = maxHeight;
+    _offset = maxBearing;
+
+    _shader->use();
+
+    //-----------------------------------------------------------------------//
+    //-------------------- CREATE VERTEX ARRAY OBJECT -----------------------//
+    //-----------------------------------------------------------------------//
+    glGenVertexArraysOES(1, &_vao);
+    glBindVertexArrayOES(_vao);
+
+    glGenBuffers(1, &_vertBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertBuffer);
+
+    glBufferData(GL_ARRAY_BUFFER, dataSize * sizeof(GLfloat), data, GL_STATIC_DRAW);
+
+    GLuint pos = _shader->attrib("position");
+    glEnableVertexAttribArray(pos);
+    glVertexAttribPointer(pos, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 4, 0);
+    GLuint tex = _shader->attrib("texcoord");
+    glEnableVertexAttribArray(tex);
+    glVertexAttribPointer(tex, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 4, (void *)(sizeof(GLfloat) * 2));
+
+    glGenBuffers(1, &_idxBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _idxBuffer);
+
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, _bufferSize * sizeof(GLubyte), index, GL_STATIC_DRAW);
+
+    glBindVertexArrayOES(0);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+    glDisableVertexAttribArray(pos);
+    glDisableVertexAttribArray(tex);
+
+    delete[] data;
+    delete[] index;
+}
+
+Text::~Text()
+{
+    _font->release();
+    _shader->release();
+}
+
+void Text::draw()
+{
+    //------------------------------------------//
+    // DRAW VAO
+    //------------------------------------------//
+    _shader->use();
+
+    _shader->uniform("offset", (float)((int)x), (float)((int)(y + _offset)));
+    _shader->uniform("tint", tint.r, tint.g, tint.b, tint.a);
+    _shader->uniform("alpha", alpha);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _font->texture());
+    _shader->uniform("texture", 0);
+
+    _shader->uniform("scale", Platform::width() / _scaleX, Platform::height() / _scaleY);
+
+    glBindVertexArrayOES(_vao);
+
+    glBindBuffer(GL_ARRAY_BUFFER, _vertBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _idxBuffer);
+
+    glDrawElements(GL_TRIANGLES, _bufferSize, GL_UNSIGNED_BYTE, (void*)0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+    glBindVertexArrayOES(0);
+}

@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# Renv/R-build installer for Ubuntu
+#
+# Run from gist:
+#   bash -s stable < <(wget -O - -q https://raw.github.com/gist/1683811)
+
+# install git and R dependences
+sudo -s -- "apt-get -y install git-core curl; apt-get -y build-dep r-base"
+
+# download Renv and R-build
+git clone git://github.com/viking/Renv.git $HOME/.Renv
+git clone git://github.com/viking/R-build.git $HOME/.R-build
+
+# add Renv and R-build to the PATH
+export_path='export PATH="$HOME/.Renv/bin:$HOME/.R-build/bin:$PATH"'
+echo $export_path >> $HOME/.bashrc
+
+# setup Renv auto-completions and shims
+echo 'eval "$(Renv init -)"' >> $HOME/.bashrc

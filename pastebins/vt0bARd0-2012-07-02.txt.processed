@@ -1,0 +1,15 @@
+defining a struct [closed]
+struct a{
+...
+}
+	
+typedef struct{
+...
+}  a;
+	
+struct a { ... };
+	
+int main ( int, char ** ) 
+{
+    struct a instance;
+}

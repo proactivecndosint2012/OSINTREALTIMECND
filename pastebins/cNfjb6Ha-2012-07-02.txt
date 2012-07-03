@@ -1,0 +1,63 @@
+input string was not in correct format asp.net
+protected void populateDDMonth()
+{
+    int numberOfMonths;
+    string monthName;
+    string completeCalendarFile = Path.Combine(Request.PhysicalApplicationPath + "admin\text-files\", calendarFile);
+    TextReader tr = new StreamReader(completeCalendarFile);
+    date_classa = tr.ReadLine(); //Get classa end date string
+    date_classb = tr.ReadLine(); //Get classb end date string
+    DateTime dateConvert_classa = DateTime.Parse(date_classa); 
+    DateTime dateConvert_classb = DateTime.Parse(date_classb);
+    tr.Close();
+    DataTable MonthTable = new DataTable();
+    MonthTable.Columns.Add("Month", typeof(string));
+    MonthTable.Columns.Add("Date", typeof(string));
+    DateTime endMonth = DateTime.Today;
+    DDMonth.Items.Clear(); //Clear dropdown in order to re-populate
+    string classValue = DDClassType.SelectedValue.ToString();
+
+    if (classValue == "10" || classValue == "12" || classValue == "15")
+    {
+        endMonth = dateConvert_classa;
+    }
+    else if (classValue == "9" || classValue == "13" || classValue == "16")
+    {
+        endMonth = dateConvert_classb;
+    }
+    if (endMonth.Year > DateTime.Today.Year)
+    {
+        numberOfMonths = (endMonth.Month + 12) - DateTime.Today.Month;
+    }
+    else
+    {
+        numberOfMonths = endMonth.Month - DateTime.Today.Month;
+    }
+    for (int i = 0; i < numberOfMonths + 1; i++)
+    {
+        monthName = DateTime.Now.AddMonths(i).ToString("MMM"); //Display month as 3 letter string
+        DataRow MonthRow = MonthTable.NewRow();
+        MonthRow[0] = monthName.ToString() + " " + DateTime.Now.AddMonths(i).Year.ToString();
+        MonthRow[1] = DateTime.Now.AddMonths(i).ToString();
+        DDMonth.Items.Add(new ListItem(monthName.ToString() + " " + DateTime.Now.AddMonths(i).Year.ToString(),
+        DateTime.Now.AddMonths(i).ToString()));
+    }
+    if (Session["selectedMonth"] != null)
+    {
+        DDMonth.SelectedValue = Session["selectedMonth"].ToString();
+    }
+
+    if (!Page.IsPostBack)
+    {
+
+        DateTime startingDate = DateTime.Parse(DDMonth.SelectedValue.ToString());
+        LbCalendarCurrentMonth.Text = startingDate.ToString("MMMM");
+
+    }
+}
+	
+DateTime startingDate;
+if (DateTime.TryParse(DDMonth.SelectedValue.ToString(), out startingDate)
+{
+   LbCalendarCurrentMonth.Text = startingDate.ToString("MMMM");
+}

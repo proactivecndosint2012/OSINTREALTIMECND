@@ -1,0 +1,6 @@
+Cakephp breadcrumbs getCrumb root url
+echo $this->Html->getCrumbs(' > ','Home');
+	
+$this->Html->addCrumbs('Admin','/admin');
+	
+$('#breadcrumbs').children('a').first().attr('href','/admin')

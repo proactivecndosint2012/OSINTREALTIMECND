@@ -1,0 +1,127 @@
+22:08:36 [INFO] Starting minecraft server version Beta 1.3
+22:08:36 [INFO] Loading properties
+22:08:36 [INFO] Starting Minecraft server on 5.147.94.58:25565
+22:08:36 [WARNING] **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+22:08:36 [WARNING] The server will make no attempt to authenticate usernames. Be
+ware.
+22:08:36 [WARNING] While this makes the game possible to play without internet a
+ccess, it also opens up the ability for hackers to connect with any username the
+y choose.
+22:08:36 [WARNING] To change this, set "online-mode" to "true" in the server.set
+tings file.
+22:08:36 [INFO] This server is running Craftbukkit version git-Bukkit-0.0.0-544-
+g6c6c30a-b556jnks (MC: 1.3)
+22:08:36 [INFO] Preparing level "MS"
+22:08:36 [INFO] Preparing start region
+22:08:37 [INFO] WorldGuard loaded.
+22:08:37 [SEVERE] The following file couldn't pass on Parser.
+plugins\EssentialsGroupManager\worlds\ms\groups.yml loading BedrockControl v1.1
+(Is it up to date?)
+java.lang.IllegalArgumentException: The following file couldn't pass on Parser.
+plugins\EssentialsGroupManager\worlds\ms\groups.yml
+        at org.anjocaido.groupmanager.dataholder.WorldDataHolder.load(WorldDataH
+older.java:472)
+        at org.anjocaido.groupmanager.dataholder.worlds.WorldsHolder.loadWorld(W
+orldsHolder.java:358)
+        at org.anjocaido.groupmanager.dataholder.worlds.WorldsHolder.initialWorl
+dLoading(WorldsHolder.java:68)
+        at org.anjocaido.groupmanager.dataholder.worlds.WorldsHolder.initialLoad
+(WorldsHolder.java:63)
+        at org.anjocaido.groupmanager.dataholder.worlds.WorldsHolder.<init>(Worl
+dsHolder.java:56)
+        at org.anjocaido.groupmanager.GroupManager.onEnable(GroupManager.java:73
+)
+        at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:118)
+        at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader
+.java:451)
+        at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManage
+r.java:217)
+        at com.nijikokun.bukkit.Permissions.Permissions.onEnable(Permissions.jav
+a:64)
+        at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:118)
+        at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader
+.java:451)
+        at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManage
+r.java:217)
+        at com.nijikokun.bukkit.Permissions.Permissions.checkEnable(Permissions.
+java:99)
+        at com.nijikokun.bukkit.Permissions.Permissions.getHandler(Permissions.j
+ava:89)
+        at com.bukkit.robin0van0der0v.BedrockControl.BedrockControl.onEnable(Bed
+rockControl.java:51)
+        at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:118)
+        at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader
+.java:451)
+        at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManage
+r.java:217)
+        at org.bukkit.craftbukkit.CraftServer.loadPlugin(CraftServer.java:92)
+        at org.bukkit.craftbukkit.CraftServer.loadPlugins(CraftServer.java:70)
+        at net.minecraft.server.MinecraftServer.e(MinecraftServer.java:204)
+        at net.minecraft.server.MinecraftServer.a(MinecraftServer.java:191)
+        at net.minecraft.server.MinecraftServer.d(MinecraftServer.java:131)
+        at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:246)
+        at net.minecraft.server.ThreadServerApplication.run(SourceFile:366)
+Caused by: while scanning for the next token
+found character         '\t' that cannot start any token
+ in "<reader>", line 298, column 22:
+        - essentials.warp
+                         ^
+
+        at org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.ja
+va:360)
+        at org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:18
+3)
+        at org.yaml.snakeyaml.parser.ParserImpl$ParseIndentlessSequenceEntry.pro
+duce(ParserImpl.java:538)
+        at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:163)
+        at org.yaml.snakeyaml.parser.ParserImpl.checkEvent(ParserImpl.java:148)
+        at org.yaml.snakeyaml.composer.Composer.composeSequenceNode(Composer.jav
+a:203)
+        at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:158)
+        at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java
+:230)
+        at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:160)
+        at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java
+:230)
+        at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:160)
+        at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java
+:230)
+        at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:160)
+        at org.yaml.snakeyaml.composer.Composer.composeDocument(Composer.java:12
+2)
+        at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:105)
+
+        at org.yaml.snakeyaml.constructor.BaseConstructor.getSingleData(BaseCons
+tructor.java:124)
+        at org.yaml.snakeyaml.Yaml.load(Yaml.java:264)
+        at org.anjocaido.groupmanager.dataholder.WorldDataHolder.load(WorldDataH
+older.java:467)
+        ... 25 more
+22:08:38 [INFO] Loaded Essentials build 2.0.299 maintained by Zenexer, ementalo,
+ Aelux, Brettflan, KimKandor, snowleo and ceulemans.
+22:08:38 [INFO] Loaded EssentialsChat build 2.0.299 by Zenexer, ementalo, Aelux,
+ Brettflan, KimKandor, snowleo and ceulemans.
+22:08:38 [INFO] Fake Permissions version 2.5.1 is enabled!
+22:08:39 [INFO] Loaded EssentialsProtect build 2.0.299 maintained by Zenexer, em
+entalo, Aelux, Brettflan, KimKandor, snowleo and ceulemans.
+22:08:39 [INFO] EssentialsServerlist version 2.0.299 by Vimae Development enable
+d.
+22:08:39 [INFO] Loaded EssentialsSpawn build 2.0.299 maintained by Zenexer, emen
+talo, Aelux, Brettflan, KimKandor, snowleo and ceulemans.
+22:08:39 [INFO] [Jail] Loaded 1 jail zones.
+22:08:39 [INFO] [Jail] Loaded 1 prisoners.
+22:08:39 [INFO] NoExplode version 1.2 is enabled!
+22:08:39 [INFO] vStopFire version 1.2 is enabled!
+22:08:39 [INFO] WorldEdit 4.2 enabled.
+22:08:39 [INFO] WorldEdit: Permissions plugin detected! Using Permissions plugin
+ for permissions.
+22:08:39 [INFO] WorldGuard: Permissions plugin detected! Using Permissions plugi
+n for permissions.
+22:08:39 [INFO] WorldGuard: Single session is enforced.
+22:08:39 [INFO] WorldGuard: TNT ignition is PERMITTED.
+22:08:39 [INFO] WorldGuard: Lighters are PERMITTED.
+22:08:39 [INFO] WorldGuard: Lava fire is blocked.
+22:08:39 [INFO] WorldGuard: Fire spread is UNRESTRICTED.
+22:08:39 [INFO] WorldGuard 4.0-alpha1 enabled.
+22:08:39 [INFO] Done (0,337s)! For help, type "help" or "?"
+>

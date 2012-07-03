@@ -1,0 +1,15 @@
+page break after certain tables
+<style>
+@media print
+{
+table {page-break-after: left}
+}
+</style>
+	
+@media print
+ {
+   table.break {page-break-after: left}
+
+ }
+	
+<table class="break">

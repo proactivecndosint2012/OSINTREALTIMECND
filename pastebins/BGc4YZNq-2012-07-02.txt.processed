@@ -1,0 +1,37 @@
+What is wrong with this HTML5 <address> element?
+<div id="header-container">
+      <address>
+        <ul>
+            <li>lorem ipsum</li>
+            <li>(xxx) xxx-xxxx</li>
+        </ul>
+    </address>
+</div>
+	
+#header-container address {float: right; margin-top: 25px;}
+	
+<div id="header-container">
+    <address> </address>
+    <ul>
+         <li>lorem ipsum</li>
+         <li>(xxx) xxx-xxxx</li>
+    </ul>
+</div>
+	
+<!ELEMENT ADDRESS - - (%inline;)* -- information on author -->
+<!ATTLIST ADDRESS
+  %attrs;                              -- %coreattrs, %i18n, %events --
+  >
+	
+#header-container address {display: block; float: right; margin-top: 25px;}
+.clear { clear: both; }
+	
+<div id="header-container">
+  <address>
+    <ul>
+      <li>lorem ipsum</li>
+      <li>(xxx) xxx-xxxx</li>
+    </ul>
+    <div class="clear"></div>
+  </address>
+</div>

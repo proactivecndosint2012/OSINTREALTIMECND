@@ -1,0 +1,47 @@
+Python Script for Encryption and Decryption of files
+# encdec.py
+
+import sys
+import random
+
+if len(sys.argv) != 5:
+    print "Usage: encdec.py e/d longintkey [path]filename1 [path]filename2"
+    sys.exit()
+
+k = long(sys.argv[2]) # key
+random.seed(k)
+
+f1 = open( sys.argv[3], "rb")
+bytearr = map (ord, f1.read () )
+f2 = open( sys.argv[4], "wb" )
+
+if sys.argv[1] == "e": # encryption
+
+    for i in range(len(bytearr)):
+        byt = (bytearr[i] + random.randint(0, 255)) % 256
+        f2.write(chr(byt))
+
+
+if sys.argv[1] == "d": # decryption
+
+    for i in range(len(bytearr)):
+        byt = ((bytearr[i] - random.randint(0, 255)) + 256 ) % 256
+        f2.write(chr(byt))
+
+f1.close()
+f2.close()
+	
+import random
+print [random.randint(0,255) for i in xrange(5)]
+	
+import random
+random.seed(2)
+print [random.randint(0,255) for i in xrange(5)]
+	
+for c in bytearr:
+	
+for i in range(len(bytearr)):
+	
+for c in bytearr:
+    byt = (c + random.randint(0, 255)) % 256
+    f2.write(chr(byt))

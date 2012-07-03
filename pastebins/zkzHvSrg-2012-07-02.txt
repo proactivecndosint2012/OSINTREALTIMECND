@@ -1,0 +1,103 @@
+Is there a better way to optimize the lennard jones potential function?
+double ljd(double r) /* Derivative of Lennard Jones Potential for Argon with 
+                        respect to distance (r) */ 
+{  
+    double temp;  
+    temp = Si/r;  
+    temp = temp*temp;
+    temp = temp*temp*temp;  
+    return ( (24*Ep/r)*(temp-(2 * pow(temp,2))) );  
+}
+	
+double ljd(double r) /* Derivative of Lennard Jones Potential for Argon with 
+                        respect to distance (r) */ 
+{  
+    double temp;  
+    temp = Si / r;  
+    temp = temp * temp;
+    temp = temp * temp * temp;  
+    return ( (24.0 * Ep / r) * (temp - (2.0 * temp * temp)) );  
+}
+	
+static inline double ljd(double r)
+{
+    return 24 * Ep / Si * (pow(Si / r, 7) - 2 * pow(Si / r, 13));
+}
+	
+fldl    LC0
+fdivl   8(%ebp)
+fld     %st(0)
+fmul    %st(1), %st
+fmul    %st, %st(1)
+fld     %st(0)
+fmul    %st(1), %st
+fmul    %st(2), %st
+fxch    %st(1)
+fmul    %st(2), %st
+fmul    %st(0), %st
+fmulp   %st, %st(2)
+fxch    %st(1)
+fadd    %st(0), %st
+fsubrp  %st, %st(1)
+fmull   LC1
+	
+static __m128d ljd(__m128d r)
+{
+    static const __m128d two = { 2.0, 2.0 };
+    static const __m128d si = { Si, Si };
+    static const __m128d ep24 = { 24 * Ep, 24 * Ep };
+
+    __m128d temp2, temp3;
+    __m128d temp = _mm_div_pd(si, r);
+    __m128d ep24_r = _mm_div_pd(ep24, r);
+
+    temp = _mm_mul_pd(temp, temp);
+    temp2 = _mm_mul_pd(temp, temp);
+    temp2 = _mm_mul_pd(temp2, temp);
+    temp3 = _mm_mul_pd(temp2, temp2);
+    temp3 = _mm_mul_pd(temp3, two);
+
+    return _mm_mul_pd(ep24_r, _mm_sub_pd(temp2, temp3));
+}
+
+/* Requires `out` and `in` to be 16-byte aligned */
+void ljd_array(double out[], const double in[], int n)
+{
+    int i;
+
+    for (i = 0; i < n; i += 2)
+    {
+        _mm_store_pd(out + i, ljd(_mm_load_pd(in + i)));
+    }
+}
+	
+const double Si6 = /*whatever pow(Si,6) is*/;
+const double Si_value = /*whatever Si is*/; /* need _value as Si is a register name! */
+const double Ep24 = /*whatever 24.Ep is*/;
+
+double ljd (double r)
+{
+  double result;
+  __asm
+  {
+    fld qword ptr [r]
+    fld st(0)
+    fmul st(0),st(0)
+    fld st(0)
+    fmul st(0),st(0)
+    fmulp st(1),st(0)
+    fld qword ptr [Si6]
+    fdivrp st(1),st(0)
+    fld st(0)
+    fld1
+    fsub st(0),st(1)
+    fsubrp st(1),st(0)
+    fmulp st(1),st(0)
+    fld qword ptr [Ep24]
+    fmulp st(1),st(0)
+    fdivrp st(1),st(0)
+    fstp qword ptr [result]
+  }
+
+  return result;
+}

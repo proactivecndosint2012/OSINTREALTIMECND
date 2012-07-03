@@ -1,0 +1,49 @@
+//Classe Interface
+public class Interface {
+
+	public static int pegueInt(){
+		String digitado = JOptionPane.showInputDialog(null, "Digite um número: ", "Digitar um valor", JOptionPane.INFORMATION_MESSAGE);
+		int x = Integer.parseInt(digitado);
+		return x;
+	}
+
+	public static int[][] pegueMatriz(){
+
+		int nLinhas = Integer.parseInt( JOptionPane.showInputDialog("Digite o número de linhas: "));
+		int nColunas = Integer.parseInt(JOptionPane.showInputDialog("Digite o número de colunas: "));
+		int [][] matriz = new int[nLinhas][nColunas]; 
+		for (int lin = 0; lin < nLinhas; lin++){
+			for (int col = 0; col < nColunas; col++){
+				String valor = JOptionPane.showInputDialog("Digite o valor da matriz na linha [" + lin +"] e coluna " + "[" + col + "].");
+				matriz[lin][col] = Integer.parseInt(valor);
+			}
+		}
+		return matriz;
+	}
+----------------------------------------------------------------------------
+	public static int [] retornaArray(int [][] x, int lin){
+		int cont = 0;
+		for(int i = 0; i < x[0].length; i++){
+			if (x[lin][i] > -21 && x[lin][i] < 21)
+				cont++;
+		}
+		int conta = 0;
+		int [] y = new int[conta];
+		for(int j = 0; j < x[0].length; j++){
+			if (x[lin][j] > -21 && x[lin][j] < 21){
+				y[conta] = x[lin][j];
+				conta++;
+			}
+		}
+		return y;
+	}
+----------------------------------------------------------------------------
+// MAin
+
+public static void main(String[] args) {
+
+		int[][] mat = Interface.pegueMatriz();
+		int a = Interface.pegueInt();
+
+		int [] b = ManipulaMatriz.retornaArray(mat, a);
+		Interface.mostreMensagem("Valores entre 20 e -20 " + b);

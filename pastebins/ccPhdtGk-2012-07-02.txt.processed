@@ -1,0 +1,49 @@
+Convert a string value to an entity in Automapper
+public abstract class Entity<IdK> 
+{
+    public virtual IdK Code { get; protected set; }
+}
+
+public class Contact : Entity
+{
+    public virtual string Name { get; set; }
+    public virtual Company Company { get; set; }
+}
+
+public class Company : Entity
+{
+    public virtual string Name { get; set; }
+}
+	
+public ContactViewModel()
+{
+        public Guid Code { get; set; }
+        public int Version { get; set; }
+
+        [DisplayName("Contact")]
+        public string Name { get; set; }
+
+        [DisplayName("Company")]
+        public string Company { get; set; }
+}
+	
+public class AutoMapperConfiguration
+    {
+        public static void Configure()
+        {
+            Mapper.Initialize(x => {
+                x.CreateMap<Domain.Contact, ViewModels.ContactViewModel>();
+                x.CreateMap<ViewModels.ContactViewModel, Domain.Contact>()
+            });
+        }
+    }
+	
+public class CompanyTypeResolver : ValueResolver<string, Company>
+{
+    protected override Company ResolveCore(string name)
+    {
+        return new Company {Name = name};
+    }
+}
+	
+.ForMember(dto => dto.Company, opt => opt.ResolveUsing<CompanyTypeResolver>().FromMember(src => src.Name))

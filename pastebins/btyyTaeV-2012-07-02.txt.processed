@@ -1,0 +1,4 @@
+<script type="text/javascript">
+	// custom namespace as to not conflict with prototype in edit mode
+	var $jQ = jQuery.noConflict();
+</script>

@@ -1,0 +1,31 @@
+How do I make menu items with children in a menubar selectable in Flex 3?
+<mx:XMLList id="menuList">
+    <menuitem label="Parent1">
+        <menuitem label="Child1">
+            <menuitem label="SubChild1" />
+            <menuitem label="SubChild2" />
+        </menuitem>
+        <menuitem label="Child2" />
+    </menuitem>
+    <menuitem label="Parent2" />
+</mx:XMLList>
+	
+var myMenu:Menu=Menu.createMenu(null, myMenuData, false);
+            myMenu.labelField="@label"
+            // Add an event listener for the itemClick event.
+            //myMenu.addEventListener(MenuEvent.ITEM_CLICK, itemClickInfo);
+            myMenu.addEventListener(MouseEvent.CLICK, itemMouseClickInfo);
+            // Show the menu.
+            myMenu.show(225, 10);
+	
+// The event listener for the mouse click event.
+        private function itemMouseClickInfo(event:MouseEvent):void
+        {
+            ta1.text="event.type: " + event.type;
+            var menuItems:Menu=Menu(event.currentTarget);
+            menuItems.hide();
+        /* ta1.text+="nevent.index: " + event.index;
+           ta1.text+="nItem label: " + event.item.@label
+           ta1.text+="nItem selected: " + event.item.@toggled;
+         ta1.text+= "nItem type: " + event.item.@type; */
+        }

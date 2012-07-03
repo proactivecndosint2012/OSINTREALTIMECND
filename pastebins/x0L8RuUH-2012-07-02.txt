@@ -1,0 +1,10 @@
+public double valorTodosContratos()
+{
+	double res = 0;
+	// crias array praque? nao precisas para nada, nao vais utilizar novas structs
+	for(Contratavel ct : this.servicosContratados) // getcontratavel? do lado direito fica a lista inteira
+	{
+		res += this.custoPorContrato(ct); // nao precisas clone (nao vais fazer add)
+	}
+	return res;
+}

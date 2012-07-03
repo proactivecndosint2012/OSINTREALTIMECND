@@ -1,0 +1,55 @@
+C# Dynamic Form Help
+public void Generate_Tiles(int width, int height)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    System.Windows.Forms.PictureBox picturebox = new PictureBox();
+                    picturebox.BackColor = SystemColors.ActiveCaption;
+                    picturebox.Cursor = Cursors.Cross;
+                    picturebox.Location = new System.Drawing.Point((x*32) + 4, (y*32) + 4);
+                    picturebox.Name = x+y+"tile";
+                    picturebox.Size = new System.Drawing.Size(32, 32);
+                    picturebox.TabIndex = 0;
+                    picturebox.TabStop = false;
+                    picturebox.Click += new System.EventHandler(TileBox_Clicked));
+                    map.Controls.Add(picturebox);
+                }
+            }
+            MessageBox.Show("Done");
+        }
+	
+void TileBox_Clicked(object sender, EventArgs e)
+    {
+        PictureBox pictureBox = sender as PictureBox;
+        if(pictureBox != null)
+        {
+            //do stuff with your pictureBox
+        }
+    }
+	
+private void pictureBox1_Click(object sender, System.EventArgs e)
+{
+   PictureBox pb = (PictureBox)sender;
+
+   // ...
+}
+	
+private void PictureBox_Click(object sender, EventArgs e)
+{
+     var box = sender as PictureBox;
+     if (box != null)
+     {
+         //...
+	
+//...
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                System.Windows.Forms.PictureBox picturebox = new PictureBox();
+
+                pictureBox.Click += new Action<object, EventArgs>(
+                     (sender, e) => { doStuff(pictureBox); }
+                );

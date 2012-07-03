@@ -1,0 +1,45 @@
+predicate for a map from string to int
+#include<iostream>
+#include<map>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
+using std::map;
+
+int main()
+{
+    string s;
+    map<string,int> counters;   //store each word & an associated counter
+
+    //read the input, keeping track of each word & how often we see it
+    while(cin>>s)
+    {
+        ++counters[s];
+    }
+
+    //write the words & associated counts
+    for(map<string,int>::const_iterator iter = counters.begin();iter != counters.end();iter++)
+    {
+        cout<<iter->first<<"t"<<iter->second<<endl;
+    }
+
+    return 0;
+}
+	
+bool cmp(std::pair<string, int> const &a, std::pair<string, int> const &b) {
+  return a.second < b.second;
+}
+	
+struct PairLessSecond
+{
+  template< typename P >
+  bool operator()( const P& pairLeft, const P& pairRight ) const
+  {
+    return pairLeft.second < pairRight.second;
+  }
+};
+	
+std::vector< std::map<std::string,int>::value_type > byCount;
+   std::sort( byCount.begin(), byCount.end(), PairLessSecond() );

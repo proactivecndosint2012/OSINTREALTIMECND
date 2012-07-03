@@ -1,0 +1,4 @@
+Drupal6: how to handle private and public file storage?
+RewriteEngine on
+RewriteBase /path/to/my/private/directory
+RewriteRule ^(.*)$ $1 [L,R=301]

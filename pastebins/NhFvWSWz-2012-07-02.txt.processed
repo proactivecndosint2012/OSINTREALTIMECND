@@ -1,0 +1,46 @@
+How to do this in lambda expression or linq?
+private class ProdcutImages
+{
+    public Int32 ID { get; set; }
+    public String ProductID { get; set; }
+    public Boolean IsDefault { get; set; }
+    public Image Image { get; set; }
+    public String FileName { get; set; }
+}
+
+public void SetDefaultImage(int productID)
+{
+    SqlConnection conn = getConnection();
+    conn.Open();
+    SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM product_images WHERE product_id = @ID", conn);
+    da.SelectCommand.Parameters.Add(new SqlParameter("@ID", productID));
+
+
+    DataTable dt = new DataTable();
+    da.Fill(dt);
+
+    var imageList = (from tr in dt.AsEnumerable()
+                        select new ProdcutImages()
+                        {
+                            ID = tr.Field<int>("id"),
+                            ProductID = tr.Field<string>("productId"),
+                            IsDefault = tr.Field<bool>("isDefault"),
+                            Image = tr.Field<Image>("image"),
+                            FileName = tr.Field<string>("fileName")
+                        }).ToList();
+
+    pictureBox1.Image = // ???
+    conn.Close();
+}
+	
+var img = imageList.FirstOrDefault(i => i.IsDefault);
+if (img != null) { pictureBox1.Image = img.Image; }
+	
+var img = imageList.FirstOrDefault(i => i.IsDefault) ?? imageList.FirstOrDefault();
+if (img != null) { pictureBox1.Image = img.Image; }
+	
+pictureBox1.Image = imageList.FirstOrDefault(pi => pi.IsDefault);
+	
+var imageList = db.DataTable
+    .Where(w => w.ID == productID && w.IsDefault == true).FirstOrDefault();
+pictureBox.Image = imageList.Image;

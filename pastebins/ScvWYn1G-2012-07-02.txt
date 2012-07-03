@@ -1,0 +1,67 @@
+<?php
+
+ /* Include all the classes */  
+ include("./pchart/class/pDraw.class.php");  
+ include("./pchart/class/pImage.class.php");  
+ include("./pchart/class/pData.class.php"); 
+
+ /* Create your dataset object */  
+ $myData = new pData();  
+
+$link = mysql_connect('localhost', 'db_user', 'password');
+$db = mysql_select_db('db_wordpress,$link);
+$sql_plus = "SELECT DATE_FORMAT(  `post_date` ,  '%d %b - %y' ) AS showdate, wp_posts.ID , wp_posts.post_date , wp_postmeta.post_id , wp_postmeta.meta_key , wp_postmeta.meta_value FROM wp_posts , wp_postmeta WHERE  ((`post_date` BETWEEN '2010-01-01' AND '2010-12-31') AND (wp_posts.ID = wp_postmeta.post_id) AND (`meta_key` =  'Plus')) ORDER BY  `post_date` ASC";
+$result_plus  = mysql_query($sql_plus);
+while ( $dbf_plus = mysql_fetch_array($result_plus)) {
+	$datum[]      = $dbf_plus['showdate'];
+	$id[]         = $dbf_plus['ID'];
+	$plus[]       = $dbf_plus['meta_key'];
+	$plus_value[] = $dbf_plus['meta_value'];
+	$postid[]     = $dbf_plus['post_id'];
+}
+
+$sql_tot = "SELECT DATE_FORMAT(  `post_date` ,  '%d %b - %y' ) AS showdate, wp_posts.ID , wp_posts.post_date , wp_postmeta.post_id , wp_postmeta.meta_key , wp_postmeta.meta_value FROM wp_posts , wp_postmeta WHERE  ((`post_date` BETWEEN '2010-01-01' AND '2010-12-31') AND (wp_posts.ID = wp_postmeta.post_id) AND (`meta_key` =  'Total')) ORDER BY  `post_date` ASC";
+$result_tot  = mysql_query($sql_tot);
+while ( $dbf_tot = mysql_fetch_array($result_tot)) {
+	/*$datum[]      = $dbf_tot['showdate'];*/
+	$id[]         = $dbf_tot['ID'];
+	$tot[]       = $dbf_tot['meta_key'];
+	$tot_value[] = $dbf_tot['meta_value'];
+	$postid[]     = $dbf_tot['post_id'];
+}
+
+/* Save the data in the pData array */
+$myData->addPoints($datum,"d/m/y");
+$myData->addPoints($plus_value,"plus");
+$myData->addPoints($tot_value,"total");
+ /* Put the timestamp column on the abscissa axis */
+$myData->setAbscissa("d/m/y");
+
+/*to the second axis */
+/*$myData->setSerieOnAxis("plus", 1);
+$myData->setSerieOnAxis("total", 0);*/
+
+/* Name this axis "Time" */
+$myData->setAxisName(1,"meta_key");
+$myData->setAxisName(0,"Plus");
+
+/* Create a pChart object and associate your dataset */  
+ $myPicture = new pImage(700,500,$myData); 
+
+ /* Choose a nice font */ 
+ $myPicture->setFontProperties(array("FontName"=>"./pchart/fonts/Forgotte.ttf","FontSize"=>9)); 
+
+ /* Define the boundaries of the graph area */ 
+ $myPicture->setGraphArea(60,40,700,200); 
+
+ /* Draw the scale, keep everything automatic */  
+ $Settings = array("Mode"=>SCALE_MODE_START0, "LabelRotation"=>90, "LabelSkip"=>5);
+ $myPicture->drawScale($Settings); 
+
+ /* Draw the scale, keep everything automatic */  
+ $myPicture->drawSplineChart(); 
+
+ /* Render the picture (choose the best way) */ 
+ $myPicture->autoOutput("pictures/example.basic.png"); 
+
+?>

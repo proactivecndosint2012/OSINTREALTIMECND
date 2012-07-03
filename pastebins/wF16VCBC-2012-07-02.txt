@@ -1,0 +1,157 @@
+Multiple Marker InfoWindow in Google Maps v3
+function initialize() {
+    var center = new google.maps.LatLng(51.133333,10.416667);
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 6,
+      center: center,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    var markers = [];
+
+    for (var i = 0, dataPhoto; dataPhoto = data.photos[i]; i++) {
+      var latLng = new google.maps.LatLng(dataPhoto.latitude,
+                   dataPhoto.longitude);
+      var marker = new google.maps.Marker({
+        position: latLng,
+        title: dataPhoto.infotitle,
+        map: map,
+      });
+
+      /* Create Info Windows */         
+
+      var infowindow = new google.maps.InfoWindow({
+        content: " "
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent('<h3>'+marker.title+'</h3>'+' Infotext');
+        infowindow.open(map, this);
+      });
+      markers.push(marker);
+    }
+    var markerCluster = new MarkerClusterer(map, markers);
+  }
+	
+infowindow.setContent('<h3>'+this.title+'</h3>'+' Infotext');
+	
+/**
+ * infoBubble Variable
+ * This variable is globally defined for defaults that are loaded.
+ */
+var infoBubbles = [];
+/**
+ * array of all of the markers that are on the map
+ * 
+ * @type {Array}
+ * @author Mike DeVita
+ * @copyright 2011 MapIT USA
+ * @category map_Js
+ */
+var markersArray = [];
+/**
+ * array of all of the sidebar items for all of the markers on the map
+ * 
+ * @type {Array}
+ * @author Mike DeVita
+ * @copyright 2011 MapIT USA
+ * @category map_Js
+ */
+var sidebarHtmlArray = [];
+
+/**
+ * setPoints(locations)
+ * 
+ * sets the marker, infoBubble and sidebarItem based on the locations 
+ * that were returned from the JSON query.
+ * 
+ * @param {array} locations array of all of the points, and their settings/html
+ * 
+ * @author Mike DeVita
+ * @author Google Maps API
+ * @copyright 2011 MapIT USA
+ * @category map_js
+ */     
+function setPoints(locations){      
+    for (var i = 0; i < locations.length; i++) {
+        /** @type {array} reassigns locations array to be point, isolates it to the setPoints() function */
+        var point = locations;
+        /** @type {google} generates Googles API form of the lat lng passed from var point */
+        var myLatLng = new google.maps.LatLng(point[i].lat, point[i].lng);
+
+        /**
+         * marker variable, stores all of the information pertaining to a specific marker
+         * this variable creates the marker, places it on the map and then also sets some
+         * custom options for the infoBubbles.
+         * 
+         * @type {google}
+         */
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            icon: point[i].marker_icon
+        });
+
+        /** push the marker to the markersArray to delete or show the overlays */
+        markersArray.push(marker);
+
+        var sidebarItem = point[i].sidebarHtmlView;
+        sidebarHtmlArray.push(sidebarItem);
+        infoBubbles[i] = new InfoBubble({ 
+            map: map, 
+            minHeight: point[i].min_height,
+            maxHeight: point[i].max_height,
+            minWidth: point[i].min_width,
+            maxWidth: point[i].max_width,
+            disableAutoPan: false, 
+            hideCloseButton: false, 
+            arrowPosition: 30, 
+            padding:12
+        }); 
+        var tabs = point[i].tabs;
+        infoBubbles[i].addTab('Company', point[i].html);
+        for (var ii = 0; ii < tabs.length; ii++) {
+            infoBubbles[i].addTab(tabs[ii].tabTitle, tabs[ii].tabContent);
+        }
+        /**
+         * add the listeners for the markerClicks and the sideBarClicks 
+         * 
+         * @type {google}
+         * @todo eventDomListener does not work yet, this is the click listener of the sidebar item's
+         */
+        google.maps.event.addListener(marker, 'click', handleMarkerClick(marker, i)); 
+    }   
+}
+
+
+function handleMarkerClick(marker,index) { 
+    return function() { 
+        if (!infoBubbles[index].isOpen()) { 
+            infoBubbles[index].open(map, marker); 
+        }else{
+            infoBubbles[index].close(map, marker); 
+        }
+    } 
+}
+
+/**
+ * addmarker(location)
+ * 
+ * adds the marker to the map and pushes the marker
+ * to the end of the markersArray
+ * 
+ * @param {google} location LatLng of where the marker should be put
+ * 
+ * @author Mike DeVita
+ * @author Google API
+ * @copyright 2011 MapIT USA
+ * @category map_js
+ */
+function addMarker(location, marker_icon){
+    marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        animation: google.maps.Animation.DROP,
+        icon: marker_icon
+    });
+    markersArray.push(marker);
+}

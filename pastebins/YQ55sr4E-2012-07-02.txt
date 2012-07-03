@@ -1,0 +1,6 @@
+List Contains() with PLinq?
+List<long> longList = new List<long>(10000000)
+	
+bool found = longList.Contains(4345235234524245124L);
+	
+bool found = longList.AsParallel().Contains(4345235234524245124L);

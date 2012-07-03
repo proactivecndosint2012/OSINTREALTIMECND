@@ -1,0 +1,18 @@
+public class TestBot extends IRC {
+
+	public TestBot() {
+		setUsername("TestBot");
+		setServer("irc.swiftirc.net");
+		setChannel("#pwnxile");
+		startConnection();
+	}
+
+	@Override
+	public void handleCommand(String command, String name) {
+		String[] args = command.split(" ", 1);
+		if (args[0].equalsIgnoreCase("roll")) {
+			int n = random(100);
+			sendMessage(name + " has rolled a " + n + ".");
+		}
+	}
+}

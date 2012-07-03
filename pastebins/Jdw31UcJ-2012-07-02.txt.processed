@@ -1,0 +1,10 @@
+Html ActionLink Route problem
+routes.MapRoute("Blog",
+            "Blog/{controller}/{action}",
+            new { controller = "Test", action = "Index" });
+
+        routes.MapRoute(
+            "Default", // Route name
+            "{controller}/{action}/{id}", // URL with parameters
+            new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+        );

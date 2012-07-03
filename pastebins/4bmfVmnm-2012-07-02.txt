@@ -1,0 +1,69 @@
+import random
+
+class jamesCrane:
+	def __init__(self):
+		pass
+		
+	def keyboard(length, lineMethod=None, lineRange=None):
+	"""
+	Method to James Crane on the keyboard.
+	
+	Args:
+	
+		length (int)
+			Length of james crane-eque writing to be generated
+		
+		lineMethod (None / string)
+			method to be used to calculate the newline generation
+			
+			can be None for no newlines or a string of:
+			
+			uniform -- Lines of a uniform length
+				lineRange is int of line length
+				
+			random -- Completely random newlines
+			
+			crandom -- Random within a given range
+				lineRange is tuple or list of lower and upper limits
+
+	Returns:
+	
+		string if completed sucessfully
+		raises InputError if it is not supplied a valid newline generation
+	"""
+	
+	output = ''
+	chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890-_@#~[]{}()<>,./?;:`¬|$'
+	
+	if lineMethod == None:
+	
+		for i in range(length):
+			output += chars[random.randrange(0,len(chars))]
+		return output
+		
+	elif lineMethod == 'uniform':
+	
+		for i in range(int(round(length/lineRange))):
+			for j in range(lineRange):
+				output += chars[random.randrange(0,len(chars))]
+			output += '\n'
+		return output
+		
+	elif lineMethod == 'random':
+	
+		for i in range(length):
+			output += chars[random.randrange(0,len(chars))]
+			if random.randrange(1,1000) % 32 == 0:
+				output += '\n'
+		return output
+		
+	elif lineMethod == 'crandom':
+	
+		for i in range(length):
+			output += chars[random.randrange(0,len(chars))]
+			if i % random.randrange(lineRange[0],lineRange[1]) == 0:
+				output += '\n'
+		return output
+		
+	else
+		raise NameError('The newline generation method supplied was invalid.')
