@@ -31,9 +31,7 @@ def twitter_global_username_plusWatchlist(csv_filename_one):
     f = csv.writer(open(csv_filename_one, "wb+"))
     f.writerow(["Created_At","From_User","Tweet_Text"])
     for user in username_watchlist(watchlist_usernames):
-        print user
         for search in search_watchlist(watchlist_search):
-            print search
             SEARCH_BASE = 'http://search.twitter.com/search.json?q=%40' + user
             data = json.load(urllib2.urlopen(SEARCH_BASE))
             data_list3 = list(data['results'])
@@ -47,7 +45,6 @@ def twitter_global_Watchlist(csv_filename_two):
     f = csv.writer(open(csv_filename_two, "wb+"))
     f.writerow(["Created_At","From_User","Tweet_Text"])
     for search in search_watchlist(watchlist_search):
-        print search
         SEARCH_BASE = 'http://search.twitter.com/search.json?q=' + search
         data = json.load(urllib2.urlopen(SEARCH_BASE))
         data_list3 = list(data['results'])
