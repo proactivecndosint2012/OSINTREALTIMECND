@@ -1,0 +1,924 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generato il: 30 mar, 2011 at 03:25 PM
+-- Versione MySQL: 5.1.37
+-- Versione PHP: 5.2.10
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `ccv3`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `corsi`
+--
+
+CREATE TABLE `corsi` (
+  `id_corso` int(11) NOT NULL AUTO_INCREMENT,
+  `data_creazione` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `duration` varchar(30) DEFAULT NULL,
+  `fk_group` int(11) DEFAULT NULL,
+  `location` varchar(512) DEFAULT NULL,
+  PRIMARY KEY (`id_corso`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+
+--
+-- Dump dei dati per la tabella `corsi`
+--
+
+INSERT INTO `corsi` VALUES(1, '2011-03-30 10:11:12', '1', 1, NULL);
+INSERT INTO `corsi` VALUES(2, '2011-03-30 10:13:21', '1', 1, NULL);
+INSERT INTO `corsi` VALUES(3, '2011-03-30 10:13:21', '0,5', 1, NULL);
+INSERT INTO `corsi` VALUES(4, '2011-03-30 10:13:21', '1', 1, NULL);
+INSERT INTO `corsi` VALUES(5, '2011-03-30 10:13:21', '1', 1, NULL);
+INSERT INTO `corsi` VALUES(6, '2011-03-30 10:13:21', '0,5', 1, NULL);
+INSERT INTO `corsi` VALUES(7, '2011-03-30 10:13:21', '1', 1, NULL);
+INSERT INTO `corsi` VALUES(8, '2011-03-30 10:13:21', '3', 1, NULL);
+INSERT INTO `corsi` VALUES(9, '2011-03-30 10:13:21', '0,5', 1, NULL);
+INSERT INTO `corsi` VALUES(10, '2011-03-30 10:13:21', '1', 1, NULL);
+INSERT INTO `corsi` VALUES(11, '2011-03-30 10:13:21', '1', 1, NULL);
+INSERT INTO `corsi` VALUES(12, '2011-03-30 10:13:21', '1', 1, NULL);
+INSERT INTO `corsi` VALUES(13, '2011-03-30 10:13:21', 'NA', 1, NULL);
+INSERT INTO `corsi` VALUES(14, '2011-03-30 10:13:21', '2', 1, NULL);
+INSERT INTO `corsi` VALUES(15, '2011-03-30 10:13:21', '2', 1, NULL);
+INSERT INTO `corsi` VALUES(16, '2011-03-30 10:13:21', '3', 1, NULL);
+INSERT INTO `corsi` VALUES(17, '2011-03-30 10:13:21', '2', 1, NULL);
+INSERT INTO `corsi` VALUES(18, '2011-03-30 10:13:21', 'V', 1, NULL);
+INSERT INTO `corsi` VALUES(19, '2011-03-30 10:15:42', '1', 2, NULL);
+INSERT INTO `corsi` VALUES(20, '2011-03-30 10:15:42', '1', 2, NULL);
+INSERT INTO `corsi` VALUES(21, '2011-03-30 10:15:42', '0,5', 2, NULL);
+INSERT INTO `corsi` VALUES(22, '2011-03-30 10:15:42', '1', 2, NULL);
+INSERT INTO `corsi` VALUES(23, '2011-03-30 10:15:42', '3', 2, NULL);
+INSERT INTO `corsi` VALUES(24, '2011-03-30 10:15:42', '0,5', 2, NULL);
+INSERT INTO `corsi` VALUES(25, '2011-03-30 10:15:42', '1', 2, NULL);
+INSERT INTO `corsi` VALUES(26, '2011-03-30 10:15:42', '1', 2, NULL);
+INSERT INTO `corsi` VALUES(27, '2011-03-30 10:15:42', '1', 2, NULL);
+INSERT INTO `corsi` VALUES(28, '2011-03-30 10:15:42', 'NA', 2, NULL);
+INSERT INTO `corsi` VALUES(29, '2011-03-30 10:15:42', '3', 2, NULL);
+INSERT INTO `corsi` VALUES(30, '2011-03-30 10:15:42', '2', 2, NULL);
+INSERT INTO `corsi` VALUES(31, '2011-03-30 10:15:42', '2', 2, NULL);
+INSERT INTO `corsi` VALUES(32, '2011-03-30 10:15:42', '2', 2, NULL);
+INSERT INTO `corsi` VALUES(33, '2011-03-30 10:15:42', 'V', 2, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `corsi_translation`
+--
+
+CREATE TABLE `corsi_translation` (
+  `fk_corso` int(11) NOT NULL,
+  `fk_lingua` int(11) NOT NULL,
+  `title` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `description` text CHARACTER SET latin1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `corsi_translation`
+--
+
+INSERT INTO `corsi_translation` VALUES(1, 1, 'The Role Of The Account Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(2, 1, 'The Local Healthcare Environment', NULL);
+INSERT INTO `corsi_translation` VALUES(3, 1, 'Local Health Economy Planning & Data Analysis', NULL);
+INSERT INTO `corsi_translation` VALUES(4, 1, 'Customers', NULL);
+INSERT INTO `corsi_translation` VALUES(5, 1, 'Customer Value Propositions & Compliance', NULL);
+INSERT INTO `corsi_translation` VALUES(6, 1, 'Market Research And Customer Insight', NULL);
+INSERT INTO `corsi_translation` VALUES(7, 1, 'Customer Activity Cycle And Patient Pathways', NULL);
+INSERT INTO `corsi_translation` VALUES(8, 1, 'Brand Training', NULL);
+INSERT INTO `corsi_translation` VALUES(9, 1, 'Cross Functional Working', NULL);
+INSERT INTO `corsi_translation` VALUES(10, 1, 'Shared Agenda', NULL);
+INSERT INTO `corsi_translation` VALUES(11, 1, 'Selling To Customers ', NULL);
+INSERT INTO `corsi_translation` VALUES(12, 1, 'Customer Selling Day', NULL);
+INSERT INTO `corsi_translation` VALUES(13, 1, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(14, 1, 'Module 1 - Professional Account Management', NULL);
+INSERT INTO `corsi_translation` VALUES(15, 1, 'Module 2 - Local Health Economy Planning And Insight', NULL);
+INSERT INTO `corsi_translation` VALUES(16, 1, 'Module 3 - Negotiation Skills', NULL);
+INSERT INTO `corsi_translation` VALUES(17, 1, 'Innovation For Account Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(18, 1, 'Learning & development Curriculum', NULL);
+INSERT INTO `corsi_translation` VALUES(19, 1, 'The Role Of The Network Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(20, 1, 'The Local Healthcare Environment', NULL);
+INSERT INTO `corsi_translation` VALUES(21, 1, 'Local Health Economy Planning & Data Analysis', NULL);
+INSERT INTO `corsi_translation` VALUES(22, 1, 'Customers', NULL);
+INSERT INTO `corsi_translation` VALUES(23, 1, 'Brand Training', NULL);
+INSERT INTO `corsi_translation` VALUES(24, 1, 'Cross Functional Working', NULL);
+INSERT INTO `corsi_translation` VALUES(25, 1, 'Formulary Training', NULL);
+INSERT INTO `corsi_translation` VALUES(26, 1, 'Shared Agenda', NULL);
+INSERT INTO `corsi_translation` VALUES(27, 1, 'Selling To Customers ', NULL);
+INSERT INTO `corsi_translation` VALUES(28, 1, 'Customer Selling Day', NULL);
+INSERT INTO `corsi_translation` VALUES(29, 1, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(30, 1, 'Project Management Level 1', NULL);
+INSERT INTO `corsi_translation` VALUES(31, 1, 'Project Management Level 2', NULL);
+INSERT INTO `corsi_translation` VALUES(32, 1, 'Project Management Level 3', NULL);
+INSERT INTO `corsi_translation` VALUES(33, 1, 'Innovation For Network Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(34, 1, 'Learning & development Curriculum', NULL);
+INSERT INTO `corsi_translation` VALUES(1, 2, 'Rôle de l’Account manager/CROS', NULL);
+INSERT INTO `corsi_translation` VALUES(2, 2, 'Environnement de soins de santé local', NULL);
+INSERT INTO `corsi_translation` VALUES(3, 2, 'Planification et analyse des données de l’économie de santé locale', NULL);
+INSERT INTO `corsi_translation` VALUES(4, 2, 'Clients', NULL);
+INSERT INTO `corsi_translation` VALUES(5, 2, 'Propositions de valeur aux clients et conformité', NULL);
+INSERT INTO `corsi_translation` VALUES(6, 2, 'Étude de marché et perspective du client', NULL);
+INSERT INTO `corsi_translation` VALUES(7, 2, 'Cycle d’activité du client et le parcours patients', NULL);
+INSERT INTO `corsi_translation` VALUES(8, 2, 'Formation sur les produits', NULL);
+INSERT INTO `corsi_translation` VALUES(9, 2, 'Travail pluridisciplinaire', NULL);
+INSERT INTO `corsi_translation` VALUES(10, 2, 'Ordre du jour partagé', NULL);
+INSERT INTO `corsi_translation` VALUES(11, 2, 'Vendre aux clients', NULL);
+INSERT INTO `corsi_translation` VALUES(12, 2, 'Un jour dans la vente au client', NULL);
+INSERT INTO `corsi_translation` VALUES(13, 2, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(14, 2, 'Module 1 - Account Management professionnel', NULL);
+INSERT INTO `corsi_translation` VALUES(15, 2, 'Module 2 - Planification de l’économie de santé locale et perspective', NULL);
+INSERT INTO `corsi_translation` VALUES(16, 2, 'Module 3 - Compétences de négociation', NULL);
+INSERT INTO `corsi_translation` VALUES(17, 2, 'Innovation pour les Account Managers/CROS', NULL);
+INSERT INTO `corsi_translation` VALUES(18, 2, 'Programme d’apprentissage et de développement', NULL);
+INSERT INTO `corsi_translation` VALUES(19, 2, 'Rôle du network manager', NULL);
+INSERT INTO `corsi_translation` VALUES(20, 2, 'Environnement de soins de santé local', NULL);
+INSERT INTO `corsi_translation` VALUES(21, 2, 'Planification et analyse des données de l’économie de santé locale', NULL);
+INSERT INTO `corsi_translation` VALUES(22, 2, 'Clients', NULL);
+INSERT INTO `corsi_translation` VALUES(23, 2, 'Formation sur les produits', NULL);
+INSERT INTO `corsi_translation` VALUES(24, 2, 'Travail pluridisciplinaire', NULL);
+INSERT INTO `corsi_translation` VALUES(25, 2, 'Formation sur les formulaires/médicaments référencés', NULL);
+INSERT INTO `corsi_translation` VALUES(26, 2, 'Ordre du jour partagé', NULL);
+INSERT INTO `corsi_translation` VALUES(27, 2, 'Vendre aux clients', NULL);
+INSERT INTO `corsi_translation` VALUES(28, 2, 'Un jour dans la vente au client', NULL);
+INSERT INTO `corsi_translation` VALUES(29, 2, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(30, 2, 'Gestion de projet Niveau 1', NULL);
+INSERT INTO `corsi_translation` VALUES(31, 2, 'Gestion de projet Niveau 2', NULL);
+INSERT INTO `corsi_translation` VALUES(32, 2, 'Gestion de projet Niveau 3', NULL);
+INSERT INTO `corsi_translation` VALUES(33, 2, 'Innovation pour les network managers.', NULL);
+INSERT INTO `corsi_translation` VALUES(34, 2, 'Programme d’apprentissage et de développement', NULL);
+INSERT INTO `corsi_translation` VALUES(1, 3, 'Il ruolo dell’Account Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(2, 3, 'L’ambiente sanitario locale', NULL);
+INSERT INTO `corsi_translation` VALUES(3, 3, 'Preparazione di piani finanziari per strutture sanitarie locali e analisi dei dati', NULL);
+INSERT INTO `corsi_translation` VALUES(4, 3, 'Customers', NULL);
+INSERT INTO `corsi_translation` VALUES(5, 3, 'Customer Value Propositions & Compliance', NULL);
+INSERT INTO `corsi_translation` VALUES(6, 3, 'Ricerche di mercato e analisi dei clienti', NULL);
+INSERT INTO `corsi_translation` VALUES(7, 3, 'Ciclo delle attività dei clienti e iter dei pazienti', NULL);
+INSERT INTO `corsi_translation` VALUES(8, 3, 'Corsi sui prodotti', NULL);
+INSERT INTO `corsi_translation` VALUES(9, 3, 'Cross Functional Working', NULL);
+INSERT INTO `corsi_translation` VALUES(10, 3, 'Identificazione e definizione di un programma comune', NULL);
+INSERT INTO `corsi_translation` VALUES(11, 3, 'Selling To Customers ', NULL);
+INSERT INTO `corsi_translation` VALUES(12, 3, 'Customer Selling Day', NULL);
+INSERT INTO `corsi_translation` VALUES(13, 3, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(14, 3, 'Modulo 1 - La professionalità dell’Account Management', NULL);
+INSERT INTO `corsi_translation` VALUES(15, 3, 'Modulo 2 - Preparazione di piani finanziari per le strutture sanitarie locali e analisi', NULL);
+INSERT INTO `corsi_translation` VALUES(16, 3, 'Modulo 3 - Tecniche di negoziazione', NULL);
+INSERT INTO `corsi_translation` VALUES(17, 3, 'Creatività e innovazione per gli Account Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(18, 3, 'Learning & development Curriculum', NULL);
+INSERT INTO `corsi_translation` VALUES(19, 3, 'Il ruolo del Network Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(20, 3, 'L’ambiente sanitario locale', NULL);
+INSERT INTO `corsi_translation` VALUES(21, 3, 'Preparazione di piani finanziari per strutture sanitarie locali e analisi dei dati', NULL);
+INSERT INTO `corsi_translation` VALUES(22, 3, 'I customer del network management', NULL);
+INSERT INTO `corsi_translation` VALUES(23, 3, 'Corsi sui prodotti', NULL);
+INSERT INTO `corsi_translation` VALUES(24, 3, 'Cross Functional Working', NULL);
+INSERT INTO `corsi_translation` VALUES(25, 3, 'Formulary Training', NULL);
+INSERT INTO `corsi_translation` VALUES(26, 3, 'Identificazione e definizione di un programma comune', NULL);
+INSERT INTO `corsi_translation` VALUES(27, 3, 'Selling To Customers ', NULL);
+INSERT INTO `corsi_translation` VALUES(28, 3, 'Customer Selling Day', NULL);
+INSERT INTO `corsi_translation` VALUES(29, 3, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(30, 3, 'Project Management - Livello 1', NULL);
+INSERT INTO `corsi_translation` VALUES(31, 3, 'Project Management - Livello 2', NULL);
+INSERT INTO `corsi_translation` VALUES(32, 3, 'Project Management - Livello 3', NULL);
+INSERT INTO `corsi_translation` VALUES(33, 3, 'Creatività e innovazione per i Network Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(34, 3, 'Learning & development Curriculum', NULL);
+INSERT INTO `corsi_translation` VALUES(1, 4, 'Die Rolle des Account Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(2, 4, 'Das lokale Gesundheitsumfeld', NULL);
+INSERT INTO `corsi_translation` VALUES(3, 4, 'Lokale Gesundheitsökonomieplanung und Datenanalyse', NULL);
+INSERT INTO `corsi_translation` VALUES(4, 4, 'Kunden', NULL);
+INSERT INTO `corsi_translation` VALUES(5, 4, 'Kundenwertversprechen und Customer-Compliance', NULL);
+INSERT INTO `corsi_translation` VALUES(6, 4, 'Marktforschung und Kundenverständnis', NULL);
+INSERT INTO `corsi_translation` VALUES(7, 4, 'Kundenaktivitätszyklus und Patientenpfade', NULL);
+INSERT INTO `corsi_translation` VALUES(8, 4, 'Markenschulung', NULL);
+INSERT INTO `corsi_translation` VALUES(9, 4, 'Funktionsübergreifende Arbeit', NULL);
+INSERT INTO `corsi_translation` VALUES(10, 4, 'Gemeinsame Agenda', NULL);
+INSERT INTO `corsi_translation` VALUES(11, 4, 'Verkauf an Kunden', NULL);
+INSERT INTO `corsi_translation` VALUES(12, 4, 'Kundenverkaufstag', NULL);
+INSERT INTO `corsi_translation` VALUES(13, 4, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(14, 4, 'Modul 1 - Professionelles Account Management', NULL);
+INSERT INTO `corsi_translation` VALUES(15, 4, 'Modul 2 - Die Lokale Gesundheitsökonomieplanung und wie sie funktioniert', NULL);
+INSERT INTO `corsi_translation` VALUES(16, 4, 'Modul 3 - Verhandlungsstrategien', NULL);
+INSERT INTO `corsi_translation` VALUES(17, 4, 'Innovation für Account Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(18, 4, 'Lehr- und Fortbildungsplan', NULL);
+INSERT INTO `corsi_translation` VALUES(19, 4, 'Die Funktion des Network Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(20, 4, 'Das lokale Gesundheitsumfeld', NULL);
+INSERT INTO `corsi_translation` VALUES(21, 4, 'Lokale Gesundheitsökonomieplanung und Datenanalyse', NULL);
+INSERT INTO `corsi_translation` VALUES(22, 4, 'Kunden', NULL);
+INSERT INTO `corsi_translation` VALUES(23, 4, 'Markenschulung', NULL);
+INSERT INTO `corsi_translation` VALUES(24, 4, 'Funktionsübergreifende Arbeit', NULL);
+INSERT INTO `corsi_translation` VALUES(25, 4, 'Positivlistenschulung', NULL);
+INSERT INTO `corsi_translation` VALUES(26, 4, 'Gemeinsame Agenda', NULL);
+INSERT INTO `corsi_translation` VALUES(27, 4, 'Verkauf an Kunden', NULL);
+INSERT INTO `corsi_translation` VALUES(28, 4, 'Kundenverkaufstag', NULL);
+INSERT INTO `corsi_translation` VALUES(29, 4, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(30, 4, 'Projektmanagement Stufe 1', NULL);
+INSERT INTO `corsi_translation` VALUES(31, 4, 'Projektmanagement Stufe 2', NULL);
+INSERT INTO `corsi_translation` VALUES(32, 4, 'Projektmanagement Stufe 3', NULL);
+INSERT INTO `corsi_translation` VALUES(33, 4, 'Innovation für Network Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(34, 4, 'Lehr- und Fortbildungsplan', NULL);
+INSERT INTO `corsi_translation` VALUES(1, 5, 'De rol van de Account Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(2, 5, 'De plaatselijke gezondheidszorg ', NULL);
+INSERT INTO `corsi_translation` VALUES(3, 5, 'Plaatselijke Gezondheidseconomie Planning & Data-analyse', NULL);
+INSERT INTO `corsi_translation` VALUES(4, 5, 'Klanten', NULL);
+INSERT INTO `corsi_translation` VALUES(5, 5, 'Waardepropositie Klanten & Naleving', NULL);
+INSERT INTO `corsi_translation` VALUES(6, 5, 'Marktonderzoek en Klantinzicht', NULL);
+INSERT INTO `corsi_translation` VALUES(7, 5, 'Activiteitencyclus Klanten en Patiënttraject', NULL);
+INSERT INTO `corsi_translation` VALUES(8, 5, 'Producttraining', NULL);
+INSERT INTO `corsi_translation` VALUES(9, 5, 'Cross Functional Working', NULL);
+INSERT INTO `corsi_translation` VALUES(10, 5, 'Gemeenschappelijke Agenda', NULL);
+INSERT INTO `corsi_translation` VALUES(11, 5, 'Verkopen aan de Klant', NULL);
+INSERT INTO `corsi_translation` VALUES(12, 5, 'Verkoopdag Klant', NULL);
+INSERT INTO `corsi_translation` VALUES(13, 5, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(14, 5, 'Module 1 - Professioneel Account Management', NULL);
+INSERT INTO `corsi_translation` VALUES(15, 5, 'Module 2 – Plaatselijke Gezondheidseconomie Planning en Inzicht', NULL);
+INSERT INTO `corsi_translation` VALUES(16, 5, 'Module 3 - Onderhandelingsvaardigheden', NULL);
+INSERT INTO `corsi_translation` VALUES(17, 5, 'Innovatie voor Account Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(18, 5, 'Leer- & Ontwikkelingsplan', NULL);
+INSERT INTO `corsi_translation` VALUES(19, 5, 'De rol van de Network Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(20, 5, 'De plaatselijke gezondheidszorg ', NULL);
+INSERT INTO `corsi_translation` VALUES(21, 5, 'Plaatselijke Gezondheidseconomie Planning & Data-analyse', NULL);
+INSERT INTO `corsi_translation` VALUES(22, 5, 'Klanten', NULL);
+INSERT INTO `corsi_translation` VALUES(23, 5, 'Producttraining', NULL);
+INSERT INTO `corsi_translation` VALUES(24, 5, 'Cross Functional Working', NULL);
+INSERT INTO `corsi_translation` VALUES(25, 5, 'Opleiding Formules', NULL);
+INSERT INTO `corsi_translation` VALUES(26, 5, 'Gemeenschappelijke Agenda', NULL);
+INSERT INTO `corsi_translation` VALUES(27, 5, 'Verkopen aan de Klant', NULL);
+INSERT INTO `corsi_translation` VALUES(28, 5, 'Verkoopdag Klant', NULL);
+INSERT INTO `corsi_translation` VALUES(29, 5, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(30, 5, 'Projectmanagement Niveau 1', NULL);
+INSERT INTO `corsi_translation` VALUES(31, 5, 'Projectmanagement Niveau 2', NULL);
+INSERT INTO `corsi_translation` VALUES(32, 5, 'Projectmanagement Niveau 3', NULL);
+INSERT INTO `corsi_translation` VALUES(33, 5, 'Innovatie voor Network Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(34, 5, 'Leer- & Ontwikkelingsplan', NULL);
+INSERT INTO `corsi_translation` VALUES(1, 6, 'La función del Director de Cuentas', NULL);
+INSERT INTO `corsi_translation` VALUES(2, 6, 'La situación del sistema de atención sanitaria local ', NULL);
+INSERT INTO `corsi_translation` VALUES(3, 6, 'Análisis de datos y planificación de la economía del sistema de atención sanitaria local', NULL);
+INSERT INTO `corsi_translation` VALUES(4, 6, 'Clientes', NULL);
+INSERT INTO `corsi_translation` VALUES(5, 6, 'El valor de los clientes: propuestas y cumplimiento', NULL);
+INSERT INTO `corsi_translation` VALUES(6, 6, 'Estudio de mercado y conocimiento de los clientes', NULL);
+INSERT INTO `corsi_translation` VALUES(7, 6, 'Ciclo de actividad de los clientes y rutas de los pacientes', NULL);
+INSERT INTO `corsi_translation` VALUES(8, 6, 'Formación sobre la marca', NULL);
+INSERT INTO `corsi_translation` VALUES(9, 6, 'Trabajo multifuncional', NULL);
+INSERT INTO `corsi_translation` VALUES(10, 6, 'Plan común', NULL);
+INSERT INTO `corsi_translation` VALUES(11, 6, 'Venta a clientes', NULL);
+INSERT INTO `corsi_translation` VALUES(12, 6, 'Un Día de venta a clientes', NULL);
+INSERT INTO `corsi_translation` VALUES(13, 6, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(14, 6, 'Módulo 1 - Account Management Profesional', NULL);
+INSERT INTO `corsi_translation` VALUES(15, 6, 'Módulo 2 – Planes y perspectivas de la economía del sistema de atención sanitaria local', '');
+INSERT INTO `corsi_translation` VALUES(16, 6, 'Módulo 3 – Técnicas de negociación', NULL);
+INSERT INTO `corsi_translation` VALUES(17, 6, 'Innovación para Account Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(18, 6, 'Programa de aprendizaje y desarrollo', NULL);
+INSERT INTO `corsi_translation` VALUES(19, 6, 'La función del Network Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(20, 6, 'La situación del sistema de atención sanitaria local ', NULL);
+INSERT INTO `corsi_translation` VALUES(21, 6, 'Análisis de datos y planificación de la economía del sistema de atención sanitaria local', NULL);
+INSERT INTO `corsi_translation` VALUES(22, 6, 'Clientes', NULL);
+INSERT INTO `corsi_translation` VALUES(23, 6, 'Formación sobre la marca', NULL);
+INSERT INTO `corsi_translation` VALUES(24, 6, 'Trabajo multifuncional', NULL);
+INSERT INTO `corsi_translation` VALUES(25, 6, 'Formación sobre el vademécum', NULL);
+INSERT INTO `corsi_translation` VALUES(26, 6, 'Plan común', NULL);
+INSERT INTO `corsi_translation` VALUES(27, 6, 'Venta a clientes ', NULL);
+INSERT INTO `corsi_translation` VALUES(28, 6, 'Un Día de venta a clientes', NULL);
+INSERT INTO `corsi_translation` VALUES(29, 6, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(30, 6, 'Nivel 1 de gestión de proyectos', NULL);
+INSERT INTO `corsi_translation` VALUES(31, 6, 'Nivel 2 de gestión de proyectos', NULL);
+INSERT INTO `corsi_translation` VALUES(32, 6, 'Nivel 3 de gestión de proyectos', NULL);
+INSERT INTO `corsi_translation` VALUES(33, 6, 'Innovación para Network Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(34, 6, 'Programa de aprendizaje y desarrollo', NULL);
+INSERT INTO `corsi_translation` VALUES(1, 7, 'A Função do Account Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(2, 7, 'O Ambiente de Serviços de Saúde Locais', NULL);
+INSERT INTO `corsi_translation` VALUES(3, 7, 'Planeamento e Análise de Dados da Economia de Saúde Local', NULL);
+INSERT INTO `corsi_translation` VALUES(4, 7, 'Clientes', NULL);
+INSERT INTO `corsi_translation` VALUES(5, 7, 'Proposições e Conformidade de Valor para o Cliente', NULL);
+INSERT INTO `corsi_translation` VALUES(6, 7, 'Pesquisa de Mercado e Customer Insight', NULL);
+INSERT INTO `corsi_translation` VALUES(7, 7, 'Ciclo de Actividade do Cliente e Percursos do Doente', NULL);
+INSERT INTO `corsi_translation` VALUES(8, 7, 'Brand Training', '');
+INSERT INTO `corsi_translation` VALUES(9, 7, 'Cross Functional Working', NULL);
+INSERT INTO `corsi_translation` VALUES(10, 7, 'Agenda Comun', NULL);
+INSERT INTO `corsi_translation` VALUES(11, 7, 'Vender a Clientes ', NULL);
+INSERT INTO `corsi_translation` VALUES(12, 7, 'Customer Selling ', NULL);
+INSERT INTO `corsi_translation` VALUES(13, 7, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(14, 7, 'Module 1 - Account Management Profissional', NULL);
+INSERT INTO `corsi_translation` VALUES(15, 7, 'Module 2 - Planeamento e Percepção da Economia ', NULL);
+INSERT INTO `corsi_translation` VALUES(16, 7, 'Module 3 - Técnicas de Negociação', NULL);
+INSERT INTO `corsi_translation` VALUES(17, 7, 'Inovação para Account Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(18, 7, 'Currículo de Aprendizagem e Desenvolvimento', NULL);
+INSERT INTO `corsi_translation` VALUES(19, 7, 'A Função do Network Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(20, 7, 'O Ambiente de Serviços de Saúde Locais', NULL);
+INSERT INTO `corsi_translation` VALUES(21, 7, 'Planeamento e Análise de Dados da Economia de Saúde Local', NULL);
+INSERT INTO `corsi_translation` VALUES(22, 7, 'Clientes', NULL);
+INSERT INTO `corsi_translation` VALUES(23, 7, 'Brand Training', '');
+INSERT INTO `corsi_translation` VALUES(24, 7, 'Cross Functional Working', NULL);
+INSERT INTO `corsi_translation` VALUES(25, 7, 'Formação de Formulários', NULL);
+INSERT INTO `corsi_translation` VALUES(26, 7, 'Agenda Comun', '');
+INSERT INTO `corsi_translation` VALUES(27, 7, 'Vender a Clientes ', NULL);
+INSERT INTO `corsi_translation` VALUES(28, 7, 'Customer Selling ', NULL);
+INSERT INTO `corsi_translation` VALUES(29, 7, 'Wellards', '');
+INSERT INTO `corsi_translation` VALUES(30, 7, 'Nível 1 de Gestão de Projectos', NULL);
+INSERT INTO `corsi_translation` VALUES(31, 7, 'Nível 2 de Gestão de Projectos', NULL);
+INSERT INTO `corsi_translation` VALUES(32, 7, 'Nível 3 de Gestão de Projectos', NULL);
+INSERT INTO `corsi_translation` VALUES(33, 7, 'Inovação para Network Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(34, 7, 'Currículo de Aprendizagem e Desenvolvimento', NULL);
+INSERT INTO `corsi_translation` VALUES(1, 8, 'Ο Ρόλος του Account Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(2, 8, 'Το Περιβάλλον Τοπικής Υγειονομικής Περίθαλψης', NULL);
+INSERT INTO `corsi_translation` VALUES(3, 8, 'Σχεδιασμός Τοπικής Οικονομίας της Υγείας & Ανάλυση Δεδομένων', NULL);
+INSERT INTO `corsi_translation` VALUES(4, 8, 'Πελάτες', NULL);
+INSERT INTO `corsi_translation` VALUES(5, 8, 'Προτάσεις Αξίας Πελατών & Συμμόρφωση', NULL);
+INSERT INTO `corsi_translation` VALUES(6, 8, 'Έρευνα Αγοράς και Κατανόηση Πελατών', NULL);
+INSERT INTO `corsi_translation` VALUES(7, 8, 'Κύκλος Δραστηριοτήτων Πελατών και Πορείες Ασθενών', NULL);
+INSERT INTO `corsi_translation` VALUES(8, 8, 'Brand Training', NULL);
+INSERT INTO `corsi_translation` VALUES(9, 8, 'Διατμηματική Εργασία', NULL);
+INSERT INTO `corsi_translation` VALUES(10, 8, 'Προσδιορισμός Κοινών Στόχων - Αναγκών', NULL);
+INSERT INTO `corsi_translation` VALUES(11, 8, 'Πώληση σε Πελάτες', NULL);
+INSERT INTO `corsi_translation` VALUES(12, 8, 'Customer Selling Day', NULL);
+INSERT INTO `corsi_translation` VALUES(13, 8, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(14, 8, 'Ενότητα 1 - Επαγγελματικό Account Management', NULL);
+INSERT INTO `corsi_translation` VALUES(15, 8, 'Ενότητα 2 - Σχεδιασμός Τοπικής Οικονομίας της Υγείας και Βαθιά Κατανόηση', NULL);
+INSERT INTO `corsi_translation` VALUES(16, 8, 'Ενότητα 3 - Δεξιότητες Διαπραγματεύσεων', NULL);
+INSERT INTO `corsi_translation` VALUES(17, 8, 'Καινοτομία για τους Account Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(18, 8, 'Διδακτέα Ύλη Μάθησης και Ανάπτυξης', NULL);
+INSERT INTO `corsi_translation` VALUES(19, 8, 'Ο Ρόλος του Network Manager', NULL);
+INSERT INTO `corsi_translation` VALUES(20, 8, 'Το Περιβάλλον Τοπικής Υγειονομικής Περίθαλψης', NULL);
+INSERT INTO `corsi_translation` VALUES(21, 8, 'Σχεδιασμός Τοπικής Οικονομίας της Υγείας και Ανάλυση Δεδομένων', NULL);
+INSERT INTO `corsi_translation` VALUES(22, 8, 'Πελάτες', NULL);
+INSERT INTO `corsi_translation` VALUES(23, 8, 'Brand Training', NULL);
+INSERT INTO `corsi_translation` VALUES(24, 8, 'Διατμηματική Εργασία', NULL);
+INSERT INTO `corsi_translation` VALUES(25, 8, 'Εκπαίδευση σχετικά με τα Συνταγολόγια', NULL);
+INSERT INTO `corsi_translation` VALUES(26, 8, 'Προσδιορισμός Κοινών Στόχων - Αναγκών', NULL);
+INSERT INTO `corsi_translation` VALUES(27, 8, 'Πώληση σε Πελάτες', '');
+INSERT INTO `corsi_translation` VALUES(28, 8, 'Customer Selling Day', NULL);
+INSERT INTO `corsi_translation` VALUES(29, 8, 'Wellards', NULL);
+INSERT INTO `corsi_translation` VALUES(30, 8, 'Project Management Επίπεδο 1', NULL);
+INSERT INTO `corsi_translation` VALUES(31, 8, 'Project Management Επίπεδο 2', NULL);
+INSERT INTO `corsi_translation` VALUES(32, 8, 'Project Management Επίπεδο 3', NULL);
+INSERT INTO `corsi_translation` VALUES(33, 8, 'Καινοτομία για Network Managers', NULL);
+INSERT INTO `corsi_translation` VALUES(34, 8, 'Διδακτέα Ύλη Μάθησης και Ανάπτυξης', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `countries`
+--
+
+CREATE TABLE `countries` (
+  `id_country` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_country`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+
+--
+-- Dump dei dati per la tabella `countries`
+--
+
+INSERT INTO `countries` VALUES(1, 'Austria');
+INSERT INTO `countries` VALUES(2, 'Belgium');
+INSERT INTO `countries` VALUES(3, 'Bulgaria');
+INSERT INTO `countries` VALUES(4, 'Cyprus');
+INSERT INTO `countries` VALUES(5, 'Czech Republic');
+INSERT INTO `countries` VALUES(6, 'Denmark');
+INSERT INTO `countries` VALUES(7, 'Estonia');
+INSERT INTO `countries` VALUES(8, 'Finland');
+INSERT INTO `countries` VALUES(9, 'France');
+INSERT INTO `countries` VALUES(10, 'Germany');
+INSERT INTO `countries` VALUES(11, 'Greece');
+INSERT INTO `countries` VALUES(12, 'Hungary');
+INSERT INTO `countries` VALUES(13, 'Ireland');
+INSERT INTO `countries` VALUES(14, 'Italy');
+INSERT INTO `countries` VALUES(15, 'Latvia');
+INSERT INTO `countries` VALUES(16, 'Lithuania');
+INSERT INTO `countries` VALUES(17, 'Luxembourg');
+INSERT INTO `countries` VALUES(18, 'Malta');
+INSERT INTO `countries` VALUES(19, 'Netherlands');
+INSERT INTO `countries` VALUES(20, 'Poland');
+INSERT INTO `countries` VALUES(21, 'Portugal');
+INSERT INTO `countries` VALUES(22, 'Romania');
+INSERT INTO `countries` VALUES(23, 'Slovakia');
+INSERT INTO `countries` VALUES(24, 'Slovenia');
+INSERT INTO `countries` VALUES(25, 'Spain');
+INSERT INTO `countries` VALUES(26, 'Sweden');
+INSERT INTO `countries` VALUES(27, 'United Kingdom');
+INSERT INTO `countries` VALUES(28, 'Benelux');
+INSERT INTO `countries` VALUES(29, 'Switzerland');
+INSERT INTO `countries` VALUES(30, 'Norway');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `groups`
+--
+
+CREATE TABLE `groups` (
+  `id_group` int(11) NOT NULL AUTO_INCREMENT,
+  `group_name` varchar(40) NOT NULL,
+  PRIMARY KEY (`id_group`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dump dei dati per la tabella `groups`
+--
+
+INSERT INTO `groups` VALUES(1, 'root');
+INSERT INTO `groups` VALUES(2, 'manager');
+INSERT INTO `groups` VALUES(3, 'trainer');
+INSERT INTO `groups` VALUES(4, 'isf');
+INSERT INTO `groups` VALUES(5, 'maintrainer');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `isf`
+--
+
+CREATE TABLE `isf` (
+  `id_isf` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(250) NOT NULL,
+  `cognome` varchar(250) NOT NULL,
+  `fk_country` int(11) NOT NULL,
+  PRIMARY KEY (`id_isf`),
+  KEY `fk_country` (`fk_country`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dump dei dati per la tabella `isf`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `lingue`
+--
+
+CREATE TABLE `lingue` (
+  `id_lingua` int(11) NOT NULL AUTO_INCREMENT,
+  `lingua` varchar(40) NOT NULL,
+  PRIMARY KEY (`id_lingua`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dump dei dati per la tabella `lingue`
+--
+
+INSERT INTO `lingue` VALUES(1, 'English');
+INSERT INTO `lingue` VALUES(2, 'Francese');
+INSERT INTO `lingue` VALUES(3, 'Italiano');
+INSERT INTO `lingue` VALUES(4, 'Tedesco');
+INSERT INTO `lingue` VALUES(5, 'Olandese');
+INSERT INTO `lingue` VALUES(6, 'Spagnolo');
+INSERT INTO `lingue` VALUES(7, 'Portoghese');
+INSERT INTO `lingue` VALUES(8, 'Greco');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `management`
+--
+
+CREATE TABLE `management` (
+  `id_management` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_user` int(11) NOT NULL,
+  `fk_country` int(11) NOT NULL,
+  `fk_language` int(11) NOT NULL,
+  `fk_corso` int(11) NOT NULL,
+  `fk_manager` int(11) DEFAULT NULL,
+  `english` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_management`),
+  KEY `fk_corso` (`fk_corso`),
+  KEY `fk_language` (`fk_language`),
+  KEY `fk_country` (`fk_country`),
+  KEY `fk_user` (`fk_user`),
+  KEY `fk_manager` (`fk_manager`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dump dei dati per la tabella `management`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `manager_groups`
+--
+
+CREATE TABLE `manager_groups` (
+  `id_group` int(11) NOT NULL AUTO_INCREMENT,
+  `m_group` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_group`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dump dei dati per la tabella `manager_groups`
+--
+
+INSERT INTO `manager_groups` VALUES(1, 'Account');
+INSERT INTO `manager_groups` VALUES(2, 'Network');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `managing_group`
+--
+
+CREATE TABLE `managing_group` (
+  `fk_user` int(11) NOT NULL,
+  `fk_group` int(11) NOT NULL,
+  KEY `fk_user` (`fk_user`),
+  KEY `fk_group` (`fk_group`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `managing_group`
+--
+
+INSERT INTO `managing_group` VALUES(1, 1);
+INSERT INTO `managing_group` VALUES(1, 2);
+INSERT INTO `managing_group` VALUES(2, 1);
+INSERT INTO `managing_group` VALUES(2, 2);
+INSERT INTO `managing_group` VALUES(3, 1);
+INSERT INTO `managing_group` VALUES(3, 2);
+INSERT INTO `managing_group` VALUES(4, 1);
+INSERT INTO `managing_group` VALUES(4, 2);
+INSERT INTO `managing_group` VALUES(5, 2);
+INSERT INTO `managing_group` VALUES(5, 2);
+INSERT INTO `managing_group` VALUES(8, 1);
+INSERT INTO `managing_group` VALUES(8, 2);
+INSERT INTO `managing_group` VALUES(8, 1);
+INSERT INTO `managing_group` VALUES(8, 2);
+INSERT INTO `managing_group` VALUES(10, 1);
+INSERT INTO `managing_group` VALUES(10, 2);
+INSERT INTO `managing_group` VALUES(11, 1);
+INSERT INTO `managing_group` VALUES(11, 2);
+INSERT INTO `managing_group` VALUES(12, 1);
+INSERT INTO `managing_group` VALUES(12, 2);
+INSERT INTO `managing_group` VALUES(13, 1);
+INSERT INTO `managing_group` VALUES(13, 2);
+INSERT INTO `managing_group` VALUES(14, 1);
+INSERT INTO `managing_group` VALUES(14, 2);
+INSERT INTO `managing_group` VALUES(15, 1);
+INSERT INTO `managing_group` VALUES(15, 2);
+INSERT INTO `managing_group` VALUES(16, 1);
+INSERT INTO `managing_group` VALUES(16, 2);
+INSERT INTO `managing_group` VALUES(17, 1);
+INSERT INTO `managing_group` VALUES(17, 2);
+INSERT INTO `managing_group` VALUES(18, 1);
+INSERT INTO `managing_group` VALUES(18, 2);
+INSERT INTO `managing_group` VALUES(19, 1);
+INSERT INTO `managing_group` VALUES(19, 2);
+INSERT INTO `managing_group` VALUES(20, 1);
+INSERT INTO `managing_group` VALUES(20, 2);
+INSERT INTO `managing_group` VALUES(21, 1);
+INSERT INTO `managing_group` VALUES(22, 1);
+INSERT INTO `managing_group` VALUES(23, 1);
+INSERT INTO `managing_group` VALUES(24, 1);
+INSERT INTO `managing_group` VALUES(25, 1);
+INSERT INTO `managing_group` VALUES(26, 1);
+INSERT INTO `managing_group` VALUES(27, 1);
+INSERT INTO `managing_group` VALUES(28, 1);
+INSERT INTO `managing_group` VALUES(28, 1);
+INSERT INTO `managing_group` VALUES(29, 1);
+INSERT INTO `managing_group` VALUES(30, 1);
+INSERT INTO `managing_group` VALUES(31, 1);
+INSERT INTO `managing_group` VALUES(32, 1);
+INSERT INTO `managing_group` VALUES(33, 1);
+INSERT INTO `managing_group` VALUES(34, 1);
+INSERT INTO `managing_group` VALUES(35, 1);
+INSERT INTO `managing_group` VALUES(36, 1);
+INSERT INTO `managing_group` VALUES(37, 1);
+INSERT INTO `managing_group` VALUES(38, 1);
+INSERT INTO `managing_group` VALUES(39, 1);
+INSERT INTO `managing_group` VALUES(40, 1);
+INSERT INTO `managing_group` VALUES(41, 1);
+INSERT INTO `managing_group` VALUES(42, 1);
+INSERT INTO `managing_group` VALUES(43, 1);
+INSERT INTO `managing_group` VALUES(44, 1);
+INSERT INTO `managing_group` VALUES(45, 2);
+INSERT INTO `managing_group` VALUES(46, 2);
+INSERT INTO `managing_group` VALUES(47, 2);
+INSERT INTO `managing_group` VALUES(22, 2);
+INSERT INTO `managing_group` VALUES(23, 2);
+INSERT INTO `managing_group` VALUES(24, 2);
+INSERT INTO `managing_group` VALUES(25, 2);
+INSERT INTO `managing_group` VALUES(26, 2);
+INSERT INTO `managing_group` VALUES(51, 2);
+INSERT INTO `managing_group` VALUES(52, 2);
+INSERT INTO `managing_group` VALUES(53, 2);
+INSERT INTO `managing_group` VALUES(54, 2);
+INSERT INTO `managing_group` VALUES(55, 2);
+INSERT INTO `managing_group` VALUES(57, 2);
+INSERT INTO `managing_group` VALUES(58, 2);
+INSERT INTO `managing_group` VALUES(59, 2);
+INSERT INTO `managing_group` VALUES(60, 2);
+INSERT INTO `managing_group` VALUES(61, 2);
+INSERT INTO `managing_group` VALUES(62, 2);
+INSERT INTO `managing_group` VALUES(63, 2);
+INSERT INTO `managing_group` VALUES(64, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `nationality`
+--
+
+CREATE TABLE `nationality` (
+  `fk_user` int(11) NOT NULL,
+  `fk_country` int(11) NOT NULL,
+  KEY `fk_user` (`fk_user`),
+  KEY `fk_country` (`fk_country`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `nationality`
+--
+
+INSERT INTO `nationality` VALUES(1, 26);
+INSERT INTO `nationality` VALUES(1, 8);
+INSERT INTO `nationality` VALUES(1, 30);
+INSERT INTO `nationality` VALUES(1, 6);
+INSERT INTO `nationality` VALUES(2, 27);
+INSERT INTO `nationality` VALUES(2, 13);
+INSERT INTO `nationality` VALUES(3, 27);
+INSERT INTO `nationality` VALUES(3, 13);
+INSERT INTO `nationality` VALUES(4, 13);
+INSERT INTO `nationality` VALUES(4, 27);
+INSERT INTO `nationality` VALUES(5, 2);
+INSERT INTO `nationality` VALUES(5, 19);
+INSERT INTO `nationality` VALUES(8, 21);
+INSERT INTO `nationality` VALUES(10, 25);
+INSERT INTO `nationality` VALUES(11, 9);
+INSERT INTO `nationality` VALUES(12, 9);
+INSERT INTO `nationality` VALUES(13, 14);
+INSERT INTO `nationality` VALUES(14, 14);
+INSERT INTO `nationality` VALUES(15, 10);
+INSERT INTO `nationality` VALUES(16, 10);
+INSERT INTO `nationality` VALUES(17, 11);
+INSERT INTO `nationality` VALUES(18, 25);
+INSERT INTO `nationality` VALUES(19, 29);
+INSERT INTO `nationality` VALUES(19, 1);
+INSERT INTO `nationality` VALUES(20, 1);
+INSERT INTO `nationality` VALUES(20, 2);
+INSERT INTO `nationality` VALUES(20, 6);
+INSERT INTO `nationality` VALUES(20, 8);
+INSERT INTO `nationality` VALUES(20, 9);
+INSERT INTO `nationality` VALUES(20, 10);
+INSERT INTO `nationality` VALUES(20, 11);
+INSERT INTO `nationality` VALUES(20, 13);
+INSERT INTO `nationality` VALUES(20, 14);
+INSERT INTO `nationality` VALUES(20, 19);
+INSERT INTO `nationality` VALUES(20, 30);
+INSERT INTO `nationality` VALUES(20, 21);
+INSERT INTO `nationality` VALUES(20, 25);
+INSERT INTO `nationality` VALUES(20, 26);
+INSERT INTO `nationality` VALUES(20, 29);
+INSERT INTO `nationality` VALUES(20, 27);
+INSERT INTO `nationality` VALUES(21, 8);
+INSERT INTO `nationality` VALUES(22, 26);
+INSERT INTO `nationality` VALUES(23, 26);
+INSERT INTO `nationality` VALUES(24, 26);
+INSERT INTO `nationality` VALUES(25, 26);
+INSERT INTO `nationality` VALUES(26, 26);
+INSERT INTO `nationality` VALUES(27, 26);
+INSERT INTO `nationality` VALUES(28, 13);
+INSERT INTO `nationality` VALUES(29, 1);
+INSERT INTO `nationality` VALUES(30, 10);
+INSERT INTO `nationality` VALUES(31, 9);
+INSERT INTO `nationality` VALUES(32, 14);
+INSERT INTO `nationality` VALUES(33, 14);
+INSERT INTO `nationality` VALUES(34, 14);
+INSERT INTO `nationality` VALUES(35, 14);
+INSERT INTO `nationality` VALUES(36, 27);
+INSERT INTO `nationality` VALUES(37, 27);
+INSERT INTO `nationality` VALUES(38, 27);
+INSERT INTO `nationality` VALUES(39, 27);
+INSERT INTO `nationality` VALUES(40, 27);
+INSERT INTO `nationality` VALUES(41, 27);
+INSERT INTO `nationality` VALUES(42, 27);
+INSERT INTO `nationality` VALUES(43, 27);
+INSERT INTO `nationality` VALUES(44, 27);
+INSERT INTO `nationality` VALUES(45, 19);
+INSERT INTO `nationality` VALUES(46, 19);
+INSERT INTO `nationality` VALUES(47, 26);
+INSERT INTO `nationality` VALUES(50, 1);
+INSERT INTO `nationality` VALUES(51, 29);
+INSERT INTO `nationality` VALUES(52, 10);
+INSERT INTO `nationality` VALUES(53, 19);
+INSERT INTO `nationality` VALUES(54, 19);
+INSERT INTO `nationality` VALUES(55, 19);
+INSERT INTO `nationality` VALUES(57, 27);
+INSERT INTO `nationality` VALUES(58, 27);
+INSERT INTO `nationality` VALUES(59, 27);
+INSERT INTO `nationality` VALUES(60, 27);
+INSERT INTO `nationality` VALUES(61, 27);
+INSERT INTO `nationality` VALUES(62, 27);
+INSERT INTO `nationality` VALUES(63, 27);
+INSERT INTO `nationality` VALUES(64, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `speaking`
+--
+
+CREATE TABLE `speaking` (
+  `fk_user` int(11) NOT NULL,
+  `fk_lingua` int(11) NOT NULL,
+  KEY `fk_user` (`fk_user`),
+  KEY `fk_lingua` (`fk_lingua`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `speaking`
+--
+
+INSERT INTO `speaking` VALUES(1, 1);
+INSERT INTO `speaking` VALUES(2, 1);
+INSERT INTO `speaking` VALUES(3, 1);
+INSERT INTO `speaking` VALUES(4, 1);
+INSERT INTO `speaking` VALUES(5, 1);
+INSERT INTO `speaking` VALUES(8, 1);
+INSERT INTO `speaking` VALUES(10, 1);
+INSERT INTO `speaking` VALUES(11, 1);
+INSERT INTO `speaking` VALUES(12, 1);
+INSERT INTO `speaking` VALUES(13, 1);
+INSERT INTO `speaking` VALUES(14, 1);
+INSERT INTO `speaking` VALUES(15, 1);
+INSERT INTO `speaking` VALUES(16, 1);
+INSERT INTO `speaking` VALUES(17, 1);
+INSERT INTO `speaking` VALUES(18, 1);
+INSERT INTO `speaking` VALUES(19, 1);
+INSERT INTO `speaking` VALUES(20, 1);
+INSERT INTO `speaking` VALUES(21, 1);
+INSERT INTO `speaking` VALUES(22, 1);
+INSERT INTO `speaking` VALUES(23, 1);
+INSERT INTO `speaking` VALUES(24, 1);
+INSERT INTO `speaking` VALUES(25, 1);
+INSERT INTO `speaking` VALUES(26, 1);
+INSERT INTO `speaking` VALUES(27, 1);
+INSERT INTO `speaking` VALUES(28, 1);
+INSERT INTO `speaking` VALUES(29, 4);
+INSERT INTO `speaking` VALUES(30, 4);
+INSERT INTO `speaking` VALUES(31, 2);
+INSERT INTO `speaking` VALUES(32, 3);
+INSERT INTO `speaking` VALUES(33, 3);
+INSERT INTO `speaking` VALUES(34, 3);
+INSERT INTO `speaking` VALUES(35, 3);
+INSERT INTO `speaking` VALUES(36, 1);
+INSERT INTO `speaking` VALUES(37, 1);
+INSERT INTO `speaking` VALUES(38, 1);
+INSERT INTO `speaking` VALUES(39, 1);
+INSERT INTO `speaking` VALUES(40, 1);
+INSERT INTO `speaking` VALUES(41, 1);
+INSERT INTO `speaking` VALUES(42, 1);
+INSERT INTO `speaking` VALUES(43, 1);
+INSERT INTO `speaking` VALUES(44, 1);
+INSERT INTO `speaking` VALUES(45, 5);
+INSERT INTO `speaking` VALUES(46, 5);
+INSERT INTO `speaking` VALUES(47, 1);
+INSERT INTO `speaking` VALUES(47, 1);
+INSERT INTO `speaking` VALUES(50, 4);
+INSERT INTO `speaking` VALUES(51, 4);
+INSERT INTO `speaking` VALUES(52, 4);
+INSERT INTO `speaking` VALUES(52, 4);
+INSERT INTO `speaking` VALUES(53, 5);
+INSERT INTO `speaking` VALUES(54, 5);
+INSERT INTO `speaking` VALUES(55, 5);
+INSERT INTO `speaking` VALUES(57, 1);
+INSERT INTO `speaking` VALUES(58, 1);
+INSERT INTO `speaking` VALUES(59, 1);
+INSERT INTO `speaking` VALUES(60, 1);
+INSERT INTO `speaking` VALUES(61, 1);
+INSERT INTO `speaking` VALUES(62, 1);
+INSERT INTO `speaking` VALUES(63, 1);
+INSERT INTO `speaking` VALUES(64, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `users`
+--
+
+CREATE TABLE `users` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(512) NOT NULL,
+  `nome` varchar(512) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `cognome` varchar(512) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `active` int(3) NOT NULL,
+  `code_account` varchar(512) NOT NULL,
+  `blocked_reason` text NOT NULL,
+  `fk_group` int(4) NOT NULL DEFAULT '3',
+  `choosen_country` int(11) NOT NULL,
+  PRIMARY KEY (`id_user`),
+  UNIQUE KEY `username_2` (`username`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `code` (`code`),
+  KEY `username` (`username`),
+  KEY `fk_group` (`fk_group`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=65 ;
+
+--
+-- Dump dei dati per la tabella `users`
+--
+
+INSERT INTO `users` VALUES(1, 'gfidhhgiufdhiugf', 'Helene', 'Arrhult', 'Helene.Arrhult@pfizer.com', 'Helene.Arrhult@pfizer.com', '525dc8514aa8b19bb813c19c5aee7eb54e0090e6', 1, 't56jhjhgt', '', 3, 1);
+INSERT INTO `users` VALUES(2, '235423552', 'Tobin ', 'Grice', 'Tobin.Grice@pfizer.com', 'Tobin.Grice@pfizer.com', '1f060b0bd9e1adfaf2d4d57cae9bf7b6cdb73a3a', 1, '2453435', '', 3, 1);
+INSERT INTO `users` VALUES(3, '5524235', 'Michelle ', 'Groove', 'Michelle.D.Groves@pfizer.com', 'Michelle.D.Groves@pfizer.com', 'b9953bc1359bbd3be6aeb968bb14512ebae982db', 1, '453453634', '', 3, 1);
+INSERT INTO `users` VALUES(4, '32342342', 'Lorraine ', 'Hoodless', 'Lorraine.Hoodless@Pfizer.com', 'Lorraine.Hoodless@Pfizer.com', 'ad9ad12a00faf545bd124d9d8fbb07a392feb300', 1, '475075940', '', 3, 1);
+INSERT INTO `users` VALUES(5, '457524572', 'Ariane ', 'Jacobs', 'Ariane.Jacobs@pfizer.com', 'Ariane.Jacobs@pfizer.com', '4d37de3c17ff0e50f634ef7cedc03928cf3bc45d', 1, '4142424254242', '', 3, 1);
+INSERT INTO `users` VALUES(8, '2342734923741qa', 'Angela ', 'Pinto', 'Angela.B.Pinto@Pfizer.com', 'Angela.B.Pinto@Pfizer.com', '17f65e07180ffcf60bd3ad82c6bddf0e926af2f2', 1, '542750729571', '', 3, 1);
+INSERT INTO `users` VALUES(10, '3424241279auq', 'Raquel ', 'Guzman', 'raquel.guzman@pfizer.com', 'raquel.guzman@pfizer.com', '86e42aaa6ac47b0542d6d74930da4de4b66a19db', 1, 'hddh8818181', '', 3, 1);
+INSERT INTO `users` VALUES(11, 'ghidh283268326', 'Gilles ', 'Devaux', 'Gilles.Devaux@pfizer.com', 'Gilles.Devaux@pfizer.com', 'fbe9302c51fa0fe19ddeb3c827d30d46ed565fed', 1, '4324982797', '', 3, 1);
+INSERT INTO `users` VALUES(12, '124141fffff', 'Lionel ', 'Garcia', 'Lionel.Garcia@pfizer.com', 'Lionel.Garcia@pfizer.com', '4afc2773a1f12f70e60f07e5f8ea62c96929ffa5', 1, 'y97f97f9qy9', '', 3, 1);
+INSERT INTO `users` VALUES(13, 'afafiuahfa777a', 'Giorgio ', 'Mancadori', 'Giorgio.Mancadori@Pfizer.com', 'Giorgio.Mancadori@Pfizer.com', '14a6dde0b97aca6551eda51a20798fdee9bcfce8', 1, '5555gg33ss22', '', 3, 1);
+INSERT INTO `users` VALUES(14, '3424ggg22111', 'Enrico ', 'Vivalda', 'Enrico.Vivalda@Pfizer.com', 'Enrico.Vivalda@Pfizer.com', '2fc2a7d8322d7afdce25ddfc9e38a49d061e43ab', 1, '372974294792479', '', 3, 1);
+INSERT INTO `users` VALUES(15, '13488f8f8f8', 'Dennis ', 'Bosselmann', 'Dennis.Bosselmann@Pfizer.com', 'Dennis.Bosselmann@Pfizer.com', '616146932e3f7ec008af8bc09095efffb4da4c70', 1, '12419791hfihfihfih11', '', 3, 1);
+INSERT INTO `users` VALUES(16, '3473947394739', 'Harald ', 'Volz', 'Harald.Volz@Pfizer.com', 'Harald.Volz@Pfizer.com', '0f6459a45a7a66d6f56c34a3fa8beb68d284d7ed', 1, '35734747271', '', 3, 1);
+INSERT INTO `users` VALUES(17, '32478shshs', 'Athanasia ', 'Korda', 'Athanasia.korda@Pfizer.com', 'Athanasia.korda@Pfizer.com', '3e22146e23bf37a52ea69ca888259b1d9b515884', 1, '791e99u9f9y97927', '', 3, 1);
+INSERT INTO `users` VALUES(18, '68267802678021a', 'Antonio', 'Bernabeu', 'anton.bernabeu@pfizer.com', 'anton.bernabeu@pfizer.com', '4d34a9ff5d80b9928f8c36e4426cde8cdb6a90dc', 1, '4377fu7auf77fy9', '', 3, 1);
+INSERT INTO `users` VALUES(19, '4237592759yff', 'Anja', 'Kaufmann', 'anja.j.kaufmann@pfizer.com', 'anja.j.kaufmann@pfizer.com', '0f6459a45a7a66d6f56c34a3fa8beb68d284d7ed', 1, '3477f77f7f7f7f7', '', 3, 1);
+INSERT INTO `users` VALUES(20, 'asfuaosd27372', 'Susie', 'Rixon', 'susie.rixon@pfizer.com', 'susie.rixon@pfizer.com', '32e14553ede98db715eb298287042a86662b294e', 1, '347247hjsh', '', 5, 1);
+INSERT INTO `users` VALUES(21, '3439179179171aaww', 'Tero ', 'Ylitalo', 'Tero.ylitalo@pfizer.com', 'Tero.ylitalo@pfizer.com', '7ca9c5dd530b1853c301961e8564508a75881dd4', 1, '57389379999999qa', '', 2, 1);
+INSERT INTO `users` VALUES(22, '3427047214714792174', 'Ola ', 'Sandborgh', 'Ola.sandborgh@pfizer.com', 'Ola.sandborgh@pfizer.com', '2cfca7be3a38cf7a175e7ce011a0779269262208', 1, '2345702502ufwj8208', '', 2, 1);
+INSERT INTO `users` VALUES(23, '124689346384638', 'Dick ', 'Westerlund', 'Dick.westerlund@pfizer.com', 'Dick.westerlund@pfizer.com', 'f1d7d73661fa0a5022e8ac51fb3d91df57112c43', 1, '752895792u347937', '', 2, 1);
+INSERT INTO `users` VALUES(24, '23y272h2h2828282828', 'Henrik', 'Rommedahl', 'Henrik.rommedahl@pfizer.com', 'Henrik.rommedahl@pfizer.com', 'd7b28dfdd4a01b3a8843dd67cb710db30fbdcc24', 1, '138101801801u2u', '', 2, 1);
+INSERT INTO `users` VALUES(25, 'asdhuia6777', 'Kim', 'Persson', 'Kim.persson@pfizer.com', 'Kim.persson@pfizer.com', '5c117654175fe13bb12f56d2c255b3f77f500542', 1, '741749719471h', '', 2, 1);
+INSERT INTO `users` VALUES(26, '3722723rhfi', 'Dusko ', 'Stojanovic', 'Dusko.stojanovic@pfizer.com', 'Dusko.stojanovic@pfizer.com', 'f95b28a00e400ede955ae3039809fc08af6bb6ff', 1, '3722723rhfi', '', 2, 1);
+INSERT INTO `users` VALUES(27, 'ahuip2y8972983729729', 'Magnus', 'Forss', 'magnus.forss@pfizer.com', 'magnus.forss@pfizer.com', 'b71dc499b5c25e3bfa3f9e748e6a95c0871e6787', 1, '0285082502hoho', '', 2, 1);
+INSERT INTO `users` VALUES(28, '2347234y892h', 'Ciaran ', 'McGreal', 'Ciaran.McGreal@Pfizer.com', 'Ciaran.McGreal@Pfizer.com', 'e87dce4ca96fefc439c156a17ea094b72114aa71', 1, '35727252h9h2y2', '', 2, 1);
+INSERT INTO `users` VALUES(29, 'q72389273927392j', 'Macher', 'Stefan', 'macher.stefan@pfizer.com', 'macher.stefan@pfizer.com', '0c6f06f3a7d0f8c7b4de03100f955fdd93adf7b7', 1, '347349hfhfhfy9292', '', 2, 1);
+INSERT INTO `users` VALUES(30, 'asd2e141414141h11u', 'Claus', 'Roeder', 'claus.roeder@pfizer.com', 'claus.roeder@pfizer.com', 'ac70a80b289062b588cc7ad531d93093017fe067', 1, '471294729472947298472', '', 2, 1);
+INSERT INTO `users` VALUES(31, '27402402402840284028', 'Pierre Yves ', 'Deydier', 'Pierre-yves.deydier@pfizer.com', 'Pierre-yves.deydier@pfizer.com', 'f037a960d64f42be7efc1bb7e4652099fd35990f', 1, '34724927849274927', '', 2, 1);
+INSERT INTO `users` VALUES(32, '1238710810810', 'Agostino', 'Grisoni', 'Agostino.grisoni@pfizer.com', 'Agostino.grisoni@pfizer.com', '3ae3a4da395e284cffed6245fc11f61cd38d2023', 1, '417490140180', '', 2, 1);
+INSERT INTO `users` VALUES(33, '123131231231231312', 'Stefano', 'Orselli', 'Stefano.orselli@pfizer.com', 'Stefano.orselli@pfizer.com', 'ba8074100d1fe69c3f7e7bfee1f3468815472cf0', 1, '12312313123211331', '', 2, 1);
+INSERT INTO `users` VALUES(34, '1239ihfiahy99u99u9u9u', 'Michele', 'Simeoni', 'Michele.simeoni@pfizer.com', 'Michele.simeoni@pfizer.com', '3c9a4843720a5c122c9f5888e131a6c893e369b2', 1, '323728974947924729u9h', '', 2, 1);
+INSERT INTO `users` VALUES(35, '217272h82he9h', 'Antonio', 'Greco', 'Antoniocarmelo.greco@pfizer.com', 'Antoniocarmelo.greco@pfizer.com', '4b39433bfd049cce73c0998682c7af55314bb025', 1, '217272h82he9h', '', 2, 1);
+INSERT INTO `users` VALUES(36, '1y1hfhf99901', 'Steven ', 'Ball', 'Stephen.Ball@Pfizer.com', 'Stephen.Ball@Pfizer.com', 'd7136bdab8efc66aa08553ebf5d9e0bd9965d3ff', 1, '284082402u04j', '', 2, 1);
+INSERT INTO `users` VALUES(37, '12y91y91y91y91y9y9y1', 'Nicky ', 'Beardmore', 'Nicky.Beardmore@pfizer.com', 'Nicky.Beardmore@pfizer.com', '305c9682b0f34f38633bd551fee8afba4eb3ef91', 1, '4u1094u1094u104uy1', '', 2, 1);
+INSERT INTO `users` VALUES(38, 'asda23242415151515', 'Karen ', 'Davies', 'Karen.D.Davies@Pfizer.com', 'Karen.D.Davies@Pfizer.com', 'fe52526d6b2fa9a6041ae4e935878cd28b64f796', 1, '2481048018108401', '', 2, 1);
+INSERT INTO `users` VALUES(39, '1717111919191h1h19h91', 'Susan ', 'Donaldson', 'Susan.Donaldson@Pfizer.com', 'Susan.Donaldson@Pfizer.com', '9afd0bf59b7df3cef02dd0e450f36d9049b43aa7', 1, '4184184018401401u40j', '', 2, 1);
+INSERT INTO `users` VALUES(40, '12371037104u104u1041', 'Stephen ', 'Fensome       ', 'Stephen.Fensome@Pfizer.com', 'Stephen.Fensome@Pfizer.com', '53a6a9268245459e3832f2e9590392dedec3e4a7', 1, '27025002025u02j502j0j', '', 2, 1);
+INSERT INTO `users` VALUES(41, '234283582528528951010', 'Alexis ', 'Moss', 'Alexis.Moss@Pfizer.com', 'Alexis.Moss@Pfizer.com', 'b10dd3650ac6f2916fbbff34f06028cd57183040', 1, '51020u205u205u205820', '', 2, 1);
+INSERT INTO `users` VALUES(42, '838382j1j2j901', 'Richard ', 'Price                 ', 'Richard.H.Price@Pfizer.com', 'Richard.H.Price@Pfizer.com', '4c155bd1efb7541cb274d651ce9c5cf5973a8a59', 1, '234792ur9u9fu2975', '', 2, 1);
+INSERT INTO `users` VALUES(43, '12134h4h4h4h4', 'Steve ', 'Skyrme                ', 'Stephen.Skyrme@pfizer.com', 'Stephen.Skyrme@pfizer.com', 'a8a9659ea76c7c8d420f2635cc8de0b4b7cc8678', 1, 'q8f19hhhhahoahfoh', '', 2, 1);
+INSERT INTO `users` VALUES(44, '1919191uyfhfhfy', 'Simon ', 'Whitehad            ', 'Simon.Whitehead@pfizer.com', 'Simon.Whitehead@pfizer.com', 'c3209d781693b7c682bbc43dada616496bae40b1', 1, '3239293u2932u9j', '', 2, 1);
+INSERT INTO `users` VALUES(45, '142717147194719', 'Marina ', 'Kievit', 'Marina.kievit@pfizer.com', 'Marina.kievit@pfizer.com', '686177ef10fb5b0cb956f33af9c808daa528ea1b', 1, '284024082048080', '', 2, 1);
+INSERT INTO `users` VALUES(46, '48108048018108109', 'Johan ', 'van Doornen', 'Johan.VanDoornen@pfizer.com', 'Johan.VanDoornen@pfizer.com', '48cf3bbec12a819c48d1b7320c5f131dcc305fcb', 1, '48108048018108109', '', 2, 1);
+INSERT INTO `users` VALUES(47, 'asd72893719797979792379172979', 'Lena', 'Helin', 'Lena.helin@pfizer.com', 'Lena.helin@pfizer.com', 'afa7bf208e20eb5f4d7a6f3effff11862eacbc56', 1, '248041947197194719471974197', '', 2, 1);
+INSERT INTO `users` VALUES(50, '12314141414141224', 'Florian', 'Modler', 'florian.modler@pfizer.com', 'florian.modler@pfizer.com', '9b1250eaf14f603a385532acfd449c8e5ffa5fc5', 1, '1479104714714710', '', 2, 1);
+INSERT INTO `users` VALUES(51, '23417gfhf09', 'Ralph', 'Studer', 'ralph.studer@pfizer.com', 'ralph.studer@pfizer.com', '99f3ee0e68c8f4b97e43e7c9c66bf61282092f96', 1, '427427427fy9f9y1', '', 2, 1);
+INSERT INTO `users` VALUES(52, 'guuhuhuhuhudah2793729731', 'Oliver', 'Karpf', 'oliver.karpf@pfizer.com ', 'oliver.karpf@pfizer.com ', '69d5c903cb6ee9ca8c4c4c6930b76a623b375d39', 1, '247234092302492uh', '', 2, 1);
+INSERT INTO `users` VALUES(53, '24829048204820f0j2f0j2f02jf0', 'Mariet ', 'ten Haaf', 'Mariet.tenhaaf@pfizer.com', 'Mariet.tenhaaf@pfizer.com', '66ffd84eacb48464f8ab8399f581cd10a8bb497f', 1, '24829048204820f0j2f0j2f02jf0', '', 2, 1);
+INSERT INTO `users` VALUES(54, 'asfy89y9y9h9h9h', 'Saskia ', 'Bootsma', 'Saskia.bootsma@pfizer.com', 'Saskia.bootsma@pfizer.com', '6460d1a779f7f488fed4430c9ffa9b309767daca', 1, 'ugu0uyy3y9y9yh', '', 2, 1);
+INSERT INTO `users` VALUES(55, 'ad6868ha66f6fhfhfh', 'Arno ', 'Vonk', 'Arno.vonk@pfizer.com', 'Arno.vonk@pfizer.com', '9616f11e2927ed20496cfe9d074f7bd06962bf34', 1, '5727y2h8yt9t2yy9', '', 2, 1);
+INSERT INTO `users` VALUES(57, '22222jhsyfayf9ajhf9aj9yh', 'Paul', 'Bobin', 'Paul.k.bobin@pfizer.com', 'Paul.k.bobin@pfizer.com', '6cc6a64b5c03716f33e27a8bf9e0098b8f6881b9', 1, '3478205295u295y92h9', '', 2, 1);
+INSERT INTO `users` VALUES(58, '882ijk283hfh9hh', 'Bob', 'Spencer', 'Bob.g.spencer@pfizer.com', 'Bob.g.spencer@pfizer.com', '90ec544ba6587aed6d158852f709b1fdb30cef97', 1, '567fytf8rf9gt9gg666', '', 2, 1);
+INSERT INTO `users` VALUES(59, 'aasafay79y9h93h9y2u29j9h', 'Paul', 'Newson', 'Paul.newson@pfizer.com', 'Paul.newson@pfizer.com', '94f38467ab8c8f89fba2fab837abbc0de18ed8cd', 1, '45y8925y295h295h295h925', '', 2, 1);
+INSERT INTO `users` VALUES(60, 'asdasdasdasd2222', 'Tom', 'Jeffers', 'Tom.Jeffers@pfizer.com', 'Tom.Jeffers@pfizer.com', 'c66407f3ca2976517458ebd10dee85d528035e0f', 1, 'fh7h57457575j9fj9wjf', '', 2, 1);
+INSERT INTO `users` VALUES(61, 'asdad8888d888d888', 'Sarah', 'Sunderland', 'Sarah.E.Sunderland@pfizer.com', 'Sarah.E.Sunderland@pfizer.com', 'f902f09c48aac5fdbdc389271d704daa', 1, '25u025u205u205h295yj', '', 2, 1);
+INSERT INTO `users` VALUES(62, '23424888jjjf0', 'Alex', 'Davies', 'Alex.J.Davies@pfizer.com', 'Alex.J.Davies@pfizer.com', '0a532cdeb553715da0fe5daa27bb98944ba30dd5', 1, '35385jjjg9g9g9', '', 2, 1);
+INSERT INTO `users` VALUES(63, '111118883883883hggg', 'John ', 'Walker   ', 'John.F.Walker@Pfizer.com', 'John.F.Walker@Pfizer.com', 'cf3540d334f8ccdef2badde9fa2458488e5aa63c', 1, '4532y9292h5923h592h59', '', 2, 1);
+INSERT INTO `users` VALUES(64, '28189181y91y19y18h18h', 'Apostolos ', 'Pittas', 'Apostolos.pittas@pfizer.com', 'Apostolos.pittas@pfizer.com', 'a2e0505d076633871b25e1c3fdadc73d22caa6cf', 1, 'uofa9yf9ahf8agf8ga8ga8fg', '', 2, 1);
+
+--
+-- Limiti per le tabelle scaricate
+--
+
+--
+-- Limiti per la tabella `isf`
+--
+ALTER TABLE `isf`
+  ADD CONSTRAINT `isf_ibfk_1` FOREIGN KEY (`fk_country`) REFERENCES `countries` (`id_country`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limiti per la tabella `management`
+--
+ALTER TABLE `management`
+  ADD CONSTRAINT `management_ibfk_2` FOREIGN KEY (`fk_country`) REFERENCES `countries` (`id_country`),
+  ADD CONSTRAINT `management_ibfk_3` FOREIGN KEY (`fk_language`) REFERENCES `lingue` (`id_lingua`),
+  ADD CONSTRAINT `management_ibfk_4` FOREIGN KEY (`fk_corso`) REFERENCES `corsi` (`id_corso`),
+  ADD CONSTRAINT `management_ibfk_5` FOREIGN KEY (`fk_user`) REFERENCES `isf` (`id_isf`),
+  ADD CONSTRAINT `management_ibfk_6` FOREIGN KEY (`fk_manager`) REFERENCES `users` (`id_user`);
+
+--
+-- Limiti per la tabella `nationality`
+--
+ALTER TABLE `nationality`
+  ADD CONSTRAINT `nationality_ibfk_1` FOREIGN KEY (`fk_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `nationality_ibfk_2` FOREIGN KEY (`fk_country`) REFERENCES `countries` (`id_country`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limiti per la tabella `speaking`
+--
+ALTER TABLE `speaking`
+  ADD CONSTRAINT `speaking_ibfk_1` FOREIGN KEY (`fk_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `speaking_ibfk_2` FOREIGN KEY (`fk_lingua`) REFERENCES `lingue` (`id_lingua`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limiti per la tabella `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`fk_group`) REFERENCES `groups` (`id_group`) ON DELETE CASCADE ON UPDATE CASCADE;

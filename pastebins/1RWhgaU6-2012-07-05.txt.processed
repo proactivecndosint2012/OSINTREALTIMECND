@@ -1,0 +1,33 @@
+CSS/JQuery powered sideways scrolling text on hover
+<div id="container">
+Here is the long content, long long content. So long. Too long.
+</div>
+	
+div#container {
+    /* among other settings: see fiddle */
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+	
+var true_width = ( function(){
+  var $tempobj = $('#container') // starting with truncated text div container
+      .clone().contents() // duplicate the text
+      .wrap('<div id="content"/>') // wrap it in a container
+      .parent().appendTo('body') // add this to the dom
+      .css('left','-1000px'); // but put it far off-screen
+  var result = $tempobj.width(); // measure it
+  $tempobj.remove(); // clean up
+  return result;
+})();
+	
+$('#container').one('mouseenter', function(){ // perhaps trigger once only
+  var shift_distance = true_width - $(this).width(); // how far to move
+  var time_normalized = parseInt(shift_distance / 100, 10) * 1000; // speed
+  $(this).contents().wrap('<div id="content">').parent() // wrap in div
+    .animate({
+        left: -shift_distance,
+        right: 0
+    }, time_normalized, 'linear'); // and move the div within its "viewport"
+});

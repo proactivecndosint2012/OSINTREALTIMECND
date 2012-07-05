@@ -1,0 +1,96 @@
+/*
+
+NIAC - Sound Generator Function
+
+Author: Rob (Rexehuk)
+
+Usage: To add a new SOUND simply do the following:
+
+1. Add a definition for the sound to the appropriate Config.HPP in the folder NIAC_ENV\NIAC_Config
+
+2. Add the sound to the RUK_SArrayActive array in the NIAC_Config.sqf
+
+
+Created: 2011
+
+*/
+
+// ************* INIT AND PRIVATISE THE VARIABLES ********************************
+
+private ["_spawnAmmoLocation","_spawnLocationAltitude","_spawnMarker","_spawnLocation","_effect","_soundSource","_spawnArray",
+"_spawnArrayCount","_minSpawnDistance"];
+
+// Active Sound Array								
+if (isNil("RUK_SArrayActive")) then {
+								RUK_SArrayActive = [];
+								};
+
+// Cached Used Sounds
+if (isNil("RUK_SArrayCache")) then {
+								RUK_SArrayCache = [];
+								};
+								
+// *******************************************************************************				
+
+_spawnMarker = _this select 0;
+_spawnArray = RUK_EEMarkerArray;
+_spawnArrayCount = 0;
+_spawnLocation = (getMarkerPos _spawnMarker);
+_minSpawnDistance = 500;
+
+_soundArray = RUK_SArrayActive;
+
+if (count _soundArray == 0) then
+{
+	RUK_SArrayActive = RUK_SArrayCache;
+	_soundArray = RUK_SArrayActive;
+	RUK_SArrayCache = [];
+};
+
+Private ["_RUK_NearestPlayer"];
+_RUK_NearestPlayer = [_spawnLocation,_minSpawnDistance] call CBA_fnc_nearPlayer;
+
+waitUntil {sleep 0.1;count _soundArray > 0};
+
+if (_RUK_NearestPlayer) then
+{
+		if (debug) then {
+	
+			diag_log format ["NIAC SCRIPT - Player too close to %1 beginning search beyond %2 distance",_spawnLocation,_minSpawnDistance];
+			};
+			
+	while {(_RUK_NearestPlayer)} do
+	{
+	sleep 0.05;
+	_spawnArrayCount = count _spawnArray;
+	_spawnMarker = _spawnArray select floor(random _spawnArrayCount);
+	_spawnLocation = (getMarkerPos _spawnMarker);
+	_RUK_NearestPlayer = [_spawnLocation,_minSpawnDistance] call CBA_fnc_nearPlayer;
+	};
+};
+
+_effectSelection = ceil(random(_spawnArrayCount - 1));
+if (_effectSelection < 0) then {_effectSelection = 0;}; //Checking value is within threshold
+sleep 0.05;
+_effect = (_soundArray select _effectSelection);
+
+		if (debug) then {
+	
+			diag_log format ["NIAC SCRIPT - Sound to play is: %1",_effect];
+			};
+			
+// Spawn The Sound @ Location
+_soundSource = createVehicle ["Can_small", _spawnLocation,[],0,"NONE"]; //Creates a sound location from a helipad
+[[_soundSource], _effect,5] call CBA_fnc_globalSay;
+RUK_SArrayCache set [count RUK_SArrayCache,_effect];
+RUK_SArrayActive = RUK_SArrayActive - [_effect];
+
+//Debug Code
+	if (debug) then
+		{
+			diag_log format ["NIAC SCRIPT - Sound Status - Active %1 Cached %2",count RUK_SArrayActive,count RUK_SArrayCache];
+			diag_log format ["NIAC SCRIPT - Sound Status - Active Sounds: %1",RUK_SArrayActive];
+			diag_log format ["NIAC SCRIPT - Sound Status - Cached Sounds: %1",RUK_SArrayCache];
+		};
+sleep 50;
+deleteVehicle _soundSource;

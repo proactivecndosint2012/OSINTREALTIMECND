@@ -15,6 +15,14 @@ All solutions should be subject to public scrutiny, and peer review.
 
 import urllib2, json, csv, re, datetime
 from error_handle import ConvertExceptions
+from multiprocessing import Pool
+
+@ConvertExceptions(StandardError, 0)
+def multi_process(jobname):
+    po = Pool()
+    po.apply_async(jobname)
+    po.close
+    po.join
 
 @ConvertExceptions(StandardError, 0)
 def search_watchlist(watchlist_search):
@@ -64,6 +72,14 @@ csv_filename_two =  "culled_product/search_two/Twitter-Global-WatchList" + '-' +
 
 # Main Excecution 
 if __name__ == '__main__':
-    twitter_global_username_plusWatchlist(csv_filename_one)
-    twitter_global_Watchlist(csv_filename_two)
+    po = Pool()
+    job_one = twitter_global_username_plusWatchlist(csv_filename_one)
+    job_two = twitter_global_Watchlist(csv_filename_two)
+    jobs = []
+    jobs.append(job_one)
+    jobs.append(job_two)
+    for jobname in jobs:
+        multi_process(jobname)
+    
+    
 

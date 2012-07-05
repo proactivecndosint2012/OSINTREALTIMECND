@@ -1,0 +1,487 @@
+/**
+ * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+ * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
+ * html5doctor.com/html-5-reset-stylesheet/
+ */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; content: none; }
+
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+input, select { vertical-align: middle; }
+
+
+/**
+ * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
+ */
+
+body { font:13px/1.231 sans-serif; *font-size:small; } /* Hack retained to preserve specificity */
+select, input, textarea, button { font:99% sans-serif; }
+
+/* Normalize monospace sizing:
+   en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+
+
+/**
+ * Minimal base styles.
+ */
+
+/* Always force a scrollbar in non-IE */
+html { overflow-y: scroll; }
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+ul, ol { margin-left: 2em; }
+ol { list-style-type: decimal; }
+
+/* Remove margins for navigation lists */
+nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td { vertical-align: top; }
+
+/* Set sub, sup without affecting line-height: gist.github.com/413930 */
+sub, sup { font-size: 75%; line-height: 0; position: relative; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+pre {
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; white-space: pre-wrap; word-wrap: break-word;
+  padding: 15px;
+}
+
+textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+.ie6 legend, .ie7 legend { margin-left: -7px; } 
+
+/* Align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea { margin: 0; }
+
+/* Colors for form validity */
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid {
+   border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+
+/* These selection declarations have to be separate
+   No text-shadow: twitter.com/miketaylr/status/12228805301
+   Also: hot pink! */
+::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
+::selection { background:#FF5E99; color:#fff; text-shadow: none; }
+
+/* j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #FF5E99; }
+
+/* Make buttons play nice in IE:
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+
+/* Bicubic resizing for non-native sized IMG:
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+/**
+ * You might tweak these..
+ */
+
+body, select, input, textarea {
+  color: #444;
+  font-family: sans-serif;
+}
+
+.block { display:block; }
+
+/* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+p { margin-bottom:1em; }
+
+/**
+ * Primary styles
+ *
+ * Author: Adam Wiggall
+ */
+
+body {
+	background:#e7f5fd;
+}
+
+.outer_wrapper {
+	position:relative;
+	margin:30px auto 0 auto;
+	width:992px;
+	background:#e7f5fd url('/assets/images/css/pbed_bg_02.png') repeat-y 0 0;
+}
+
+.layer {
+	margin: 0 auto;
+	padding: 10px;
+	clear: both;
+	overflow: hidden;
+	width: 960px;
+	background: transparent;
+}
+
+.container { padding: 10px;float: left; }
+
+.flatten { padding-top: 0;padding-bottom: 0; }
+.flat_b { padding-bottom:0; }
+.flat_t { padding-top:0; }
+.collapse { margin-top: 0;margin-bottom: 0; }
+
+.pad { padding:10px; }
+.wrapper { padding: 0; }
+.dp { width: 940px; padding:10px 20px; }
+.content { margin-right: 20px;float: left; }
+
+.span_1 { width: 60px; }
+.span_2 { width: 140px; }
+.span_3 { width: 220px; }
+.span_4 { width: 300px; }
+.span_5 { width: 380px; }
+.span_6 { width: 460px; }
+.span_7 { width: 540px; }
+.span_8 { width: 620px; }
+.span_9 { width: 700px; }
+.span_10 { width: 780px; }
+.span_11 { width: 860px; }
+.span_12 { width: 940px; }
+
+.cspan_1 { width: 40px; }
+.cspan_2 { width: 120px; }
+.cspan_3 { width: 200px; }
+.cspan_4 { width: 280px; }
+.cspan_5 { width: 360px; }
+.cspan_6 { width: 440px; }
+.cspan_7 { width: 520px; }
+.cspan_8 { width: 600px; }
+.cspan_9 { width: 680px; }
+.cspan_10 { width: 760px; }
+.cspan_11 { width: 840px; }
+.cspan_12 { width: 920px; }
+
+.clear { clear: both; }
+
+.sprite { background-image: url('/assets/images/css/pbed_sprite.png'); background-repeat: no-repeat; }
+
+header {
+	overflow: hidden;
+}
+
+.banner {
+	background: transparent url('/assets/images/css/pbed_ban_bg.png') no-repeat 0 0;
+	width: 980px;
+	padding: 10px 6px 0 6px;
+	height:83px;
+}
+
+.banner_inner {
+	color:#fff;
+	padding: 8px 0 0 10px;
+	height:37px;
+}
+
+.banner_inner h1 a {
+	width:190px;
+	height:30px;
+	background: transparent url('/assets/images/css/pb_white.gif') no-repeat 0 0;
+	text-indent:-999999px;
+	float:left;
+	margin-left:10px;
+}
+.banner_inner h1 span {
+	font-size: 18px;
+	color:#fff797;
+	font-weight:normal;
+	border-left:1px solid #fff797;
+	float:left;
+	padding:7px 0 3px 20px;
+	margin-left:20px;
+	display:block;
+}
+
+#hero div { height:280px; background-position: 10px 10px; }
+
+footer {
+	position: relative;
+	background: #e7f5fd;
+	overflow: hidden;
+}
+
+footer.layer {
+	background: #e7f5fd url('/assets/images/css/pbed_bg_03.png') no-repeat 0 0;
+	width:972px;
+	margin:0 auto;
+	padding:4px 10px 0 10px;
+}
+
+/*-----------------------
+	Nav Block
+-----------------------*/
+nav {
+	padding:9px 0;
+	float:left;
+	width:980px;
+}
+nav ul {
+	float: left;
+	width: 100%;
+}
+
+nav li {
+	float: left;
+}
+
+nav a {
+	display: block;
+	padding: 6px 10px 7px;
+	background: none;
+	color: #007dc3;
+	text-decoration: none;
+}
+
+nav.main li {
+	width:20%;
+	text-align:center;
+}
+
+nav.main a {
+	font-weight:bold;
+	color:#007dc3;
+}
+
+nav.main a:hover, nav.main a:focus, nav.main li.active a { text-decoration: none; }
+
+/*-------- Sub Navs --------*/
+
+nav a:hover, nav a:focus, nav li.active a { background: #fff;color: #00549e;text-decoration: underline;}
+
+nav.utility_nav a, nav.footer_nav a { background: none;font-size: 12px;padding: 2px 6px;color: #00549e;line-height: 1; font-size: 11px;  }
+
+nav.utility_nav { margin: 6px 0;position: absolute;top: -28px;right: 0;width: 972px;}
+nav.utility_nav li { float: right; }
+nav.utility_nav li.first { margin-right: 0; }
+nav.utility_nav a { border-left:1px solid #00549e;}
+nav.utility_nav .first a { border-left: none; }
+
+nav.footer_nav a { border-right:1px solid #888; color: #8c8c8c; font-weight: bold; font-size:10px; }
+
+/*-------- Search --------*/
+
+#search { position: absolute; top: 19px; right: 20px; margin-right: -5px; }
+
+#search input { padding: 2px; border:0; }
+
+.search_button { width: 27px; height: 28px; background:transparent url('/assets/images/css/search_btn.gif') no-repeat 0 0; border:none; text-indent: -99999px; position: relative; left: -5px; }
+
+
+/*-------- Highlights --------*/
+
+.highlight {
+	width: 220px;
+	margin-right: 20px;
+	padding:0;
+}
+
+.highlight div {
+	border:1px solid #bebebe;
+	min-height:170px;
+	padding: 98px 10px 10px 10px;
+}
+
+.videos_h div { background-position: 0 -290px; }
+.solutions_h div { background-position: -228px -290px; }
+.savings_h div { background-position: -456px -290px; }
+.hott_h div { background-position: -684px -290px; }
+
+.highlight h1 { color: #fff797; background: #fff url('/assets/images/css/highlight_bg_l.png') no-repeat 0 0; padding-left: 24px; text-transform: uppercase; height:26px; }
+.highlight h1 span { display: inline-block; background: #8c9957 url('/assets/images/css/highlight_bg_r.png') no-repeat 100% 0; padding-right:40px; line-height:26px; }
+
+
+.lt_3 { margin-left: 1em; list-style-type: none; margin-top:10px; }
+.lt_3 li { line-height: 2; }
+.lt_3 a { color: #007dc3; text-decoration: none; font-size: 12px; font-weight: bold; }
+.lt_3 a:hover, .highlight_list a:focus, .highlight_list a:active { text-decoration: underline; }
+
+.lt_4 { margin-left: 0; list-style-type: none; margin-top:10px; }
+.lt_4 li { line-height: 2; }
+.lt_4 a { color: #007dc3; text-decoration: none; font-size: 12px; }
+.lt_4 a:hover, .highlight_list a:focus, .highlight_list a:active { text-decoration: underline; }
+
+
+/*-------------------------
+Interior Pages
+-------------------------*/
+
+/*headings for the page tops*/
+.plh_main {
+	color:#8b520b;
+	font-size:24px;
+	font-weight:bold;
+	padding-top:20px;
+	border-bottom:1px solid #ddf1fc;
+	margin-bottom:20px;
+}
+
+.hs { /*stands for headingsub*/
+	color: #007dc3;
+	font-size: 16px;
+	padding-top: 26px;
+	padding-bottom: 4px;
+}
+
+.pmain { margin-bottom: 10px; }
+
+.pmain h1 {
+	color: #9f6614;
+	padding-bottom:10px;
+	font-size:16px;
+}
+
+.pmain a { color: #007dc3; text-decoration: none; }
+.pmain a:hover, .pmain a:focus { text-decoration: underline; }
+
+/*in page nav (section_nav)*/
+.section_nav {
+	margin-top: -20px;
+	padding-top: 20px;
+	background: #f3f9fe;
+}
+
+.section_nav li { float: none; padding: 2px 0; font-weight: bold; }
+.section_nav li ul { padding-bottom: 6px; }
+.section_nav li li { padding-left: 10px; font-weight:normal; text-transform: uppercase; }
+.section_nav a { float: none; padding: 2px; color: #007dc3; }
+
+/**
+ * Non-semantic helper classes: please define your styles before this section.
+ */
+
+/* For image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+/* Hide for both screenreaders and browsers:
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: by Jon Neal.
+  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* The Magnificent Clearfix: Updated to prevent margin-collapsing on child elements.
+   j.mp/bestclearfix */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.clearfix { zoom: 1; }
+
+
+
+/**
+ * Media queries for responsive design.
+ *
+ * These follow after primary styles so they will successfully override.
+ */
+
+@media all and (orientation:portrait) {
+  /* Style adjustments for portrait mode goes here */
+
+}
+
+@media all and (orientation:landscape) {
+  /* Style adjustments for landscape mode goes here */
+
+}
+
+/* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
+   consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+
+
+  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you: j.mp/textsizeadjust */
+  /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+}
+
+
+/**
+ * Print styles.
+ *
+ * Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
+ */
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
+  -ms-filter: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
+
+.floatR { float:right; }
+
+.first { margin-left: 0;float: left; }
+
+.last { margin-right: 0;float: right; }

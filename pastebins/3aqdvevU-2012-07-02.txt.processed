@@ -1,0 +1,11 @@
+// Open the file and read it in.
+		reader = new StringReader(file.text);
+		string stringOne = new string("");
+                string stringStream;
+		// While not EOF.
+		while ((stringStream = reader.ReadLine()) != null)
+		{
+	           string = string + stringStream;
+			
+			
+		}

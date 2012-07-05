@@ -1,0 +1,7 @@
+for(SomePojo pojo : pojos)
+{
+    WebServiceRequest request = new WebServiceRequest();
+    WebServiceResponse response = request.invoke(pojo.getUrl());
+
+    addResponseToPageModel(response)
+}

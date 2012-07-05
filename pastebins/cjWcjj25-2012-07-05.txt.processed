@@ -1,0 +1,955 @@
+local combats = {
+[PSYCHICDAMAGE] = {cor = COLOR_PSYCHIC},
+[GRASSDAMAGE] = {cor = COLOR_GRASS},
+[POISONEDDAMAGE] = {cor = COLOR_GRASS},
+[MORTALGASDAMAGE] = {cor = COLOR_POISON},
+[FIREDAMAGE] = {cor = COLOR_FIRE2},                                   --COMPLETAMENTE EDITED
+[BURNEDDAMAGE] = {cor = COLOR_BURN},
+[WATERDAMAGE] = {cor = COLOR_WATER},
+[ICEDAMAGE] = {cor = COLOR_ICE},
+[NORMALDAMAGE] = {cor = COLOR_NORMAL},
+[GUILLOTINEDAMAGE] = {cor = COLOR_NORMAL},
+[FLYDAMAGE] = {cor = COLOR_FLYING},
+[GHOSTDAMAGE] = {cor = COLOR_GHOST},
+[NIGHTMAREDAMAGE] = {cor = COLOR_GHOST},
+[GROUNDDAMAGE] = {cor = COLOR_GROUND},
+[ELECTRICDAMAGE] = {cor = COLOR_ELECTRIC},
+[THUNDERWAVEDAMAGE] = {cor = COLOR_ELECTRIC},
+[ROCKDAMAGE] = {cor = COLOR_ROCK},
+[BUGDAMAGE] = {cor = COLOR_BUG},
+[FIGHTDAMAGE] = {cor = COLOR_FIGHTING},
+[SEISMICTOSSDAMAGE] = {cor = COLOR_FIGHTING},
+[DRAGONDAMAGE] = {cor = COLOR_DRAGON},
+[POISONDAMAGE] = {cor = COLOR_POISON},
+[DARKDAMAGE] = {cor = COLOR_DARK},
+[STEELDAMAGE] = {cor = COLOR_STEEL},
+}
+
+local Foresight = {"Machamp", "Shiny Hitmonchan", "Shiny Hitmonlee", "Shiny Machamp"}     --passiva Foresight!!
+
+local counter = {"Machamp", "Machoke", "Hitmonchan", "Hitmonlee", "Magmar", "Electabuzz", "Scyther", "Snorlax", "Kangaskhan", "Arcanine", "Shiny Kangaskhan", 
+"Shiny Arcanine", "Shiny Snorlax", "Shiny Scyther", "Shiny Hitmonchan", "Shiny Hitmonlee", "Shiny Machamp", "Shiny Machoke", "Shiny Magmar", "Shiny Electabuzz"}
+
+local tooBad = {"Scyther", "Scizor", "Hitmonlee", "Hitmonchan", "Hitmontop", "Tyrogue", "Shiny Scyther", "Shiny Hitmonchan", "Shiny Hitmonlee"}
+
+local function sendPlayerDmgMsg(cid, text)
+	if not isCreature(cid) then return true end
+	doPlayerSendTextMessage(cid, MESSAGE_STATUS_DEFAULT, text)
+end
+
+local spcevo = {
+["Poliwhirl"] = {"Poliwrath", "Politoed"},
+["Gloom"] = {"Bellossom", "Vileplume"},
+["Tyrogue"] = {"Hitmonchan", "Hitmontop", "Hitmonlee"}}
+
+local function doEvolveWild(cid)
+	if not isCreature(cid) or getCreatureHealth(cid) <= 0 then return true end
+	local name = getCreatureName(cid)
+	local evolution = "none"
+		if spcevo[name] then
+			evolution = spcevo[name][math.random(1, #spcevo[name])]
+		elseif poevo[name] then
+			evolution = poevo[name].evolution
+		end
+	local a = getPokemonStatus(name)
+		if not a or evolution == "none" then return true end
+	local pk = {}
+	local players = getSpectators(getThingPos(cid), 7, 7)
+	if players then
+		for pp = 1, #players do
+			local this = players[pp]
+			if isCreature(this) and isPlayer(this) and (getCreatureTarget(this) == cid or getDamageMapPercent(this, cid) > 0) then
+				doSendMagicEffect(getThingPos(this), 173)
+				local expstring = cid.."expEx"
+				pk[this] = getItemAttribute(getPlayerSlotItem(this, 8).uid, expstring)
+				doItemSetAttribute(getPlayerSlotItem(this, 8).uid, expstring, 0)
+			end
+		end
+	end
+	local level = getPokemonLevel(cid)
+	local pos = getThingPos(cid)
+	local gender = getCreatureSkull(cid)
+	local lifepercentage = 1 - ((getCreatureHealth(cid) * 1.3) / getCreatureMaxHealth(cid))
+	local lookdir = getCreatureLookDir(cid)
+	local status = {}
+		status.offense = getOffense(cid) + a.off * 8
+		status.defense = getDefense(cid) + a.def * 8
+		status.agi = getSpeed(cid) + a.agi * 8
+		status.spatk = getSpecialAttack(cid) + a.spatk * 8
+		status.vit = getVitality(cid) + a.vit * 4
+	doRemoveCreature(cid)
+	local evo = doCreateMonster(evolution, pos)
+	setWildPokemonLevel(evo, level, status)
+	doCreatureSetLookDir(evo, lookdir)
+	doCreatureSetSkullType(evo, gender)
+	doCreatureAddHealth(evo, -getCreatureMaxHealth(evo) * lifepercentage)
+	doSendMagicEffect(getThingPos(evo), 18)
+		for attacker, experience in pairs (pk) do
+			doWildAttackPlayer(evo, attacker)
+			local expstring = evo.."expEx"
+			local exp = experience or 0
+			doItemSetAttribute(getPlayerSlotItem(attacker, 8).uid, expstring, exp)
+		end
+	sendFinishEvolutionEffect(evo, true)
+	addEvent(sendFinishEvolutionEffect, 550, evo, true)
+	addEvent(sendFinishEvolutionEffect, 1050, evo)
+end
+
+local races = {
+[4] = {cor = COLOR_FIRE2},
+[6] = {cor = COLOR_WATER},
+[7] = {cor = COLOR_NORMAL},
+[8] = {cor = COLOR_FIRE2},
+[9] = {cor = COLOR_FIGHTING},
+[10] = {cor = COLOR_FLYING},
+[11] = {cor = COLOR_GRASS},
+[12] = {cor = COLOR_POISON},
+[13] = {cor = COLOR_ELECTRIC},
+[14] = {cor = COLOR_GROUND},
+[15] = {cor = COLOR_PSYCHIC},
+[16] = {cor = COLOR_ROCK},
+[17] = {cor = COLOR_ICE},
+[18] = {cor = COLOR_BUG},
+[19] = {cor = COLOR_DRAGON},
+[20] = {cor = COLOR_GHOST},
+[21] = {cor = COLOR_STEEL},
+[22] = {cor = COLOR_DARK},
+[1] = {cor = 180},
+[2] = {cor = 180},
+[3] = {cor = 180},
+[5] = {cor = 180},
+}
+
+   
+local damages = {MORTALGASDAMAGE, GROUNDDAMAGE, ELECTRICDAMAGE, ROCKDAMAGE, FLYDAMAGE, BUGDAMAGE, FIGHTINGDAMAGE, DRAGONDAMAGE, POISONDAMAGE, DARKDAMAGE, STEELDAMAGE, NIGHTMAREDAMAGE, GUILLOTINEDAMAGE, SEISMICTOSSDAMAGE}
+local fixdmgs = {PSYCHICDAMAGE, COMBAT_PHYSICALDAMAGE, GRASSDAMAGE, FIREDAMAGE, WATERDAMAGE, ICEDAMAGE, NORMALDAMAGE, GHOSTDAMAGE}
+local ignored = {NIGHTMAREDAMAGE, GUILLOTINEDAMAGE, MORTALGASDAMAGE, SEISMICTOSSDAMAGE, PSYCHOSHIFTDAMAGE, POISONEDDAMAGE, BURNEDDAMAGE}
+local ignoremiss = {NIGHTMAREDAMAGE, MORTALGASDAMAGE, BURNEDDAMAGE, POISONEDDAMAGE}
+local ignorecritical = {MORTALGASDAMAGE, BURNEDDAMAGE, POISONEDDAMAGE, NIGHTMAREDAMAGE}
+local cannotkill = {MORTALGASDAMAGE, BURNEDDAMAGE, POISONEDDAMAGE, NIGHTMAREDAMAGE}
+
+function onStatsChange(cid, attacker, type, combat, value)
+
+if combat == FLYSYSTEMDAMAGE then return false end
+if isPlayer(cid) and getCreatureOutfit(cid).lookType == 814 then return false end -- TV
+
+local damageCombat = combat
+	if damageCombat == THUNDERWAVEDAMAGE then
+		damageCombat = ELECTRICDAMAGE
+	elseif damageCombat == PSYCHOSHIFTDAMAGE then
+		damageCombat = PSYCHICDAMAGE
+	end
+
+if not isCreature(attacker) or cid == attacker then
+	if not isInArray(fixdamages, combat) and combats[combat] then
+		doSendAnimatedText(getThingPos(cid), value, combats[combat].cor)
+	end
+return true
+end
+
+--------------------------------------------------
+if combat == SLEEP_POWDERDAMAGE then
+	if not isSummon(cid) and not isSummon(attacker) and not isPlayer(attacker) then
+	return false
+	end
+	if isPlayer(cid) then
+	return false
+	end
+	if isNpcSummon(cid) and getCreatureTarget(cid) ~= attacker then
+	return false
+	end
+	if isSummon(cid) and isSummon(attacker) and canAttackOther(cid, attacker) == "Cant" then
+       return false        
+	end	
+    if getPlayerStorageValue(cid, 21099) >= 1 then return false end	
+	doSleep(cid, value, true)
+return false
+end
+--------------------------------------------------
+if combat == POISON_POWDERDAMAGE then
+	if not isSummon(cid) and not isSummon(attacker) and not isPlayer(attacker) then
+	return false
+	end
+	if isNpcSummon(cid) and getCreatureTarget(cid) ~= attacker then
+	return false
+	end
+	if isSummon(cid) and isSummon(attacker) then
+		if canAttackOther(cid, attacker) == "Cant" then
+		return false
+		end
+	end
+
+	local master = attacker
+	if isSummon(attacker) then master = getCreatureMaster(attacker) end
+	
+    if getPlayerStorageValue(attacker, 21099) >= 1 then return false end
+addEvent(doAdvancedPoison, 2500, attacker, master, cid, getPlayerStorageValue(attacker, 919231), value, getPlayerStorageValue(cid, 3893))
+
+return false
+end
+--------------------------------------------------
+if isPlayer(attacker) then
+
+	local valor = value
+	if valor > getCreatureHealth(cid) then
+		valor = getCreatureHealth(cid)
+	end
+
+	if combat == COMBAT_PHYSICALDAMAGE then
+	return false
+	end
+
+	if combat == PHYSICALDAMAGE then
+	doSendMagicEffect(getThingPos(cid), 3)
+	doSendAnimatedText(getThingPos(cid), valor, races[getMonsterInfo(getCreatureName(cid)).race].cor)
+	end
+
+	if combats[damageCombat] and not isInArray(fixdmgs, damageCombat) then
+	doSendAnimatedText(getThingPos(cid), valor, combats[damageCombat].cor)
+	end
+
+	if #getCreatureSummons(attacker) >= 1 and not isInArray({POISONEDDAMAGE, BURNEDDAMAGE}, combat) then
+		doPlayerSendTextMessage(attacker, MESSAGE_STATUS_DEFAULT, "Your "..getPokeName(getCreatureSummons(attacker)[1]).." dealt "..valor.." damage to "..getSomeoneDescription(cid)..".")
+	end
+
+return true
+end
+--------------------------------------------------
+if isPlayer(cid) and #getCreatureSummons(cid) >= 1 and type == STATSCHANGE_HEALTHLOSS then
+return false                                                                           
+end
+--------------------------------------------------
+if isPlayer(cid) and #getCreatureSummons(cid) <= 0 and type == STATSCHANGE_HEALTHLOSS then
+
+if canAttackOther(cid, attacker) == "Cant" then return false end
+
+	local valor = 0
+		if combat == COMBAT_PHYSICALDAMAGE then
+			valor = getOffense(attacker)
+		else
+			valor = getSpecialAttack(attacker)
+		end
+
+	valor = valor * playerDamageReduction
+	valor = valor * math.random(83, 117) / 100
+
+	if valor >= getCreatureHealth(cid) then
+		valor = getCreatureHealth(cid)
+	end
+
+	valor = math.floor(valor)
+
+    if valor >= getCreatureHealth(cid) then
+       if getPlayerStorageValue(cid, 6598754) >= 1 or getPlayerStorageValue(cid, 6598755) >= 1 then
+          setPlayerStorageValue(cid, 6598754, -1)
+          setPlayerStorageValue(cid, 6598755, -1)
+          doRemoveCondition(cid, CONDITION_OUTFIT)
+       end
+       if getPlayerStorageValue(cid, 17001) >= 1 or getPlayerStorageValue(cid, 17000) >= 1 or getPlayerStorageValue(cid, 63215) >= 1 then
+          doRemoveCondition(cid, CONDITION_OUTFIT)
+          setPlayerStorageValue(cid, 17000, 0)
+          setPlayerStorageValue(cid, 17001, 0)
+          setPlayerStorageValue(cid, 63215, -1) 
+          doChangeSpeed(cid, PlayerSpeed)
+local item = getPlayerSlotItem(cid, 8)
+local btype = getPokeballType(item.itemid)
+      if #getCreatureSummons(cid) <= 0 then
+		if isInArray(pokeballs[btype].all, item.itemid) then
+			doTransformItem(item.uid, pokeballs[btype].off)
+			doItemSetAttribute(item.uid, "hp", 0)
+		end
+      end
+      end
+    end
+	doCreatureAddHealth(cid, -valor, 3, 180)
+	if not isPlayer(cid) then
+	addEvent(sendPlayerDmgMsg, 5, cid, "You lost "..valor.." hitpoints due to an attack from "..getSomeoneDescription(attacker)..".")
+	end
+return false
+end
+--------------------------------------------------
+if type == STATSCHANGE_HEALTHGAIN then
+	if cid == attacker then
+	return true
+	end
+	if isSummon(cid) and isSummon(attacker) and canAttackOther(cid, attacker) == "Cant" then
+	return false
+	end
+return true
+end
+--------------------------------------------------
+if isMonster(attacker) and getPlayerStorageValue(attacker, 201) ~= -1 then
+	if isPlayer(cid) then
+	return false
+	end
+	if getPlayerStorageValue(getCreatureMaster(cid), ginasios[getPlayerStorageValue(attacker, 201)].storage) ~= 1 then
+	return false
+	end
+end
+--------------------------------------------------
+if isMonster(cid) and getPlayerStorageValue(cid, 201) ~= -1 then
+	if getPlayerStorageValue(getCreatureMaster(attacker), ginasios[getPlayerStorageValue(cid, 201)].storage) ~= 1 then
+	return false
+	end
+end
+--------------------------------------------------
+
+local nameP = getCreatureName(cid)
+
+if damageCombat == GROUNDDAMAGE and combat ~= COMBAT_PHYSICALDAMAGE then
+   if pokes[nameP].type == "flying" or pokes[nameP].type2 == "flying" then
+      return false      
+   end
+elseif damageCombat == ELECTRICDAMAGE and combat ~= COMBAT_PHYSICALDAMAGE then   --rever isso
+   if (pokes[nameP].type == "ground") or (pokes[nameP].type2 == "ground") then
+      return false      
+   end
+end
+
+local multiplier = 1    
+local miss = 10                     ---(getSpeed(cid) - getSpeed(attacker)) * 0.26
+
+--if pokes[getCreatureName(cid)] then
+   poketype1 = pokes[getCreatureName(cid)].type
+   poketype2 = pokes[getCreatureName(cid)].type2
+--end
+
+	if getCreatureCondition(cid, CONDITION_INVISIBLE) then
+	return false
+	end
+
+if damageCombat ~= COMBAT_PHYSICALDAMAGE and not isInArray(ignored, damageCombat) then
+	if isInArray(effectiveness[damageCombat].super, poketype1) then
+		multiplier = multiplier * 2
+	end
+	if isInArray(effectiveness[damageCombat].super, poketype2) then
+		multiplier = multiplier * 2
+	end
+	if isInArray(effectiveness[damageCombat].weak, poketype1) then
+		multiplier = multiplier * 0.5
+	end
+	if isInArray(effectiveness[damageCombat].weak, poketype2) then
+		multiplier = multiplier * 0.5
+	end
+	if isInArray(effectiveness[damageCombat].non, poketype1) or isInArray(effectiveness[damageCombat].non, poketype2) then
+		multiplier = multiplier * 0
+	end
+elseif combat == COMBAT_PHYSICALDAMAGE then
+	if isGhostPokemon(cid) and not isGhostPokemon(attacker) then
+                            
+       if not isInArray(Foresight, getCreatureName(attacker)) then  --passiva Foresight!!
+          doSendMagicEffect(getThingPos(cid), 3)     
+	      return false
+       end
+    end
+	
+	if isCreature(attacker) and isCreature(cid) then
+	   if not isCreature(getMasterTarget(attacker)) then
+          doSendMagicEffect(getThingPos(cid), 247)
+          return false
+       end
+    end
+	if getCreatureCondition(attacker, CONDITION_INVISIBLE) and not isGhostPokemon(attacker) then
+local tabela = {"Clefable", "Wigglytuff", "Alakazam", "Kadabra", "Mr. Mime", "Porygon", "Shiny Alakazam", "Shiny Porygon",
+                "Shiny Kadabra", "Shiny Mr. Mime", "Shiny Clefable", "Shiny Wigglytuff"}
+		if not isInArray(tabela, getCreatureName(attacker)) then
+        return false                                               --editei
+		end
+	end
+		local cd = getPlayerStorageValue(attacker, 32659)
+        local cd2 = getPlayerStorageValue(attacker, 3891) 
+        if cd > 0 or cd2 > 0 then
+           if math.random(1, 100) > 50 then  --50% chance de da miss no atk fisico
+		      doSendMagicEffect(getThingPos(cid), 211)
+		      doSendAnimatedText(getThingPos(cid), "MISS", 215)
+		      return false
+           end
+        end
+end
+--------------------------------------------------
+local valor = value
+
+	if multiplier > 2 then
+		multiplier = 2.5       
+	elseif multiplier == 0.25 then
+		multiplier = 0.5    
+	end
+
+--------------------------------------------------
+                                                --damageCombat ~= COMBAT_PHYSICALDAMAGE and not getCreatureCondition(cid, CONDITION_PARALYZE)
+	if miss > 0 and math.random(1, 100) <= miss and not isInArray(ignoremiss, combat) then
+		if isInArray(tooBad, getCreatureName(cid)) and getCreatureTarget(attacker) == cid then
+           doSendMagicEffect(getThingPos(cid), 211)
+		   doSendAnimatedText(getThingPos(cid), "Too Bad", 215)
+		   doTeleportThing(cid, getClosestFreeTile(cid, getThingPos(attacker)), false)
+		   doSendMagicEffect(getThingPos(cid), 211)
+		   doFaceCreature(cid, getThingPos(attacker))     --ver aki
+        end		
+	return false 
+	end
+
+	--if not isSummon(attacker) and not isSummon(cid) then
+	--return false                                            -- ?
+	--end
+
+	if isSummon(cid) and isSummon(attacker) then
+		if canAttackOther(cid, attacker) == "Cant" then
+           doSendMagicEffect(getThingPos(cid), 247)
+           return false
+        end
+	end
+
+	local randomRange = math.random(83, 117) / 100
+	local block = 1	
+
+    if not isPlayer(cid) then
+	if combat == COMBAT_PHYSICALDAMAGE then
+		block = 1 - (getDefense(cid) / (getOffense(attacker) + getDefense(cid)))
+		if getPokemonGender(attacker) == SEX_MALE then
+			block = block + 0.2
+		end
+		if getPokemonGender(cid) == SEX_FEMALE then
+			block = block - 0.2
+		end
+		valor = getOffense(attacker) * block
+		if isInArray(Foresight, getCreatureName(attacker)) then    --passiva Foresight!!
+		   valor = valor / 2
+        end
+       if isInArray(counter, getCreatureName(cid)) then
+           if (math.random(1, 100) <= 10) then  --% chance do poke dar counter -> 10 = 10% chance
+              doSendAnimatedText(getThingPos(cid), "COUNTER", 215)
+              doTargetCombatHealth(cid, attacker, COMBAT_PHYSICALDAMAGE, valor, valor, 3)
+              doSendMagicEffect(getThingPos(cid), 3)
+              return false
+           end
+        end  
+	else
+		block = 1 - (getDefense(cid) / (getSpecialAttack(attacker) + getDefense(cid)))
+		if block <= 0 then
+		doSendMagicEffect(getThingPos(cid), 247)
+		end
+        valor = valor * block * generalSpecialAttackReduction
+			if isSummon(cid) then
+				valor = valor * summonSpecialDamageReduction - getPokemonLevel(cid) / 2
+			end  
+	end
+	end
+
+	valor = valor * multiplier
+	valor = valor * randomRange
+
+	if isSummon(attacker) then
+		valor = valor * getHappinessRate(attacker)
+	else
+		valor = valor * summonReduction
+	end
+
+	valor = math.floor(valor)
+
+--NIGHTMAREDAMAGE
+--GUILLOTINEDAMAGE 
+--SEISMICTOSSDAMAGE
+--PSYCHOSHIFTDAMAGE
+--THUNDERWAVEDAMAGE
+		
+	if combat == BURNEDDAMAGE then
+		valor = value * getResistance(cid, FIREDAMAGE)
+	elseif combat == POISONEDDAMAGE then
+		valor = value * getResistance(cid, POISONDAMAGE)
+	end
+
+	if valor <= 0 then                              
+	doSendMagicEffect(getThingPos(cid), 3)
+	return false
+	end
+
+	if math.random(1, 100) == 4 and not isInArray(ignorecritical, combat) then
+		doSendAnimatedText(getThingPos(attacker), "CRITICAL", 215)
+		valor = valor * 2
+	end
+
+
+	if valor >= getCreatureHealth(cid) then
+		if isInArray(cannotKill, combat) and isPlayer(cid) then
+			valor = getCreatureHealth(cid) - 1
+		else
+			valor = getCreatureHealth(cid)
+		end
+	end
+
+--------------------------------------------
+
+	if isSummon(attacker) and not isSummon(cid) and not isPlayer(cid) then
+
+		local expstring = cid.."expEx"
+
+		if getItemAttribute(getPlayerSlotItem(getCreatureMaster(attacker), 8).uid, expstring) == null then
+			doItemSetAttribute(getPlayerSlotItem(getCreatureMaster(attacker), 8).uid, expstring, 0)
+		end
+
+		local exp = valor / getCreatureMaxHealth(cid)
+		local ball = getPlayerSlotItem(getCreatureMaster(attacker), 8).uid
+
+		doItemSetAttribute(ball, expstring, getItemAttribute(ball, expstring) + exp)
+			if getItemAttribute(ball, expstring) > 1 then
+				doItemSetAttribute(ball, expstring, 1)
+			end
+	end
+
+	if isSummon(attacker) then
+		if combat == COMBAT_PHYSICALDAMAGE then
+			doTargetCombatHealth(getCreatureMaster(attacker), cid, PHYSICALDAMAGE, -valor, -valor, 255)
+		else
+			doTargetCombatHealth(getCreatureMaster(attacker), cid, damageCombat, -valor, -valor, 255)
+		end
+
+			if not isSummon(cid) and not isPlayer(cid) and math.random(1, wildEvolveChance) == math.random(1, wildEvolveChance) then
+				addEvent(doEvolveWild, math.random(1, 2500), cid)
+			end
+	else
+		if combat ~= COMBAT_PHYSICALDAMAGE then
+			doCreatureAddHealth(cid, -math.abs(valor), 3, combats[damageCombat].cor)
+		else
+			doCreatureAddHealth(cid, -math.abs(valor), 3, races[getMonsterInfo(getCreatureName(cid)).race].cor)
+		end
+
+		if isSummon(cid) then
+			addEvent(sendPlayerDmgMsg, 5, getCreatureMaster(cid), "Your "..getCreatureName(cid).." lost "..valor.." hitpoints due to an attack from "..getSomeoneDescription(attacker)..".")
+		end
+
+	end
+
+	local percent = 8 + math.ceil(valor / getCreatureMaxHealth(cid) * 100)
+		if getCreatureHealth(cid) == 0 or percent <= 0 then return false end
+	local runCond = false
+
+	if math.random(100) <= percent then
+		runCond = true
+	end
+
+	if runCond then
+
+		local condPos = getThingPos(cid)
+		local color = 215
+		local text = ""
+		local effect = 2
+
+		if damageCombat == FIREDAMAGE and not isBurning(cid) then
+			doAdvancedBurn(attacker, isPlayer(getCreatureMaster(attacker)) and getCreatureMaster(attacker) or 0, cid, getPokemonLevel(attacker) * 2, math.random(5, 12))
+			color = COLOR_FIRE2
+			text = "BURNING"
+			effect = 15
+		elseif damageCombat == POISONDAMAGE and not isPoisoned(cid) and randomCond == checkCond then
+			doAdvancedPoison(attacker, isPlayer(getCreatureMaster(attacker)) and getCreatureMaster(attacker) or 0, cid, getPokemonLevel(attacker) * 2, math.random(4, 20))
+			color = COLOR_GRASS
+			text = "POISONED"
+			effect = 8
+		end
+
+		doSendMagicEffect(getThingPos(cid), effect)
+		addEvent(doSendAnimatedText, 5, condPos, text, color)
+	end
+------------------------------------POTIONS-------------------------------------------
+if isSummon(cid) and type == STATSCHANGE_HEALTHLOSS then
+   if getPlayerStorageValue(cid, 173) >= 1 then
+      if damageCombat ~= BURNEDDAMAGE and damageCombat ~= POISONEDDAMAGE then
+         setPlayerStorageValue(cid, 174, 1)
+         doSendAnimatedText(getThingPos(cid), "Lost Heal", 144)
+      end
+   end
+end
+----------------------------------------PASSIVAS-----------------------------------------
+------------------------------"Counter Helix" - "Giro Ball"------------------------------
+-- [outfit normal] = {out = outfit girando, efeitos}
+local OutFit = {
+[366] = {out = 496, cima = 128, direita = 129, esquerda = 130, baixo = 131},  --scyther
+[912] = {out = 918, cima = 236, direita = 232, esquerda = 224, baixo = 233},  --Scizor
+[1317] = {out = 849, cima = 128, direita = 129, esquerda = 130, baixo = 131}, --Shiny Scyther
+[952] = {out = 1193, cima = 251, direita = 253, esquerda = 254, baixo = 252}, --Hitmontop
+[909] = {out = 1194, cima = 251, direita = 253, esquerda = 254, baixo = 252}, --pineco
+[910] = {out = 1192, cima = 251, direita = 253, esquerda = 254, baixo = 252}, --Forretress
+}
+
+local helix = {"Scyther", "Scizor", "Shiny Scyther", "Hitmontop", "Pineco", "Forretress"}
+
+if isSummon(cid) then
+if OutFit[getCreatureOutfit(cid).lookType] or getCreatureOutfit(cid).lookType == 0 then
+   local chance = getCreatureName(cid) == "Hitmontop" and (16 + getPlayerStorageValue(cid, 465987)) or 15
+   if math.random(1, 100) <= chance then    -- Porcentagem de chance pro poke usar a passiva... 10 = 10% +/-
+   
+      if getPlayerStorageValue(cid, 32623) == 1 then  --proteçao pra n usar a spell 2x seguidas...
+      return false
+      end
+
+      if not isInArray(helix, getCreatureName(cid)) then return false end
+      
+      local outfitt =  OutFit[getCreatureOutfit(cid).lookType] or OutFit[getPlayerStorageValue(cid, 98654)]
+      local look = getCreatureOutfit(cid).lookType
+      
+	  local min = getPokemonLevel(cid)*5
+	  local max = getPokemonLevel(cid)*10
+
+      local function damage(cid, min, max)
+      if isCreature(cid) then
+         if look == 366 or look == 1317 then   --scyther e shiny scyther
+            doAreaCombatHealth(cid, BUGDAMAGE, getThingPosWithDebug(cid), scyther5, -min, -max, CONST_ME_NONE)
+         elseif look == 952 then               --hitmontop
+            doAreaCombatHealth(cid, FIGHTINGDAMAGE, getThingPosWithDebug(cid), scyther5, -min, -max, CONST_ME_NONE)
+         else                                  --resto
+            doAreaCombatHealth(cid, STEELDAMAGE, getThingPosWithDebug(cid), scyther5, -min, -max, CONST_ME_NONE)
+         end
+         doAreaCombatHealth(cid, null, getThingPos(cid), scythe1, 0, 0, outfitt.cima) --cima
+         doAreaCombatHealth(cid, null, getThingPos(cid), scythe2, 0, 0, outfitt.baixo) --baixo
+         doAreaCombatHealth(cid, null, getThingPos(cid), scythe3, 0, 0, outfitt.direita) --direita
+         doAreaCombatHealth(cid, null, getThingPos(cid), scythe4, 0, 0, outfitt.esquerda)  --esquerda
+      end
+      end
+
+      setPlayerStorageValue(cid, 32623, 1)        --proteçao
+	  doSetCreatureOutfit(cid, {lookType = outfitt.out}, -1)
+
+
+	  local function doChangeO(cid)
+	  if not isCreature(cid) then return true end
+         setPlayerStorageValue(cid, 32623, 0)         --proteçao
+         if isSleeping(cid) and getMonsterInfo(getCreatureName(cid)).lookCorpse ~= 0 then
+            doSetCreatureOutfit(cid, {lookType = 0, lookTypeEx = getMonsterInfo(getCreatureName(cid)).lookCorpse}, -1)
+         else
+             doRemoveCondition(cid, CONDITION_OUTFIT)
+         end
+      end
+	   
+    local delay = 200 -- não mexe
+    for i = 1, 2 do
+        addEvent(damage, delay*i, cid, min, max)
+    end
+	addEvent(doChangeO, 2 * 300 + 10, cid)
+end
+end
+end
+-------------------------------------------Lava Counter / Electricity-------------------------------------
+local Fire_Thunder = {"Magmar", "Shiny Magmar", "Electabuzz", "Shiny Electabuzz", "Magby", "Elekid"}
+
+--["Nome"] = {effeito, damage}
+local eff = {
+["Magmar"] = {15, FIREDAMAGE},
+["Shiny Magmar"] = {15, FIREDAMAGE},
+["Magby"] = {15, FIREDAMAGE},
+["Electabuzz"] =  {207, ELECTRICDAMAGE},
+["Shiny Electabuzz"] =  {207, ELECTRICDAMAGE},
+["Elekid"] =  {207, ELECTRICDAMAGE},
+}
+
+if isSummon(cid) then
+local e = getCreatureMaster(cid)
+if isInArray(Fire_Thunder, getItemAttribute(getPlayerSlotItem(e, 8).uid, "poke")) then
+   if math.random(1, 100) <= 20 then    -- Porcentagem de chance pro poke usar a passiva... 10 = 10% +/-
+   
+      if getPlayerStorageValue(cid, 32623) == 1 then  --proteçao pra n usar a spell 2x seguidas...
+      return false
+      end
+
+	  local min = getPokemonLevel(cid)*5
+	  local max = getPokemonLevel(cid)*10
+      
+      local function sendFireEff(cid, dir, eff, damage)
+            if not isCreature(cid) then return true end
+            doAreaCombatHealth(cid, damage, getPosByDir(getThingPosWithDebug(cid), dir), 0, -min, -max, eff)
+      end
+
+	  local function doSpinFire(cid)
+		if not isCreature(cid) then return true end
+		local t = {
+			[1] = SOUTHWEST,
+			[2] = SOUTH,
+			[3] = SOUTHEAST,
+			[4] = EAST,
+			[5] = NORTHEAST,
+			[6] = NORTH,
+			[7] = NORTHWEST,
+			[8] = WEST,
+			[9] = SOUTHWEST,
+			}
+		for a = 1, 17 do
+			if not t[a] then
+			addEvent(sendFireEff, a * 140, cid, t[a-8], eff[getCreatureName(cid)][1], eff[getCreatureName(cid)][2])
+			else
+			addEvent(sendFireEff, a * 140, cid, t[a], eff[getCreatureName(cid)][1], eff[getCreatureName(cid)][2])
+			end
+		end
+		addEvent(setPlayerStorageValue, 17*140, cid, 32623, 0)        --proteçao
+	end
+
+    setPlayerStorageValue(cid, 32623, 1)        --proteçao
+	doSpinFire(cid)
+end
+end
+end
+---------------------------------------------Demon Kicker----------------------------------
+--[outfit] = outfit chutando,
+local hitmonlees = {
+[371] =  652,      --hitmonlee
+[877] = 878,  --shiny hitmonlee  PxG
+[11891] = 652, --hitmonlee durmindo
+}
+
+--DETALHE: shiny hitmonlee n tem a sprite dele chutando.. pelo menos eu n achei..
+--entao deixei a sprite do hitmonlee normal atacando...
+
+if isSummon(cid) then
+local e = getCreatureMaster(cid)
+local name = getItemAttribute(getPlayerSlotItem(e, 8).uid, "poke")
+   if name == "Shiny Hitmonlee" or name == "Hitmonlee" then
+   if isCreature(getMasterTarget(cid)) then
+      if math.random(1, 100) <= (21 + getPlayerStorageValue(cid, 465987)) then
+                                                    -- Porcentagem de chance pro poke usar a passiva... 10 = 10% +/-
+      
+      if getDistanceBetween(getThingPos(cid), getThingPos(getMasterTarget(cid))) > 1 then
+      return false
+      end
+      if getPlayerStorageValue(cid, 32623) == 1 then  --proteçao pra n usar a spell 2x seguidas...
+      return false
+      end
+      
+      local function doChangeHitmon(cid)
+	  if not isCreature(cid) then return true end
+         setPlayerStorageValue(cid, 32623, 0)         --proteçao
+   if isSleeping(cid) and getMonsterInfo(getCreatureName(cid)).lookCorpse ~= 0 then
+      doSetCreatureOutfit(cid, {lookType = 0, lookTypeEx = getMonsterInfo(getCreatureName(cid)).lookCorpse}, -1)
+   else
+      doRemoveCondition(cid, CONDITION_OUTFIT)
+   end
+      end
+      
+         local min = getOffense(cid)*1.1              --getPokemonLevel(cid)*15     
+         local max = getOffense(cid)*1.2              --getPokemonLevel(cid)*20   
+         
+       
+         setPlayerStorageValue(cid, 32623, 1)        --proteçao        --arrumar isso!!!
+         if isSleeping(cid) and getMonsterInfo(getCreatureName(cid)).lookCorpse ~= 0 then
+            doSetCreatureOutfit(cid, {lookType = hitmonlees[getCreatureOutfit(cid).lookTypeEx]}, -1)
+         else
+            doSetCreatureOutfit(cid, {lookType = hitmonlees[getCreatureOutfit(cid).lookType]}, -1)
+         end
+         doTargetCombatHealth(cid, getMasterTarget(cid), FIGHTINGDAMAGE, -min, -max, 255)
+         
+         addEvent(doChangeHitmon, 700, cid)    
+      end
+   end
+   end
+end
+-------------------------------------------Demon Puncher-------------------------------------
+local hitmonchans = {
+["Hitmonchan"] = {
+                         [0] = {out = 559, eff = 112, type = FIGHTINGDAMAGE},  --outfit normal
+                         [1] = {out = 1075, eff = 35, type = FIREDAMAGE},    --outfit fogo
+                         [2] = {out = 1077, eff = 48, type = ELECTRICDAMAGE},    --outfit raio
+                         [3] = {out = 1078, eff = 43, type = ICEDAMAGE},    --outfit gelo
+                         [4] = {out = 1076, eff = 140, type = GHOSTDAMAGE}   --outfit ghost
+                  },
+                  
+["Shiny Hitmonchan"] = {              
+                         --aconcelho trocar a outfit do shiny hitmonchan pela do elite hitmonchan do PO...
+                         [0] = {out = 837, eff = 112, type = FIGHTINGDAMAGE},  --outfit normal
+                         [1] = {out = 1080, eff = 35, type = FIREDAMAGE},    --outfit fogo
+                         [2] = {out = 1081, eff = 48, type = ELECTRICDAMAGE},    --outfit raio
+                         [3] = {out = 1082, eff = 43, type = ICEDAMAGE},    --outfit gelo
+                         [4] = {out = 1079, eff = 140, type = GHOSTDAMAGE}   --outfit ghost
+                       }
+}
+local monchanOUT = {837, 1080, 1081, 1082, 1079}
+ 
+if isSummon(cid) then
+local e = getCreatureMaster(cid)
+local name = getItemAttribute(getPlayerSlotItem(e, 8).uid, "poke")
+   if name == "Shiny Hitmonchan" or name == "Hitmonchan" then
+   if isCreature(getMasterTarget(cid)) then
+      if math.random(1, 100) <= (21 + getPlayerStorageValue(cid, 465987)) then    
+                                                   -- Porcentagem de chance pro poke usar a passiva... 10 = 10% +/-
+      
+if getDistanceBetween(getThingPos(cid), getThingPos(getMasterTarget(cid))) > 1 then
+return false
+end   
+if getItemAttribute(getPlayerSlotItem(e, 8).uid, "poke") == "Shiny Hitmonchan" and not isInArray(monchanOUT, getCreatureOutfit(cid).lookType) then
+return false        --proteçao pro script n funcionar com o shiny monchan com outfit diferente da do elite...
+end                 --script soh funciona com outfit do elite hirmonchan do PO...
+      
+      
+         local min = getOffense(cid)*1.1              --getPokemonLevel(cid)*15     
+         local max = getOffense(cid)*1.2              --getPokemonLevel(cid)*20  
+         
+         local hands = getItemAttribute(getPlayerSlotItem(e, 8).uid, "hands")
+         
+         
+         doSendDistanceShoot(getThingPos(cid), getThingPos(getMasterTarget(cid)), 39)
+         doTargetCombatHealth(cid, getMasterTarget(cid), hitmonchans[name][hands].type, -min, -max, 255)
+         
+         
+         local target = getThingPos(getMasterTarget(cid))
+         target.x = target.x + 1
+         
+         if hands == 4 then
+         doSendMagicEffect(target, hitmonchans[name][hands].eff)
+         else
+         doSendMagicEffect(getThingPos(getMasterTarget(cid)), hitmonchans[name][hands].eff)
+         end
+            
+      end
+   end
+   end
+end
+---------------------------------------Stunning Confusion------------------------------------------
+local ducks = {"Golduck", "Psyduck", "Shiny Golduck", "Shiny Psyduck"}
+
+if isSummon(cid) then
+local e = getCreatureMaster(cid)
+local name = getItemAttribute(getPlayerSlotItem(e, 8).uid, "poke")
+   if isInArray(ducks, name) then
+      if math.random(1, 100) <= 20 then    -- Porcentagem de chance pro poke usar a passiva... 10 = 10% +/-
+      
+      if getPlayerStorageValue(cid, 32623) == 1 then  --proteçao pra n usar a spell 2x seguidas...
+      return false
+      end
+      
+      local min = getPokemonLevel(cid)*5     --nao sei como funciona o sistema de dano...
+      local max = getPokemonLevel(cid)*10     --nao sei como funciona o sistema de dano...
+      
+          local function damage(cid)
+          if isCreature(cid) then
+             doAreaCombatHealth(cid, PSYCHICDAMAGE, getThingPosWithDebug(cid), confusion, -min, -max, 136)
+          end
+          end
+          
+          setPlayerStorageValue(cid, 32623, 1)        --proteçao
+          for i = 1, 7 do
+              addEvent(damage, i*500, cid)
+          end
+          addEvent(setPlayerStorageValue, 3500, cid, 32623, 0)        --proteçao
+      end
+   end
+end
+-----------------------------------------Groundshock-----------------------------------
+if isSummon(cid) then
+local e = getCreatureMaster(cid)
+local name = getItemAttribute(getPlayerSlotItem(e, 8).uid, "poke")
+   if name == "Kangaskhan" or name == "Shiny Kangaskhan" then
+      if math.random(1, 100) <= 20 then    -- Porcentagem de chance pro poke usar a passiva... 10 = 10% +/-
+      
+      local min = getPokemonLevel(cid)*10     --nao sei como funciona o sistema de dano...
+      local max = getPokemonLevel(cid)*15     --nao sei como funciona o sistema de dano...
+      
+      doAreaCombatHealth(cid, NORMALDAMAGE, getThingPosWithDebug(cid), scyther5, -min, -max, 255)
+
+	  local sps = getThingPosWithDebug(cid)
+	  sps.x = sps.x+1
+	  sps.y = sps.y+1
+	  doSendMagicEffect(sps, 127)
+      end
+   end
+end
+--------------------------------------Electric Charge---------------------------------------------------
+local charge = {"Pikachu", "Shiny Pikachu", "Raichu", "Shiny Raichu"}
+
+if isSummon(cid) then
+local e = getCreatureMaster(cid)
+local name = getItemAttribute(getPlayerSlotItem(e, 8).uid, "poke")
+   if isInArray(charge, name) then
+      if getPlayerStorageValue(cid, 253) >= 0 then
+      return true
+      end
+      if math.random(1, 100) <= 15 then    -- Porcentagem de chance pro poke usar a passiva... 10 = 10% +/-
+          setPlayerStorageValue(cid, 253, 1)
+          doSendMagicEffect(getThingPos(cid), 207)
+          doSendAnimatedText(getThingPos(cid), "FOCUS", 144)
+      end
+   end
+end
+-------------------------------------Melody------------------------------------
+if isSummon(cid) then
+local e = getCreatureMaster(cid)
+local name = getItemAttribute(getPlayerSlotItem(e, 8).uid, "poke")
+   if name == "Wigglytuff" or name == "Shiny Wigglytuff" then
+      if math.random(1, 100) <= 10 then    -- Porcentagem de chance pro poke usar a passiva... 10 = 10% +/-   
+         doAreaCombatHealth(cid, SLEEP_POWDERDAMAGE, getThingPosWithDebug(cid), powders, -6, -10, 33)
+      end
+   end
+end
+------------------------------------- Dragon Fury / Fury ---------------------------------------
+local DracoFury = {"Persian", "Shiny Persian", "Gyarados", "Shiny Gyarados", "Dratini", "Shiny Dratini", "Dragonair", "Shiny Dragonair", "Dragonite", "Shiny Dragonite"}
+if isSummon(cid) then
+local e = getCreatureMaster(cid)
+local name = getItemAttribute(getPlayerSlotItem(e, 8).uid, "poke")
+      if isInArray(DracoFury, name) then
+         if math.random(1, 100) <= 10 then --Chance 10 = 10% edite como quiser...
+            if getPlayerStorageValue(cid, 32623) == 1 then
+            return false
+            end
+
+            setPlayerStorageValue(cid, 32623, 1)
+
+            if getCreatureName(cid) == "Persian" or getCreatureName(cid) == "Shiny Persian" then
+               doRaiseStatus(cid, true, false, false, 2, 15000)
+            else
+               doRaiseStatus(cid, true, true, false, 2, 15000)
+            end
+            
+            for t = 1, 10 do
+                addEvent(sendMoveEffect, t*1500, cid, 12)
+            end
+            addEvent(setPlayerStorageValue, 15000, cid, 32623, 0)
+        end
+    end
+end
+------------------------------------- Mega Drain ---------------------------------------
+arr = {
+{0, 0, 0, 0, 0},
+{0, 1, 1, 1, 0},
+{0, 1, 2, 1, 0},
+{0, 1, 1, 1, 0},
+{0, 0, 0, 0, 0}
+}
+
+local mega = {"Oddish", "Gloom", "Vileplume", "Kabuto", "Kabutops", "Parasect", "Tangela", "Shiny Oddish", 
+"Shiny Gloom", "Shiny Vileplume", "Shiny Kabuto", "Shiny Kabutops", "Shiny Parasect", "Shiny Tangela"}
+
+local min = getPokemonLevel(cid)*3     --nao sei como funciona o sistema de dano...
+local max = getPokemonLevel(cid)*5     --nao sei como funciona o sistema de dano...
+      
+if isSummon(cid) then
+local e = getCreatureMaster(cid)
+local name = getItemAttribute(getPlayerSlotItem(e, 8).uid, "poke")
+   if isInArray(mega, name) then
+      if math.random(1, 100) <= 10 then    -- Porcentagem de chance pro poke usar a passiva... 20 = 20%
+         local uid = checkAreaUid(getThingPos(cid), arr, 1, 1)
+         for _,pid in pairs(uid) do
+             if (isMonster(pid) or (isSummon(pid) and canAttackOther(cid, pid)) == "Can" or (isPlayer(pid) and #getCreatureSummons(pid) <= 0)) then
+                if getCreatureTarget(pid) == cid then 
+                   local hp = getCreatureHealth(pid)
+                   local drain = choose(min, max)
+                   if hp-drain >= 1 then
+                      doCreatureAddHealth(pid, -drain)
+                      doCreatureAddHealth(cid, drain)
+                      doSendAnimatedText(getThingPos(pid), "-"..drain.."", 144)
+                      doSendAnimatedText(getThingPos(cid), "+"..drain.."", 32)
+                   end
+                end
+             end
+         end
+      end
+   end
+end
+------------------------------------- Spores Reaction ---------------------------------------
+local spores = {"Oddish", "Gloom", "Vileplume", "Shiny Oddish", "Shiny Gloom", "Shiny Vileplume"}
+
+if isSummon(cid) then
+local e = getCreatureMaster(cid)
+local name = getItemAttribute(getPlayerSlotItem(e, 8).uid, "poke")
+   if isInArray(spores, name) then
+      if math.random(1, 100) <= 10 then    -- Porcentagem de chance pro poke usar a passiva... 20 = 20% +/-
+         doAreaCombatHealth(cid, SLEEP_POWDERDAMAGE, getThingPosWithDebug(cid), powders, -2, -3, 27)
+      end
+   end
+end
+
+return false
+end

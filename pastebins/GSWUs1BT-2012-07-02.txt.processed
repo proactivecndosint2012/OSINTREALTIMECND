@@ -1,0 +1,47 @@
+ 
+
+
+I originally rooted my Samsung Conquer using SuperOneClick, primarily so I could turn off the annoying alarm that sounded in the middle of the night to let me know the battery was fully charged.  However, when the FC17 updated was pushed, it would not update yet kept trying every few days.  Each try resulted in a new download and thus extra data charges as the update process does not use a Wi-Fi connection and instead turns it off and uses mobile data.  I found the instructions in the first post above on the Android Forums website and managed to get my phone updated to FC17.  I ran into a few snags following the directions as I am a PC guy and had no experience with rooting Android phones. 
+
+So, after getting everything working, I rewrote the directions to make a little more sense for someone who isn't an Android guru.
+
+=====
+
+Here are the files and instructions to get root and CWM on a Samsung Conquer 4G with the FC17 update.
+
+ 1)            Here are the files you will need - CONQUER-ROOT.zip
+
+ 2)            Unzip all the files on your computer.
+
+ 3)            The Odin file will have a .rar extension.  This is also a compressed format and needs to be extracted.  If you don’t have a rar extractor, search the web for 7-Zip and use it.  After extracting the rar file, you’ll have a file called Multi-Downloader.
+
+ 4)            Make sure the phone has a good charge on it before continuing.
+
+ 5)            To enter Download Mode on the phone, make sure the phone is turned off and plugged into the wall charging.
+
+ 6)            Then turn the phone on by pressing the volume down and camera button and holding them while pressing the power button for a few seconds.  The phone should boot into download mode with a “downloading” icon on the screen.
+
+ 7)            Make sure the phone is in download mode and then plug it into your computer.  
+Open up the Odin Multi-Downloader program. 
+Then press the OPS button and select the SPH-D600_FC17_CWM.ops file. 
+Then press the PDA button and select the SPH-D600_FC17_CWM.tar.md5 file. 
+Then press the Start button, the images should install and the phone reboot. 
+Congrats, your phone now has a stock FC17 image with a CWM Recovery.
+
+ 8)            Next, copy the Superuser-3.0.7-efghi-signed.zip and su-bin-3.0.3.2-efghi-signed.zip files to the root of your SD Card after booting up.
+
+ 9)            Once the phone boots up, go into settings, select Applications, then Development, then turn on USB debugging.  Then, turn the phone off.
+
+ 10)        Now you can restart the phone into recovery mode.  Plug the phone into the wall and turn it on while holding the volume down and power button continuously until the phone is in recovery mode.  If you let up on the buttons too soon, it will boot into phone mode and you’ll have to power off and try again.  Alternately, you can use ADB (Android Debug Bridge) to enter recovery mode.  Then, use the volume up and down or the menu, home keys to highlight one of the options.  The search key is then used to select the highlighted option.
+
+ 11)        The phone should now go into CWM recovery. Choose menu option “install zip from sdcard” and select the Superuser-3.0.7-efghi-signed.zip file you put on the sdcard and install that. Next select the su-bin-3.0.3.2-efghi-signed.zip file from your sdcard and install that.
+
+ 12)        Congratulations, you now have a rooted phone with the FC17 update. If you had CWM installed before, you can use it to restore your data from your most recent backup.  If you had root before and used Titanium Backup to backup your apps and data, you can reinstall Titanium Backup and use it to restore all of your apps and associated data.
+
+=====
+
+I highly recommend Titanium Backup.  It saved me much work in getting my phone set back up after the FC17 update.
+
+Hope this helps.
+
+DC

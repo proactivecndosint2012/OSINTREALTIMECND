@@ -1,0 +1,11 @@
+Exception in thread "Minecraft main thread" java.lang.NoSuchMethodError: buildcraft.api.LiquidData.<init>(IILyr;)V
+    at BuildCraftCore.initialize(BuildCraftCore.java:216)
+    at mod_BuildCraftCore.initialize(mod_BuildCraftCore.java:84)
+    at mod_BuildCraftCore.modsLoaded(mod_BuildCraftCore.java:100)
+    at cpw.mods.fml.common.modloader.ModLoaderModContainer.postInit(ModLoaderModContainer.java:330)
+    at cpw.mods.fml.common.Loader.postModInit(Loader.java:280)
+    at cpw.mods.fml.common.Loader.initializeMods(Loader.java:605)
+    at cpw.mods.fml.client.FMLClientHandler.onLoadComplete(FMLClientHandler.java:203)
+    at net.minecraft.client.Minecraft.a(Minecraft.java:426)
+    at net.minecraft.client.Minecraft.run(Minecraft.java:735)
+    at java.lang.Thread.run(Unknown Source)

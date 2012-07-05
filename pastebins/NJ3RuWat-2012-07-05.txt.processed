@@ -1,0 +1,11 @@
+How to I connect a ViewModel to a View when the view model has parameters in the constructor?
+<UserControl.DataContext>
+    <VM:RibbonViewModel/>
+</UserControl.DataContext>
+	
+public RibbonViewModel(IEventAggregator eventAggregator)
+{
+    this.eventAggregator = eventAggregator;
+}
+	
+userControl.DataContext = ribbonViewModelInstance;

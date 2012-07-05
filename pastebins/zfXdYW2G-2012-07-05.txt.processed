@@ -1,0 +1,6 @@
+;; http://srfi.schemers.org/srfi-57/srfi-57.html
+
+(define-syntax union
+  (syntax-rules ()
+    ((union (x ...) ... compare? k)
+     (remove-duplicates (x ... ...) compare? k))))

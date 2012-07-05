@@ -15,9 +15,10 @@ All solutions should be subject to public scrutiny, and peer review.
 
 # Function code recipe for the "grab_email" function borrowed from Active State. 
 # http://code.activestate.com/recipes/138889-extract-email-addresses-from-files/
-# Remainder of the script authored by AlienOne
+# Remainder of the script authored by Justin Jessup
 
 import os, re, glob, csv, datetime
+from multiprocessing import Pool
 from error_handle import ConvertExceptions
 import smtplib
 from email.MIMEMultipart import MIMEMultipart
@@ -25,6 +26,12 @@ from email.MIMEBase import MIMEBase
 from email.MIMEText import MIMEText
 from email.Utils import COMMASPACE, formatdate
 from email import Encoders
+
+def multi_process(jobname):
+    po = Pool()
+    po.apply_async(jobname)
+    po.close
+    po.join
 
 # Generic function to create CSV full paste url and full path to the paste
 @ConvertExceptions(StandardError, 0)
@@ -197,6 +204,14 @@ attachments = [email_output, phone_output, ip_output, watchlist_output]
 
 # Main execution
 if __name__ == '__main__':
-    cull_indicators(email_output, phone_output, ip_output, watchlist_output)
-    rename_processed_files(path, suffix)
+    po = Pool()
+    job_one = cull_indicators(email_output, phone_output, ip_output, watchlist_output)
+    job_two = rename_processed_files(path, suffix)
+    jobs = []
+    jobs.append(job_one)
+    jobs.append(job_two)
+    for jobname in jobs:
+        multi_process(jobname)
+    
+    
     

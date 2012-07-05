@@ -1,0 +1,25 @@
+How to insert link tags between head tags on HTML using SimpleHtmlDom
+<link href="style.css" rel="stylesheet" type="text/css" />
+	
+<?php
+# create and load the HTML
+include('simple_html_dom.php');
+// get DOM from URL or file
+$html = file_get_html('D:xampphtdocssolofileindex.html');
+$indexFile ='index.php';
+$openIndexFile = fopen($indexFile,'a');
+//find head tag
+foreach($html->find('head') as $e)
+{
+ $findHead = $e->outertext;
+ fwrite($openIndexFile, "n" .$findHead. "n");
+}
+	
+// Append a element
+$e->outertext = $e->outertext . '<div>foo<div>';
+	
+$e = $html->find('head')->innertext; // Should take all HTML inside <head></head> w/o <head></head
+$e = $e.'<link href="style.css" rel="stylesheet" type="text/css" />'; // inserting the CSS at the end of what's inside <head></head>
+	
+$f = $html->find('head');
+$e = $f->innertext;

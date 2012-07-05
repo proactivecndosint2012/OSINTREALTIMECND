@@ -1,0 +1,29 @@
+in visual c  , warning comes but program doesnt runs furthers, is there any way to igonre it?
+int num[8],n=0;
+for (n = 0; n<8; n++)
+{
+    char temp = binnum[n];
+    num[n] = atoi(&temp);
+    cout << num[n];
+}
+	
+int number[8];
+int n = 0;
+do
+{
+    char temp = binnum[n];
+    number[n] = atoi(&temp);
+    cout << number[n];
+    n++;
+} while (n<8);
+	
+const int count = 8;
+int number[count];
+    for (int i=0; i < count; i++)
+    {
+        char temp = binnum[i];
+        number[i] = atoi(&temp);
+        cout << number[i];
+    }
+	
+number[i] = temp - '0';

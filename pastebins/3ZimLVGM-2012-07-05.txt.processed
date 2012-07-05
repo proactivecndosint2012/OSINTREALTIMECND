@@ -1,0 +1,35 @@
+//in controller
+foreach($data as &$section)
+		{
+			$id = $section['id'];
+			$section['topics'] = $this->forum_model->get_topics($id);
+		}
+
+//in model
+function get_topics($id)
+	{
+		$this->db->select('id, title, description, num_threads')
+		->where('section_id', $id)
+		->order_by('id asc');
+		$query = $this->db->get('forum_topics');
+		$data = $query->result_array();
+		$data[0]['last_thread'] = $this->get_latest_thread($data[0]['id']);
+		return $data;
+	}
+
+function get_latest_thread($id)
+	{
+		$this->db->select('title, last_reply_date')
+		->where('topic_id', $id)
+		->order_by('last_reply_date');
+		$query = $this->db->get('forum_threads');
+		if($query->num_rows > 0)
+		{
+			$data = $query->row_array();
+			return $data;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}

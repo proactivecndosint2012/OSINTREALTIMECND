@@ -1,0 +1,15 @@
+
+Mon Jul  2 21:05:00 2012 OpenVPN 2.2.2 i686-pc-linux-gnu [SSL] [LZO2] [EPOLL] [eurephia] built on May 14 2012
+Mon Jul  2 21:05:00 2012 WARNING: No server certificate verification method has been enabled.  See http://openvpn.net/howto.html#mitm for more info.
+Mon Jul  2 21:05:00 2012 NOTE: OpenVPN 2.1 requires '--script-security 2' or higher to call user-defined scripts or executables
+Mon Jul  2 21:05:00 2012 Control Channel MTU parms [ L:1541 D:138 EF:38 EB:0 ET:0 EL:0 ]
+Mon Jul  2 21:05:00 2012 Socket Buffers: R=[109568->131072] S=[109568->131072]
+Mon Jul  2 21:05:00 2012 TUN/TAP device tun0 opened
+Mon Jul  2 21:05:00 2012 TUN/TAP TX queue length set to 100
+Mon Jul  2 21:05:00 2012 /sbin/ifconfig tun0 192.168.2.1 pointopoint 192.168.0.5 mtu 1500
+Mon Jul  2 21:05:00 2012 Data Channel MTU parms [ L:1541 D:1450 EF:41 EB:4 ET:0 EL:0 ]
+Mon Jul  2 21:05:00 2012 Local Options hash (VER=V4): 'a30c8157'
+Mon Jul  2 21:05:00 2012 Expected Remote Options hash (VER=V4): 'a7dab65e'
+Mon Jul  2 21:05:00 2012 UDPv4 link local (bound): [undef]:1029
+Mon Jul  2 21:05:00 2012 UDPv4 link remote: 201.2.xxx.xxx:1029
+Mon Jul  2 21:05:00 2012 TLS: Initial packet from 201.2.xxx.xxx:1024, sid=226fc2bd 1767a74f

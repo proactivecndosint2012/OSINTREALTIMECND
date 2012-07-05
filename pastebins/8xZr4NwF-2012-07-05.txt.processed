@@ -1,0 +1,9 @@
+select gu.email, trunc(sum(ds.file_size)/1e12,2) as fs_total from galaxy_user as gu 
+	inner join history as h on gu.id = h.user_id 
+	inner join history_dataset_association as hda on h.id = hda.history_id 
+	inner join dataset as ds on hda.dataset_id = ds.id 
+	where ds.deleted = False and ds.file_size > 0 and ds.id not in (select dataset.id from dataset inner join library_dataset_dataset_association on dataset.id = library_dataset_dataset_association.dataset_id)
+	group by gu.email
+	having sum(ds.file_size)/1e12 > 1
+	order by fs_total desc;
+	limit 30;

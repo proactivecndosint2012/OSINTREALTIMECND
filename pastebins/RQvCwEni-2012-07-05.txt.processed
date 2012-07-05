@@ -1,0 +1,36 @@
+import java.util.Scanner;
+class 	P1{
+	public static int count(int number){
+		int conta = 1;
+		while(number != 1){
+			if (number%2 == 0){
+				number = number/2;
+			}else{
+				number = 3*number + 1;
+			}
+			conta++;
+		}
+		return conta;
+	}
+	public static void main(String[] args){
+		
+		Scanner e = new Scanner(System.in);
+		int a, b, maior = 0; //rs = condicao ternaria de contaA e contaB
+		while(e.hasNext()){
+			a = e.nextInt();
+			b = e.nextInt();
+			int[] numeros = new int[b - a + 1];
+			int indice = 0;
+			for (int x = a; x <= b; x++){
+				numeros[indice++] = count(x);
+			}		
+			maior = numeros[0];
+			for (int x = 0; x < numeros.length; x++){
+				if (numeros[x] > maior){
+					maior = numeros[x];
+				}
+			}
+			System.out.println(a+" "+b+" "+maior);
+		}
+	}
+}

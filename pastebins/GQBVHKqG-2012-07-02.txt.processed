@@ -1,0 +1,9 @@
+SQL Query Question
+SET DATEFORMAT dmy
+select *from tamirarizakaydi where tarih between '31.01.2011 ' and ' 04.02.2011'
+	
+SET DATEFORMAT dmy 
+select CAST('31.01.2011 ' as date) , CAST(' 04.02.2011' as date), CAST('31.01.2011 ' as datetime), CAST(' 04.02.2011' as datetime)
+	
+---------- ---------- ----------------------- -----------------------
+2011-01-31 2011-02-04 2011-01-31 00:00:00.000 2011-02-04 00:00:00.000

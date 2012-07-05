@@ -1,0 +1,4 @@
+set POJO's setter using java.lang.reflect.Method
+LoginBean loginBean = new LoginBean();
+Method setUserName = loginBean.getClass().getMethod("setUserName", new Class[]{String.class});
+setUserName.invoke(loginBean, "myLogin");

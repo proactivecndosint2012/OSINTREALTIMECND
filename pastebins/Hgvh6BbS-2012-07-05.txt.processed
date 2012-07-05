@@ -1,0 +1,5 @@
+foreach($data as &$section)
+		{
+			$id = $section['id'];
+			$section['topics'] = $this->forum_model->get_topics($id);
+		}

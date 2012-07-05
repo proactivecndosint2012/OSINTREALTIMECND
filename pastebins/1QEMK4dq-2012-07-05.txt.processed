@@ -1,0 +1,10 @@
+21:17:41 - [AuroraDotNetEngine]: Could not load script from item '.lsDanceServer
+2' to fire event changed
+21:17:41 - Error compiling script:
+(213,0): Error: To cast a negative value, you must enclose the value in parenthe
+ses
+(213,0): Error: 'Aurora.ScriptEngine.AuroraDotNetEngine.LSL_Types.LSLInteger' is
+ a 'type', which is not valid in the given context
+ prim name: lsDancemachine@ <139.4271, 61.72782, 33.36115> itemID: 60b3c76d-548e
+-431b-93d5-e11962491738, CompiledFile: ScriptEngines\fc5\fc5e6fcd-59b0-4b6e-b40b
+-0bb8883180eb.dll

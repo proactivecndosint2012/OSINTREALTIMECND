@@ -1,0 +1,33 @@
+groups:
+  Default:
+    inheritance:
+    default: true
+    permissions:
+    - bukkit.command.kill
+    - essentials.warp
+    - sg.arena.join
+    - sg.arena.vote
+    - sg.arena.spectate
+
+  Admin: 
+    inheritance: Default
+    default: false
+    permissions: 
+    - essentials.ban
+    - essentials.kick
+    - worldedit.wand
+    - worldedit.set
+    - worldedit.cut
+    - essentials.tp
+    - essentials.tphere
+    - essentials.vanish
+    - essentials.admin
+	
+    prefix: '&c[Admin]'
+
+  Owner:
+    inheritance: Admin
+    default: false
+    permissions: 
+    '*'
+    prefix: '&1[Owner]'

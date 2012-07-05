@@ -1,0 +1,33 @@
+Using a class with a template base class as a base class argument
+// the class declaration
+class MapImage : public MapEntity, public Vector2D {};
+
+// the variable declaration
+std::vector<MapImage> healthpacks;
+
+// the function
+void DrawItems(SDL_Surface *dest, std::vector<Vector2D> &items, SDL_Surface *image);
+
+// the implementation
+DrawItems(dest, healthpacks, healthpack_image);
+	
+void DrawItem(SDL_Surface *dest, Vector2D &item, SDL_Surface *image);
+
+template<class Iter>
+void DrawItems(SDL_Surface *dest, Iter begin, Iter end, SDL_Surface *image) {
+  for (; begin != end; ++begin) {
+    DrawItem(dest, *begin, image);
+  }
+}
+	
+template<class Container>
+void DrawItems(SDL_Surface *dest, Container &items, SDL_Surface *image) {
+  typename Container::iterator begin = items.begin(), end = items.end();
+  for (; begin != end; ++begin) {
+    DrawItem(dest, *begin, image);
+  }
+}
+	
+// this: DrawItems(dest, healthpacks, healthpack_image);
+// becomes:
+for (auto &x : healthpack) DrawItem(dest, x, healthpack_image);

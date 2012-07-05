@@ -1,0 +1,15 @@
+access UISwitch setting from a different view?
+yourSwitch addTarget:self action:@selector(switched:) forControlEvents:UIControlEventValueChanged];
+
+-(IBAction) switched: (id)sender
+{
+    int state=0;
+    if(yourSwitch.on)
+        state=1;
+    else
+             state=0;
+
+ objAppDelegate.switchState=state;
+}
+	
+YourAppDelegateClass *objAppDelegate=(YourAppDelegateClass *)[[UIApplication sharedApplication] delegate];

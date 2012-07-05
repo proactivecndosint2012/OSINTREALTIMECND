@@ -1,0 +1,24 @@
+How to compare arrays?
+var intersection = A.Intersect(B).ToArray();
+	
+var listA = new List<Employee>(A);
+var listB = new List<Employee>(B); //not sure if arrays implement contains, may not need this line
+
+A = listA.where(e => listB.Contains(e)).toArray();
+	
+class IDEmployeeComparer : IEqualityComparer<Employee>
+{
+    public bool Equals(Employee first, Employee second)
+    {
+      return (first.ID == second.ID);
+    }
+
+    public int GetHashCode(Employee employee)
+    {
+       return employee.ID
+    }
+}
+	
+var intersection = A.Intersect(B, new IDEmployeeComparer ()).ToArray();
+	
+Employee[]  c = (from d in a where !b.Contains<Employee>(d) select d).ToArray<Employee>();

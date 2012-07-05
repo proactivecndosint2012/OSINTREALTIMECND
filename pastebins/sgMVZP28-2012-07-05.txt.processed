@@ -1,0 +1,32 @@
+NAME: Brelove
+        SPECIES: Centaur
+        PLAYER: Ohboy
+        HIGH CONCEPT = Eager to see the world, Quickly find she needs to be strong to survive
+        COMPLICATION = Claustrophobia
+        ASPECTS
+                1.Strong
+                2.Tough
+                3.Naive
+                4.Fast
+                5.Undexterous
+         
+        SKILLS (18/25)
+         
+                +4 Might
+                +3 Athletics, Survival
+                +2 Alertness, Discipline, Empathy, Endurance
+                +1 Craftsmanship, Fists, Intimidation, Investigation, Weapons
+         
+        STRESS
+                Physical 0/6
+                Mental   0/2
+                Social   0/2
+         
+        POWERS
+                Refresh = 2/13
+                    +1 catch
+                    -4 Supernatural Toughness
+                    -2 Inhuman Speed
+                    -4 Supernatural Strength
+                    -1 Might
+                    -1 Survival

@@ -1,0 +1,17 @@
+INNER JOIN vs IN
+SELECT C.* FROM StockToCategory STC 
+INNER JOIN Category C ON STC.CategoryID = C.CategoryID 
+WHERE STC.StockID = @StockID
+	
+SELECT * FROM Category
+WHERE CategoryID IN
+    (SELECT CategoryID FROM StockToCategory WHERE StockID = @StockID)
+	
+Select ...
+From Category
+Where Exists    (
+                Select 1
+                From StockToCategory
+                Where StockToCategory.CategoryId = Category.CategoryId
+                    And StockToCategory.Stock = @StockId
+                )

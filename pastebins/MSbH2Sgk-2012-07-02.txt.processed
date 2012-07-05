@@ -1,0 +1,13 @@
+[omar@omar ~]$ inxi -v3
+System:    Host: omar Kernel: 3.4.4-2-ARCH x86_64 (64 bit, gcc: 4.7.1) Desktop: N/A Distro: Arch Linux
+Machine:   Mobo: Intel model: DG41RQ version: AAE54511-203
+           Bios: Intel version: RQG4110H.86A.0009.2009.0108.1005 date: 01/08/2009
+CPU:       Dual core Intel Core2 Duo CPU E4500 (-MCP-) cache: 2048 KB flags: (lm nx sse sse2 sse3 ssse3) bmips: 8802.86 
+           Clock Speeds: 1: 1200.00 MHz 2: 1200.00 MHz
+Graphics:  Card: NVIDIA GT218 [GeForce 8400 GS] bus-ID: 01:00.0 X.Org: 1.12.2 driver: nvidia Resolution: 1360x768@60.0hz 
+           GLX Renderer: GeForce 8400GS/PCIe/SSE2 GLX Version: 3.3.0 NVIDIA 302.17 Direct Rendering: Yes
+Network:   Card: Realtek RTL8111/8168B PCI Express Gigabit Ethernet controller 
+           driver: r8169 ver: 2.3LK-NAPI port: d000 bus-ID: 03:00.0
+           IF: eth0 state: up speed: 100 Mbps duplex: full mac: 00:27:0e:0f:d4:97
+Drives:    HDD Total Size: 1000.2GB (0.5% used) 1: model: SAMSUNG_HD103SJ 
+Info:      Processes: 107 Uptime: 29 min Memory: 569.5/3011.4MB Runlevel: 5 Gcc sys: 4.7.1 Client: Shell inxi: 1.8.12

@@ -1,0 +1,149 @@
+<html>
+	<head>
+		<title>comTools Admin Home</title>
+	</head>
+	<frameset frameborder="0" framespacing="0" border="0" rows="133px, *, 24px">
+	<frame scrolling="no" frameborder="0" noresize="" src="../../header/header.aspx?status=2" name="frmHeader">
+		<html>
+		<head>
+			<title>LocalhostHeader</title>
+			<link rel="stylesheet" type="text/css" href="/comdatabase/casite/css/custom/mtd/mtdCss.css">
+			<link rel="stylesheet" type="text/css" href="../../casite/css/comTools.css">
+			<script language="javascript">
+
+				var currentcell;		
+
+				function GlobalNavClick(cell)
+				{
+					//don't allow clicks to the top nav if the login page
+					if(top.frmHomeMain.location.href.indexOf("login.aspx") < 0)
+					{
+						parent.frmHomeMain.location.href=cell.url;									
+					}						
+				}
+
+				function GlobalFrameNavClick(cellName, newurl)
+				{		
+					//don't allow clicks to the top nav if the login page
+					if(top.frmHomeMain.location.href.indexOf("login.aspx") < 0)
+					{																
+						parent.frmHomeMain.location.href = newurl;
+					}
+				}				
+
+				function LoadMyToolbox()
+				{
+					parent.location.href="../casite/homeframeset.aspx";
+				}
+
+				function LoadAdminHome()
+				{			
+					parent.location.href="../casite/admin/adminhomeframeset.aspx";
+				}
+			</script>
+		</head>
+		<body class="HeaderTitleBackground" style="border: 0px none;">
+			<form id="form1" action="custom/customheaderadmin.aspx?status=2" method="post" name="form1">
+				<input type="hidden" value="" id="__EVENTTARGET" name="__EVENTTARGET">
+				<input type="hidden" value="" id="__EVENTARGUMENT" name="__EVENTARGUMENT">
+				<input type="hidden" value="/wEPDwUKMTQyNjk3MTgyMA9kFgICAQ8WAh4EVGV4dAUmLi4vY2FzaXRlL2FkbWluL2FkbWluaG9tZWZyYW1lc2V0LmFzcHhkZCO48qZ+vC4NyuVbIZoSzcKGYNr6Qryw9pbcfC8PeYxU" id="__VIEWSTATE" name="__VIEWSTATE">
+
+				<script type="text/javascript">
+					<!--
+					var theForm = document.forms['form1'];
+					if (!theForm) {
+					    theForm = document.form1;
+					}
+					function __doPostBack(eventTarget, eventArgument) {
+					    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+					        theForm.__EVENTTARGET.value = eventTarget;
+					        theForm.__EVENTARGUMENT.value = eventArgument;
+					        theForm.submit();
+					    }
+					}
+					// -->
+				</script>
+
+
+				<input type="hidden" value="/wEWAgLFsOz9CQKwyqZzaRmRFC8oe6tF4VrBnX5t+Xp13zuhFqB5KcmbZMAlw54=" id="__EVENTVALIDATION" name="__EVENTVALIDATION">
+					<table width="100%" cellspacing="0" cellpadding="0" border="0" height="18">
+						<tbody>
+							<tr>
+								<td width="43%">&nbsp;</td>
+								<td valign="middle" height="17"><span name="HeaderTitle" id="HeaderTitle" class="HeaderTitle">&nbsp;</span></td>
+								<td align="right" colspan="2"><a class="HeaderTitleSmall" href="javascript:LoadMyToolbox()">
+									<img border="0" src="../casite/images/site/header_houseicon.gif"> Home</a>&nbsp;
+									<a href="javascript:LoadAdminHome()" class="HeaderTitleSmall"><img border="0" src="../casite/images/site/admin/header_adminicon.gif">Admin</a>&nbsp;
+									<a href="javascript:__doPostBack('lnkLogout','')" class="HeaderTitleSmall" id="lnkLogout"><img border="0" src="../casite/images/site/header_logouticon.gif"> Logout</a>
+								</td>
+								<td align="right" width="10">&nbsp;</td>
+							</tr>
+							<tr>
+								<td colspan="2"></td>
+							</tr>
+						</tbody>
+					</table>
+					<table width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr>
+								<td width="551" class="HeaderMainImage">&nbsp;</td>
+								<td class="HeaderMainImageBackground">&nbsp;</td>
+								<td width="59" class="HeaderMainImageRight">&nbsp;</td>
+								<td width="189"></td>
+							</tr>
+						</tbody>
+					</table>
+					<table width="100%" cellspacing="0" cellpadding="0" border="1" class="HeaderGlobalNav">
+						<tbody>
+							<tr>
+								<td width="12%" class="HeaderGlobalNavEmptyLeftStyle">&nbsp;</td>
+								<td width="14%" title="Admin Home" url="../casite/admin/adminhome.aspx" onclick="GlobalNavClick(this)" id="tdAdminHome" class="comHelpHeaderGlobalNavOnStyle">Admin Home</td>
+								<td width="14%" title="Edit Company" url="../casite/admin/company/admincompanyframeset.aspx" onclick="GlobalNavClick(this)" id="tdAdminCompany" class="HeaderGlobalNavOffStyle">Company 
+									Editor</td>
+								<td width="14%" title="Edit User" url="../casite/admin/account/adminaccountframeset.aspx" onclick="GlobalNavClick(this)" id="tdAdminUser" class="HeaderGlobalNavOffStyle">Account 
+									Editor</td>
+								<td width="14%" title="Backend Admin" url="../casite/admin/backend/backendadmin.aspx" onclick="GlobalNavClick(this)" class="HeaderGlobalNavOffStyle" id="tdAdminBackend">Backend 
+									Admin</td>
+
+								<td width="14%" url="../help/comdatabase/helphome.aspx" title="Help" onclick="GlobalNavClick(this)" id="tdHelp" class="HeaderGlobalNavOffStyle">Help</td>
+								<td class="HeaderGlobalNavEmptyRightStyle">&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
+					<table width="100%" cellspacing="0" cellpadding="0" id="tblHeaderStatus" class="comToolsHeaderStatusBar">
+						<tbody>
+							<tr>
+								<td width="10"></td>
+								<td><span class="HeaderStatusBarText">Currently:&nbsp;</span>
+									<span class="HeaderStatusBarText" name="HeaderStatusBarText" id="HeaderStatusBarText">On comTools Admin Home</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<table width="100%" cellspacing="0" cellpadding="0" height="1" class="TableWithNoMargin">
+						<tbody>
+							<tr>
+								<td valign="top" colspan="2" class="GreyLine"></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+
+				<title>MasterDB Content Admin Header</title>
+				<link rel="stylesheet" type="text/css" href="/comdatabase/casite/css/custom/mtd/mtdCss.css">
+				<link rel="stylesheet" type="text/css" href="../casite/css/comTools.css">
+
+
+				<form id="Form1" action="header.aspx?status=2" method="post" name="Form1">
+					<input type="hidden" value="/wEPDwUJNTc5NTY5MTYzZGQ3g2uiZMjj7UQiMwpVgjYaGFW0bFTsj0oWNIL/jyGGkg==" id="__VIEWSTATE" name="__VIEWSTATE">
+					<span id="lblHeaderError"></span>
+				</form>
+
+
+			</body>
+			</html>
+		</frame>
+		<frame scrolling="auto" frameborder="0" noresize="" src="adminhome.aspx" name="frmHomeMain"></frame>
+		<frame scrolling="no" frameborder="0" noresize="" src="../../footer/footer.aspx" name="frmFooter"></frame>
+	</frameset>
+
+</html>

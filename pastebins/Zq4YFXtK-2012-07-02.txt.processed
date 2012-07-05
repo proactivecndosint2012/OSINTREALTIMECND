@@ -1,0 +1,8 @@
+Imagemagick desaturate black/white?
+$handle_data = file_get_contents('http://www.bungie.net/Stats/Reach/Nightmap.ashx');
+//http://www.bungie.net/Stats/Halo3/Nightmap.ashx
+$img = new Imagick();
+$img->readImageBlob($handle_data);
+$img->writeImage('nightmap/'.$time.'.gif');
+	
+bool Imagick::modulateImage (float $brightness , float $saturation , float $hue)

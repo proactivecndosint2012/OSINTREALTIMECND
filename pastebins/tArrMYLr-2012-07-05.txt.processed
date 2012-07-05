@@ -1,0 +1,4 @@
+Create QR code to app in market
+http://market.android.com/search?q=pname:<insert your AndroidManifest package here>
+	
+<img src="http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl=market://search?q=pname:com.layar" />
