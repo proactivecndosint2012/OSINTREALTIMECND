@@ -14,8 +14,6 @@ All solutions should be subject to public scrutiny, and peer review.
 '''
 
 import requests, json, csv, re, datetime
-import multiprocessing as mp
-from multiprocessing import Process
 from multiprocessing import Pool
 
 def multi_process(jobname):
