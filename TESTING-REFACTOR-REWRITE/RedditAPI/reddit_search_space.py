@@ -6,11 +6,8 @@ from bs4 import BeautifulSoup
 def search_watchlist(watchlist_search):
     for line in open(watchlist_search, 'rt'):
         yield line.strip('\n')
-        
-def search_watchlist_url(watchlist_search_url):
-    for line in open(watchlist_search_url, 'rt'):
-        yield line.strip('\n')
-        
+
+
 def cull_urlSearchSpace():
     for search_string in search_watchlist(watchlist_search):
         SEARCH_BASE = "http://www.reddit.com/search?q=" + search_string
