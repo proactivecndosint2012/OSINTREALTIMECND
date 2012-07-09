@@ -24,7 +24,11 @@ def cull_urlSearchSpace():
             soup = BeautifulSoup(html_page)
             url_search_space = []
             for link in soup.findAll('a', attrs={'href': re.compile("^http://")}):
-                url_search_space.append(link.get('href'))
+                suffix = "/"
+                if link.endswith(suffix):
+                    url_search_space.append(link.get('href')+ ".json")
+                else:
+                    url_search_space.append(link.get('href')+ "/.json")
                 for url_path in url_search_space:
                     yield url_path
 
