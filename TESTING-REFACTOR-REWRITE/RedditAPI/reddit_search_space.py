@@ -1,17 +1,17 @@
-#!/usr/local/bin/python
+#!/usr/local/bin/python3.2
 
-from BeautifulSoup import BeautifulSoup
-import urllib2
+from bs4 import BeautifulSoup
+import urllib3
 import re
 import requests
 
 
 def search_watchlist(watchlist_search):
-    for line in open(watchlist_search, 'r'):
+    for line in open(watchlist_search, 'rt'):
         yield line.strip('\n')
         
 def search_watchlist_url(watchlist_search_url):
-    for line in open(watchlist_search_url, 'r'):
+    for line in open(watchlist_search_url, 'rt'):
         yield line.strip('\n')
         
 def cull_urlSearchSpace():
@@ -20,12 +20,12 @@ def cull_urlSearchSpace():
         request_url = SEARCH_BASE
         request_urlGet = requests.get(request_url)
         if request_urlGet.status_code == 200:
-            html_page = urllib2.urlopen(SEARCH_BASE)
+            html_page = request_urlGet.text
             soup = BeautifulSoup(html_page)
             url_search_space = []
             for link in soup.findAll('a', attrs={'href': re.compile("^http://")}):
                 suffix = "/"
-                if link.endswith(suffix):
+                if link.get('href').endswith(suffix):
                     url_search_space.append(link.get('href')+ ".json")
                 else:
                     url_search_space.append(link.get('href')+ "/.json")
@@ -38,6 +38,6 @@ watchlist_search = "watchlist/reddit_watchlist.txt"
 # Main Execution
 if __name__ == '__main__':
     for element in cull_urlSearchSpace():
-        print element
+        print(element)
     
 
