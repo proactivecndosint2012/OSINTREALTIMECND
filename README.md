@@ -43,7 +43,8 @@ Includes instructions with commiting to the Fork of the Master Git repository
 /home/disco/Desktop  
 
 ### Development Stack Includes 
-Fedora 17 Native Python 2.7.3 with simplejson, numpy, disco, pandas modules installed
+Fedora 17 Native Python 2.7.3 - with simplejson, numpy, disco, pandas modules installed
+Migrating to Python 3.2.3 
 Erlang R15B01
 Disco lastest build from Git
 ZeroMQ
