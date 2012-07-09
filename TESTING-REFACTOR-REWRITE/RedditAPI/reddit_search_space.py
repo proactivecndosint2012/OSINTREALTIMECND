@@ -1,10 +1,7 @@
 #!/usr/local/bin/python3.2
 
+import re, requests
 from bs4 import BeautifulSoup
-import urllib3
-import re
-import requests
-
 
 def search_watchlist(watchlist_search):
     for line in open(watchlist_search, 'rt'):
